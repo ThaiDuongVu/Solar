@@ -5,7 +5,7 @@
 namespace Solar
 {
 	void App::Init() { }
-	void App::Update() { }
+	void App::Update(double frameTime) { }
 	void App::Render() { }
 	void App::Shutdown() { }
 
@@ -45,7 +45,7 @@ namespace Solar
 		// Loop until the user closes the window 
 		while (!glfwWindowShouldClose(window))
 		{
-			Update();
+			Update(Time::frameTime);
 
 			// Render here 
 			glClear(GL_COLOR_BUFFER_BIT);
@@ -53,7 +53,6 @@ namespace Solar
 			Render();
 
 			Time::UpdateTime(previousTime, currentTime);
-			std::cout << Time::frameTime << std::endl;
 
 			// Poll for and process events 
 			glfwPollEvents();

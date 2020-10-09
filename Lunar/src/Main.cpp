@@ -5,9 +5,9 @@ void Solar::App::Init()
 	
 }
 
-void Solar::App::Update()
+void Solar::App::Update(double frameTime)
 {
-
+	std::cout << frameTime << std::endl;
 }
 
 void Solar::App::Render()
