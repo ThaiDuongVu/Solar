@@ -17,7 +17,21 @@ namespace Solar
 		virtual void Render();
 		virtual void Shutdown();
 
+		// Set window width and height
+		void SetWindowSize(int width = DEFAULT_WINDOW_WIDTH, int height = DEFAULT_WINDOW_HEIGHT);
+
+		// Set window title
+		void SetTitle(const char* title = DEFAULT_TITLE);
+
 		// Run the app
-		void Run(int width = 800, int height = 600, const char* title = "Solar System");
+		void Run();
+
+	private:
+		// Screen dimension
+		int windowWidth = DEFAULT_WINDOW_WIDTH;
+		int windowHeight = DEFAULT_WINDOW_HEIGHT;
+
+		// Game window title
+		const char* title = "Solar System";
 	};
 }

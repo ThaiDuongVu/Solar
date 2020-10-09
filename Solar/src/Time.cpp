@@ -3,12 +3,12 @@
 
 namespace Solar
 {
-	double Time::frameTime = 0;
+	double Time::FrameTime = 0;
 
 	void Time::UpdateTime(double& previousTime, double& currentTime)
 	{
 		currentTime = glfwGetTime();
-		Time::frameTime = currentTime - previousTime;
+		Time::FrameTime = currentTime - previousTime;
 		previousTime = currentTime;
 	}
 }

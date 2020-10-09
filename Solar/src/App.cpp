@@ -9,7 +9,18 @@ namespace Solar
 	void App::Render() { }
 	void App::Shutdown() { }
 
-	void App::Run(int width, int height, const char* title)
+	void App::SetWindowSize(int width, int height)
+	{
+		App::windowWidth = width;
+		App::windowHeight = height;
+	}
+
+	void App::SetTitle(const char* title)
+	{
+		App::title = title;
+	}
+
+	void App::Run()
 	{
 		// Initialize the library
 		Init();
@@ -20,7 +31,7 @@ namespace Solar
 		}
 
 		// Create a windowed mode window and its OpenGL context 
-		GLFWwindow* window = glfwCreateWindow(width, height, title, NULL, NULL);
+		GLFWwindow* window = glfwCreateWindow(App::windowWidth, App::windowHeight, App::title, NULL, NULL);
 		if (window == NULL)
 		{
 			Solar::Logger::LogError("Failed to create window");
@@ -37,7 +48,7 @@ namespace Solar
 			return;
 		}
 
-		glViewport(0, 0, width, height);
+		glViewport(0, 0, App::windowWidth, App::windowHeight);
 
 		double previousTime = 0.0;
 		double currentTime = 0.0;
@@ -45,17 +56,18 @@ namespace Solar
 		// Loop until the user closes the window 
 		while (!glfwWindowShouldClose(window))
 		{
-			Update(Time::frameTime);
+			Update(Time::FrameTime);
 
 			// Render here 
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			Render();
 
-			Time::UpdateTime(previousTime, currentTime);
-
 			// Poll for and process events 
 			glfwPollEvents();
+
+			// Update frame time
+			Time::UpdateTime(previousTime, currentTime);
 
 			// Swap front and back buffers 
 			glfwSwapBuffers(window);
