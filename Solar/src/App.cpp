@@ -9,6 +9,9 @@ namespace Solar
 	void App::Render() { }
 	void App::Shutdown() { }
 
+	// OpenGL window
+	GLFWwindow* window;
+
 	void App::SetWindowSize(int width, int height)
 	{
 		App::windowWidth = width;
@@ -26,6 +29,11 @@ namespace Solar
 		glViewport(0, 0, width, height);
 	}
 
+	void App::Quit()
+	{
+		glfwSetWindowShouldClose(window, true);
+	}
+
 	void App::Run()
 	{
 		// User-defined init
@@ -34,15 +42,15 @@ namespace Solar
 		// Initialize GLFW
 		if (!glfwInit())
 		{
-			Solar::Logger::LogError("Failed to initialize GLFW");
+			Solar::Debug::LogError("Failed to initialize GLFW");
 			return;
 		}
 
 		// Create a windowed mode window and its OpenGL context
-		GLFWwindow* window = glfwCreateWindow(App::windowWidth, App::windowHeight, App::title, NULL, NULL);
+		window = glfwCreateWindow(App::windowWidth, App::windowHeight, App::title, NULL, NULL);
 		if (window == NULL)
 		{
-			Solar::Logger::LogError("Failed to create window");
+			Solar::Debug::LogError("Failed to create window");
 			glfwTerminate();
 			return;
 		}
@@ -53,17 +61,13 @@ namespace Solar
 		// Initialize GLAD
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 		{
-			Solar::Logger::LogError("Failed to initialize GLAD");
+			Solar::Debug::LogError("Failed to initialize GLAD");
 			return;
 		}
 
 		// GLAD viewport
 		glViewport(0, 0, App::windowWidth, App::windowHeight);
 		glfwSetFramebufferSizeCallback(window, FrameBufferSizeCallback);
-
-		//Handle frame time
-		double previousTime = 0.0;
-		double currentTime = 0.0;
 
 		// Main program loop
 		while (!glfwWindowShouldClose(window))

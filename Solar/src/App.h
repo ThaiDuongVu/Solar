@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "Core.h"
-#include "Logger.h"
+#include "Debug.h"
 #include "Time.h"
 #include "Input.h"
 
@@ -26,6 +26,9 @@ namespace Solar
 		// Run the app
 		void Run();
 
+		// Quit the app
+		void Quit();
+
 	private:
 		// Screen dimension
 		int windowWidth = DEFAULT_WINDOW_WIDTH;
@@ -33,5 +36,9 @@ namespace Solar
 
 		// Game window title
 		const char* title = "Solar System";
+
+		//Handle frame time
+		double previousTime = 0.0;
+		double currentTime = 0.0;
 	};
 }

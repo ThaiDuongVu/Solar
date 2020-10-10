@@ -4,5 +4,8 @@
 
 namespace Solar
 {
-	
+	class SOLAR_CLASS Input
+	{
+		
+	};
 }

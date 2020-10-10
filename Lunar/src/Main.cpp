@@ -10,7 +10,7 @@ void Solar::App::Init()
 // Handle input and events
 void Solar::App::Update(double frameTime)
 {
-
+	Solar::Debug::Log(frameTime);
 }
 
 // Render game behaviours

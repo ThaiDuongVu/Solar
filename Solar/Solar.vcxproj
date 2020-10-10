@@ -12,7 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Input.h" />
-    <ClInclude Include="src\Logger.h" />
+    <ClInclude Include="src\Debug.h" />
     <ClInclude Include="src\App.h" />
     <ClInclude Include="src\Core.h" />
     <ClInclude Include="src\Solar.h" />
@@ -21,7 +21,7 @@
   <ItemGroup>
     <ClCompile Include="dependencies\include\glad\glad.c" />
     <ClCompile Include="src\Input.cpp" />
-    <ClCompile Include="src\Logger.cpp" />
+    <ClCompile Include="src\Debug.cpp" />
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\Time.cpp" />
   </ItemGroup>
