@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <sstream>
+#include <Windows.h>
 #include "Core.h"
 
 namespace Solar
