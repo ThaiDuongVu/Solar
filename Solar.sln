@@ -5,30 +5,22 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Solar", "Solar\Solar.vcxproj", "{A896EC3C-1031-4416-84BD-6BE4AE19BA74}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lunar", "Lunar\Lunar.vcxproj", "{48332FFC-0203-47CD-8763-5A7DD186F826}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lunar", "Lunar\Lunar.vcxproj", "{F4E7963E-716B-481D-BF9D-3DE55685E116}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
-		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A896EC3C-1031-4416-84BD-6BE4AE19BA74}.Debug|x64.ActiveCfg = Debug|x64
 		{A896EC3C-1031-4416-84BD-6BE4AE19BA74}.Debug|x64.Build.0 = Debug|x64
-		{A896EC3C-1031-4416-84BD-6BE4AE19BA74}.Debug|x86.ActiveCfg = Debug|x64
 		{A896EC3C-1031-4416-84BD-6BE4AE19BA74}.Release|x64.ActiveCfg = Release|x64
 		{A896EC3C-1031-4416-84BD-6BE4AE19BA74}.Release|x64.Build.0 = Release|x64
-		{A896EC3C-1031-4416-84BD-6BE4AE19BA74}.Release|x86.ActiveCfg = Release|x64
-		{48332FFC-0203-47CD-8763-5A7DD186F826}.Debug|x64.ActiveCfg = Debug|x64
-		{48332FFC-0203-47CD-8763-5A7DD186F826}.Debug|x64.Build.0 = Debug|x64
-		{48332FFC-0203-47CD-8763-5A7DD186F826}.Debug|x86.ActiveCfg = Debug|Win32
-		{48332FFC-0203-47CD-8763-5A7DD186F826}.Debug|x86.Build.0 = Debug|Win32
-		{48332FFC-0203-47CD-8763-5A7DD186F826}.Release|x64.ActiveCfg = Release|x64
-		{48332FFC-0203-47CD-8763-5A7DD186F826}.Release|x64.Build.0 = Release|x64
-		{48332FFC-0203-47CD-8763-5A7DD186F826}.Release|x86.ActiveCfg = Release|Win32
-		{48332FFC-0203-47CD-8763-5A7DD186F826}.Release|x86.Build.0 = Release|Win32
+		{F4E7963E-716B-481D-BF9D-3DE55685E116}.Debug|x64.ActiveCfg = Debug|x64
+		{F4E7963E-716B-481D-BF9D-3DE55685E116}.Debug|x64.Build.0 = Debug|x64
+		{F4E7963E-716B-481D-BF9D-3DE55685E116}.Release|x64.ActiveCfg = Release|x64
+		{F4E7963E-716B-481D-BF9D-3DE55685E116}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

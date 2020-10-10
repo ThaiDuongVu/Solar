@@ -3,8 +3,8 @@
 // Initialise game elements
 void Solar::App::Init()
 {
-	App::SetWindowSize(640, 480);
-	App::SetTitle("NOT Solar System");
+	Solar::App::SetWindowSize(640, 480);
+	Solar::App::SetTitle("Lunar System");
 }
 
 // Handle input and events
@@ -16,13 +16,13 @@ void Solar::App::Update(double frameTime)
 // Render game behaviours
 void Solar::App::Render()
 {
-	
+
 }
 
-// Collect garbage on shutdown
+// On shutdown
 void Solar::App::Shutdown()
 {
-	
+
 }
 
 int main()
