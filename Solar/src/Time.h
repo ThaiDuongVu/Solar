@@ -8,11 +8,14 @@ namespace Solar
 	{
 	public:
 		// Elapsed time since last frame
-		static double FrameTime;
+		static double frameTime;
+
+		// Previous & current time
+		static double previousTime;
+		static double currentTime;
 
 		// Update frame time
 		// Called every frame
-		static void UpdateTime(double& previousTime, double& currentTime);
+		static void UpdateTime(double &previousTime, double &currentTime);
 	};
-}
-
+} // namespace Solar

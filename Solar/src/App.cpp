@@ -4,13 +4,13 @@
 
 namespace Solar
 {
-	void App::Init() { }
-	void App::Update(double frameTime) { }
-	void App::Render() { }
-	void App::Shutdown() { }
+	void App::Init() {}
+	void App::Update(double frameTime) {}
+	void App::Render() {}
+	void App::Shutdown() {}
 
 	// OpenGL window
-	GLFWwindow* window;
+	GLFWwindow *window;
 
 	void App::SetWindowSize(int width, int height)
 	{
@@ -18,13 +18,13 @@ namespace Solar
 		App::windowHeight = height;
 	}
 
-	void App::SetTitle(const char* title)
+	void App::SetTitle(const char *title)
 	{
 		App::title = title;
 	}
 
 	// On window resize
-	void FrameBufferSizeCallback(GLFWwindow* window, int width, int height)
+	void FrameBufferSizeCallback(GLFWwindow *window, int width, int height)
 	{
 		glViewport(0, 0, width, height);
 	}
@@ -36,7 +36,7 @@ namespace Solar
 
 	void App::Run()
 	{
-		// User-defined init
+		// User-defined initialization
 		Init();
 
 		// Initialize GLFW
@@ -73,10 +73,10 @@ namespace Solar
 		while (!glfwWindowShouldClose(window))
 		{
 			// Update frame time
-			Time::UpdateTime(previousTime, currentTime);
+			Time::UpdateTime(Time::previousTime, Time::currentTime);
 
 			// User-defined update
-			Update(Time::FrameTime);
+			Update(Time::frameTime);
 
 			// Clear the back ground
 			glClear(GL_COLOR_BUFFER_BIT);
@@ -95,4 +95,4 @@ namespace Solar
 		Shutdown();
 		glfwTerminate();
 	}
-}
+} // namespace Solar

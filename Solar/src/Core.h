@@ -7,7 +7,7 @@
 
 #define DEFAULT_TITLE "Solar System"
 
-enum COLORS
+enum DEBUG_COLORS
 {
 	BLACK = 0,
 	BLUE = 1,

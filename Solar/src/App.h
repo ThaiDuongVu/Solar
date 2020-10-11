@@ -11,7 +11,7 @@ namespace Solar
 	class SOLAR_CLASS App
 	{
 	public:
-		// User-defined functions	
+		// User-defined functions
 		virtual void Init();
 		virtual void Update(double frameTime);
 		virtual void Render();
@@ -21,7 +21,7 @@ namespace Solar
 		void SetWindowSize(int width = DEFAULT_WINDOW_WIDTH, int height = DEFAULT_WINDOW_HEIGHT);
 
 		// Set window title
-		void SetTitle(const char* title = DEFAULT_TITLE);
+		void SetTitle(const char *title = DEFAULT_TITLE);
 
 		// Run the app
 		void Run();
@@ -35,10 +35,6 @@ namespace Solar
 		int windowHeight = DEFAULT_WINDOW_HEIGHT;
 
 		// Game window title
-		const char* title = "Solar System";
-
-		//Handle frame time
-		double previousTime = 0.0;
-		double currentTime = 0.0;
+		const char *title = "Solar System";
 	};
-}
+} // namespace Solar

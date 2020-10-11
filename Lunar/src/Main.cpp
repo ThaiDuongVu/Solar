@@ -1,34 +1,32 @@
 #include <Solar.h>
 
-// Initialise game elements
+// Initialize game elements
 void Solar::App::Init()
 {
 	Solar::App::SetWindowSize(640, 480);
 	Solar::App::SetTitle("Lunar System");
 }
 
-// Handle input and events
+// Handle input and game events
 void Solar::App::Update(double frameTime)
 {
 	Solar::Debug::Log(frameTime);
 }
 
-// Render game behaviours
+// Render game frames
 void Solar::App::Render()
 {
-
 }
 
-// On shutdown
+// On game exit
 void Solar::App::Shutdown()
 {
-
 }
 
 int main()
 {
 	// Create a new app
-	Solar::App* app = new Solar::App();
+	Solar::App *app = new Solar::App();
 	// Run created app
 	app->Run();
 }

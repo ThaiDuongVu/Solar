@@ -12,21 +12,21 @@ namespace Solar
 		template <typename T>
 		inline static void Log(T message)
 		{
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), COLORS::BRIGHT_WHITE);
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), DEBUG_COLORS::BRIGHT_WHITE);
 			std::cout << message << std::endl;
 		};
 
 		template <typename T>
 		inline static void LogWarning(T message)
 		{
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), COLORS::YELLOW);
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), DEBUG_COLORS::YELLOW);
 			std::cout << "Warning: " << message << std::endl;
 		};
 
 		template <typename T>
 		inline static void LogError(T message)
 		{
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), COLORS::RED);
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), DEBUG_COLORS::RED);
 			std::cout << "Error: " << message << std::endl;
 		};
 	};

@@ -4,8 +4,7 @@
 
 namespace Solar
 {
-	void KeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+	void KeyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
 	{
-
 	}
-}
+} // namespace Solar
