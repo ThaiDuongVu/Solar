@@ -23,15 +23,15 @@ namespace Solar
 		App::title = title;
 	}
 
+	void App::Quit()
+	{
+		glfwSetWindowShouldClose(window, true);
+	}
+
 	// On window resize
 	void FrameBufferSizeCallback(GLFWwindow *window, int width, int height)
 	{
 		glViewport(0, 0, width, height);
-	}
-
-	void App::Quit()
-	{
-		glfwSetWindowShouldClose(window, true);
 	}
 
 	void App::Run()
@@ -75,6 +75,13 @@ namespace Solar
 			// Update frame time
 			Time::UpdateTime(Time::previousTime, Time::currentTime);
 
+			if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+			{
+				Solar::Debug::Log("nice");
+			}
+			// Poll for and process events
+			glfwPollEvents();
+
 			// User-defined update
 			Update(Time::frameTime);
 
@@ -83,9 +90,6 @@ namespace Solar
 
 			// User-defined render
 			Render();
-
-			// Poll for and process events
-			glfwPollEvents();
 
 			// Swap front and back buffers
 			glfwSwapBuffers(window);
