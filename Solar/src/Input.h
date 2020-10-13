@@ -1,13 +1,14 @@
 #pragma once
 
 #include "Core.h"
-#include <Windows.h>
+#include "App.h"
 
 namespace Solar
 {
     class SOLAR_CLASS Input
     {
     public:
-        static bool IsKeyPressed(int key);
+        static bool IsKeyDown(int key);
+        static bool IsKeyUp(int key);
     };
 } // namespace Solar

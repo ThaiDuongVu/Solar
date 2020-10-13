@@ -1,4 +1,7 @@
 #include "App.h"
+#include "Debug.h"
+#include "Time.h"
+#include "Input.h"
 #include <glad.h>
 #include <glfw3.h>
 
@@ -10,7 +13,8 @@ namespace Solar
 	void App::Shutdown() {}
 
 	// OpenGL window
-	GLFWwindow *window;
+	template <typename T>
+	T* App::window;
 
 	void App::SetWindowSize(int width, int height)
 	{
@@ -18,18 +22,18 @@ namespace Solar
 		App::windowHeight = height;
 	}
 
-	void App::SetTitle(const char *title)
+	void App::SetTitle(const char* title)
 	{
 		App::title = title;
 	}
 
 	void App::Quit()
 	{
-		glfwSetWindowShouldClose(window, true);
+		glfwSetWindowShouldClose(App::window<GLFWwindow>, true);
 	}
 
 	// On window resize
-	void FrameBufferSizeCallback(GLFWwindow *window, int width, int height)
+	void FrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 	{
 		glViewport(0, 0, width, height);
 	}
@@ -47,8 +51,8 @@ namespace Solar
 		}
 
 		// Create a windowed mode window and its OpenGL context
-		window = glfwCreateWindow(App::windowWidth, App::windowHeight, App::title, NULL, NULL);
-		if (window == NULL)
+		App::window<GLFWwindow> = glfwCreateWindow(App::windowWidth, App::windowHeight, App::title, NULL, NULL);
+		if (App::window<GLFWwindow> == NULL)
 		{
 			Solar::Debug::LogError("Failed to create window");
 			glfwTerminate();
@@ -56,7 +60,7 @@ namespace Solar
 		}
 
 		// Make the window's context current
-		glfwMakeContextCurrent(window);
+		glfwMakeContextCurrent(App::window<GLFWwindow>);
 
 		// Initialize GLAD
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -67,18 +71,14 @@ namespace Solar
 
 		// GLAD viewport
 		glViewport(0, 0, App::windowWidth, App::windowHeight);
-		glfwSetFramebufferSizeCallback(window, FrameBufferSizeCallback);
+		glfwSetFramebufferSizeCallback(App::window<GLFWwindow>, FrameBufferSizeCallback);
 
 		// Main program loop
-		while (!glfwWindowShouldClose(window))
+		while (!glfwWindowShouldClose(App::window<GLFWwindow>))
 		{
 			// Update frame time
 			Time::UpdateTime(Time::previousTime, Time::currentTime);
 
-			if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-			{
-				Solar::Debug::Log("nice");
-			}
 			// Poll for and process events
 			glfwPollEvents();
 
@@ -92,7 +92,7 @@ namespace Solar
 			Render();
 
 			// Swap front and back buffers
-			glfwSwapBuffers(window);
+			glfwSwapBuffers(App::window<GLFWwindow>);
 		}
 
 		// User-defined shutdown
