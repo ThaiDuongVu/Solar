@@ -3,8 +3,9 @@
 // Initialize game elements
 void Solar::App::Init()
 {
-	// Set window size to be 640 wide and 480 high
-	Solar::App::SetWindowSize(640, 480);
+	// Set window size to be 852 by 480
+	Solar::App::SetWindowSize(852, 480);
+
 	// Set window title to be "Lunar System"
 	Solar::App::SetTitle("Lunar System");
 }
@@ -12,9 +13,9 @@ void Solar::App::Init()
 // Handle input and game events
 void Solar::App::Update(double frameTime)
 {
-	if (Solar::Input::IsKeyDown(Solar::KEYS::ESCAPE))
+	if (Solar::Input::IsKeyDown(Solar::Input::KEYS::ENTER))
 	{
-		Solar::App::Quit();
+		Solar::Debug::Log("bruh");
 	}
 }
 
@@ -24,7 +25,7 @@ void Solar::App::Render()
 }
 
 // Collect garbage on exit
-void Solar::App::Shutdown()
+void Solar::App::Exit()
 {
 }
 

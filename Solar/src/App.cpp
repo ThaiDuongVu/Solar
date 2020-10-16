@@ -10,11 +10,11 @@ namespace Solar
 	void App::Init() {}
 	void App::Update(double frameTime) {}
 	void App::Render() {}
-	void App::Shutdown() {}
+	void App::Exit() {}
 
 	// OpenGL window
 	template <typename T>
-	T* App::window;
+	T *App::window;
 
 	void App::SetWindowSize(int width, int height)
 	{
@@ -22,7 +22,7 @@ namespace Solar
 		App::windowHeight = height;
 	}
 
-	void App::SetTitle(const char* title)
+	void App::SetTitle(const char *title)
 	{
 		App::title = title;
 	}
@@ -33,7 +33,7 @@ namespace Solar
 	}
 
 	// On window resize
-	void FrameBufferSizeCallback(GLFWwindow* window, int width, int height)
+	void FrameBufferSizeCallback(GLFWwindow *window, int width, int height)
 	{
 		glViewport(0, 0, width, height);
 	}
@@ -96,7 +96,7 @@ namespace Solar
 		}
 
 		// User-defined shutdown
-		Shutdown();
+		Exit();
 		glfwTerminate();
 	}
 } // namespace Solar

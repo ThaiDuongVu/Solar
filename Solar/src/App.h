@@ -11,7 +11,7 @@ namespace Solar
 		virtual void Init();
 		virtual void Update(double frameTime);
 		virtual void Render();
-		virtual void Shutdown();
+		virtual void Exit();
 
 		// Set window width and height
 		void SetWindowSize(int width = DEFAULT_WINDOW_WIDTH, int height = DEFAULT_WINDOW_HEIGHT);
