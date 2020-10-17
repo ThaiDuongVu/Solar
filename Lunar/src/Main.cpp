@@ -13,9 +13,10 @@ void Solar::App::Init()
 // Handle input and game events
 void Solar::App::Update(double frameTime)
 {
-	if (Solar::Input::IsKeyDown(Solar::Input::KEYS::ENTER))
+	if (Solar::Input::OnKeyDown(Solar::Input::KEYS::ESCAPE))
 	{
-		Solar::Debug::Log("bruh");
+		// Quit game
+		Solar::App::Quit();
 	}
 }
 

@@ -38,6 +38,20 @@ namespace Solar
 		glViewport(0, 0, width, height);
 	}
 
+	// Key callback
+	void KeyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
+	{
+		// Set key buffers
+		if (action == GLFW_PRESS)
+		{
+			Input::keyDownBuffer = key;
+		}
+		else if (action == GLFW_RELEASE)
+		{
+			Input::keyUpBuffer = key;
+		}
+	}
+
 	void App::Run()
 	{
 		// User-defined initialization
@@ -72,6 +86,7 @@ namespace Solar
 		// GLAD viewport
 		glViewport(0, 0, App::windowWidth, App::windowHeight);
 		glfwSetFramebufferSizeCallback(App::window<GLFWwindow>, FrameBufferSizeCallback);
+		glfwSetKeyCallback(App::window<GLFWwindow>, KeyboardCallback);
 
 		// Main program loop
 		while (!glfwWindowShouldClose(App::window<GLFWwindow>))

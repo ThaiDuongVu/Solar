@@ -4,6 +4,9 @@
 
 namespace Solar
 {
+	int Input::keyDownBuffer = NULL;
+	int Input::keyUpBuffer = NULL;
+
 	bool Input::IsKeyDown(int key)
 	{
 		return glfwGetKey(Solar::App::window<GLFWwindow>, key) == GLFW_PRESS;
@@ -12,5 +15,25 @@ namespace Solar
 	bool Input::IsKeyUp(int key)
 	{
 		return glfwGetKey(Solar::App::window<GLFWwindow>, key) == GLFW_RELEASE;
+	}
+
+	bool Input::OnKeyDown(int key)
+	{
+		if (key == keyDownBuffer)
+		{
+			keyDownBuffer = NULL;
+			return true;
+		}
+		return false;
+	}
+
+	bool Input::OnKeyUp(int key)
+	{
+		if (key == keyUpBuffer)
+		{
+			keyUpBuffer = NULL;
+			return true;
+		}
+		return false;
 	}
 } // namespace Solar

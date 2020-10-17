@@ -137,6 +137,12 @@ namespace Solar
 		static bool IsKeyDown(int key); // Returns true if a key is being held down
 		static bool IsKeyUp(int key);	// Returns true if a key is NOT being held down
 
+		static bool OnKeyDown(int key); // Returns true FOR THE FIRST FRAME a key is held down
+		static bool OnKeyUp(int key); // Returns true FOR THE FIRST FRAME a key is released
+
+		static int keyDownBuffer;
+		static int keyUpBuffer;
+
 		//---------- KEYBOARD ----------//
 	};
 } // namespace Solar
