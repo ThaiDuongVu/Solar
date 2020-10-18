@@ -13,11 +13,23 @@ void Solar::App::Init()
 // Handle input and game events
 void Solar::App::Update(double frameTime)
 {
+	// On key pressed
 	if (Solar::Input::OnKeyDown(Solar::Input::KEYS::ESCAPE))
 	{
 		// Quit game
 		Solar::App::Quit();
 	}
+
+	// While key being pressed
+	if (Solar::Input::IsKeyDown(Solar::Input::KEYS::SPACE))
+	{
+		// Log to console
+		Solar::Debug::Log("Space key is down");
+	}
+
+	// Mouse position X and Y
+	Solar::Debug::Log(*Solar::Input::MousePosition().X);
+	Solar::Debug::Log(*Solar::Input::MousePosition().Y);
 }
 
 // Render game frames
@@ -34,7 +46,7 @@ int main()
 {
 	// Create a new app
 	Solar::App *app = new Solar::App();
-	
+
 	// Run created app
 	app->Run();
 }

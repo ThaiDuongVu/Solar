@@ -1,6 +1,6 @@
 #pragma once
 
-#define SOLAR_CLASS __declspec(dllexport)
+#define SOLAR_API __declspec(dllexport)
 
 #define DEFAULT_WINDOW_WIDTH 800
 #define DEFAULT_WINDOW_HEIGHT 600

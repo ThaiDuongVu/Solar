@@ -4,7 +4,7 @@
 
 namespace Solar
 {
-	class SOLAR_CLASS Time
+	class SOLAR_API Time
 	{
 	public:
 		// Elapsed time since last frame
@@ -16,6 +16,6 @@ namespace Solar
 
 		// Update frame time
 		// Called every frame
-		static void UpdateTime(double &previousTime, double &currentTime);
+		static void Update(double &previousTime, double &currentTime);
 	};
 } // namespace Solar

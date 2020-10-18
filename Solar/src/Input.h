@@ -2,14 +2,16 @@
 
 #include "Core.h"
 #include "App.h"
+#include "Vector2.h"
 
 namespace Solar
 {
-	class SOLAR_CLASS Input
+	class SOLAR_API Input
 	{
 	public:
-		//---------- KEYBOARD ----------//
+		static void Update();
 
+		//---------- KEYBOARD ----------//
 		enum KEYS
 		{
 			UNKNOWN = -1,
@@ -138,11 +140,18 @@ namespace Solar
 		static bool IsKeyUp(int key);	// Returns true if a key is NOT being held down
 
 		static bool OnKeyDown(int key); // Returns true FOR THE FIRST FRAME a key is held down
-		static bool OnKeyUp(int key); // Returns true FOR THE FIRST FRAME a key is released
+		static bool OnKeyUp(int key);	// Returns true FOR THE FIRST FRAME a key is released
 
-		static int keyDownBuffer;
-		static int keyUpBuffer;
-
+		static int keyDownBuffer; // Buffer memory for key down
+		static int keyUpBuffer;	  // Buffer memory for key up
 		//---------- KEYBOARD ----------//
+
+		//---------- MOUSE ----------//
+		static Vector2 MousePosition();
+		//---------- MOUSE ----------//
+
+	private:
+		static double mouseX;
+		static double mouseY;
 	};
 } // namespace Solar

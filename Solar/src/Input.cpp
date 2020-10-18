@@ -4,6 +4,7 @@
 
 namespace Solar
 {
+	//---------- KEYBOARD ----------//
 	int Input::keyDownBuffer = NULL;
 	int Input::keyUpBuffer = NULL;
 
@@ -35,5 +36,22 @@ namespace Solar
 			return true;
 		}
 		return false;
+	}
+	//---------- KEYBOARD ----------//
+
+	//---------- MOUSE ----------//
+	double Input::mouseX = 0;
+	double Input::mouseY = 0;
+
+	Vector2 Input::MousePosition()
+	{
+		return Vector2(mouseX, mouseY);
+	}
+
+	//---------- MOUSE ----------//
+
+	void Input::Update()
+	{
+		glfwGetCursorPos(Solar::App::window<GLFWwindow>, &mouseX, &mouseY);
 	}
 } // namespace Solar

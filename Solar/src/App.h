@@ -4,7 +4,7 @@
 
 namespace Solar
 {
-	class SOLAR_CLASS App
+	class SOLAR_API App
 	{
 	public:
 		// User-defined functions
@@ -17,7 +17,7 @@ namespace Solar
 		void SetWindowSize(int width = DEFAULT_WINDOW_WIDTH, int height = DEFAULT_WINDOW_HEIGHT);
 
 		// Set window title
-		void SetTitle(const char* title = DEFAULT_TITLE);
+		void SetTitle(const char *title = DEFAULT_TITLE);
 
 		// Run the app
 		void Run();
@@ -28,7 +28,7 @@ namespace Solar
 		// Current active window
 		// Use generics type since glfw is not included in header
 		template <typename T>
-		static T* window;
+		static T *window;
 
 	private:
 		// Screen dimension
@@ -36,6 +36,6 @@ namespace Solar
 		int windowHeight = DEFAULT_WINDOW_HEIGHT;
 
 		// Game window title
-		const char* title = "Solar System";
+		const char *title = "Solar System";
 	};
 } // namespace Solar

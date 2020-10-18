@@ -10,7 +10,7 @@ namespace Solar
 	double Time::previousTime = 0.0;
 	double Time::currentTime = 0.0;
 
-	void Time::UpdateTime(double &previousTime, double &currentTime)
+	void Time::Update(double &previousTime, double &currentTime)
 	{
 		// Get current time
 		currentTime = glfwGetTime();

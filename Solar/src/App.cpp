@@ -2,6 +2,7 @@
 #include "Debug.h"
 #include "Time.h"
 #include "Input.h"
+#include "Vector2.h"
 #include <glad.h>
 #include <glfw3.h>
 
@@ -38,7 +39,7 @@ namespace Solar
 		glViewport(0, 0, width, height);
 	}
 
-	// Key callback
+	// Keyboard callback
 	void KeyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
 	{
 		// Set key buffers
@@ -85,6 +86,7 @@ namespace Solar
 
 		// GLAD viewport
 		glViewport(0, 0, App::windowWidth, App::windowHeight);
+
 		glfwSetFramebufferSizeCallback(App::window<GLFWwindow>, FrameBufferSizeCallback);
 		glfwSetKeyCallback(App::window<GLFWwindow>, KeyboardCallback);
 
@@ -92,13 +94,14 @@ namespace Solar
 		while (!glfwWindowShouldClose(App::window<GLFWwindow>))
 		{
 			// Update frame time
-			Time::UpdateTime(Time::previousTime, Time::currentTime);
+			Time::Update(Time::previousTime, Time::currentTime);
+			Input::Update();
+			
+			// User-defined update
+			Update(Time::frameTime);
 
 			// Poll for and process events
 			glfwPollEvents();
-
-			// User-defined update
-			Update(Time::frameTime);
 
 			// Clear the back ground
 			glClear(GL_COLOR_BUFFER_BIT);

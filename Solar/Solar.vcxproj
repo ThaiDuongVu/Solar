@@ -17,6 +17,7 @@
     <ClInclude Include="src\Core.h" />
     <ClInclude Include="src\Solar.h" />
     <ClInclude Include="src\Time.h" />
+    <ClInclude Include="src\Vector2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dependencies\include\glad\glad.c" />
@@ -24,6 +25,7 @@
     <ClCompile Include="src\Debug.cpp" />
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\Time.cpp" />
+    <ClCompile Include="src\Vector2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
