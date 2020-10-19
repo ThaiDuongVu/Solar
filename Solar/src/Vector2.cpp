@@ -4,7 +4,7 @@ namespace Solar
 {
 	Vector2::Vector2(double x, double y)
 	{
-		this->X = &x;
-		this->Y = &y;
+		this->X = x;
+		this->Y = y;
 	}
 }

@@ -9,7 +9,7 @@ namespace Solar
 	public:
 		Vector2(double x = 0, double y = 0);
 
-		double* X = 0;
-		double* Y = 0;
+		double X = 0;
+		double Y = 0;
 	};
 }

@@ -12,6 +12,7 @@ namespace Solar
 		static void Update();
 
 		//---------- KEYBOARD ----------//
+		// GLFW Keys input
 		enum KEYS
 		{
 			UNKNOWN = -1,
@@ -146,12 +147,24 @@ namespace Solar
 		static int keyUpBuffer;	  // Buffer memory for key up
 		//---------- KEYBOARD ----------//
 
-		//---------- MOUSE ----------//
-		static Vector2 MousePosition();
-		//---------- MOUSE ----------//
+		//---------- CURSOR ----------//
+		// GLFW Input modes
+		enum CURSOR_MODE
+		{
+			Locked = 212995,
+			Hidden = 212994,
+			Normal = 212993
+		};
+
+		static Vector2 CursorPosition(); // X and Y position of cursor
+
+		static void SetCursorMode(int mode); // Set cursor mode to locked, hidden or normal
+		//---------- CURSOR ----------//
 
 	private:
-		static double mouseX;
-		static double mouseY;
+		static double cursorX;
+		static double cursorY;
+
+		static int inputMode;
 	};
 } // namespace Solar

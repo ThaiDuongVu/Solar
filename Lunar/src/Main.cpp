@@ -20,6 +20,15 @@ void Solar::App::Update(double frameTime)
 		Solar::App::Quit();
 	}
 
+	// On key released
+	if (Solar::Input::OnKeyUp(Solar::Input::KEYS::ENTER))
+	{
+		// Log error
+		Solar::Debug::LogError("Test Error");
+		// Log warning
+		Solar::Debug::LogWarning("Test warning");
+	}
+
 	// While key being pressed
 	if (Solar::Input::IsKeyDown(Solar::Input::KEYS::SPACE))
 	{
@@ -28,8 +37,17 @@ void Solar::App::Update(double frameTime)
 	}
 
 	// Mouse position X and Y
-	Solar::Debug::Log(*Solar::Input::MousePosition().X);
-	Solar::Debug::Log(*Solar::Input::MousePosition().Y);
+	//Solar::Debug::Log(Solar::Input::CursorPosition().X);
+	//Solar::Debug::Log(Solar::Input::CursorPosition().Y);
+
+	// Hide mouse cursor
+	//Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODE::Hidden);
+
+	// Hide mouse cursor and lock its position
+	//Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODE::Locked);
+
+	// Show mouse cursor and unlock its position
+	//Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODE::Normal);
 }
 
 // Render game frames

@@ -39,19 +39,26 @@ namespace Solar
 	}
 	//---------- KEYBOARD ----------//
 
-	//---------- MOUSE ----------//
-	double Input::mouseX = 0;
-	double Input::mouseY = 0;
+	//---------- CURSOR ----------//
+	double Input::cursorX = 0;
+	double Input::cursorY = 0;
 
-	Vector2 Input::MousePosition()
+	int Input::inputMode = 0;
+
+	Vector2 Input::CursorPosition()
 	{
-		return Vector2(mouseX, mouseY);
+		return Vector2(cursorX, cursorY);
 	}
 
-	//---------- MOUSE ----------//
+	void Input::SetCursorMode(int mode)
+	{
+		Input::inputMode = mode;
+	}
+	//---------- CURSOR ----------//
 
 	void Input::Update()
 	{
-		glfwGetCursorPos(Solar::App::window<GLFWwindow>, &mouseX, &mouseY);
+		glfwGetCursorPos(Solar::App::window<GLFWwindow>, &Input::cursorX, &Input::cursorY);
+		glfwSetInputMode(Solar::App::window<GLFWwindow>, GLFW_CURSOR, Input::inputMode);
 	}
 } // namespace Solar
