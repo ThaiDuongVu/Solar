@@ -28,7 +28,7 @@ Open Solar solution with Visual Studio.
 
 You can see 2 projects in Solar solution: Solar and Lunar.
 
-![projects](images\projects.png)
+![projects](images/projects.png)
 
  **Solar** is the framework itself.
 
@@ -38,11 +38,11 @@ You can see 2 projects in Solar solution: Solar and Lunar.
 
 Hit `Ctrl+Shift+B` to build solution.
 
-![build](images\build.png)
+![build](images/build.png)
 
 Hit `F5` to run **Lunar**.
 
-![run](images\run.png)
+![run](images/run.png)
 
 ---
 
@@ -50,27 +50,27 @@ Hit `F5` to run **Lunar**.
 
 1. Right click on solution and choose **Add** **->** **New Project...**
 
-![new project](images\new_project.png)
+![new project](images/new_project.png)
 
 2. Choose C++ Empty Project.
 
-![c++ empty](images\c++_empty.png)
+![c++ empty](images/c++_empty.png)
 
 3. Name your project and hit **Create**.
 
-![name project](images\name_project.png)
+![name project](images/name_project.png)
 
 4. Select your newly created project and go to **View** **->** **Other Windows** **->** **Property Manager**.
 
-![property manager](images\property_manager.png)
+![property manager](images/property_manager.png)
 
 5. Right click on your project and choose **Add existing property sheet....**
 
-![add sheet](images\add_sheet.png)
+![add sheet](images/add_sheet.png)
 
 6. Select **Solar Project.props** from solution directory.
 
-![props](images\props.png)
+![props](images/props.png)
 
 And *voila* you have a project configured to work with Solar framework, time to jump into the code.
 
@@ -86,4 +86,4 @@ And *voila* you have a project configured to work with Solar framework, time to 
 
 8. You should see the following window by default:
 
-![default window](images\default_window.png)
+![default window](images/default_window.png)
