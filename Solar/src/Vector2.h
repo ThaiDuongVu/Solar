@@ -12,4 +12,4 @@ namespace Solar
 		double X = 0;
 		double Y = 0;
 	};
-}
+} // namespace Solar

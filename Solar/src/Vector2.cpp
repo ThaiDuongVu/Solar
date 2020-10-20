@@ -7,4 +7,4 @@ namespace Solar
 		this->X = x;
 		this->Y = y;
 	}
-}
+} // namespace Solar

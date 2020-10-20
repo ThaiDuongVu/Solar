@@ -96,7 +96,7 @@ namespace Solar
 			// Update frame time
 			Time::Update(Time::previousTime, Time::currentTime);
 			Input::Update();
-			
+
 			// User-defined update
 			Update(Time::frameTime);
 
