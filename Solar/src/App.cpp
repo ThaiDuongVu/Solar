@@ -53,6 +53,20 @@ namespace Solar
 		}
 	}
 
+	// Mouse button callback
+	void MouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
+	{
+		// Set mouse buffers
+		if (action == GLFW_PRESS)
+		{
+			Input::mouseDownBuffer = button;
+		}
+		else if (action == GLFW_RELEASE)
+		{
+			Input::mouseUpBuffer = button;
+		}
+	}
+
 	void App::Run()
 	{
 		// User-defined initialization
@@ -88,7 +102,9 @@ namespace Solar
 		glViewport(0, 0, App::windowWidth, App::windowHeight);
 
 		glfwSetFramebufferSizeCallback(App::window<GLFWwindow>, FrameBufferSizeCallback);
+
 		glfwSetKeyCallback(App::window<GLFWwindow>, KeyboardCallback);
+		glfwSetMouseButtonCallback(App::window<GLFWwindow>, MouseButtonCallback);
 
 		// Main program loop
 		while (!glfwWindowShouldClose(App::window<GLFWwindow>))
@@ -115,6 +131,8 @@ namespace Solar
 
 		// User-defined shutdown
 		Exit();
+
+		Debug::ResetDebugColor();
 		glfwTerminate();
 	}
 } // namespace Solar

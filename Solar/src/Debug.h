@@ -54,5 +54,11 @@ namespace Solar
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Solar::Debug::DEBUG_COLORS::RED);
 			std::cout << "Error: " << message << std::endl;
 		};
+
+		// Reset console color to white
+		inline static void ResetDebugColor()
+		{
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Solar::Debug::DEBUG_COLORS::BRIGHT_WHITE);
+		}
 	};
 } // namespace Solar

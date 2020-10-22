@@ -149,17 +149,36 @@ namespace Solar
 
 		//---------- CURSOR ----------//
 		// GLFW Input modes
-		enum CURSOR_MODE
+		enum CURSOR_MODES
 		{
-			Locked = 212995,
-			Hidden = 212994,
-			Normal = 212993
+			LOCKED = 212995,
+			HIDDEN = 212994,
+			NORMAL = 212993
 		};
 
-		static Vector2 CursorPosition(); // X and Y position of cursor
 
+		static Vector2 CursorPosition(); // X and Y position of cursor
 		static void SetCursorMode(int mode); // Set cursor mode to locked, hidden or normal
 		//---------- CURSOR ----------//
+
+		//---------- MOUSE ----------//
+		// GLFW mouse buttons
+		enum MOUSE_BUTTONS
+		{
+			MOUSE_LEFT = 0,
+			MOUSE_RIGHT = 1,
+			MOUSE_MIDDLE = 2
+		};
+		
+		static bool IsMouseDown(int mouse); // Returns true if a mouse button is being held down
+		static bool IsMouseUp(int mouse); // Returns true if a mouse button is NOT being held down
+
+		static bool OnMouseDown(int mouse); // Returns true FOR THE FIRST FRAME a mouse button is held down
+		static bool OnMouseUp(int mouse); // Returns true FOR THE FIRST FRAME a mouse button is released
+
+		static int mouseDownBuffer; // Buffer memory for mouse button down
+		static int mouseUpBuffer; // Buffer memory for mouse button up
+		//---------- MOUSE ----------//
 
 	private:
 		static double cursorX;

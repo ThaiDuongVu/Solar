@@ -56,6 +56,41 @@ namespace Solar
 	}
 	//---------- CURSOR ----------//
 
+	//---------- MOUSE ----------//
+	int Input::mouseDownBuffer = NULL;
+	int Input::mouseUpBuffer = NULL;
+
+	bool Input::IsMouseDown(int mouse)
+	{
+		return glfwGetMouseButton(App::window<GLFWwindow>, mouse) == GLFW_PRESS;
+	}
+
+	bool Input::IsMouseUp(int mouse)
+	{
+		return glfwGetMouseButton(App::window<GLFWwindow>, mouse) == GLFW_RELEASE;
+	}
+
+	bool Input::OnMouseDown(int mouse)
+	{
+		if (mouse == mouseDownBuffer)
+		{
+			mouseDownBuffer = NULL;
+			return true;
+		}
+		return false;
+	}
+
+	bool Input::OnMouseUp(int mouse)
+	{
+		if (mouse == mouseUpBuffer)
+		{
+			mouseUpBuffer = NULL;
+			return true;
+		}
+		return false;
+	}
+	//---------- MOUSE ----------//
+
 	void Input::Update()
 	{
 		glfwGetCursorPos(Solar::App::window<GLFWwindow>, &Input::cursorX, &Input::cursorY);
