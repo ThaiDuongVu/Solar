@@ -4,7 +4,7 @@
 
 namespace Solar
 {
-	//---------- KEYBOARD ----------//
+#pragma region Keyboard
 	int Input::keyDownBuffer = NULL;
 	int Input::keyUpBuffer = NULL;
 
@@ -37,9 +37,9 @@ namespace Solar
 		}
 		return false;
 	}
-	//---------- KEYBOARD ----------//
+#pragma endregion
 
-	//---------- CURSOR ----------//
+#pragma region Cursor
 	double Input::cursorX = 0;
 	double Input::cursorY = 0;
 
@@ -54,9 +54,9 @@ namespace Solar
 	{
 		Input::inputMode = mode;
 	}
-	//---------- CURSOR ----------//
+#pragma endregion
 
-	//---------- MOUSE ----------//
+#pragma region Mouse
 	int Input::mouseDownBuffer = NULL;
 	int Input::mouseUpBuffer = NULL;
 
@@ -89,11 +89,36 @@ namespace Solar
 		}
 		return false;
 	}
-	//---------- MOUSE ----------//
+
+	double Input::scrollDeltaX = NULL;
+	double Input::scrollDeltaY = NULL;
+
+	bool Input::isScrolling = false;
+
+	double Input::ScrollDeltaX()
+	{
+		return scrollDeltaX;
+	}
+
+	double Input::ScrollDeltaY()
+	{
+		return scrollDeltaY;
+	}
+#pragma endregion
 
 	void Input::Update()
 	{
 		glfwGetCursorPos(Solar::App::window<GLFWwindow>, &Input::cursorX, &Input::cursorY);
 		glfwSetInputMode(Solar::App::window<GLFWwindow>, GLFW_CURSOR, Input::inputMode);
+
+		if (!Input::isScrolling)
+		{
+			Input::scrollDeltaX = 0;
+			Input::scrollDeltaY = 0;
+		}
+		else
+		{
+			Input::isScrolling = false;
+		}
 	}
 } // namespace Solar

@@ -13,10 +13,10 @@ void Solar::App::Init()
 	//Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::HIDDEN);
 
 	// Hide mouse cursor and lock its position
-	Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::LOCKED);
+	//Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::LOCKED);
 
 	// Show mouse cursor and unlock its position
-	//Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::NORMAL);
+	Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::NORMAL);
 }
 
 // Handle input and game events
@@ -55,6 +55,15 @@ void Solar::App::Update(double frameTime)
 	if (Solar::Input::OnMouseUp(Solar::Input::MOUSE_BUTTONS::MOUSE_RIGHT))
 	{
 		Solar::Debug::Log("Right mouse button released");
+	}
+
+	if (Solar::Input::ScrollDeltaY() > 0)
+	{
+		Solar::Debug::Log("Mouse scrolling up");
+	}
+	else if (Solar::Input::ScrollDeltaY() < 0)
+	{
+		Solar::Debug::Log("Mouse scrolling down");
 	}
 
 	// Mouse position X and Y

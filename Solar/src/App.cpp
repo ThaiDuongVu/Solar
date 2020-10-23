@@ -15,7 +15,7 @@ namespace Solar
 
 	// OpenGL window
 	template <typename T>
-	T *App::window;
+	T* App::window;
 
 	void App::SetWindowSize(int width, int height)
 	{
@@ -23,7 +23,7 @@ namespace Solar
 		App::windowHeight = height;
 	}
 
-	void App::SetTitle(const char *title)
+	void App::SetTitle(const char* title)
 	{
 		App::title = title;
 	}
@@ -34,13 +34,14 @@ namespace Solar
 	}
 
 	// On window resize
-	void FrameBufferSizeCallback(GLFWwindow *window, int width, int height)
+	void FrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 	{
 		glViewport(0, 0, width, height);
 	}
 
+#pragma region Input Callbacks
 	// Keyboard callback
-	void KeyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
+	void KeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 		// Set key buffers
 		if (action == GLFW_PRESS)
@@ -54,7 +55,7 @@ namespace Solar
 	}
 
 	// Mouse button callback
-	void MouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
+	void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 	{
 		// Set mouse buffers
 		if (action == GLFW_PRESS)
@@ -66,6 +67,16 @@ namespace Solar
 			Input::mouseUpBuffer = button;
 		}
 	}
+
+	// Mouse scroll callback
+	void ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+	{
+		Input::scrollDeltaX = xoffset;
+		Input::scrollDeltaY = yoffset;
+
+		Input::isScrolling = true;
+	}
+#pragma endregion
 
 	void App::Run()
 	{
@@ -105,6 +116,7 @@ namespace Solar
 
 		glfwSetKeyCallback(App::window<GLFWwindow>, KeyboardCallback);
 		glfwSetMouseButtonCallback(App::window<GLFWwindow>, MouseButtonCallback);
+		glfwSetScrollCallback(App::window<GLFWwindow>, ScrollCallback);
 
 		// Main program loop
 		while (!glfwWindowShouldClose(App::window<GLFWwindow>))

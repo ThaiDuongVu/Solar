@@ -11,7 +11,7 @@ namespace Solar
 	public:
 		static void Update();
 
-		//---------- KEYBOARD ----------//
+#pragma region Keyboard
 		// GLFW Keys input
 		enum KEYS
 		{
@@ -145,9 +145,9 @@ namespace Solar
 
 		static int keyDownBuffer; // Buffer memory for key down
 		static int keyUpBuffer;	  // Buffer memory for key up
-		//---------- KEYBOARD ----------//
+#pragma endregion
 
-		//---------- CURSOR ----------//
+#pragma region Cursor
 		// GLFW Input modes
 		enum CURSOR_MODES
 		{
@@ -156,12 +156,11 @@ namespace Solar
 			NORMAL = 212993
 		};
 
-
 		static Vector2 CursorPosition(); // X and Y position of cursor
-		static void SetCursorMode(int mode); // Set cursor mode to locked, hidden or normal
-		//---------- CURSOR ----------//
+		static void SetCursorMode(int mode); // Set cursor mode to locked, hidden or norma
+#pragma endregion
 
-		//---------- MOUSE ----------//
+#pragma region Mouse
 		// GLFW mouse buttons
 		enum MOUSE_BUTTONS
 		{
@@ -169,7 +168,7 @@ namespace Solar
 			MOUSE_RIGHT = 1,
 			MOUSE_MIDDLE = 2
 		};
-		
+
 		static bool IsMouseDown(int mouse); // Returns true if a mouse button is being held down
 		static bool IsMouseUp(int mouse); // Returns true if a mouse button is NOT being held down
 
@@ -178,7 +177,14 @@ namespace Solar
 
 		static int mouseDownBuffer; // Buffer memory for mouse button down
 		static int mouseUpBuffer; // Buffer memory for mouse button up
-		//---------- MOUSE ----------//
+
+		static double scrollDeltaX;
+		static double scrollDeltaY;
+		static bool isScrolling;
+
+		static double ScrollDeltaX(); // Return mouse scrolling speed x
+		static double ScrollDeltaY(); // Return mouse scrolling speed y
+#pragma endregion
 
 	private:
 		static double cursorX;
