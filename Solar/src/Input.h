@@ -157,7 +157,15 @@ namespace Solar
 		};
 
 		static Vector2 CursorPosition(); // X and Y position of cursor
-		static void SetCursorMode(int mode); // Set cursor mode to locked, hidden or norma
+		static void SetCursorMode(int mode); // Set cursor mode to locked, hidden or normal
+
+		static bool cursorEnter;
+		static bool cursorExit;
+
+		static bool OnCursorEnter();
+		static bool OnCursorExit();
+
+		static bool isCursorEnterExit;
 #pragma endregion
 
 #pragma region Mouse
@@ -180,10 +188,11 @@ namespace Solar
 
 		static double scrollDeltaX;
 		static double scrollDeltaY;
-		static bool isScrolling;
 
 		static double ScrollDeltaX(); // Return mouse scrolling speed x
 		static double ScrollDeltaY(); // Return mouse scrolling speed y
+
+		static bool isScrolling;
 #pragma endregion
 
 	private:

@@ -54,6 +54,21 @@ namespace Solar
 	{
 		Input::inputMode = mode;
 	}
+
+	bool Input::cursorEnter = false;
+	bool Input::cursorExit = false;
+
+	bool Input::isCursorEnterExit = false;
+
+	bool Input::OnCursorEnter()
+	{
+		return Input::cursorEnter;
+	}
+
+	bool Input::OnCursorExit()
+	{
+		return Input::cursorExit;
+	}
 #pragma endregion
 
 #pragma region Mouse
@@ -90,8 +105,8 @@ namespace Solar
 		return false;
 	}
 
-	double Input::scrollDeltaX = NULL;
-	double Input::scrollDeltaY = NULL;
+	double Input::scrollDeltaX = 0;
+	double Input::scrollDeltaY = 0;
 
 	bool Input::isScrolling = false;
 
@@ -119,6 +134,16 @@ namespace Solar
 		else
 		{
 			Input::isScrolling = false;
+		}
+
+		if (!Input::isCursorEnterExit)
+		{
+			Input::cursorEnter = false;
+			Input::cursorExit = false;
+		}
+		else
+		{
+			Input::isCursorEnterExit = false;
 		}
 	}
 } // namespace Solar

@@ -41,34 +41,45 @@ void Solar::App::Update(double frameTime)
 	// While key being pressed
 	if (Solar::Input::IsKeyDown(Solar::Input::KEYS::SPACE))
 	{
-		// Log to console
-		Solar::Debug::Log("Space key is down");
+		// LogLine to console
+		Solar::Debug::LogLine("Space key is down");
 	}
 
 	// While left mouse is down
 	if (Solar::Input::IsMouseDown(Solar::Input::MOUSE_BUTTONS::MOUSE_LEFT))
 	{
-		Solar::Debug::Log("Left mouse button is down");
+		Solar::Debug::LogLine("Left mouse button is down");
 	}
 
 	// On right mouse up
 	if (Solar::Input::OnMouseUp(Solar::Input::MOUSE_BUTTONS::MOUSE_RIGHT))
 	{
-		Solar::Debug::Log("Right mouse button released");
+		Solar::Debug::LogLine("Right mouse button released");
 	}
 
+	// Scrolling speed x and y
 	if (Solar::Input::ScrollDeltaY() > 0)
 	{
-		Solar::Debug::Log("Mouse scrolling up");
+		Solar::Debug::LogLine("Mouse scrolling up");
 	}
 	else if (Solar::Input::ScrollDeltaY() < 0)
 	{
-		Solar::Debug::Log("Mouse scrolling down");
+		Solar::Debug::LogLine("Mouse scrolling down");
+	}
+
+	// On mouse enter and exit window
+	if (Solar::Input::OnCursorEnter())
+	{
+		Solar::Debug::LogLine("Mouse enter");
+	}
+	if (Solar::Input::OnCursorExit())
+	{
+		Solar::Debug::LogLine("Mouse exit");
 	}
 
 	// Mouse position X and Y
-	//Solar::Debug::Log(Solar::Input::CursorPosition().X);
-	//Solar::Debug::Log(Solar::Input::CursorPosition().Y);
+	//Solar::Debug::LogLine(Solar::Input::CursorPosition().X);
+	//Solar::Debug::LogLine(Solar::Input::CursorPosition().Y);
 }
 
 // Render game frames

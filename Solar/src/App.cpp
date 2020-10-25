@@ -54,6 +54,21 @@ namespace Solar
 		}
 	}
 
+	// On cursor enter or exit callback
+	void CursorEnterCallback(GLFWwindow* window, int entered)
+	{
+		if (entered)
+		{
+			Input::cursorEnter = true;
+		}
+		else
+		{
+			Input::cursorExit = true;
+		}
+
+		Input::isCursorEnterExit = true;
+	}
+
 	// Mouse button callback
 	void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 	{
@@ -115,6 +130,7 @@ namespace Solar
 		glfwSetFramebufferSizeCallback(App::window<GLFWwindow>, FrameBufferSizeCallback);
 
 		glfwSetKeyCallback(App::window<GLFWwindow>, KeyboardCallback);
+		glfwSetCursorEnterCallback(App::window<GLFWwindow>, CursorEnterCallback);
 		glfwSetMouseButtonCallback(App::window<GLFWwindow>, MouseButtonCallback);
 		glfwSetScrollCallback(App::window<GLFWwindow>, ScrollCallback);
 
