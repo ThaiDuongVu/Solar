@@ -8,7 +8,9 @@ namespace Solar
 	{
 	public:
 		// Elapsed time since last frame
-		static double frameTime;
+		static double FrameTime;
+		// How many frames drawn per some seconds
+		static int FrameRate(int seconds);
 
 		// Previous & current time
 		static double previousTime;

@@ -1,4 +1,5 @@
 #include "Input.h"
+#include "Debug.h"
 #include <glad.h>
 #include <glfw3.h>
 
@@ -20,9 +21,9 @@ namespace Solar
 
 	bool Input::OnKeyDown(int key)
 	{
-		if (key == keyDownBuffer)
+		if (key == Input::keyDownBuffer)
 		{
-			keyDownBuffer = NULL;
+			Input::keyDownBuffer = NULL;
 			return true;
 		}
 		return false;
@@ -30,9 +31,9 @@ namespace Solar
 
 	bool Input::OnKeyUp(int key)
 	{
-		if (key == keyUpBuffer)
+		if (key == Input::keyUpBuffer)
 		{
-			keyUpBuffer = NULL;
+			Input::keyUpBuffer = NULL;
 			return true;
 		}
 		return false;
@@ -58,7 +59,7 @@ namespace Solar
 	bool Input::cursorEnter = false;
 	bool Input::cursorExit = false;
 
-	bool Input::isCursorEnterExit = false;
+	bool Input::cursorEnterExitBuffer = false;
 
 	bool Input::OnCursorEnter()
 	{
@@ -108,7 +109,7 @@ namespace Solar
 	double Input::scrollDeltaX = 0;
 	double Input::scrollDeltaY = 0;
 
-	bool Input::isScrolling = false;
+	bool Input::scrollBuffer = false;
 
 	double Input::ScrollDeltaX()
 	{
@@ -121,29 +122,59 @@ namespace Solar
 	}
 #pragma endregion
 
+#pragma region Joystick
+	bool Input::IsJoystickPresent(int joystick)
+	{
+		return glfwJoystickPresent(joystick);
+	}
+
+	int Input::joystickConnectBuffer = NULL;
+	int Input::joystickDisconnectBuffer = NULL;
+
+	bool Input::OnJoystickConnected(int joystick)
+	{
+		if (joystick == Input::joystickConnectBuffer)
+		{
+			Input::joystickConnectBuffer = NULL;
+			return true;
+		}
+		return false;
+	}
+
+	bool Input::OnJoystickDisconnected(int joystick)
+	{
+		if (joystick == Input::joystickDisconnectBuffer)
+		{
+			Input::joystickDisconnectBuffer = NULL;
+			return true;
+		}
+		return false;
+	}
+#pragma endregion
+
 	void Input::Update()
 	{
 		glfwGetCursorPos(Solar::App::window<GLFWwindow>, &Input::cursorX, &Input::cursorY);
 		glfwSetInputMode(Solar::App::window<GLFWwindow>, GLFW_CURSOR, Input::inputMode);
 
-		if (!Input::isScrolling)
+		if (!Input::scrollBuffer)
 		{
 			Input::scrollDeltaX = 0;
 			Input::scrollDeltaY = 0;
 		}
 		else
 		{
-			Input::isScrolling = false;
+			Input::scrollBuffer = false;
 		}
 
-		if (!Input::isCursorEnterExit)
+		if (!Input::cursorEnterExitBuffer)
 		{
 			Input::cursorEnter = false;
 			Input::cursorExit = false;
 		}
 		else
 		{
-			Input::isCursorEnterExit = false;
+			Input::cursorEnterExitBuffer = false;
 		}
 	}
 } // namespace Solar

@@ -9,7 +9,7 @@ namespace Solar
 	public:
 		// User-defined functions
 		virtual void Init();
-		virtual void Update(double frameTime);
+		virtual void Update(double FrameTime);
 		virtual void Render();
 		virtual void Exit();
 

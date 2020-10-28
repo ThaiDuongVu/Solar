@@ -9,13 +9,13 @@
 namespace Solar
 {
 	void App::Init() {}
-	void App::Update(double frameTime) {}
+	void App::Update(double FrameTime) {}
 	void App::Render() {}
 	void App::Exit() {}
 
 	// OpenGL window
 	template <typename T>
-	T* App::window;
+	T *App::window;
 
 	void App::SetWindowSize(int width, int height)
 	{
@@ -23,7 +23,7 @@ namespace Solar
 		App::windowHeight = height;
 	}
 
-	void App::SetTitle(const char* title)
+	void App::SetTitle(const char *title)
 	{
 		App::title = title;
 	}
@@ -34,14 +34,14 @@ namespace Solar
 	}
 
 	// On window resize
-	void FrameBufferSizeCallback(GLFWwindow* window, int width, int height)
+	void FrameBufferSizeCallback(GLFWwindow *window, int width, int height)
 	{
 		glViewport(0, 0, width, height);
 	}
 
 #pragma region Input Callbacks
 	// Keyboard callback
-	void KeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+	void KeyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
 	{
 		// Set key buffers
 		if (action == GLFW_PRESS)
@@ -55,7 +55,7 @@ namespace Solar
 	}
 
 	// On cursor enter or exit callback
-	void CursorEnterCallback(GLFWwindow* window, int entered)
+	void CursorEnterCallback(GLFWwindow *window, int entered)
 	{
 		if (entered)
 		{
@@ -65,12 +65,11 @@ namespace Solar
 		{
 			Input::cursorExit = true;
 		}
-
-		Input::isCursorEnterExit = true;
+		Input::cursorEnterExitBuffer = true;
 	}
 
 	// Mouse button callback
-	void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
+	void MouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
 	{
 		// Set mouse buffers
 		if (action == GLFW_PRESS)
@@ -84,12 +83,25 @@ namespace Solar
 	}
 
 	// Mouse scroll callback
-	void ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+	void ScrollCallback(GLFWwindow *window, double xoffset, double yoffset)
 	{
 		Input::scrollDeltaX = xoffset;
 		Input::scrollDeltaY = yoffset;
 
-		Input::isScrolling = true;
+		Input::scrollBuffer = true;
+	}
+
+	// Joystick callback
+	void JoystickCallback(int joystick, int event)
+	{
+		if (event == GLFW_CONNECTED)
+		{
+			Input::joystickConnectBuffer = joystick;
+		}
+		else if (event == GLFW_DISCONNECTED)
+		{
+			Input::joystickDisconnectBuffer = joystick;
+		}
 	}
 #pragma endregion
 
@@ -129,10 +141,12 @@ namespace Solar
 
 		glfwSetFramebufferSizeCallback(App::window<GLFWwindow>, FrameBufferSizeCallback);
 
+		// Set input callbacks
 		glfwSetKeyCallback(App::window<GLFWwindow>, KeyboardCallback);
 		glfwSetCursorEnterCallback(App::window<GLFWwindow>, CursorEnterCallback);
 		glfwSetMouseButtonCallback(App::window<GLFWwindow>, MouseButtonCallback);
 		glfwSetScrollCallback(App::window<GLFWwindow>, ScrollCallback);
+		glfwSetJoystickCallback(JoystickCallback);
 
 		// Main program loop
 		while (!glfwWindowShouldClose(App::window<GLFWwindow>))
@@ -142,7 +156,7 @@ namespace Solar
 			Input::Update();
 
 			// User-defined update
-			Update(Time::frameTime);
+			Update(Time::FrameTime);
 
 			// Poll for and process events
 			glfwPollEvents();

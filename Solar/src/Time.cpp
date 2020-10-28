@@ -4,7 +4,12 @@
 namespace Solar
 {
 	// Declare frame time as 0
-	double Time::frameTime = 0.0;
+	double Time::FrameTime = 0.0;
+
+	int Time::FrameRate(int seconds)
+	{
+		return (int)(1 / Time::FrameTime);
+	}
 
 	// Declare previous & current time
 	double Time::previousTime = 0.0;
@@ -13,10 +18,10 @@ namespace Solar
 	void Time::Update(double &previousTime, double &currentTime)
 	{
 		// Get current time
-		currentTime = glfwGetTime();
+		Time::currentTime = glfwGetTime();
 		// Get frame time by suctracting previous time to current frame time
-		Time::frameTime = currentTime - previousTime;
+		Time::FrameTime = currentTime - previousTime;
 		// Set previous time for next frame update
-		previousTime = currentTime;
+		Time::previousTime = currentTime;
 	}
 } // namespace Solar

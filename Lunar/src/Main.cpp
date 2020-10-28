@@ -10,17 +10,17 @@ void Solar::App::Init()
 	Solar::App::SetTitle("Lunar System");
 
 	// Hide mouse cursor
-	//Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::HIDDEN);
+	// Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::HIDDEN);
 
 	// Hide mouse cursor and lock its position
-	//Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::LOCKED);
+	// Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::LOCKED);
 
 	// Show mouse cursor and unlock its position
 	Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::NORMAL);
 }
 
-// Handle input and game events
-void Solar::App::Update(double frameTime)
+// Handle game events
+void Solar::App::Update(double FrameTime)
 {
 	// On key pressed
 	if (Solar::Input::OnKeyDown(Solar::Input::KEYS::ESCAPE))
@@ -77,9 +77,17 @@ void Solar::App::Update(double frameTime)
 		Solar::Debug::LogLine("Mouse exit");
 	}
 
+	// Frames per 1 second
+	// Solar::Debug::LogLine(Solar::Time::FrameRate(1));
+
+	// if (!Solar::Input::IsJoystickPresent(Solar::Input::JOYSTICKS::JOYSTICK_1))
+	// {
+	// 	Solar::Debug::LogLine("Joystick 1 not present");
+	// }
+
 	// Mouse position X and Y
-	//Solar::Debug::LogLine(Solar::Input::CursorPosition().X);
-	//Solar::Debug::LogLine(Solar::Input::CursorPosition().Y);
+	// Solar::Debug::LogLine(Solar::Input::CursorPosition().X);
+	// Solar::Debug::LogLine(Solar::Input::CursorPosition().Y);
 }
 
 // Render game frames

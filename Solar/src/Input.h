@@ -156,7 +156,7 @@ namespace Solar
 			NORMAL = 212993
 		};
 
-		static Vector2 CursorPosition(); // X and Y position of cursor
+		static Vector2 CursorPosition();	 // X and Y position of cursor
 		static void SetCursorMode(int mode); // Set cursor mode to locked, hidden or normal
 
 		static bool cursorEnter;
@@ -165,7 +165,7 @@ namespace Solar
 		static bool OnCursorEnter();
 		static bool OnCursorExit();
 
-		static bool isCursorEnterExit;
+		static bool cursorEnterExitBuffer;
 #pragma endregion
 
 #pragma region Mouse
@@ -178,13 +178,13 @@ namespace Solar
 		};
 
 		static bool IsMouseDown(int mouse); // Returns true if a mouse button is being held down
-		static bool IsMouseUp(int mouse); // Returns true if a mouse button is NOT being held down
+		static bool IsMouseUp(int mouse);	// Returns true if a mouse button is NOT being held down
 
 		static bool OnMouseDown(int mouse); // Returns true FOR THE FIRST FRAME a mouse button is held down
-		static bool OnMouseUp(int mouse); // Returns true FOR THE FIRST FRAME a mouse button is released
+		static bool OnMouseUp(int mouse);	// Returns true FOR THE FIRST FRAME a mouse button is released
 
 		static int mouseDownBuffer; // Buffer memory for mouse button down
-		static int mouseUpBuffer; // Buffer memory for mouse button up
+		static int mouseUpBuffer;	// Buffer memory for mouse button up
 
 		static double scrollDeltaX;
 		static double scrollDeltaY;
@@ -192,7 +192,40 @@ namespace Solar
 		static double ScrollDeltaX(); // Return mouse scrolling speed x
 		static double ScrollDeltaY(); // Return mouse scrolling speed y
 
-		static bool isScrolling;
+		static bool scrollBuffer;
+#pragma endregion
+
+#pragma region Joystick
+		enum JOYSTICKS
+		{
+			JOYSTICK_1 = 0,
+			JOYSTICK_2 = 1,
+			JOYSTICK_3 = 2,
+			JOYSTICK_4 = 3,
+			JOYSTICK_5 = 4,
+			JOYSTICK_6 = 5,
+			JOYSTICK_7 = 6,
+			JOYSTICK_8 = 7,
+			JOYSTICK_9 = 8,
+			JOYSTICK_10 = 9,
+			JOYSTICK_11 = 10,
+			JOYSTICK_12 = 11,
+			JOYSTICK_13 = 12,
+			JOYSTICK_14 = 13,
+			JOYSTICK_15 = 14,
+			JOYSTICK_16 = 15,
+		};
+
+		static bool IsJoystickPresent(int joystick);
+
+		// Not working
+		// TODO: Investigate this further
+		static bool OnJoystickConnected(int joystick);
+		static bool OnJoystickDisconnected(int joystick);
+
+		static int joystickConnectBuffer;
+		static int joystickDisconnectBuffer;
+
 #pragma endregion
 
 	private:
