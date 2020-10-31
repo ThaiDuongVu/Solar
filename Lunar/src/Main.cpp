@@ -77,12 +77,16 @@ void Solar::App::Update(double FrameTime)
 		Solar::Debug::LogLine("Mouse exit");
 	}
 
+	// Trigger input
+	// Solar::Debug::LogLine(Solar::Input::GetJoystick(Solar::Input::JOYSTICK_AXES::RIGHT_TRIGGER));
+
 	// Frames per 1 second
 	// Solar::Debug::LogLine(Solar::Time::FrameRate(1));
 
-	// if (!Solar::Input::IsJoystickPresent(Solar::Input::JOYSTICKS::JOYSTICK_1))
+	// If a joystick is connected
+	// if (Solar::Input::IsJoystickPresent(Solar::Input::JOYSTICKS::JOYSTICK_1))
 	// {
-	// 	Solar::Debug::LogLine("Joystick 1 not present");
+	// 	Solar::Debug::LogLine("Joystick 1 present");
 	// }
 
 	// Mouse position X and Y

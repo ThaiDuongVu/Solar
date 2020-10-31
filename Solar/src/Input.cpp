@@ -128,28 +128,14 @@ namespace Solar
 		return glfwJoystickPresent(joystick);
 	}
 
-	int Input::joystickConnectBuffer = NULL;
-	int Input::joystickDisconnectBuffer = NULL;
+	const float* Input::joystickAxes = 0;
+	int Input::joystickCount = 0;
 
-	bool Input::OnJoystickConnected(int joystick)
+	float Input::GetJoystick(int joystick)
 	{
-		if (joystick == Input::joystickConnectBuffer)
-		{
-			Input::joystickConnectBuffer = NULL;
-			return true;
-		}
-		return false;
+		return Input::joystickAxes[joystick];
 	}
 
-	bool Input::OnJoystickDisconnected(int joystick)
-	{
-		if (joystick == Input::joystickDisconnectBuffer)
-		{
-			Input::joystickDisconnectBuffer = NULL;
-			return true;
-		}
-		return false;
-	}
 #pragma endregion
 
 	void Input::Update()
@@ -157,6 +143,7 @@ namespace Solar
 		glfwGetCursorPos(Solar::App::window<GLFWwindow>, &Input::cursorX, &Input::cursorY);
 		glfwSetInputMode(Solar::App::window<GLFWwindow>, GLFW_CURSOR, Input::inputMode);
 
+#pragma region Buffer Handling
 		if (!Input::scrollBuffer)
 		{
 			Input::scrollDeltaX = 0;
@@ -176,5 +163,8 @@ namespace Solar
 		{
 			Input::cursorEnterExitBuffer = false;
 		}
+#pragma endregion
+
+		joystickAxes = glfwGetJoystickAxes(Solar::Input::JOYSTICKS::JOYSTICK_1, &Input::joystickCount);
 	}
 } // namespace Solar

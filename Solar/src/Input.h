@@ -215,22 +215,27 @@ namespace Solar
 			JOYSTICK_15 = 14,
 			JOYSTICK_16 = 15,
 		};
+		enum JOYSTICK_AXES
+		{
+			LEFT_STICK_X = 0,
+			LEFT_STICK_Y = 1,
+			RIGHT_STICK_X = 2,
+			RIGHT_STICK_Y = 3,
+			LEFT_TRIGGER = 4,
+			RIGHT_TRIGGER = 5,
+		};
 
 		static bool IsJoystickPresent(int joystick);
 
-		// Not working
-		// TODO: Investigate this further
-		static bool OnJoystickConnected(int joystick);
-		static bool OnJoystickDisconnected(int joystick);
-
-		static int joystickConnectBuffer;
-		static int joystickDisconnectBuffer;
-
+		static float GetJoystick(int joystick);
 #pragma endregion
 
 	private:
 		static double cursorX;
 		static double cursorY;
+
+		static const float* joystickAxes;
+		static int joystickCount;
 
 		static int inputMode;
 	};

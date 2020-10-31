@@ -90,19 +90,6 @@ namespace Solar
 
 		Input::scrollBuffer = true;
 	}
-
-	// Joystick callback
-	void JoystickCallback(int joystick, int event)
-	{
-		if (event == GLFW_CONNECTED)
-		{
-			Input::joystickConnectBuffer = joystick;
-		}
-		else if (event == GLFW_DISCONNECTED)
-		{
-			Input::joystickDisconnectBuffer = joystick;
-		}
-	}
 #pragma endregion
 
 	void App::Run()
@@ -146,7 +133,6 @@ namespace Solar
 		glfwSetCursorEnterCallback(App::window<GLFWwindow>, CursorEnterCallback);
 		glfwSetMouseButtonCallback(App::window<GLFWwindow>, MouseButtonCallback);
 		glfwSetScrollCallback(App::window<GLFWwindow>, ScrollCallback);
-		glfwSetJoystickCallback(JoystickCallback);
 
 		// Main program loop
 		while (!glfwWindowShouldClose(App::window<GLFWwindow>))
