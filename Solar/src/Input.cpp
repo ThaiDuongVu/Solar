@@ -128,12 +128,18 @@ namespace Solar
 		return glfwJoystickPresent(joystick);
 	}
 
-	const float* Input::joystickAxes = 0;
+	const float *Input::joystickAxes[] = {0};
 	int Input::joystickCount = 0;
 
-	float Input::GetJoystick(int joystick)
+	float Input::GetJoystickAxes(int joystick, int axes)
 	{
-		return Input::joystickAxes[joystick];
+		if (!Input::IsJoystickPresent(joystick))
+		{
+			Solar::Debug::LogError("Joystick not present");
+			return 0;
+		}
+
+		return Input::joystickAxes[joystick][axes];
 	}
 
 #pragma endregion
@@ -165,6 +171,10 @@ namespace Solar
 		}
 #pragma endregion
 
-		joystickAxes = glfwGetJoystickAxes(Solar::Input::JOYSTICKS::JOYSTICK_1, &Input::joystickCount);
+		// Update all input axes
+		for (int i = Solar::Input::JOYSTICKS::JOYSTICK_1; i <= Solar::Input::JOYSTICKS::JOYSTICK_LAST; i++)
+		{
+			joystickAxes[i] = glfwGetJoystickAxes(i, &Input::joystickCount);
+		}
 	}
 } // namespace Solar

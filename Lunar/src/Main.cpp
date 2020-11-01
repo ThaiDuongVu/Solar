@@ -22,6 +22,9 @@ void Solar::App::Init()
 // Handle game events
 void Solar::App::Update(double FrameTime)
 {
+	// Frames per 1 second
+	// Solar::Debug::LogLine(Solar::Time::FrameRate(1));
+
 	// On key pressed
 	if (Solar::Input::OnKeyDown(Solar::Input::KEYS::ESCAPE))
 	{
@@ -41,7 +44,7 @@ void Solar::App::Update(double FrameTime)
 	// While key being pressed
 	if (Solar::Input::IsKeyDown(Solar::Input::KEYS::SPACE))
 	{
-		// LogLine to console
+		// Log a line to console
 		Solar::Debug::LogLine("Space key is down");
 	}
 
@@ -78,10 +81,7 @@ void Solar::App::Update(double FrameTime)
 	}
 
 	// Trigger input
-	// Solar::Debug::LogLine(Solar::Input::GetJoystick(Solar::Input::JOYSTICK_AXES::RIGHT_TRIGGER));
-
-	// Frames per 1 second
-	// Solar::Debug::LogLine(Solar::Time::FrameRate(1));
+	Solar::Debug::LogLine(Solar::Input::GetJoystickAxes(Solar::Input::JOYSTICKS::JOYSTICK_1, Solar::Input::JOYSTICK_AXES::RIGHT_TRIGGER));
 
 	// If a joystick is connected
 	// if (Solar::Input::IsJoystickPresent(Solar::Input::JOYSTICKS::JOYSTICK_1))

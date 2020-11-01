@@ -135,6 +135,7 @@ namespace Solar
 			RIGHT_COTROL = 345,
 			RIGHT_ALT = 346,
 			MENU = 348,
+			LAST = 348
 		};
 
 		static bool IsKeyDown(int key); // Returns true if a key is being held down
@@ -214,6 +215,7 @@ namespace Solar
 			JOYSTICK_14 = 13,
 			JOYSTICK_15 = 14,
 			JOYSTICK_16 = 15,
+			JOYSTICK_LAST = 15,
 		};
 		enum JOYSTICK_AXES
 		{
@@ -225,16 +227,15 @@ namespace Solar
 			RIGHT_TRIGGER = 5,
 		};
 
-		static bool IsJoystickPresent(int joystick);
-
-		static float GetJoystick(int joystick);
+		static bool IsJoystickPresent(int joystick);		  // Whether a joystick is connected
+		static float GetJoystickAxes(int joystick, int axes); // Get values of different joystick axes
 #pragma endregion
 
 	private:
 		static double cursorX;
 		static double cursorY;
 
-		static const float* joystickAxes;
+		static const float *joystickAxes[]; // 2D Array representing joystick axes
 		static int joystickCount;
 
 		static int inputMode;
