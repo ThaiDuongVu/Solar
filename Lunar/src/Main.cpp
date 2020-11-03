@@ -80,8 +80,16 @@ void Solar::App::Update(double FrameTime)
 		Solar::Debug::LogLine("Mouse exit");
 	}
 
+	if (Solar::Input::IsJoystickButtonDown(Solar::Input::JOYSTICK_BUTTONS::BUTTON_A))
+	{
+		Solar::Debug::LogLine("A button is down");
+	}
+
 	// Trigger input
-	Solar::Debug::LogLine(Solar::Input::GetJoystickAxes(Solar::Input::JOYSTICKS::JOYSTICK_1, Solar::Input::JOYSTICK_AXES::RIGHT_TRIGGER));
+	if (Solar::Input::GetJoystickAxes(Solar::Input::JOYSTICK_AXES::RIGHT_TRIGGER) > -1)
+	{
+		Solar::Debug::LogLine("Right trigger is down");
+	}
 
 	// If a joystick is connected
 	// if (Solar::Input::IsJoystickPresent(Solar::Input::JOYSTICKS::JOYSTICK_1))
@@ -107,7 +115,7 @@ void Solar::App::Exit()
 int main()
 {
 	// Create a new app
-	Solar::App *app = new Solar::App();
+	Solar::App* app = new Solar::App();
 
 	// Run created app
 	app->Run();

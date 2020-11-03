@@ -44,7 +44,7 @@ namespace Solar
 	double Input::cursorX = 0;
 	double Input::cursorY = 0;
 
-	int Input::inputMode = 0;
+	int Input::cursorMode = 0;
 
 	Vector2 Input::CursorPosition()
 	{
@@ -53,7 +53,7 @@ namespace Solar
 
 	void Input::SetCursorMode(int mode)
 	{
-		Input::inputMode = mode;
+		Input::cursorMode = mode;
 	}
 
 	bool Input::cursorEnter = false;
@@ -128,10 +128,10 @@ namespace Solar
 		return glfwJoystickPresent(joystick);
 	}
 
-	const float *Input::joystickAxes[] = {0};
-	int Input::joystickCount = 0;
+	const float* Input::joystickAxes[] = { 0 };
+	int Input::joystickAxesCount = 0;
 
-	float Input::GetJoystickAxes(int joystick, int axes)
+	float Input::GetJoystickAxes(int axes, int joystick)
 	{
 		if (!Input::IsJoystickPresent(joystick))
 		{
@@ -142,12 +142,37 @@ namespace Solar
 		return Input::joystickAxes[joystick][axes];
 	}
 
+	int Input::joystickButtonCount = 0;
+
+	int Input::buttonDownBuffer = NULL;
+	int Input::buttonUpBuffer = NULL;
+
+	bool Input::IsJoystickButtonDown(int button, int joystick)
+	{
+		return glfwGetJoystickButtons(joystick, &Input::joystickButtonCount)[button] == GLFW_PRESS;
+	}
+
+	bool Input::IsJoystickButtonUp(int button, int joystick)
+	{
+		return glfwGetJoystickButtons(joystick, &Input::joystickButtonCount)[button] == GLFW_RELEASE;
+	}
+
+	static bool OnJoystickButtonDown(int button, int joystick)
+	{
+		return true;
+	}
+
+	static bool OnJoystickButtonUp(int button, int joystick)
+	{
+		return true;
+	}
+
 #pragma endregion
 
 	void Input::Update()
 	{
 		glfwGetCursorPos(Solar::App::window<GLFWwindow>, &Input::cursorX, &Input::cursorY);
-		glfwSetInputMode(Solar::App::window<GLFWwindow>, GLFW_CURSOR, Input::inputMode);
+		glfwSetInputMode(Solar::App::window<GLFWwindow>, GLFW_CURSOR, Input::cursorMode);
 
 #pragma region Buffer Handling
 		if (!Input::scrollBuffer)
@@ -174,7 +199,10 @@ namespace Solar
 		// Update all input axes
 		for (int i = Solar::Input::JOYSTICKS::JOYSTICK_1; i <= Solar::Input::JOYSTICKS::JOYSTICK_LAST; i++)
 		{
-			joystickAxes[i] = glfwGetJoystickAxes(i, &Input::joystickCount);
+			if (Input::IsJoystickPresent(i))
+			{
+				joystickAxes[i] = glfwGetJoystickAxes(i, &Input::joystickAxesCount);
+			}
 		}
 	}
 } // namespace Solar

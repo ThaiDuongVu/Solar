@@ -226,18 +226,45 @@ namespace Solar
 			LEFT_TRIGGER = 4,
 			RIGHT_TRIGGER = 5,
 		};
+		enum JOYSTICK_BUTTONS
+		{
+			BUTTON_A = 0,
+			BUTTON_B = 1,
+			BUTTON_X = 2,
+			BUTTON_Y = 3,
+			BUTTON_LEFT_BUMPER = 4,
+			BUTTON_RIGHT_BUMPER = 5,
+			BUTTON_MENU = 6,
+			BUTTON_ESCAPE = 7,
+			BUTTON_LEFT_STICK = 8,
+			BUTTON_RIGHT_STICK = 9,
+			BUTTON_DPAD_UP = 10,
+			BUTTON_DPAP_RIGHT = 11,
+			BUTTON_DPAD_DOWN = 12,
+			BUTTON_DPAD_LEFT = 13,
+		};
 
 		static bool IsJoystickPresent(int joystick);		  // Whether a joystick is connected
-		static float GetJoystickAxes(int joystick, int axes); // Get values of different joystick axes
+		static float GetJoystickAxes(int axes, int joystick = JOYSTICKS::JOYSTICK_1); // Get values of different joystick axes
+
+		static bool IsJoystickButtonDown(int button, int joystick = JOYSTICKS::JOYSTICK_1); // Returns true if a joystick button is being held down
+		static bool IsJoystickButtonUp(int button, int joystick = JOYSTICKS::JOYSTICK_1);	// Returns true if a joystick button is NOT being held down
+
+		static bool OnJoystickButtonDown(int button, int joystick = JOYSTICKS::JOYSTICK_1); // Returns true FOR THE FIRST FRAME a joystick button is held down
+		static bool OnJoystickButtonUp(int button, int joystick = JOYSTICKS::JOYSTICK_1);	// Returns true FOR THE FIRST FRAME a joystick button is released
+
+		static int buttonDownBuffer;
+		static int buttonUpBuffer;
 #pragma endregion
 
 	private:
 		static double cursorX;
 		static double cursorY;
 
-		static const float *joystickAxes[]; // 2D Array representing joystick axes
-		static int joystickCount;
+		static const float* joystickAxes[]; // 2D Array representing joystick axes
+		static int joystickAxesCount;
+		static int joystickButtonCount;
 
-		static int inputMode;
+		static int cursorMode;
 	};
 } // namespace Solar
