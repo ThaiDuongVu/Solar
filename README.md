@@ -23,7 +23,7 @@
 
 ### Getting Started:
 
-Clone Solar repository to your local system using `git clone https://github.com/ThaiDuongVu/Solar.git`
+Clone Solar repository to your local system using `git clone --recursive https://github.com/ThaiDuongVu/Solar.git`
 
 Open Solar solution with Visual Studio.
 

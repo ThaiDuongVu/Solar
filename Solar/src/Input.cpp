@@ -128,7 +128,7 @@ namespace Solar
 		return glfwJoystickPresent(joystick);
 	}
 
-	const float* Input::joystickAxes[] = { 0 };
+	const float *Input::joystickAxes[] = {0};
 	int Input::joystickAxesCount = 0;
 
 	float Input::GetJoystickAxes(int axes, int joystick)
@@ -138,7 +138,6 @@ namespace Solar
 			Solar::Debug::LogError("Joystick not present");
 			return 0;
 		}
-
 		return Input::joystickAxes[joystick][axes];
 	}
 
@@ -157,14 +156,16 @@ namespace Solar
 		return glfwGetJoystickButtons(joystick, &Input::joystickButtonCount)[button] == GLFW_RELEASE;
 	}
 
-	static bool OnJoystickButtonDown(int button, int joystick)
+	// Currently not working
+	// TODO: Investigate further
+	bool Input::OnJoystickButtonDown(int button, int joystick)
 	{
-		return true;
+		return false;
 	}
 
-	static bool OnJoystickButtonUp(int button, int joystick)
+	bool Input::OnJoystickButtonUp(int button, int joystick)
 	{
-		return true;
+		return false;
 	}
 
 #pragma endregion

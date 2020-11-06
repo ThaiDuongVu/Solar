@@ -10,13 +10,13 @@ void Solar::App::Init()
 	Solar::App::SetTitle("Lunar System");
 
 	// Hide mouse cursor
-	// Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::HIDDEN);
+	// Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::MODE_HIDDEN);
 
 	// Hide mouse cursor and lock its position
-	// Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::LOCKED);
+	// Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::MODE_LOCKED);
 
 	// Show mouse cursor and unlock its position
-	Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::NORMAL);
+	Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::MODE_NORMAL);
 }
 
 // Handle game events
@@ -26,14 +26,14 @@ void Solar::App::Update(double FrameTime)
 	// Solar::Debug::LogLine(Solar::Time::FrameRate(1));
 
 	// On key pressed
-	if (Solar::Input::OnKeyDown(Solar::Input::KEYS::ESCAPE))
+	if (Solar::Input::OnKeyDown(Solar::Input::KEYS::KEY_ESCAPE))
 	{
 		// Quit game
 		Solar::App::Quit();
 	}
 
 	// On key released
-	if (Solar::Input::OnKeyUp(Solar::Input::KEYS::ENTER))
+	if (Solar::Input::OnKeyDown(Solar::Input::KEYS::KEY_ENTER))
 	{
 		// Log error
 		Solar::Debug::LogError("Test Error");
@@ -42,7 +42,7 @@ void Solar::App::Update(double FrameTime)
 	}
 
 	// While key being pressed
-	if (Solar::Input::IsKeyDown(Solar::Input::KEYS::SPACE))
+	if (Solar::Input::IsKeyDown(Solar::Input::KEYS::KEY_SPACE))
 	{
 		// Log a line to console
 		Solar::Debug::LogLine("Space key is down");
@@ -86,7 +86,7 @@ void Solar::App::Update(double FrameTime)
 	}
 
 	// Trigger input
-	if (Solar::Input::GetJoystickAxes(Solar::Input::JOYSTICK_AXES::RIGHT_TRIGGER) > -1)
+	if (Solar::Input::GetJoystickAxes(Solar::Input::JOYSTICK_AXES::AXES_RIGHT_TRIGGER) > -1)
 	{
 		Solar::Debug::LogLine("Right trigger is down");
 	}
@@ -115,7 +115,7 @@ void Solar::App::Exit()
 int main()
 {
 	// Create a new app
-	Solar::App* app = new Solar::App();
+	Solar::App *app = new Solar::App();
 
 	// Run created app
 	app->Run();

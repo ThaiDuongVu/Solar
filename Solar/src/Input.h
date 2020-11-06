@@ -2,7 +2,7 @@
 
 #include "Core.h"
 #include "App.h"
-#include "Vector2.h"
+#include "types/Vector2.h"
 
 namespace Solar
 {
@@ -15,127 +15,127 @@ namespace Solar
 		// GLFW Keys input
 		enum KEYS
 		{
-			UNKNOWN = -1,
-			SPACE = 32,
-			APOSTROPHE = 39, // '
-			COMMA = 44,
-			MINUS = 45,
-			PERIOD = 46,
-			SLASH = 47, // /
-			ZERO = 48,
-			ONE = 49,
-			TWO = 50,
-			THREE = 51,
-			FOUR = 52,
-			FIVE = 53,
-			SIX = 54,
-			SEVEN = 55,
-			EIGHT = 56,
-			NINE = 57,
-			SEMICOLON = 59, // ;
-			EQUAL = 61,		// =
-			A = 65,
-			B = 66,
-			C = 67,
-			D = 68,
-			E = 69,
-			F = 70,
-			G = 71,
-			H = 72,
-			I = 73,
-			J = 74,
-			K = 75,
-			L = 76,
-			M = 77,
-			N = 78,
-			O = 79,
-			P = 80,
-			Q = 81,
-			R = 82,
-			S = 83,
-			T = 84,
-			U = 85,
-			V = 86,
-			W = 87,
-			X = 88,
-			Y = 89,
-			Z = 90,
-			LEFT_BRACKET = 91,	// [
-			BACKSLASH = 92,		/* \ */
-			RIGHT_BRACKET = 93, // ]
-			GRAVE_ACCENT = 96,	// `
-			WORLD_1 = 161,		// non-US #1
-			WORLD_2 = 162,		// non-US #2
-			ESCAPE = 256,
-			ENTER = 257,
-			TAB = 258,
-			BACKSPACE = 259,
-			INSERT = 260,
-			DEL = 261, // Delete
-			RIGHT = 262,
-			LEFT = 263,
-			DOWN = 264,
-			UP = 265,
-			PAGE_UP = 266,
-			PAGE_DOWN = 267,
-			HOME = 268,
-			END = 269,
-			CAPS_LOCK = 280,
-			SCROLL_LOCK = 281,
-			NUM_LOCK = 282,
-			PRTSCR = 283, // Print screen
-			PAUSE = 284,
-			F1 = 290,
-			F2 = 291,
-			F3 = 292,
-			F4 = 293,
-			F5 = 294,
-			F6 = 295,
-			F7 = 296,
-			F8 = 297,
-			F9 = 298,
-			F10 = 299,
-			F11 = 300,
-			F12 = 301,
-			F13 = 302,
-			F14 = 303,
-			F15 = 304,
-			F16 = 305,
-			F17 = 306,
-			F18 = 307,
-			F19 = 308,
-			F20 = 309,
-			F21 = 310,
-			F22 = 311,
-			F23 = 312,
-			F24 = 313,
-			F25 = 314,
-			KEYPAD_ZERO = 320,
-			KEYPAD_ONE = 321,
-			KEYPAD_TWO = 322,
-			KEYPAD_THREE = 323,
-			KEYPAD_FOUR = 324,
-			KEYPAD_FIVE = 325,
-			KEYPAD_SIX = 326,
-			KEYPAD_SEVEN = 327,
-			KEYPAD_EIGHT = 328,
-			KEYPAD_NINE = 329,
-			KEYPAD_DECIMAL = 330,
-			KEYPAD_DIVIDE = 331,
-			KEYPAD_MULTIPLY = 332,
-			KEYPAD_SUBTRACT = 333,
-			KEYPAD_ADD = 334,
-			KEYPAD_ENTER = 335,
-			KEYPAD_EQUAL = 336,
-			LEFT_SHIFT = 340,
-			LEFT_CONTROL = 341,
-			LEFT_ALT = 342,
-			LEFT_SUPER = 343,
-			RIGHT_SHIFT = 344,
-			RIGHT_COTROL = 345,
-			RIGHT_ALT = 346,
-			MENU = 348,
-			LAST = 348
+			KEY_UNKNOWN = -1,
+			KEY_SPACE = 32,
+			KEY_APOSTROPHE = 39, // '
+			KEY_COMMA = 44,
+			KEY_MINUS = 45,
+			KEY_PERIOD = 46,
+			KEY_SLASH = 47, // /
+			KEY_ZERO = 48,
+			KEY_ONE = 49,
+			KEY_TWO = 50,
+			KEY_THREE = 51,
+			KEY_FOUR = 52,
+			KEY_FIVE = 53,
+			KEY_SIX = 54,
+			KEY_SEVEN = 55,
+			KEY_EIGHT = 56,
+			KEY_NINE = 57,
+			KEY_SEMICOLON = 59, // ;
+			KEY_EQUAL = 61,		// =
+			KEY_A = 65,
+			KEY_B = 66,
+			KEY_C = 67,
+			KEY_D = 68,
+			KEY_E = 69,
+			KEY_F = 70,
+			KEY_G = 71,
+			KEY_H = 72,
+			KEY_I = 73,
+			KEY_J = 74,
+			KEY_K = 75,
+			KEY_L = 76,
+			KEY_M = 77,
+			KEY_N = 78,
+			KEY_O = 79,
+			KEY_P = 80,
+			KEY_Q = 81,
+			KEY_R = 82,
+			KEY_S = 83,
+			KEY_T = 84,
+			KEY_U = 85,
+			KEY_V = 86,
+			KEY_W = 87,
+			KEY_X = 88,
+			KEY_Y = 89,
+			KEY_Z = 90,
+			KEY_LEFT_BRACKET = 91,	// [
+			KEY_BACKSLASH = 92,		/* \ */
+			KEY_RIGHT_BRACKET = 93, // ]
+			KEY_GRAVE_ACCENT = 96,	// `
+			KEY_WORLD_1 = 161,		// non-US #1
+			KEY_WORLD_2 = 162,		// non-US #2
+			KEY_ESCAPE = 256,
+			KEY_ENTER = 257,
+			KEY_TAB = 258,
+			KEY_BACKSPACE = 259,
+			KEY_INSERT = 260,
+			KEY_DEL = 261, // Delete
+			KEY_MOUSE_RIGHT = 262,
+			KEY_MOUSE_LEFT = 263,
+			KEY_DOWN = 264,
+			KEY_UP = 265,
+			KEY_PAGE_UP = 266,
+			KEY_PAGE_DOWN = 267,
+			KEY_HOME = 268,
+			KEY_END = 269,
+			KEY_CAPS_LOCK = 280,
+			KEY_SCROLL_LOCK = 281,
+			KEY_NUM_LOCK = 282,
+			KEY_PRTSCR = 283, // Print screen
+			KEY_PAUSE = 284,
+			KEY_F1 = 290,
+			KEY_F2 = 291,
+			KEY_F3 = 292,
+			KEY_F4 = 293,
+			KEY_F5 = 294,
+			KEY_F6 = 295,
+			KEY_F7 = 296,
+			KEY_F8 = 297,
+			KEY_F9 = 298,
+			KEY_F10 = 299,
+			KEY_F11 = 300,
+			KEY_F12 = 301,
+			KEY_F13 = 302,
+			KEY_F14 = 303,
+			KEY_F15 = 304,
+			KEY_F16 = 305,
+			KEY_F17 = 306,
+			KEY_F18 = 307,
+			KEY_F19 = 308,
+			KEY_F20 = 309,
+			KEY_F21 = 310,
+			KEY_F22 = 311,
+			KEY_F23 = 312,
+			KEY_F24 = 313,
+			KEY_F25 = 314,
+			KEY_KEYPAD_ZERO = 320,
+			KEY_KEYPAD_ONE = 321,
+			KEY_KEYPAD_TWO = 322,
+			KEY_KEYPAD_THREE = 323,
+			KEY_KEYPAD_FOUR = 324,
+			KEY_KEYPAD_FIVE = 325,
+			KEY_KEYPAD_SIX = 326,
+			KEY_KEYPAD_SEVEN = 327,
+			KEY_KEYPAD_EIGHT = 328,
+			KEY_KEYPAD_NINE = 329,
+			KEY_KEYPAD_DECIMAL = 330,
+			KEY_KEYPAD_DIVIDE = 331,
+			KEY_KEYPAD_MULTIPLY = 332,
+			KEY_KEYPAD_SUBTRACT = 333,
+			KEY_KEYPAD_ADD = 334,
+			KEY_KEYPAD_ENTER = 335,
+			KEY_KEYPAD_EQUAL = 336,
+			KEY_LEFT_SHIFT = 340,
+			KEY_LEFT_CONTROL = 341,
+			KEY_LEFT_ALT = 342,
+			KEY_LEFT_SUPER = 343,
+			KEY_RIGHT_SHIFT = 344,
+			KEY_RIGHT_COTROL = 345,
+			KEY_RIGHT_ALT = 346,
+			KEY_MENU = 348,
+			KEY_LAST = 348
 		};
 
 		static bool IsKeyDown(int key); // Returns true if a key is being held down
@@ -152,9 +152,9 @@ namespace Solar
 		// GLFW Input modes
 		enum CURSOR_MODES
 		{
-			LOCKED = 212995,
-			HIDDEN = 212994,
-			NORMAL = 212993
+			MODE_LOCKED = 212995,
+			MODE_HIDDEN = 212994,
+			MODE_NORMAL = 212993
 		};
 
 		static Vector2 CursorPosition();	 // X and Y position of cursor
@@ -219,12 +219,12 @@ namespace Solar
 		};
 		enum JOYSTICK_AXES
 		{
-			LEFT_STICK_X = 0,
-			LEFT_STICK_Y = 1,
-			RIGHT_STICK_X = 2,
-			RIGHT_STICK_Y = 3,
-			LEFT_TRIGGER = 4,
-			RIGHT_TRIGGER = 5,
+			AXES_LEFT_STICK_X = 0,
+			AXES_LEFT_STICK_Y = 1,
+			AXES_RIGHT_STICK_X = 2,
+			AXES_RIGHT_STICK_Y = 3,
+			AXES_LEFT_TRIGGER = 4,
+			AXES_RIGHT_TRIGGER = 5,
 		};
 		enum JOYSTICK_BUTTONS
 		{
@@ -234,8 +234,8 @@ namespace Solar
 			BUTTON_Y = 3,
 			BUTTON_LEFT_BUMPER = 4,
 			BUTTON_RIGHT_BUMPER = 5,
-			BUTTON_MENU = 6,
-			BUTTON_ESCAPE = 7,
+			BUTTON_BACK = 6,
+			BUTTON_START = 7,
 			BUTTON_LEFT_STICK = 8,
 			BUTTON_RIGHT_STICK = 9,
 			BUTTON_DPAD_UP = 10,
@@ -244,7 +244,7 @@ namespace Solar
 			BUTTON_DPAD_LEFT = 13,
 		};
 
-		static bool IsJoystickPresent(int joystick);		  // Whether a joystick is connected
+		static bool IsJoystickPresent(int joystick);								  // Whether a joystick is connected
 		static float GetJoystickAxes(int axes, int joystick = JOYSTICKS::JOYSTICK_1); // Get values of different joystick axes
 
 		static bool IsJoystickButtonDown(int button, int joystick = JOYSTICKS::JOYSTICK_1); // Returns true if a joystick button is being held down
@@ -261,7 +261,7 @@ namespace Solar
 		static double cursorX;
 		static double cursorY;
 
-		static const float* joystickAxes[]; // 2D Array representing joystick axes
+		static const float *joystickAxes[]; // 2D Array representing joystick axes
 		static int joystickAxesCount;
 		static int joystickButtonCount;
 
