@@ -163,8 +163,8 @@ namespace Solar
 		static bool cursorEnter;
 		static bool cursorExit;
 
-		static bool OnCursorEnter();
-		static bool OnCursorExit();
+		static bool OnCursorEnter(); // On cursor enter window
+		static bool OnCursorExit(); // On cursor exit window
 
 		static bool cursorEnterExitBuffer;
 #pragma endregion
@@ -261,7 +261,7 @@ namespace Solar
 		static double cursorX;
 		static double cursorY;
 
-		static const float *joystickAxes[]; // 2D Array representing joystick axes
+		static const float* joystickAxes[]; // 2D Array representing joystick axes
 		static int joystickAxesCount;
 		static int joystickButtonCount;
 

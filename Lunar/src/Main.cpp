@@ -115,7 +115,7 @@ void Solar::App::Exit()
 int main()
 {
 	// Create a new app
-	Solar::App *app = new Solar::App();
+	Solar::App* app = new Solar::App();
 
 	// Run created app
 	app->Run();
