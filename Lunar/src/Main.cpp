@@ -1,124 +1,137 @@
 #include <Solar.h>
+using namespace Solar;
 
-Solar::Color32 backgroundColor = Solar::Color32(34, 40, 49, 255);
+Color32 backgroundColor = Color32(34, 40, 49, 255);
 
-// Initialize game elements
-void Solar::App::Init()
+// Function to demonstrate all input methods
+void InputDemo(App* app)
 {
-	// Set window size to be 852 by 480
-	Solar::App::SetWindowSize(852, 480);
-
-	// Set window title to be "Lunar System"
-	Solar::App::SetTitle("Lunar System");
-
-	// Hide mouse cursor
-	// Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::MODE_HIDDEN);
-
-	// Hide mouse cursor and lock its position
-	// Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::MODE_LOCKED);
-
-	// Show mouse cursor and unlock its position
-	Solar::Input::SetCursorMode(Solar::Input::CURSOR_MODES::MODE_NORMAL);
-}
-
-// Handle game events
-void Solar::App::Update(double FrameTime)
-{
-	// Frames per 1 second
-	// Solar::Debug::LogLine(Solar::Time::FrameRate(1));
-
 	// On key pressed
-	if (Solar::Input::OnKeyDown(Solar::Input::KEYS::KEY_ESCAPE))
+	if (Input::OnKeyDown(Input::KEYS::KEY_ESCAPE))
 	{
 		// Quit game
-		Solar::App::Quit();
+		app->Quit();
 	}
 
 	// On key released
-	if (Solar::Input::OnKeyDown(Solar::Input::KEYS::KEY_ENTER))
+	if (Input::OnKeyDown(Input::KEYS::KEY_ENTER))
 	{
 		// Log error
-		Solar::Debug::LogError("Test Error");
+		Debug::LogError("Test Error");
 		// Log warning
-		Solar::Debug::LogWarning("Test warning");
+		Debug::LogWarning("Test warning");
 	}
 
 	// While key being pressed
-	if (Solar::Input::IsKeyDown(Solar::Input::KEYS::KEY_SPACE))
+	if (Input::IsKeyDown(Input::KEYS::KEY_SPACE))
 	{
 		// Log a line to console
-		Solar::Debug::LogLine("Space key is down");
+		Debug::LogLine("Space key is down");
 	}
 
 	// While left mouse is down
-	if (Solar::Input::IsMouseDown(Solar::Input::MOUSE_BUTTONS::MOUSE_LEFT))
+	if (Input::IsMouseDown(Input::MOUSE_BUTTONS::MOUSE_LEFT))
 	{
-		Solar::Debug::LogLine("Left mouse button is down");
+		Debug::LogLine("Left mouse button is down");
 	}
 
 	// On right mouse up
-	if (Solar::Input::OnMouseUp(Solar::Input::MOUSE_BUTTONS::MOUSE_RIGHT))
+	if (Input::OnMouseUp(Input::MOUSE_BUTTONS::MOUSE_RIGHT))
 	{
-		Solar::Debug::LogLine("Right mouse button released");
+		Debug::LogLine("Right mouse button released");
 	}
 
 	// Scrolling speed x and y
-	if (Solar::Input::ScrollDeltaY() > 0)
+	if (Input::ScrollDeltaY() > 0)
 	{
-		Solar::Debug::LogLine("Mouse scrolling up");
+		Debug::LogLine("Mouse scrolling up");
 	}
-	else if (Solar::Input::ScrollDeltaY() < 0)
+	else if (Input::ScrollDeltaY() < 0)
 	{
-		Solar::Debug::LogLine("Mouse scrolling down");
+		Debug::LogLine("Mouse scrolling down");
 	}
 
 	// On mouse enter and exit window
-	if (Solar::Input::OnCursorEnter())
+	if (Input::OnCursorEnter())
 	{
-		Solar::Debug::LogLine("Mouse enter");
+		Debug::LogLine("Mouse enter");
 	}
-	if (Solar::Input::OnCursorExit())
+	if (Input::OnCursorExit())
 	{
-		Solar::Debug::LogLine("Mouse exit");
+		Debug::LogLine("Mouse exit");
 	}
 
-	if (Solar::Input::IsJoystickButtonDown(Solar::Input::JOYSTICK_BUTTONS::BUTTON_A))
+	// While A button is being pressed
+	if (Input::IsJoystickButtonDown(Input::JOYSTICK_BUTTONS::BUTTON_A))
 	{
-		Solar::Debug::LogLine("A button is down");
+		Debug::LogLine("A button is down");
 	}
 
 	// Trigger input
-	// if (Solar::Input::GetJoystickAxes(Solar::Input::JOYSTICK_AXES::AXES_RIGHT_TRIGGER) > -1)
+	// if (Input::GetJoystickAxes(Input::JOYSTICK_AXES::AXES_RIGHT_TRIGGER) > -1)
 	// {
-	// 	Solar::Debug::LogLine("Right trigger is down");
+	// 	Debug::LogLine("Right trigger is down");
 	// }
 
 	// If a joystick is connected
-	// if (Solar::Input::IsJoystickPresent(Solar::Input::JOYSTICKS::JOYSTICK_1))
+	// if (Input::IsJoystickPresent(Input::JOYSTICKS::JOYSTICK_1))
 	// {
-	// 	Solar::Debug::LogLine("Joystick 1 present");
+	// 	Debug::LogLine("Joystick 1 present");
 	// }
 
 	// Mouse position X and Y
-	// Solar::Debug::LogLine(Solar::Input::CursorPosition().x);
-	// Solar::Debug::LogLine(Solar::Input::CursorPosition().y);
+	// Debug::LogLine(Input::CursorPosition().x);
+	// Debug::LogLine(Input::CursorPosition().y);
+}
+
+// Function to demostrate all cursor modes
+void CursorModeDemo()
+{
+	// Hide mouse cursor
+	// Input::SetCursorMode(Input::CURSOR_MODES::MODE_HIDDEN);
+
+	// Hide mouse cursor and lock its position
+	// Input::SetCursorMode(Input::CURSOR_MODES::MODE_LOCKED);
+
+	// Show mouse cursor and unlock its position
+	Input::SetCursorMode(Input::CURSOR_MODES::MODE_NORMAL);
+}
+
+// Initialize game elements
+void App::Init()
+{
+	// Set window size to be 852 by 480
+	App::SetWindowSize(852, 480);
+
+	// Set window title to be "Lunar System"
+	App::SetTitle("Lunar System");
+}
+
+// Handle game events
+void App::Update(double FrameTime)
+{
+	// Frames per 1 second
+	// Debug::LogLine(Time::FrameRate(1));
+
+	// InputDemo(this);
 }
 
 // Render game frames
-void Solar::App::Render()
+void App::Render()
 {
-	Solar::App::ClearBackground(backgroundColor.ToColor());
+	App::ClearBackground(backgroundColor.Normalize());
 }
 
 // Collect garbage on exit
-void Solar::App::Exit()
+void App::Exit()
 {
+
 }
 
 int main()
 {
 	// Create a new app
-	Solar::App* app = new Solar::App();
+	App* app = new App();
 
 	// Run created app
 	app->Run();

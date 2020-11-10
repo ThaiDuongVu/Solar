@@ -25,7 +25,7 @@ namespace Solar
 		}
 	}
 
-	Color Color32::ToColor()
+	Color Color32::Normalize()
 	{
 		Clamp(this->r);
 		Clamp(this->g);
