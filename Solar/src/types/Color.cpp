@@ -1,4 +1,5 @@
 #include "Color.h"
+#include "../Mathf.h"
 
 namespace Solar
 {
@@ -13,24 +14,12 @@ namespace Solar
 	{
 	}
 
-	void Color::Clamp(float& value)
-	{
-		if (value > 1.0f)
-		{
-			value = 1.0f;
-		}
-		else if (value < 0.0f)
-		{
-			value = 0.0f;
-		}
-	}
-
 	Color Color::Normalize()
 	{
-		Clamp(this->r);
-		Clamp(this->g);
-		Clamp(this->b);
-		Clamp(this->a);
+		Mathf::Clamp(this->r, 0.0f, 1.0f);
+		Mathf::Clamp(this->g, 0.0f, 1.0f);
+		Mathf::Clamp(this->b, 0.0f, 1.0f);
+		Mathf::Clamp(this->a, 0.0f, 1.0f);
 
 		return Color(r, g, b, a);
 	}

@@ -119,6 +119,7 @@ void App::Update(double FrameTime)
 // Render game frames
 void App::Render()
 {
+	// Clear background color
 	App::ClearBackground(backgroundColor.Normalize());
 }
 

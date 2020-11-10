@@ -35,11 +35,11 @@ namespace Solar
 		static T *window;
 
 	private:
-		// Screen dimension
+		// Default screen dimension
 		int windowWidth = DEFAULT_WINDOW_WIDTH;
 		int windowHeight = DEFAULT_WINDOW_HEIGHT;
 
-		// Game window title
+		// Default game window title
 		const char *title = "Solar System";
 	};
 } // namespace Solar

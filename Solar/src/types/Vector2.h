@@ -14,7 +14,8 @@ namespace Solar
 		double x = 0.0f;
 		double y = 0.0f;
 
-		float Length();
+		double Length(); // Length of the vector
+		Vector2 Normalized(); // Vector normalized so that its length is 1
 
 	private:
 		void Update();

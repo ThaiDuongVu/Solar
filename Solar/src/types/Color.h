@@ -17,9 +17,6 @@ namespace Solar
 		float a = 1.0f;
 
 		Color Normalize();
-
-	private:
-		void Clamp(float& value); // Limit the color range to 0-255
 	};
 };
 

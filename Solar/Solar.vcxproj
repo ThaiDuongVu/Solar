@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Mathf.h" />
+    <ClInclude Include="src\types\Quaternion.h" />
     <ClInclude Include="src\types\Color32.h" />
     <ClInclude Include="src\types\Color.h" />
     <ClInclude Include="dependencies\include\freetype\freetype\config\ftconfig.h" />
@@ -405,6 +407,8 @@
     <ClInclude Include="src\components\Text.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Mathf.cpp" />
+    <ClCompile Include="src\types\Quaternion.cpp" />
     <ClCompile Include="src\types\Color32.cpp" />
     <ClCompile Include="src\types\Color.cpp" />
     <ClCompile Include="dependencies\include\glad\glad.c" />

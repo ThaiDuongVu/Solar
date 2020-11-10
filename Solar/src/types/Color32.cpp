@@ -1,4 +1,5 @@
 #include "Color32.h"
+#include "../Mathf.h"
 
 namespace Solar
 {
@@ -13,24 +14,12 @@ namespace Solar
 	{
 	}
 
-	void Color32::Clamp(int& value)
-	{
-		if (value > 255)
-		{
-			value = 255;
-		}
-		else if (value < 0)
-		{
-			value = 0;
-		}
-	}
-
 	Color Color32::Normalize()
 	{
-		Clamp(this->r);
-		Clamp(this->g);
-		Clamp(this->b);
-		Clamp(this->a);
+		Mathf::Clamp(this->r, 0, 255);
+		Mathf::Clamp(this->g, 0, 255);
+		Mathf::Clamp(this->b, 0, 255);
+		Mathf::Clamp(this->a, 0, 255);
 
 		float r = this->r / 255.0f;
 		float g = this->g / 255.0f;

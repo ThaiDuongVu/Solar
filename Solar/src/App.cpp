@@ -28,15 +28,15 @@ namespace Solar
 		App::title = title;
 	}
 
+	void App::Quit()
+	{
+		glfwSetWindowShouldClose(App::window<GLFWwindow>, true);
+	}
+
 	void App::ClearBackground(Color color)
 	{
 		glClearColor(color.r, color.g, color.b, color.a);
 		glClear(GL_COLOR_BUFFER_BIT);
-	}
-
-	void App::Quit()
-	{
-		glfwSetWindowShouldClose(App::window<GLFWwindow>, true);
 	}
 
 	// On window resize
@@ -132,6 +132,7 @@ namespace Solar
 		// GLAD viewport
 		glViewport(0, 0, App::windowWidth, App::windowHeight);
 
+		// Buffer size callback
 		glfwSetFramebufferSizeCallback(App::window<GLFWwindow>, FrameBufferSizeCallback);
 
 		// Set input callbacks

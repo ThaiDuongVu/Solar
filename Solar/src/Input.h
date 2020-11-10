@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Core.h"
-#include "App.h"
 #include "types/Vector2.h"
 
 namespace Solar
@@ -261,7 +260,7 @@ namespace Solar
 		static double cursorX;
 		static double cursorY;
 
-		static const float *joystickAxes[]; // 2D Array representing joystick axes
+		static const float* joystickAxes[]; // 2D Array representing joystick axes
 		static int joystickAxesCount;
 		static int joystickButtonCount;
 

@@ -1,5 +1,6 @@
 #include "Input.h"
 #include "Debug.h"
+#include "App.h"
 #include <glad.h>
 #include <glfw3.h>
 
@@ -128,7 +129,7 @@ namespace Solar
 		return glfwJoystickPresent(joystick);
 	}
 
-	const float *Input::joystickAxes[] = {0};
+	const float* Input::joystickAxes[] = { 0 };
 	int Input::joystickAxesCount = 0;
 
 	float Input::GetJoystickAxes(int axes, int joystick)

@@ -1191,6 +1191,12 @@
     <ClInclude Include="src\types\Color32.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\types\Quaternion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mathf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp">
@@ -1221,6 +1227,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\types\Color32.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\types\Quaternion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mathf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

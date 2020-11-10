@@ -18,9 +18,6 @@ namespace Solar
 		int a = 255;
 
 		Color Normalize(); // Convert 32-bit type to Color type
-
-	private:
-		void Clamp(int& value); // Limit the color range to 0-255
 	};
 };
 
