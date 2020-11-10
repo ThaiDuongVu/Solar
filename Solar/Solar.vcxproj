@@ -11,6 +11,102 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dependencies\include\freetype\freetype\config\ftconfig.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\config\ftheader.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\config\ftmodule.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\config\ftoption.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\config\ftstdlib.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\config\integer-types.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\config\mac-support.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\config\public-macros.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\freetype.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftadvanc.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftbbox.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftbdf.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftbitmap.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftbzip2.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftcache.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftchapters.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftcid.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftcolor.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftdriver.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\fterrdef.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\fterrors.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftfntfmt.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftgasp.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftglyph.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftgxval.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftgzip.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftimage.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftincrem.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftlcdfil.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftlist.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftlzw.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftmac.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftmm.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftmodapi.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftmoderr.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftotval.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftoutln.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftparams.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftpfr.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftrender.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftsizes.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftsnames.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftstroke.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftsynth.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftsystem.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\fttrigon.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\fttypes.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ftwinfnt.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\autohint.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\cffotypes.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\cfftypes.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\compiler-macros.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\ftcalc.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\ftdebug.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\ftdrv.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\ftgloadr.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\fthash.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\ftmemory.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\ftobjs.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\ftpsprop.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\ftrfork.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\ftserv.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\ftstream.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\fttrace.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\ftvalid.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\psaux.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\pshints.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svbdf.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svcfftl.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svcid.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svfntfmt.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svgldict.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svgxval.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svkern.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svmetric.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svmm.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svotval.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svpfr.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svpostnm.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svprop.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svpscmap.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svpsinfo.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svsfnt.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svttcmap.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svtteng.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svttglyf.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\services\svwinfnt.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\sfnt.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\t1types.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\tttypes.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\internal\wofftypes.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\t1tables.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\ttnameid.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\tttables.h" />
+    <ClInclude Include="dependencies\include\freetype\freetype\tttags.h" />
+    <ClInclude Include="dependencies\include\freetype\ft2build.h" />
     <ClInclude Include="dependencies\include\glad\glad.h" />
     <ClInclude Include="dependencies\include\glad\khrplatform.h" />
     <ClInclude Include="dependencies\include\glfw\glfw3.h" />
@@ -304,6 +400,7 @@
     <ClInclude Include="src\Solar.h" />
     <ClInclude Include="src\Time.h" />
     <ClInclude Include="src\types\Vector2.h" />
+    <ClInclude Include="src\components\Text.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dependencies\include\glad\glad.c" />
@@ -313,6 +410,7 @@
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\Time.cpp" />
     <ClCompile Include="src\types\Vector2.cpp" />
+    <ClCompile Include="src\components\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\include\glm\detail\func_common.inl" />
@@ -502,7 +600,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\dependencies\include\glfw;$(SolutionDir)$(ProjectName)\dependencies\include\glm;$(SolutionDir)$(ProjectName)\dependencies\include\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\dependencies\include\freetype;$(SolutionDir)$(ProjectName)\dependencies\include\glfw;$(SolutionDir)$(ProjectName)\dependencies\include\glm;$(SolutionDir)$(ProjectName)\dependencies\include\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -524,7 +622,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\dependencies\include\glfw;$(SolutionDir)$(ProjectName)\dependencies\include\glm;$(SolutionDir)$(ProjectName)\dependencies\include\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\dependencies\include\freetype;$(SolutionDir)$(ProjectName)\dependencies\include\glfw;$(SolutionDir)$(ProjectName)\dependencies\include\glm;$(SolutionDir)$(ProjectName)\dependencies\include\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

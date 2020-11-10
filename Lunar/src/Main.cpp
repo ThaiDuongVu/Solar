@@ -86,10 +86,10 @@ void Solar::App::Update(double FrameTime)
 	}
 
 	// Trigger input
-	if (Solar::Input::GetJoystickAxes(Solar::Input::JOYSTICK_AXES::AXES_RIGHT_TRIGGER) > -1)
-	{
-		Solar::Debug::LogLine("Right trigger is down");
-	}
+	// if (Solar::Input::GetJoystickAxes(Solar::Input::JOYSTICK_AXES::AXES_RIGHT_TRIGGER) > -1)
+	// {
+	// 	Solar::Debug::LogLine("Right trigger is down");
+	// }
 
 	// If a joystick is connected
 	// if (Solar::Input::IsJoystickPresent(Solar::Input::JOYSTICKS::JOYSTICK_1))
@@ -98,8 +98,8 @@ void Solar::App::Update(double FrameTime)
 	// }
 
 	// Mouse position X and Y
-	// Solar::Debug::LogLine(Solar::Input::CursorPosition().X);
-	// Solar::Debug::LogLine(Solar::Input::CursorPosition().Y);
+	// Solar::Debug::LogLine(Solar::Input::CursorPosition().x);
+	// Solar::Debug::LogLine(Solar::Input::CursorPosition().y);
 }
 
 // Render game frames

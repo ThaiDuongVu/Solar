@@ -128,12 +128,13 @@ namespace Solar
 		return glfwJoystickPresent(joystick);
 	}
 
-	const float* Input::joystickAxes[] = { 0 };
+	const float *Input::joystickAxes[] = {0};
 	int Input::joystickAxesCount = 0;
 
 	float Input::GetJoystickAxes(int axes, int joystick)
 	{
-		if (!Input::IsJoystickPresent(joystick)) return 0;
+		if (!Input::IsJoystickPresent(joystick))
+			return 0;
 
 		return Input::joystickAxes[joystick][axes];
 	}
@@ -145,14 +146,16 @@ namespace Solar
 
 	bool Input::IsJoystickButtonDown(int button, int joystick)
 	{
-		if (!Input::IsJoystickPresent(joystick)) return false;
+		if (!Input::IsJoystickPresent(joystick))
+			return false;
 
 		return glfwGetJoystickButtons(joystick, &Input::joystickButtonCount)[button] == GLFW_PRESS;
 	}
 
 	bool Input::IsJoystickButtonUp(int button, int joystick)
 	{
-		if (!Input::IsJoystickPresent(joystick)) return false;
+		if (!Input::IsJoystickPresent(joystick))
+			return false;
 
 		return glfwGetJoystickButtons(joystick, &Input::joystickButtonCount)[button] == GLFW_RELEASE;
 	}
@@ -161,14 +164,16 @@ namespace Solar
 	// TODO: Investigate further
 	bool Input::OnJoystickButtonDown(int button, int joystick)
 	{
-		if (!Input::IsJoystickPresent(joystick)) return false;
+		if (!Input::IsJoystickPresent(joystick))
+			return false;
 
 		return false;
 	}
 
 	bool Input::OnJoystickButtonUp(int button, int joystick)
 	{
-		if (!Input::IsJoystickPresent(joystick)) return false;
+		if (!Input::IsJoystickPresent(joystick))
+			return false;
 
 		return false;
 	}
