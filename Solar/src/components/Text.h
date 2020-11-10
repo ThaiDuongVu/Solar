@@ -1,8 +1,10 @@
 #pragma once
 
+#include "../Core.h"
+
 namespace Solar
 {
-	class Text
+	class SOLAR_API Text
 	{
 	};
 };

@@ -1,5 +1,7 @@
 #include <Solar.h>
 
+Solar::Color32 backgroundColor = Solar::Color32(34, 40, 49, 255);
+
 // Initialize game elements
 void Solar::App::Init()
 {
@@ -105,6 +107,7 @@ void Solar::App::Update(double FrameTime)
 // Render game frames
 void Solar::App::Render()
 {
+	Solar::App::ClearBackground(backgroundColor.ToColor());
 }
 
 // Collect garbage on exit

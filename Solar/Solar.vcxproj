@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\types\Color32.h" />
+    <ClInclude Include="src\types\Color.h" />
     <ClInclude Include="dependencies\include\freetype\freetype\config\ftconfig.h" />
     <ClInclude Include="dependencies\include\freetype\freetype\config\ftheader.h" />
     <ClInclude Include="dependencies\include\freetype\freetype\config\ftmodule.h" />
@@ -403,6 +405,8 @@
     <ClInclude Include="src\components\Text.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\types\Color32.cpp" />
+    <ClCompile Include="src\types\Color.cpp" />
     <ClCompile Include="dependencies\include\glad\glad.c" />
     <ClCompile Include="dependencies\include\glm\detail\glm.cpp" />
     <ClCompile Include="src\Input.cpp" />

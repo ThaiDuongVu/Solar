@@ -8,11 +8,11 @@ namespace Solar
 	{
 	public:
 		// Constructor & destructor
-		Vector2(double x = 0.0, double y = 0.0);
+		Vector2(double x = 0.0f, double y = 0.0f);
 		~Vector2();
 
-		double x = 0.0;
-		double y = 0.0;
+		double x = 0.0f;
+		double y = 0.0f;
 
 		float Length();
 

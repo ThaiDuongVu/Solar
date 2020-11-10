@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+#include "types/Color.h"
 
 namespace Solar
 {
@@ -18,6 +19,9 @@ namespace Solar
 
 		// Set window title
 		void SetTitle(const char *title = DEFAULT_TITLE);
+
+		// Clear background
+		void ClearBackground(Color color = Color());
 
 		// Run the app
 		void Run();

@@ -15,7 +15,7 @@ namespace Solar
 
 	// OpenGL window
 	template <typename T>
-	T *App::window;
+	T* App::window;
 
 	void App::SetWindowSize(int width, int height)
 	{
@@ -23,9 +23,15 @@ namespace Solar
 		App::windowHeight = height;
 	}
 
-	void App::SetTitle(const char *title)
+	void App::SetTitle(const char* title)
 	{
 		App::title = title;
+	}
+
+	void App::ClearBackground(Color color)
+	{
+		glClearColor(color.r, color.g, color.b, color.a);
+		glClear(GL_COLOR_BUFFER_BIT);
 	}
 
 	void App::Quit()
@@ -34,14 +40,14 @@ namespace Solar
 	}
 
 	// On window resize
-	void FrameBufferSizeCallback(GLFWwindow *window, int width, int height)
+	void FrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 	{
 		glViewport(0, 0, width, height);
 	}
 
 #pragma region Input Callbacks
 	// Keyboard callback
-	void KeyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
+	void KeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 		// Set key buffers
 		if (action == GLFW_PRESS)
@@ -55,7 +61,7 @@ namespace Solar
 	}
 
 	// On cursor enter or exit callback
-	void CursorEnterCallback(GLFWwindow *window, int entered)
+	void CursorEnterCallback(GLFWwindow* window, int entered)
 	{
 		if (entered)
 		{
@@ -69,7 +75,7 @@ namespace Solar
 	}
 
 	// Mouse button callback
-	void MouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
+	void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 	{
 		// Set mouse buffers
 		if (action == GLFW_PRESS)
@@ -83,7 +89,7 @@ namespace Solar
 	}
 
 	// Mouse scroll callback
-	void ScrollCallback(GLFWwindow *window, double xoffset, double yoffset)
+	void ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
 	{
 		Input::scrollDeltaX = xoffset;
 		Input::scrollDeltaY = yoffset;

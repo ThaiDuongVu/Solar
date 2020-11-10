@@ -1185,6 +1185,12 @@
     <ClInclude Include="src\components\Text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\types\Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\types\Color32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp">
@@ -1209,6 +1215,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\components\Text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\types\Color.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\types\Color32.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

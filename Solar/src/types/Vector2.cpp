@@ -3,7 +3,7 @@
 
 namespace Solar
 {
-	glm::vec2 vector2 = glm::vec2(0.0, 0.0);
+	glm::vec2 vector2 = glm::vec2(0.0f, 0.0f);
 
 	void Vector2::Update()
 	{
@@ -13,8 +13,8 @@ namespace Solar
 
 	Vector2::~Vector2()
 	{
-		vector2.x = 0.0;
-		vector2.y = 0.0;
+		vector2.x = 0.0f;
+		vector2.y = 0.0f;
 
 		this->Update();
 	}
