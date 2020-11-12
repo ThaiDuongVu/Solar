@@ -46,7 +46,7 @@ FT_BEGIN_HEADER
    * @section:
    *   sizes_management
    *
-   * @title:
+   * @title_:
    *   Size Management
    *
    * @abstract:

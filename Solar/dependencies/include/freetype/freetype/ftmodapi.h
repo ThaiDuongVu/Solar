@@ -37,7 +37,7 @@ FT_BEGIN_HEADER
    * @section:
    *   module_management
    *
-   * @title:
+   * @title_:
    *   Module Management
    *
    * @abstract:
@@ -702,7 +702,7 @@ FT_BEGIN_HEADER
    * @section:
    *   truetype_engine
    *
-   * @title:
+   * @title_:
    *   The TrueType Engine
    *
    * @abstract:

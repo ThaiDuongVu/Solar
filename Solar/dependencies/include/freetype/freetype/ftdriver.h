@@ -37,7 +37,7 @@ FT_BEGIN_HEADER
    * @section:
    *   auto_hinter
    *
-   * @title:
+   * @title_:
    *   The auto-hinter
    *
    * @abstract:
@@ -66,7 +66,7 @@ FT_BEGIN_HEADER
    * @section:
    *   cff_driver
    *
-   * @title:
+   * @title_:
    *   The CFF driver
    *
    * @abstract:
@@ -149,7 +149,7 @@ FT_BEGIN_HEADER
    * @section:
    *   pcf_driver
    *
-   * @title:
+   * @title_:
    *   The PCF driver
    *
    * @abstract:
@@ -172,7 +172,7 @@ FT_BEGIN_HEADER
    * @section:
    *   t1_cid_driver
    *
-   * @title:
+   * @title_:
    *   The Type 1 and CID drivers
    *
    * @abstract:
@@ -203,7 +203,7 @@ FT_BEGIN_HEADER
    * @section:
    *   tt_driver
    *
-   * @title:
+   * @title_:
    *   The TrueType driver
    *
    * @abstract:
@@ -305,7 +305,7 @@ FT_BEGIN_HEADER
    * @section:
    *   properties
    *
-   * @title:
+   * @title_:
    *   Driver properties
    *
    * @abstract:

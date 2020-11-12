@@ -36,7 +36,7 @@ FT_BEGIN_HEADER
    * @section:
    *   basic_types
    *
-   * @title:
+   * @title_:
    *   Basic Data Types
    *
    * @abstract:

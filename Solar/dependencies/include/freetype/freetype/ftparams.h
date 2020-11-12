@@ -36,7 +36,7 @@ FT_BEGIN_HEADER
    * @section:
    *   parameter_tags
    *
-   * @title:
+   * @title_:
    *   Parameter Tags
    *
    * @abstract:

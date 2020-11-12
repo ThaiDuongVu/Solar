@@ -38,7 +38,7 @@ FT_BEGIN_HEADER
    * @section:
    *   bitmap_handling
    *
-   * @title:
+   * @title_:
    *   Bitmap Handling
    *
    * @abstract:

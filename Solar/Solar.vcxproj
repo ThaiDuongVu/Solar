@@ -11,10 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Mathf.h" />
-    <ClInclude Include="src\types\Quaternion.h" />
-    <ClInclude Include="src\types\Color32.h" />
-    <ClInclude Include="src\types\Color.h" />
+    <ClInclude Include="src\mathf.h" />
+    <ClInclude Include="src\types\quaternion.h" />
+    <ClInclude Include="src\types\color32.h" />
+    <ClInclude Include="src\types\color.h" />
     <ClInclude Include="dependencies\include\freetype\freetype\config\ftconfig.h" />
     <ClInclude Include="dependencies\include\freetype\freetype\config\ftheader.h" />
     <ClInclude Include="dependencies\include\freetype\freetype\config\ftmodule.h" />
@@ -397,28 +397,28 @@
     <ClInclude Include="dependencies\include\glm\vec3.hpp" />
     <ClInclude Include="dependencies\include\glm\vec4.hpp" />
     <ClInclude Include="dependencies\include\glm\vector_relational.hpp" />
-    <ClInclude Include="src\Input.h" />
-    <ClInclude Include="src\Debug.h" />
-    <ClInclude Include="src\App.h" />
-    <ClInclude Include="src\Core.h" />
-    <ClInclude Include="src\Solar.h" />
-    <ClInclude Include="src\Time.h" />
-    <ClInclude Include="src\types\Vector2.h" />
-    <ClInclude Include="src\components\Text.h" />
+    <ClInclude Include="src\input.h" />
+    <ClInclude Include="src\debug.h" />
+    <ClInclude Include="src\app.h" />
+    <ClInclude Include="src\core.h" />
+    <ClInclude Include="src\solar.h" />
+    <ClInclude Include="src\time.h" />
+    <ClInclude Include="src\types\vector2.h" />
+    <ClInclude Include="src\components\text.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Mathf.cpp" />
-    <ClCompile Include="src\types\Quaternion.cpp" />
-    <ClCompile Include="src\types\Color32.cpp" />
-    <ClCompile Include="src\types\Color.cpp" />
+    <ClCompile Include="src\mathf.cpp" />
+    <ClCompile Include="src\types\quaternion.cpp" />
+    <ClCompile Include="src\types\color32.cpp" />
+    <ClCompile Include="src\types\color.cpp" />
     <ClCompile Include="dependencies\include\glad\glad.c" />
     <ClCompile Include="dependencies\include\glm\detail\glm.cpp" />
-    <ClCompile Include="src\Input.cpp" />
-    <ClCompile Include="src\Debug.cpp" />
-    <ClCompile Include="src\App.cpp" />
-    <ClCompile Include="src\Time.cpp" />
-    <ClCompile Include="src\types\Vector2.cpp" />
-    <ClCompile Include="src\components\Text.cpp" />
+    <ClCompile Include="src\input.cpp" />
+    <ClCompile Include="src\debug.cpp" />
+    <ClCompile Include="src\app.cpp" />
+    <ClCompile Include="src\time.cpp" />
+    <ClCompile Include="src\types\vector2.cpp" />
+    <ClCompile Include="src\components\text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\include\glm\detail\func_common.inl" />

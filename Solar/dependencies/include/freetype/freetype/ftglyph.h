@@ -50,7 +50,7 @@ FT_BEGIN_HEADER
    * @section:
    *   glyph_management
    *
-   * @title:
+   * @title_:
    *   Glyph Management
    *
    * @abstract:

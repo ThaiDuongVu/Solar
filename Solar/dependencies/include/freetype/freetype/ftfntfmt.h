@@ -36,7 +36,7 @@ FT_BEGIN_HEADER
    * @section:
    *  font_formats
    *
-   * @title:
+   * @title_:
    *  Font Formats
    *
    * @abstract:

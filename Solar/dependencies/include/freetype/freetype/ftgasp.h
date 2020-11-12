@@ -36,7 +36,7 @@ FT_BEGIN_HEADER
    * @section:
    *   gasp_table
    *
-   * @title:
+   * @title_:
    *   Gasp Table
    *
    * @abstract:

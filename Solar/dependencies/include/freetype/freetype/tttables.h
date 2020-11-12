@@ -37,7 +37,7 @@ FT_BEGIN_HEADER
    * @section:
    *   truetype_tables
    *
-   * @title:
+   * @title_:
    *   TrueType Tables
    *
    * @abstract:

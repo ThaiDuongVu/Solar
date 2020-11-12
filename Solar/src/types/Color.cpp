@@ -1,7 +1,7 @@
-#include "Color.h"
-#include "../Mathf.h"
+#include "color.h"
+#include "../mathf.h"
 
-namespace Solar
+namespace solar
 {
 	Color::Color(float r, float g, float b, float a)
 	{
@@ -23,4 +23,4 @@ namespace Solar
 
 		return Color(r, g, b, a);
 	}
-};
+} // namespace solar

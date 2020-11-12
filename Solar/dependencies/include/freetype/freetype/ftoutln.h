@@ -38,7 +38,7 @@ FT_BEGIN_HEADER
    * @section:
    *   outline_processing
    *
-   * @title:
+   * @title_:
    *   Outline Processing
    *
    * @abstract:

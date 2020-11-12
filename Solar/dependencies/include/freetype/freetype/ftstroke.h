@@ -31,7 +31,7 @@ FT_BEGIN_HEADER
    * @section:
    *    glyph_stroker
    *
-   * @title:
+   * @title_:
    *    Glyph Stroker
    *
    * @abstract:

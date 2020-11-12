@@ -35,7 +35,7 @@ FT_BEGIN_HEADER
    * @section:
    *   bzip2
    *
-   * @title:
+   * @title_:
    *   BZIP2 Streams
    *
    * @abstract:

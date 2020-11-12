@@ -45,7 +45,7 @@ FT_BEGIN_HEADER
    * @section:
    *   list_processing
    *
-   * @title:
+   * @title_:
    *   List Processing
    *
    * @abstract:

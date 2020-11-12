@@ -41,7 +41,7 @@ FT_BEGIN_HEADER
    * @section:
    *   sfnt_names
    *
-   * @title:
+   * @title_:
    *   SFNT Names
    *
    * @abstract:

@@ -31,10 +31,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18c0bb02-ee03-4313-915d-09cd2f41e6d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Solar.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Solar/src/App.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Solar/src/App.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solar/src/App.h" beforeDir="false" afterPath="$PROJECT_DIR$/Solar/src/App.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solar/src/Core.h" beforeDir="false" afterPath="$PROJECT_DIR$/Solar/src/Core.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solar/src/Debug.h" beforeDir="false" afterPath="$PROJECT_DIR$/Solar/src/Debug.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solar/src/Input.h" beforeDir="false" afterPath="$PROJECT_DIR$/Solar/src/Input.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solar/src/Mathf.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Solar/src/Mathf.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solar/src/Mathf.h" beforeDir="false" afterPath="$PROJECT_DIR$/Solar/src/Mathf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solar/src/Solar.h" beforeDir="false" afterPath="$PROJECT_DIR$/Solar/src/Solar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solar/src/Time.h" beforeDir="false" afterPath="$PROJECT_DIR$/Solar/src/Time.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solar/src/types/Vector2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Solar/src/types/Vector2.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solar/src/types/Vector2.h" beforeDir="false" afterPath="$PROJECT_DIR$/Solar/src/types/Vector2.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,13 +68,6 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -77,6 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602295907622</updated>
       <workItem from="1602295909953" duration="536000" />
+      <workItem from="1605112940187" duration="42000" />
     </task>
     <servers />
   </component>
@@ -93,12 +94,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1641" y="-238" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602296115337">
+    <state x="-1641" y="-238" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605112977364">
       <screen x="-1920" y="-347" width="1920" height="1080" />
     </state>
-    <state x="-1641" y="-238" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864/-1920.-347.1920.1080@-1920.-347.1920.1080" timestamp="1602296115337" />
+    <state x="-1641" y="-238" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864/-1920.-347.1920.1080@-1920.-347.1920.1080" timestamp="1605112977364" />
     <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864/-1920.-347.1920.1080@0.0.1536.864" timestamp="1602295962748" />
     <state x="-1459" y="-163" key="SettingsEditor" timestamp="1602296298503">
       <screen x="-1920" y="-347" width="1920" height="1080" />

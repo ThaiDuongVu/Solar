@@ -35,7 +35,7 @@ FT_BEGIN_HEADER
    * @section:
    *   gzip
    *
-   * @title:
+   * @title_:
    *   GZIP Streams
    *
    * @abstract:

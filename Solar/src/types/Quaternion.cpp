@@ -1,9 +1,8 @@
-#include "Quaternion.h"
-#include <iostream>
+#include "quaternion.h"
 #include <glm.hpp>
 #include <gtc/quaternion.hpp>
 
-namespace Solar
+namespace solar
 {
 	glm::dquat quaterion = glm::dquat();
 
@@ -16,11 +15,10 @@ namespace Solar
 	}
 	Quaternion::~Quaternion()
 	{
-
 	}
 
 	double Quaternion::Length()
 	{
 		return glm::length(quaterion);
 	}
-}
+} // namespace solar

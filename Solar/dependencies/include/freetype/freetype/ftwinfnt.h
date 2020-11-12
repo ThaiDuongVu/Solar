@@ -36,7 +36,7 @@ FT_BEGIN_HEADER
    * @section:
    *   winfnt_fonts
    *
-   * @title:
+   * @title_:
    *   Window FNT Files
    *
    * @abstract:

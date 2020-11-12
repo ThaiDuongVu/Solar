@@ -37,7 +37,7 @@ FT_BEGIN_HEADER
    * @section:
    *   lcd_rendering
    *
-   * @title:
+   * @title_:
    *   Subpixel Rendering
    *
    * @abstract:

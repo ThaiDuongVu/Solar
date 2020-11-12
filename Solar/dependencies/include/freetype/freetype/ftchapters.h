@@ -11,7 +11,7 @@
    * @chapter:
    *   general_remarks
    *
-   * @title:
+   * @title_:
    *   General Remarks
    *
    * @sections:
@@ -26,7 +26,7 @@
    * @chapter:
    *   core_api
    *
-   * @title:
+   * @title_:
    *   Core API
    *
    * @sections:
@@ -49,7 +49,7 @@
    * @chapter:
    *   format_specific
    *
-   * @title:
+   * @title_:
    *   Format-Specific API
    *
    * @sections:
@@ -72,7 +72,7 @@
    * @chapter:
    *   module_specific
    *
-   * @title:
+   * @title_:
    *   Controlling FreeType Modules
    *
    * @sections:
@@ -93,7 +93,7 @@
    * @chapter:
    *   cache_subsystem
    *
-   * @title:
+   * @title_:
    *   Cache Sub-System
    *
    * @sections:
@@ -107,7 +107,7 @@
    * @chapter:
    *   support_api
    *
-   * @title:
+   * @title_:
    *   Support API
    *
    * @sections:
@@ -132,7 +132,7 @@
    * @chapter:
    *   error_codes
    *
-   * @title:
+   * @title_:
    *   Error Codes
    *
    * @sections:

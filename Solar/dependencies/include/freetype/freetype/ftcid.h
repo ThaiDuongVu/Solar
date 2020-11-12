@@ -36,7 +36,7 @@ FT_BEGIN_HEADER
    * @section:
    *   cid_fonts
    *
-   * @title:
+   * @title_:
    *   CID Fonts
    *
    * @abstract:

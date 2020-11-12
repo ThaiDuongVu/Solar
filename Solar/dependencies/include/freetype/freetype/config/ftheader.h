@@ -70,7 +70,7 @@
    * @section:
    *   header_file_macros
    *
-   * @title:
+   * @title_:
    *   Header File Macros
    *
    * @abstract:

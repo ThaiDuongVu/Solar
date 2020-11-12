@@ -35,7 +35,7 @@ FT_BEGIN_HEADER
    * @section:
    *   header_inclusion
    *
-   * @title:
+   * @title_:
    *   FreeType's header inclusion scheme
    *
    * @abstract:
@@ -59,7 +59,7 @@ FT_BEGIN_HEADER
    * @section:
    *   user_allocation
    *
-   * @title:
+   * @title_:
    *   User allocation
    *
    * @abstract:
@@ -89,7 +89,7 @@ FT_BEGIN_HEADER
    * @section:
    *   base_interface
    *
-   * @title:
+   * @title_:
    *   Base Interface
    *
    * @abstract:
@@ -2534,7 +2534,7 @@ FT_BEGIN_HEADER
    *     the horizontal scaling value; the vertical scaling value is
    *     determined the same way as @FT_SIZE_REQUEST_TYPE_REAL_DIM does.
    *     Finally, both scaling values are set to the smaller one.  This type
-   *     is useful if you want to specify the font size for, say, a window of
+   *     is useful if you want to specify the font size for, say, a window_ of
    *     a given dimension and 80x24 cells.
    *
    *   FT_SIZE_REQUEST_TYPE_SCALES ::
@@ -4020,7 +4020,7 @@ FT_BEGIN_HEADER
    * @section:
    *   layer_management
    *
-   * @title:
+   * @title_:
    *   Glyph Layer Management
    *
    * @abstract:
@@ -4277,7 +4277,7 @@ FT_BEGIN_HEADER
    * @section:
    *   glyph_variants
    *
-   * @title:
+   * @title_:
    *   Unicode Variation Sequences
    *
    * @abstract:
@@ -4505,7 +4505,7 @@ FT_BEGIN_HEADER
    * @section:
    *   computations
    *
-   * @title:
+   * @title_:
    *   Computations
    *
    * @abstract:
@@ -4719,7 +4719,7 @@ FT_BEGIN_HEADER
    * @section:
    *   version
    *
-   * @title:
+   * @title_:
    *   FreeType Version
    *
    * @abstract:

@@ -1,23 +1,26 @@
 #pragma once
 
-#include "Core.h"
-#include "types/Color.h"
+#ifndef SOLAR_APP_H_
+#define SOLAR_APP_H_
 
-namespace Solar
+#include "core.h"
+#include "types/color.h"
+
+namespace solar
 {
 	class SOLAR_API App
 	{
 	public:
 		// User-defined functions
 		virtual void Init();
-		virtual void Update(double FrameTime);
+		virtual void Update(double frame_time);
 		virtual void Render();
 		virtual void Exit();
 
-		// Set window width and height
+		// Set window_ width and height
 		void SetWindowSize(int width = DEFAULT_WINDOW_WIDTH, int height = DEFAULT_WINDOW_HEIGHT);
 
-		// Set window title
+		// Set window_ title_
 		void SetTitle(const char *title = DEFAULT_TITLE);
 
 		// Clear background
@@ -29,17 +32,19 @@ namespace Solar
 		// Quit the app
 		void Quit();
 
-		// Current active window
+		// Current active window_
 		// Use generics type since glfw is not included in header
 		template <typename T>
-		static T *window;
+		static T *window_;
 
 	private:
 		// Default screen dimension
-		int windowWidth = DEFAULT_WINDOW_WIDTH;
-		int windowHeight = DEFAULT_WINDOW_HEIGHT;
+		int window_width_ = DEFAULT_WINDOW_WIDTH;
+		int window_height_ = DEFAULT_WINDOW_HEIGHT;
 
-		// Default game window title
-		const char *title = "Solar System";
+		// Default game window_ title_
+		const char *title_ = "Solar System";
 	};
-} // namespace Solar
+} // namespace solar
+
+#endif // !SOLAR_APP_H_

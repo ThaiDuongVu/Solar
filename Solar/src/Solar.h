@@ -1,15 +1,20 @@
 #pragma once
 
-// To be included by Solar applications
+// To be included by solar applications
 
-#include "Core.h"
-#include "App.h"
-#include "Debug.h"
-#include "Time.h"
-#include "Input.h"
-#include "Mathf.h"
-#include "types/Vector2.h"
-#include "types/Quaternion.h"
-#include "types/Color.h"
-#include "types/Color32.h"
-#include "components/Text.h"
+#ifndef SOLAR_H_
+#define SOLAR_H_
+
+#include "core.h"
+#include "app.h"
+#include "debug.h"
+#include "time.h"
+#include "input.h"
+#include "mathf.h"
+#include "types/vector2.h"
+#include "types/quaternion.h"
+#include "types/color.h"
+#include "types/color32.h"
+#include "components/text.h"
+
+#endif // !SOLAR_H_

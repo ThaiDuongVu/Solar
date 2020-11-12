@@ -1,7 +1,7 @@
-#include "Color32.h"
-#include "../Mathf.h"
+#include "color32.h"
+#include "../mathf.h"
 
-namespace Solar
+namespace solar
 {
 	Color32::Color32(int r, int g, int b, int a)
 	{
@@ -28,4 +28,4 @@ namespace Solar
 
 		return Color(r, g, b, a);
 	}
-};
+} // namespace solar

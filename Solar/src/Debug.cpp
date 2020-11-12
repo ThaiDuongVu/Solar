@@ -1,6 +1,6 @@
-#include "Debug.h"
+#include "debug.h"
 
-namespace Solar
+namespace solar
 {
 
 }

@@ -31,7 +31,7 @@ FT_BEGIN_HEADER
    * @section:
    *   cache_subsystem
    *
-   * @title:
+   * @title_:
    *   Cache Sub-System
    *
    * @abstract:

@@ -1,6 +1,6 @@
 /*************************************************************************
  * GLFW 3.3 - www.glfw.org
- * A library for OpenGL, window and input
+ * A library for OpenGL, window_ and input
  *------------------------------------------------------------------------
  * Copyright (c) 2002-2006 Marcus Geelnard
  * Copyright (c) 2006-2018 Camilla Löwy <elmindreda@glfw.org>
@@ -52,12 +52,12 @@ extern "C"
  *  shouldn't be using them.**
  *
  *  Before the inclusion of @ref glfw3native.h, you may define zero or more
- *  window system API macro and zero or more context creation API macros.
+ *  window_ system API macro and zero or more context creation API macros.
  *
  *  The chosen backends must match those the library was compiled for.  Failure
  *  to do this will cause a link-time error.
  *
- *  The available window API macros are:
+ *  The available window_ API macros are:
  *  * `GLFW_EXPOSE_NATIVE_WIN32`
  *  * `GLFW_EXPOSE_NATIVE_COCOA`
  *  * `GLFW_EXPOSE_NATIVE_X11`
@@ -154,9 +154,9 @@ typedef void *id;
  */
     GLFWAPI const char *glfwGetWin32Monitor(GLFWmonitor *monitor);
 
-    /*! @brief Returns the `HWND` of the specified window.
+    /*! @brief Returns the `HWND` of the specified window_.
  *
- *  @return The `HWND` of the specified window, or `NULL` if an
+ *  @return The `HWND` of the specified window_, or `NULL` if an
  *  [error](@ref error_handling) occurred.
  *
  *  @thread_safety This function may be called from any thread.  Access is not
@@ -170,9 +170,9 @@ typedef void *id;
 #endif
 
 #if defined(GLFW_EXPOSE_NATIVE_WGL)
-    /*! @brief Returns the `HGLRC` of the specified window.
+    /*! @brief Returns the `HGLRC` of the specified window_.
  *
- *  @return The `HGLRC` of the specified window, or `NULL` if an
+ *  @return The `HGLRC` of the specified window_, or `NULL` if an
  *  [error](@ref error_handling) occurred.
  *
  *  @thread_safety This function may be called from any thread.  Access is not
@@ -200,9 +200,9 @@ typedef void *id;
  */
     GLFWAPI CGDirectDisplayID glfwGetCocoaMonitor(GLFWmonitor *monitor);
 
-    /*! @brief Returns the `NSWindow` of the specified window.
+    /*! @brief Returns the `NSWindow` of the specified window_.
  *
- *  @return The `NSWindow` of the specified window, or `nil` if an
+ *  @return The `NSWindow` of the specified window_, or `nil` if an
  *  [error](@ref error_handling) occurred.
  *
  *  @thread_safety This function may be called from any thread.  Access is not
@@ -216,9 +216,9 @@ typedef void *id;
 #endif
 
 #if defined(GLFW_EXPOSE_NATIVE_NSGL)
-    /*! @brief Returns the `NSOpenGLContext` of the specified window.
+    /*! @brief Returns the `NSOpenGLContext` of the specified window_.
  *
- *  @return The `NSOpenGLContext` of the specified window, or `nil` if an
+ *  @return The `NSOpenGLContext` of the specified window_, or `nil` if an
  *  [error](@ref error_handling) occurred.
  *
  *  @thread_safety This function may be called from any thread.  Access is not
@@ -274,9 +274,9 @@ typedef void *id;
  */
     GLFWAPI RROutput glfwGetX11Monitor(GLFWmonitor *monitor);
 
-    /*! @brief Returns the `Window` of the specified window.
+    /*! @brief Returns the `Window` of the specified window_.
  *
- *  @return The `Window` of the specified window, or `None` if an
+ *  @return The `Window` of the specified window_, or `None` if an
  *  [error](@ref error_handling) occurred.
  *
  *  @thread_safety This function may be called from any thread.  Access is not
@@ -340,9 +340,9 @@ typedef void *id;
 #endif
 
 #if defined(GLFW_EXPOSE_NATIVE_GLX)
-    /*! @brief Returns the `GLXContext` of the specified window.
+    /*! @brief Returns the `GLXContext` of the specified window_.
  *
- *  @return The `GLXContext` of the specified window, or `NULL` if an
+ *  @return The `GLXContext` of the specified window_, or `NULL` if an
  *  [error](@ref error_handling) occurred.
  *
  *  @thread_safety This function may be called from any thread.  Access is not
@@ -354,9 +354,9 @@ typedef void *id;
  */
     GLFWAPI GLXContext glfwGetGLXContext(GLFWwindow *window);
 
-    /*! @brief Returns the `GLXWindow` of the specified window.
+    /*! @brief Returns the `GLXWindow` of the specified window_.
  *
- *  @return The `GLXWindow` of the specified window, or `None` if an
+ *  @return The `GLXWindow` of the specified window_, or `None` if an
  *  [error](@ref error_handling) occurred.
  *
  *  @thread_safety This function may be called from any thread.  Access is not
@@ -398,9 +398,9 @@ typedef void *id;
  */
     GLFWAPI struct wl_output *glfwGetWaylandMonitor(GLFWmonitor *monitor);
 
-    /*! @brief Returns the main `struct wl_surface*` of the specified window.
+    /*! @brief Returns the main `struct wl_surface*` of the specified window_.
  *
- *  @return The main `struct wl_surface*` of the specified window, or `NULL` if
+ *  @return The main `struct wl_surface*` of the specified window_, or `NULL` if
  *  an [error](@ref error_handling) occurred.
  *
  *  @thread_safety This function may be called from any thread.  Access is not
@@ -428,9 +428,9 @@ typedef void *id;
  */
     GLFWAPI EGLDisplay glfwGetEGLDisplay(void);
 
-    /*! @brief Returns the `EGLContext` of the specified window.
+    /*! @brief Returns the `EGLContext` of the specified window_.
  *
- *  @return The `EGLContext` of the specified window, or `EGL_NO_CONTEXT` if an
+ *  @return The `EGLContext` of the specified window_, or `EGL_NO_CONTEXT` if an
  *  [error](@ref error_handling) occurred.
  *
  *  @thread_safety This function may be called from any thread.  Access is not
@@ -442,9 +442,9 @@ typedef void *id;
  */
     GLFWAPI EGLContext glfwGetEGLContext(GLFWwindow *window);
 
-    /*! @brief Returns the `EGLSurface` of the specified window.
+    /*! @brief Returns the `EGLSurface` of the specified window_.
  *
- *  @return The `EGLSurface` of the specified window, or `EGL_NO_SURFACE` if an
+ *  @return The `EGLSurface` of the specified window_, or `EGL_NO_SURFACE` if an
  *  [error](@ref error_handling) occurred.
  *
  *  @thread_safety This function may be called from any thread.  Access is not
@@ -458,9 +458,9 @@ typedef void *id;
 #endif
 
 #if defined(GLFW_EXPOSE_NATIVE_OSMESA)
-    /*! @brief Retrieves the color buffer associated with the specified window.
+    /*! @brief Retrieves the color buffer associated with the specified window_.
  *
- *  @param[in] window The window whose color buffer to retrieve.
+ *  @param[in] window_ The window_ whose color buffer to retrieve.
  *  @param[out] width Where to store the width of the color buffer, or `NULL`.
  *  @param[out] height Where to store the height of the color buffer, or `NULL`.
  *  @param[out] format Where to store the OSMesa pixel format of the color
@@ -479,9 +479,9 @@ typedef void *id;
  */
     GLFWAPI int glfwGetOSMesaColorBuffer(GLFWwindow *window, int *width, int *height, int *format, void **buffer);
 
-    /*! @brief Retrieves the depth buffer associated with the specified window.
+    /*! @brief Retrieves the depth buffer associated with the specified window_.
  *
- *  @param[in] window The window whose depth buffer to retrieve.
+ *  @param[in] window_ The window_ whose depth buffer to retrieve.
  *  @param[out] width Where to store the width of the depth buffer, or `NULL`.
  *  @param[out] height Where to store the height of the depth buffer, or `NULL`.
  *  @param[out] bytesPerValue Where to store the number of bytes per depth
@@ -500,9 +500,9 @@ typedef void *id;
  */
     GLFWAPI int glfwGetOSMesaDepthBuffer(GLFWwindow *window, int *width, int *height, int *bytesPerValue, void **buffer);
 
-    /*! @brief Returns the `OSMesaContext` of the specified window.
+    /*! @brief Returns the `OSMesaContext` of the specified window_.
  *
- *  @return The `OSMesaContext` of the specified window, or `NULL` if an
+ *  @return The `OSMesaContext` of the specified window_, or `NULL` if an
  *  [error](@ref error_handling) occurred.
  *
  *  @thread_safety This function may be called from any thread.  Access is not

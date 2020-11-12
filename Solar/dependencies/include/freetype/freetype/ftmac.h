@@ -51,7 +51,7 @@ FT_BEGIN_HEADER
    * @section:
    *   mac_specific
    *
-   * @title:
+   * @title_:
    *   Mac Specific Interface
    *
    * @abstract:

@@ -1,27 +1,27 @@
-#include "Time.h"
+#include "time.h"
 #include <glfw3.h>
 
-namespace Solar
+namespace solar
 {
 	// Declare frame time as 0
-	double Time::FrameTime = 0.0;
+	double Time::frame_time_ = 0.0;
 
 	int Time::FrameRate(int seconds)
 	{
-		return (int)(1 / Time::FrameTime);
+		return (int)(1 / Time::frame_time_);
 	}
 
 	// Declare previous & current time
-	double Time::previousTime = 0.0;
-	double Time::currentTime = 0.0;
+	double Time::previous_time_ = 0.0;
+	double Time::current_time_ = 0.0;
 
 	void Time::Update(double &previousTime, double &currentTime)
 	{
 		// Get current time
-		Time::currentTime = glfwGetTime();
+		Time::current_time_ = glfwGetTime();
 		// Get frame time by suctracting previous time to current frame time
-		Time::FrameTime = currentTime - previousTime;
+		Time::frame_time_ = currentTime - previousTime;
 		// Set previous time for next frame update
-		Time::previousTime = currentTime;
+		Time::previous_time_ = currentTime;
 	}
-} // namespace Solar
+} // namespace solar

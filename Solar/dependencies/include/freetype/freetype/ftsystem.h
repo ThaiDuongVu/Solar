@@ -30,7 +30,7 @@ FT_BEGIN_HEADER
    * @section:
    *  system_interface
    *
-   * @title:
+   * @title_:
    *  System Interface
    *
    * @abstract:

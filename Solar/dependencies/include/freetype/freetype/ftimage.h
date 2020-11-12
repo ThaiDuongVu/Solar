@@ -789,7 +789,7 @@ FT_BEGIN_HEADER
    * @section:
    *   raster
    *
-   * @title:
+   * @title_:
    *   Scanline Converter
    *
    * @abstract:

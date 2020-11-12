@@ -36,7 +36,7 @@ FT_BEGIN_HEADER
    * @section:
    *   pfr_fonts
    *
-   * @title:
+   * @title_:
    *   PFR Fonts
    *
    * @abstract:

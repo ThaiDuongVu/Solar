@@ -21,7 +21,7 @@
    * @section:
    *   error_enumerations
    *
-   * @title:
+   * @title_:
    *   Error Enumerations
    *
    * @abstract:

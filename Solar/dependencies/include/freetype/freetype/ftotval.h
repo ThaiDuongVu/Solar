@@ -47,7 +47,7 @@ FT_BEGIN_HEADER
    * @section:
    *   ot_validation
    *
-   * @title:
+   * @title_:
    *   OpenType Validation
    *
    * @abstract:

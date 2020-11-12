@@ -36,7 +36,7 @@ FT_BEGIN_HEADER
    * @section:
    *   bdf_fonts
    *
-   * @title:
+   * @title_:
    *   BDF and PCF Files
    *
    * @abstract:

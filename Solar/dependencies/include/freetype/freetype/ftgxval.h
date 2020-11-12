@@ -45,7 +45,7 @@ FT_BEGIN_HEADER
    * @section:
    *   gx_validation
    *
-   * @title:
+   * @title_:
    *   TrueTypeGX/AAT Validation
    *
    * @abstract:

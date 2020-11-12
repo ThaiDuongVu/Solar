@@ -38,7 +38,7 @@ FT_BEGIN_HEADER
    * @section:
    *   type1_tables
    *
-   * @title:
+   * @title_:
    *   Type 1 Tables
    *
    * @abstract:

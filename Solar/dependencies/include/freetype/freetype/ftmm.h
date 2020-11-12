@@ -31,7 +31,7 @@ FT_BEGIN_HEADER
    * @section:
    *   multiple_masters
    *
-   * @title:
+   * @title_:
    *   Multiple Masters
    *
    * @abstract:

@@ -35,7 +35,7 @@ FT_BEGIN_HEADER
    * @section:
    *   lzw
    *
-   * @title:
+   * @title_:
    *   LZW Streams
    *
    * @abstract:

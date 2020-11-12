@@ -36,7 +36,7 @@ FT_BEGIN_HEADER
    * @section:
    *   color_management
    *
-   * @title:
+   * @title_:
    *   Glyph Color Management
    *
    * @abstract:

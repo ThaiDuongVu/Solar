@@ -36,7 +36,7 @@ FT_BEGIN_HEADER
    * @section:
    *    incremental
    *
-   * @title:
+   * @title_:
    *    Incremental Loading
    *
    * @abstract:

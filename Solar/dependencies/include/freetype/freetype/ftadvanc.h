@@ -37,7 +37,7 @@ FT_BEGIN_HEADER
    * @section:
    *   quick_advance
    *
-   * @title:
+   * @title_:
    *   Quick retrieval of advance values
    *
    * @abstract:
