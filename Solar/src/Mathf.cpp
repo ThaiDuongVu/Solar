@@ -6,69 +6,80 @@
 
 namespace solar
 {
+	double Mathf::Pi()
+	{
+		return 3.14159265358979;
+	}
+
+#pragma region Approximate
+	static bool Approximate(float x, float y, float epsilon)
+	{
+		float difference = x - y;
+		return (Mathf::Abs(difference) <= epsilon);
+	}
+
+	static bool Approximate(double x, double y, double epsilon)
+	{
+		double difference = x - y;
+		return (Mathf::Abs(difference) <= epsilon);
+	}
+#pragma endregion
+
 #pragma region Clamp
-	int Mathf::Clamp(int &value, int min_value, int max_value)
+	int Mathf::Clamp(int value, int min_value, int max_value)
 	{
-		value = glm::clamp(value, min_value, max_value);
-		return value;
+		return glm::clamp(value, min_value, max_value);
 	}
 
-	float Mathf::Clamp(float &value, float min_value, float max_value)
+	float Mathf::Clamp(float value, float min_value, float max_value)
 	{
-		value = glm::clamp(value, min_value, max_value);
-		return value;
+		return glm::clamp(value, min_value, max_value);
 	}
 
-	double Mathf::Clamp(double &value, double min_value, double max_value)
+	double Mathf::Clamp(double value, double min_value, double max_value)
 	{
-		value = glm::clamp(value, min_value, max_value);
-		return value;
+		return glm::clamp(value, min_value, max_value);
 	}
 #pragma endregion
 
 #pragma region Abs
-	int Mathf::Abs(int &value)
+	int Mathf::Abs(int value)
 	{
-		value = glm::abs(value);
-		return value;
+		return glm::abs(value);
 	}
 
-	float Mathf::Abs(float &value)
+	float Mathf::Abs(float value)
 	{
-		value = glm::abs(value);
-		return value;
+		return glm::abs(value);
 	}
 
-	double Mathf::Abs(double &value)
+	double Mathf::Abs(double value)
 	{
-		value = glm::abs(value);
-		return value;
+		return glm::abs(value);
 	}
 #pragma endregion
 
 #pragma region Ceiling
-	float Mathf::Ceiling(float &value)
+	float Mathf::Ceiling(float value)
 	{
-		value = glm::ceil(value);
-		return value;
+		return glm::ceil(value);
 	}
 
-	double Mathf::Ceiling(double &value)
+	double Mathf::Ceiling(double value)
 	{
-		value = glm::ceil(value);
-		return value;
+		return glm::ceil(value);
 	}
 #pragma endregion
 
 #pragma region Floor
-	float Mathf::Floor(float &value)
+	float Mathf::Floor(float value)
 	{
-		return 0.0f;
+		return glm::floor(value);
 	}
 
-	double Mathf::Floor(double &value)
+	double Mathf::Floor(double value)
 	{
-		return 0.0;
+		return glm::floor(value);
 	}
 #pragma endregion
 
@@ -124,30 +135,60 @@ namespace solar
 #pragma endregion
 
 #pragma region Round
-	float Mathf::Round(float &value)
+	float Mathf::Round(float value)
 	{
-		value = glm::round(value);
-		return value;
+		return glm::round(value);
 	}
 
-	double Mathf::Round(double &value)
+	double Mathf::Round(double value)
 	{
-		value = glm::round(value);
-		return value;
+		return glm::round(value);
 	}
 #pragma endregion
 
 #pragma region Round Even
-	float Mathf::RoundEven(float &value)
+	float Mathf::RoundEven(float value)
 	{
-		value = glm::roundEven(value);
-		return value;
+		return glm::roundEven(value);
 	}
 
-	double Mathf::RoundEven(double &value)
+	double Mathf::RoundEven(double value)
 	{
-		value = glm::roundEven(value);
-		return value;
+		return glm::roundEven(value);
+	}
+#pragma endregion
+
+#pragma region Power
+	double Mathf::Power(int base, int exponent)
+	{
+		return glm::pow(base, exponent);
+	}
+
+	double Mathf::Power(float base, float exponent)
+	{
+		return glm::pow(base, exponent);
+	}
+
+	double Mathf::Power(double base, double exponent)
+	{
+		return glm::pow(base, exponent);
+	}
+#pragma endregion
+
+#pragma region Sqrt
+	double Mathf::Sqrt(int value)
+	{
+		return glm::sqrt(value);
+	}
+
+	double Mathf::Sqrt(float value)
+	{
+		return glm::sqrt(value);
+	}
+
+	double Mathf::Sqrt(double value)
+	{
+		return glm::sqrt(value);
 	}
 #pragma endregion
 } // namespace solar

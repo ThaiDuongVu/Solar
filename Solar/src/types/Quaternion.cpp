@@ -17,8 +17,18 @@ namespace solar
 	{
 	}
 
+	Quaternion Quaternion::Identity()
+	{
+		return Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+	}
+
 	double Quaternion::Length()
 	{
 		return glm::length(quaterion);
+	}
+
+	Quaternion Quaternion::Normalized()
+	{
+		return Quaternion(glm::normalize(quaterion).x, glm::normalize(quaterion).y, glm::normalize(quaterion).z, glm::normalize(quaterion).w);
 	}
 } // namespace solar

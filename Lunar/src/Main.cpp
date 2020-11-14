@@ -4,7 +4,7 @@ using namespace solar;
 Color32 background_color = Color32(34, 40, 49, 255);
 
 // Function to demonstrate all input methods
-void InputDemo(App *app)
+void InputDemo(App* app)
 {
 	// On key pressed
 	if (Input::OnKeyDown(Input::Keys::kKeyEscape))
@@ -100,10 +100,10 @@ void CursorModeDemo()
 // Initialize game elements
 void App::Init()
 {
-	// Set window_ size to be 852 by 480
+	// Set window size to be 852 by 480
 	App::SetWindowSize(852, 480);
 
-	// Set window_ title_ to be "Lunar System"
+	// Set window title to be "Lunar System"
 	App::SetTitle("Lunar System");
 }
 
@@ -114,6 +114,11 @@ void App::Update(double frame_time)
 	// Debug::LogLine(Time::FrameRate(1));
 
 	// InputDemo(this);
+
+	if (Input::OnKeyDown(Input::Keys::kKeyEscape))
+	{
+		App::Quit();
+	}
 }
 
 // Render game frames
@@ -131,7 +136,7 @@ void App::Exit()
 int main()
 {
 	// Create a new app
-	App *app = new App();
+	App* app = new App();
 
 	// Run created app
 	app->Run();

@@ -14,6 +14,4 @@
 // When no title_ is set by user
 #define DEFAULT_TITLE "Solar System"
 
-#define PI 3.14159
-
 #endif // !SOLAR_CORE_H_

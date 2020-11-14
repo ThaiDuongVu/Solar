@@ -16,10 +16,10 @@ namespace solar
 
 	Color Color32::Normalize()
 	{
-		Mathf::Clamp(this->r, 0, 255);
-		Mathf::Clamp(this->g, 0, 255);
-		Mathf::Clamp(this->b, 0, 255);
-		Mathf::Clamp(this->a, 0, 255);
+		this->r = Mathf::Clamp(this->r, 0, 255);
+		this->g = Mathf::Clamp(this->g, 0, 255);
+		this->b = Mathf::Clamp(this->b, 0, 255);
+		this->a = Mathf::Clamp(this->a, 0, 255);
 
 		float r = this->r / 255.0f;
 		float g = this->g / 255.0f;
