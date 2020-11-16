@@ -91,11 +91,12 @@ And *voila* you have a project configured to work with Solar framework, time to 
 
 8. Verify everything is working by creating a main.cpp in new project and running this code:
 
-        #include <Solar.h>
+        #include <solar.h>
+        using namespace solar;
 
         int main()
         {
-            Solar::App *app = new Solar::App();
+            App *app = new App();
             app->Run();
         }
 
@@ -103,3 +104,9 @@ And *voila* you have a project configured to work with Solar framework, time to 
 
 <!-- ![default window](images/default_window.png) -->
 <img src="images/default_window.png" width=450>
+
+---
+
+### Contributing
+
+**Solar** is completely open to community contribution. If you want to contribute to the development of the project, please follow the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) in your code, just to keep things consistent :).

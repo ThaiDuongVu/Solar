@@ -3,7 +3,7 @@ using namespace solar;
 
 Color32 background_color = Color32(34, 40, 49, 255);
 
-// Function to demonstrate all input methods
+// Function to demonstrate input methods
 void InputDemo(App* app)
 {
 	// On key pressed
@@ -97,6 +97,12 @@ void CursorModeDemo()
 	Input::SetCursorMode(Input::CursorModes::kModeNormal);
 }
 
+// Function to demonstrate math methods provided
+void MathfDemo()
+{
+
+}
+
 // Initialize game elements
 void App::Init()
 {
@@ -112,8 +118,6 @@ void App::Update(double frame_time)
 {
 	// Frames per 1 second
 	// Debug::LogLine(Time::FrameRate(1));
-
-	// InputDemo(this);
 
 	if (Input::OnKeyDown(Input::Keys::kKeyEscape))
 	{

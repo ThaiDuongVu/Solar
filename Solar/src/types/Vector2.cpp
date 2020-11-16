@@ -1,40 +1,39 @@
 #include "vector2.h"
+#include <iostream>
 #include <glm.hpp>
 
 namespace solar
 {
-	glm::dvec2 vector2 = glm::dvec2(0.0f, 0.0f);
-
 	Vector2::Vector2(double x, double y)
 	{
 		this->x = x;
 		this->y = y;
-
-		vector2.x = x;
-		vector2.y = y;
 	}
 	Vector2::~Vector2()
 	{
 	}
 
-	Vector2 Vector2::Zero()
+	// Convert a Vector2 to glm type
+	glm::dvec2 glmVector(Vector2 vector2)
 	{
-		return Vector2(0.0f, 0.0f);
-	}
-
-	Vector2 Vector2::Identity()
-	{
-		return Vector2(1.0f, 1.0f);
+		return glm::dvec2(vector2.x, vector2.y);
 	}
 
 	double Vector2::Length()
 	{
-		return glm::length(vector2);
+		return glm::length(glmVector(*this));
 	}
-
+	double Vector2::Distance(Vector2 other)
+	{
+		return glm::distance(glmVector(*this), glmVector(other));
+	}
+	double Vector2::Dot(Vector2 other)
+	{
+		return glm::dot(glmVector(*this), glmVector(other));
+	}
 	Vector2 Vector2::Normalized()
 	{
-		return Vector2(glm::normalize(vector2).x, glm::normalize(vector2).y);
+		return Vector2(glm::normalize(glmVector(*this)).x, glm::normalize(glmVector(*this)).y);
 	}
 
 #pragma region Operators
@@ -80,5 +79,31 @@ namespace solar
 		return Vector2(vector2.x, vector2.y);
 	}
 #pragma endregion
+
+	Vector2 Vector2::Zero()
+	{
+		return Vector2(0.0f, 0.0f);
+	}
+	Vector2 Vector2::Identity()
+	{
+		return Vector2(1.0f, 1.0f);
+	}
+
+	double Vector2::Length(Vector2 a)
+	{
+		return glm::length(glmVector(a));
+	}
+	double Vector2::Distance(Vector2 a, Vector2 b)
+	{
+		return glm::distance(glmVector(a), glmVector(b));
+	}
+	double Vector2::Dot(Vector2 a, Vector2 b)
+	{
+		return glm::dot(glmVector(a), glmVector(b));
+	}
+	Vector2 Vector2::Normalized(Vector2 a)
+	{
+		return Vector2(glm::normalize(glmVector(a)).x, glm::normalize(glmVector(a)).y);
+	}
 
 } // namespace solar

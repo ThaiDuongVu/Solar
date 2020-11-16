@@ -15,7 +15,7 @@ namespace solar
 
 	// OpenGL window_
 	template <typename T>
-	T *App::window_;
+	T* App::window_;
 
 	void App::SetWindowSize(int width, int height)
 	{
@@ -23,9 +23,14 @@ namespace solar
 		App::window_height_ = height;
 	}
 
-	void App::SetTitle(const char *title)
+	void App::SetTitle(const char* title)
 	{
 		App::title_ = title;
+	}
+
+	void App::SetResizable(bool resizable)
+	{
+		glfwWindowHint(GLFW_RESIZABLE, resizable);
 	}
 
 	void App::Quit()
@@ -40,14 +45,14 @@ namespace solar
 	}
 
 	// On window_ resize
-	void FrameBufferSizeCallback(GLFWwindow *window, int width, int height)
+	void FrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 	{
 		glViewport(0, 0, width, height);
 	}
 
 #pragma region Input Callbacks
 	// Keyboard callback
-	void KeyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
+	void KeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 		// Set key buffers
 		if (action == GLFW_PRESS)
@@ -61,7 +66,7 @@ namespace solar
 	}
 
 	// On cursor enter or exit callback
-	void CursorEnterCallback(GLFWwindow *window, int entered)
+	void CursorEnterCallback(GLFWwindow* window, int entered)
 	{
 		if (entered)
 		{
@@ -75,7 +80,7 @@ namespace solar
 	}
 
 	// Mouse button callback
-	void MouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
+	void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 	{
 		// Set mouse buffers
 		if (action == GLFW_PRESS)
@@ -89,7 +94,7 @@ namespace solar
 	}
 
 	// Mouse scroll callback
-	void ScrollCallback(GLFWwindow *window, double xoffset, double yoffset)
+	void ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
 	{
 		Input::scroll_delta_x_ = xoffset;
 		Input::scroll_delta_y_ = yoffset;
@@ -100,15 +105,18 @@ namespace solar
 
 	void App::Run()
 	{
-		// User-defined initialization
-		Init();
-
 		// Initialize GLFW
 		if (!glfwInit())
 		{
 			solar::Debug::LogError("Failed to initialize GLFW");
 			return;
 		}
+
+		// Disable resizability by default
+		SetResizable(false);
+
+		// User-defined initialization
+		Init();
 
 		// Create a windowed mode window_ and its OpenGL context
 		App::window_<GLFWwindow> = glfwCreateWindow(App::window_width_, App::window_height_, App::title_, NULL, NULL);

@@ -4,8 +4,6 @@
 
 namespace solar
 {
-	glm::dquat quaterion = glm::dquat();
-
 	Quaternion::Quaternion(double x, double y, double z, double w)
 	{
 		this->x = x;
@@ -19,16 +17,18 @@ namespace solar
 
 	Quaternion Quaternion::Identity()
 	{
-		return Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+		return Quaternion(1.0f, 1.0f, 1.0f, 1.0f);
 	}
 
 	double Quaternion::Length()
 	{
-		return glm::length(quaterion);
+		glm::dquat quaternion = glm::dquat(this->x, this->y, this->z, this->w);
+		return glm::length(quaternion);
 	}
 
 	Quaternion Quaternion::Normalized()
 	{
-		return Quaternion(glm::normalize(quaterion).x, glm::normalize(quaterion).y, glm::normalize(quaterion).z, glm::normalize(quaterion).w);
+		glm::dquat quaternion = glm::dquat(this->x, this->y, this->z, this->w);
+		return Quaternion(glm::normalize(quaternion).x, glm::normalize(quaternion).y, glm::normalize(quaternion).z, glm::normalize(quaternion).w);
 	}
 } // namespace solar
