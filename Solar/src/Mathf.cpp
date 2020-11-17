@@ -12,13 +12,13 @@ namespace solar
 	}
 
 #pragma region Approximate
-	static bool Approximate(float x, float y, float epsilon)
+	bool Mathf::Approximate(float x, float y, float epsilon)
 	{
 		float difference = x - y;
 		return (Mathf::Abs(difference) <= epsilon);
 	}
 
-	static bool Approximate(double x, double y, double epsilon)
+	bool Mathf::Approximate(double x, double y, double epsilon)
 	{
 		double difference = x - y;
 		return (Mathf::Abs(difference) <= epsilon);
@@ -191,4 +191,71 @@ namespace solar
 		return glm::sqrt(value);
 	}
 #pragma endregion
+
+#pragma region Trigonometric
+	double Mathf::Cos(double angle)
+	{
+		return glm::cos(angle);
+	}
+	double Mathf::Sin(double angle)
+	{
+		return glm::sin(angle);
+	}
+	double Mathf::Tan(double angle)
+	{
+		return glm::tan(angle);
+	}
+
+	double Mathf::Acos(double value)
+	{
+		return glm::acos(value);
+	}
+	double Mathf::Asin(double value)
+	{
+		return glm::asin(value);
+	}
+	double Mathf::Atan(double value)
+	{
+		return glm::atan(value);
+	}
+
+	double Mathf::Cosh(double angle)
+	{
+		return glm::cosh(angle);
+	}
+	double Mathf::Sinh(double angle)
+	{
+		return glm::sinh(angle);
+	}
+	double Mathf::Tanh(double angle)
+	{
+		return glm::tanh(angle);
+	}
+
+	double Mathf::Acosh(double value)
+	{
+		return glm::acosh(value);
+	}
+	double Mathf::Asinh(double value)
+	{
+		return glm::asinh(value);
+	}
+	double Mathf::Atanh(double value)
+	{
+		return glm::atanh(value);
+	}
+#pragma endregion
+
+#pragma region Conversion
+	double Mathf::RadianToDegree(double value)
+	{
+		return glm::degrees(value);
+	}
+
+	double Mathf::DegreeToRadian(double value)
+	{
+		return glm::radians(value);
+	}
+#pragma endregion
+
 } // namespace solar

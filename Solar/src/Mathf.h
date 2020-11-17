@@ -79,10 +79,33 @@ namespace solar
 		static double Sqrt(double value);
 #pragma endregion Return square root of a value
 
+		// TODO: Implement log functions
 #pragma region Log
 
 #pragma endregion Return the logarithm of a value in a base
 
+#pragma region Trigonometric
+		static double Cos(double angle);
+		static double Sin(double angle);
+		static double Tan(double angle);
+
+		static double Acos(double value);
+		static double Asin(double value);
+		static double Atan(double value);
+
+		static double Cosh(double angle);
+		static double Sinh(double angle);
+		static double Tanh(double angle);
+
+		static double Acosh(double value);
+		static double Asinh(double value);
+		static double Atanh(double value);
+#pragma endregion Perform various trigonometric operations
+
+#pragma region Conversion
+		static double RadianToDegree(double value);
+		static double DegreeToRadian(double value);
+#pragma endregion Convert from radians to degrees and vice versa
 
 	};
 } // namespace solar

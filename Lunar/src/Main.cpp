@@ -103,7 +103,7 @@ void MathfDemo()
 
 }
 
-// Initialize game elements
+// On game initialization
 void App::Init()
 {
 	// Set window size to be 852 by 480
@@ -113,7 +113,7 @@ void App::Init()
 	App::SetTitle("Lunar System");
 }
 
-// Handle game events
+// On game update
 void App::Update(double frame_time)
 {
 	// Frames per 1 second
@@ -125,14 +125,14 @@ void App::Update(double frame_time)
 	}
 }
 
-// Render game frames
+// On game render
 void App::Render()
 {
 	// Clear background color
 	App::ClearBackground(background_color.Normalize());
 }
 
-// Collect garbage on exit
+// On game exit
 void App::Exit()
 {
 }

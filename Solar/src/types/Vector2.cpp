@@ -39,43 +39,43 @@ namespace solar
 #pragma region Operators
 	Vector2 Vector2::operator+(Vector2 other)
 	{
-		glm::dvec2 vector2 = glm::operator+(glm::dvec2(this->x, this->y), glm::dvec2(other.x, other.y));
+		glm::dvec2 vector2 = glm::operator+(glmVector(*this), glmVector(other));
 		return Vector2(vector2.x, vector2.y);
 	}
 	Vector2 Vector2::operator-(Vector2 other)
 	{
-		glm::dvec2 vector2 = glm::operator-(glm::dvec2(this->x, this->y), glm::dvec2(other.x, other.y));
+		glm::dvec2 vector2 = glm::operator-(glmVector(*this), glmVector(other));
 		return Vector2(vector2.x, vector2.y);
 	}
 	Vector2 Vector2::operator*(Vector2 other)
 	{
-		glm::dvec2 vector2 = glm::operator*(glm::dvec2(this->x, this->y), glm::dvec2(other.x, other.y));
+		glm::dvec2 vector2 = glm::operator*(glmVector(*this), glmVector(other));
 		return Vector2(vector2.x, vector2.y);;
 	}
 	Vector2 Vector2::operator/(Vector2 other)
 	{
-		glm::dvec2 vector2 = glm::operator/(glm::dvec2(this->x, this->y), glm::dvec2(other.x, other.y));
+		glm::dvec2 vector2 = glm::operator/(glmVector(*this), glmVector(other));
 		return Vector2(vector2.x, vector2.y);
 	}
 
 	Vector2 Vector2::operator+(double other)
 	{
-		glm::dvec2 vector2 = glm::operator+(glm::dvec2(this->x, this->y), other);
+		glm::dvec2 vector2 = glm::operator+(glmVector(*this), other);
 		return Vector2(vector2.x, vector2.y);
 	}
 	Vector2 Vector2::operator-(double other)
 	{
-		glm::dvec2 vector2 = glm::operator-(glm::dvec2(this->x, this->y), other);
+		glm::dvec2 vector2 = glm::operator-(glmVector(*this), other);
 		return Vector2(vector2.x, vector2.y);
 	}
 	Vector2 Vector2::operator*(double other)
 	{
-		glm::dvec2 vector2 = glm::operator*(glm::dvec2(this->x, this->y), other);
+		glm::dvec2 vector2 = glm::operator*(glmVector(*this), other);
 		return Vector2(vector2.x, vector2.y);
 	}
 	Vector2 Vector2::operator/(double other)
 	{
-		glm::dvec2 vector2 = glm::operator/(glm::dvec2(this->x, this->y), other);
+		glm::dvec2 vector2 = glm::operator/(glmVector(*this), other);
 		return Vector2(vector2.x, vector2.y);
 	}
 #pragma endregion
