@@ -4,6 +4,7 @@
 #define SOLAR_VECTOR2_H_
 
 #include "../core.h"
+#include <string>
 
 namespace solar
 {
@@ -22,7 +23,9 @@ namespace solar
 		double Dot(Vector2 other); // Dot product of this vector and another vector
 		Vector2 Normalized(); // Vector normalized so that its length is 1
 
-#pragma region Operators
+		std::string ToString(); // Convert this vector to string for debugging & printing
+
+#pragma region Arithmetic Operators
 		Vector2 operator+(Vector2 other);
 		Vector2 operator-(Vector2 other);
 		Vector2 operator*(Vector2 other);
@@ -34,6 +37,10 @@ namespace solar
 		Vector2 operator/(double other);
 #pragma endregion
 
+#pragma region Logical Operators
+		Vector2 operator==(Vector2 other);
+#pragma endregion
+
 		static Vector2 Zero(); // (0.0f, 0.0f) vector
 		static Vector2 Identity(); // (1.0f, 1.0f) vector
 
@@ -41,6 +48,8 @@ namespace solar
 		static double Distance(Vector2 a, Vector2 b); // Distance between 2 vectors
 		static double Dot(Vector2 a, Vector2 b); // Dot product of 2 vectors
 		static Vector2 Normalized(Vector2 a); // Vector normalized so that its length is 1
+
+		static std::string ToString(Vector2 a); // Convert a vector to string for debugging & printing
 	};
 } // namespace solar
 

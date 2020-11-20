@@ -5,6 +5,7 @@
 
 #include "../core.h"
 #include "color.h"
+#include <string>
 
 namespace solar
 {
@@ -20,7 +21,11 @@ namespace solar
 		int b = 0;	 // Blue
 		int a = 255; // Apha
 
-		Color Normalize(); // Convert 32-bit type to Color type
+		Color Normalize(); // Convert this 32-bit Color type to Color type and clamp all values to be between 0 and 1
+		std::string ToString(); // Convert this color to string for debugging & printing
+
+		static Color Normalize(Color32 color); // Convert a 32-bit Color type to Color type and clamp all values to be between 0 and 1
+		static std::string ToString(Color32 color); // Convert a color to string for debugging & printing
 	};
 } // namespace solar
 

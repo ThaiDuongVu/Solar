@@ -14,71 +14,89 @@ namespace solar
 	}
 
 	// Convert a Vector2 to glm type
-	glm::dvec2 glmVector(Vector2 vector2)
+	glm::dvec2 Vector2Toglm(Vector2 vector2)
 	{
 		return glm::dvec2(vector2.x, vector2.y);
+	}
+	// Convert glm to a Vector2
+	Vector2 glmToVector2(glm::dvec2 vector2)
+	{
+		return Vector2(vector2.x, vector2.y);
 	}
 
 	double Vector2::Length()
 	{
-		return glm::length(glmVector(*this));
+		return glm::length(Vector2Toglm(*this));
 	}
 	double Vector2::Distance(Vector2 other)
 	{
-		return glm::distance(glmVector(*this), glmVector(other));
+		return glm::distance(Vector2Toglm(*this), Vector2Toglm(other));
 	}
 	double Vector2::Dot(Vector2 other)
 	{
-		return glm::dot(glmVector(*this), glmVector(other));
+		return glm::dot(Vector2Toglm(*this), Vector2Toglm(other));
 	}
 	Vector2 Vector2::Normalized()
 	{
-		return Vector2(glm::normalize(glmVector(*this)).x, glm::normalize(glmVector(*this)).y);
+		return Vector2(glm::normalize(Vector2Toglm(*this)).x, glm::normalize(Vector2Toglm(*this)).y);
 	}
 
-#pragma region Operators
+	std::string Vector2::ToString()
+	{
+		return "(" + std::to_string(this->x) + ", " + std::to_string(this->y) + ")";
+	}
+
+#pragma region Arithmetic Operators
 	Vector2 Vector2::operator+(Vector2 other)
 	{
-		glm::dvec2 vector2 = glm::operator+(glmVector(*this), glmVector(other));
+		glm::dvec2 vector2 = glm::operator+(Vector2Toglm(*this), Vector2Toglm(other));
 		return Vector2(vector2.x, vector2.y);
 	}
 	Vector2 Vector2::operator-(Vector2 other)
 	{
-		glm::dvec2 vector2 = glm::operator-(glmVector(*this), glmVector(other));
+		glm::dvec2 vector2 = glm::operator-(Vector2Toglm(*this), Vector2Toglm(other));
 		return Vector2(vector2.x, vector2.y);
 	}
 	Vector2 Vector2::operator*(Vector2 other)
 	{
-		glm::dvec2 vector2 = glm::operator*(glmVector(*this), glmVector(other));
+		glm::dvec2 vector2 = glm::operator*(Vector2Toglm(*this), Vector2Toglm(other));
 		return Vector2(vector2.x, vector2.y);;
 	}
 	Vector2 Vector2::operator/(Vector2 other)
 	{
-		glm::dvec2 vector2 = glm::operator/(glmVector(*this), glmVector(other));
+		glm::dvec2 vector2 = glm::operator/(Vector2Toglm(*this), Vector2Toglm(other));
 		return Vector2(vector2.x, vector2.y);
 	}
 
 	Vector2 Vector2::operator+(double other)
 	{
-		glm::dvec2 vector2 = glm::operator+(glmVector(*this), other);
+		glm::dvec2 vector2 = glm::operator+(Vector2Toglm(*this), other);
 		return Vector2(vector2.x, vector2.y);
 	}
 	Vector2 Vector2::operator-(double other)
 	{
-		glm::dvec2 vector2 = glm::operator-(glmVector(*this), other);
+		glm::dvec2 vector2 = glm::operator-(Vector2Toglm(*this), other);
 		return Vector2(vector2.x, vector2.y);
 	}
 	Vector2 Vector2::operator*(double other)
 	{
-		glm::dvec2 vector2 = glm::operator*(glmVector(*this), other);
+		glm::dvec2 vector2 = glm::operator*(Vector2Toglm(*this), other);
 		return Vector2(vector2.x, vector2.y);
 	}
 	Vector2 Vector2::operator/(double other)
 	{
-		glm::dvec2 vector2 = glm::operator/(glmVector(*this), other);
+		glm::dvec2 vector2 = glm::operator/(Vector2Toglm(*this), other);
 		return Vector2(vector2.x, vector2.y);
 	}
 #pragma endregion
+
+#pragma region Logical Operators
+	Vector2 Vector2::operator==(Vector2 other)
+	{
+		return glmToVector2(glm::equal(Vector2Toglm(*this), Vector2Toglm(other)));
+	}
+#pragma endregion
+
 
 	Vector2 Vector2::Zero()
 	{
@@ -91,19 +109,24 @@ namespace solar
 
 	double Vector2::Length(Vector2 a)
 	{
-		return glm::length(glmVector(a));
+		return glm::length(Vector2Toglm(a));
 	}
 	double Vector2::Distance(Vector2 a, Vector2 b)
 	{
-		return glm::distance(glmVector(a), glmVector(b));
+		return glm::distance(Vector2Toglm(a), Vector2Toglm(b));
 	}
 	double Vector2::Dot(Vector2 a, Vector2 b)
 	{
-		return glm::dot(glmVector(a), glmVector(b));
+		return glm::dot(Vector2Toglm(a), Vector2Toglm(b));
 	}
 	Vector2 Vector2::Normalized(Vector2 a)
 	{
-		return Vector2(glm::normalize(glmVector(a)).x, glm::normalize(glmVector(a)).y);
+		return Vector2(glm::normalize(Vector2Toglm(a)).x, glm::normalize(Vector2Toglm(a)).y);
+	}
+
+	std::string Vector2::ToString(Vector2 a)
+	{
+		return "(" + std::to_string(a.x) + ", " + std::to_string(a.y) + ")";
 	}
 
 } // namespace solar
