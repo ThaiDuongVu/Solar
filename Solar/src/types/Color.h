@@ -23,6 +23,37 @@ namespace solar
 		Color Normalize(); // Clamp all values of this color to be between 0 and 1
 		std::string ToString(); // Convert this color to string for debugging & printing
 
+#pragma region Arithmetic Operators
+		Color operator+(Color other);
+		Color operator-(Color other);
+		Color operator*(Color other);
+		Color operator/(Color other);
+
+		Color operator+=(Color other);
+		Color operator-=(Color other);
+		Color operator*=(Color other);
+		Color operator/=(Color other);
+
+		Color operator+(float other);
+		Color operator-(float other);
+		Color operator*(float other);
+		Color operator/(float other);
+
+		Color operator+=(float other);
+		Color operator-=(float other);
+		Color operator*=(float other);
+		Color operator/=(float other);
+#pragma endregion Peform arithmetic operations and return an UNCLAMPED color
+
+#pragma region Logical Operators
+		bool operator==(Color other);
+		bool operator!=(Color other);
+		bool operator>(Color other);
+		bool operator>=(Color other);
+		bool operator<(Color other);
+		bool operator<=(Color other);
+#pragma endregion
+
 		static Color Normalize(Color color); // Clamp all values of a color to be between 0 and 1
 		static std::string ToString(Color color); // Convert a color to string for debugging & printing
 	};

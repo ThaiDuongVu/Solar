@@ -174,8 +174,6 @@ namespace solar
 
 		// User-defined shutdown
 		Exit();
-
-		Debug::ResetDebugColor();
 		glfwTerminate();
 	}
 } // namespace solar

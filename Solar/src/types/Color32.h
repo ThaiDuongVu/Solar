@@ -24,6 +24,37 @@ namespace solar
 		Color Normalize(); // Convert this 32-bit Color type to Color type and clamp all values to be between 0 and 1
 		std::string ToString(); // Convert this color to string for debugging & printing
 
+#pragma region Arithmetic Operators
+		Color32 operator+(Color32 other);
+		Color32 operator-(Color32 other);
+		Color32 operator*(Color32 other);
+		Color32 operator/(Color32 other);
+			 
+		Color32 operator+=(Color32 other);
+		Color32 operator-=(Color32 other);
+		Color32 operator*=(Color32 other);
+		Color32 operator/=(Color32 other);
+			 
+		Color32 operator+(int other);
+		Color32 operator-(int other);
+		Color32 operator*(int other);
+		Color32 operator/(int other);
+			 
+		Color32 operator+=(int other);
+		Color32 operator-=(int other);
+		Color32 operator*=(int other);
+		Color32 operator/=(int other);
+#pragma endregion Peform arithmetic operations and return an UNCLAMPED color
+
+#pragma region Logical Operators
+		bool operator==(Color32 other);
+		bool operator!=(Color32 other);
+		bool operator>(Color32 other);
+		bool operator>=(Color32 other);
+		bool operator<(Color32 other);
+		bool operator<=(Color32 other);
+#pragma endregion
+
 		static Color Normalize(Color32 color); // Convert a 32-bit Color type to Color type and clamp all values to be between 0 and 1
 		static std::string ToString(Color32 color); // Convert a color to string for debugging & printing
 	};

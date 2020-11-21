@@ -23,7 +23,7 @@ namespace solar
 		double Dot(Quaternion other); // Dot product of this quaternion and another quaternion
 		Quaternion Normalized(); // Quaternion normalized so that its length is 1
 
-#pragma region Operators
+#pragma region Arithmetic Operators
 		Quaternion operator+(Quaternion other);
 		Quaternion operator-(Quaternion other);
 		Quaternion operator*(Quaternion other);
@@ -31,6 +31,11 @@ namespace solar
 		Quaternion operator*(double other);
 		Quaternion operator/(double other);
 #pragma endregion
+
+#pragma region Logical Operators
+
+#pragma endregion
+
 
 		static Quaternion Zero(); // (0.0f, 0.0f, 0.0f, 0.0f) quaternion
 		static Quaternion Identity(); // (1.0f, 1.0f, 1.0f, 1.0f) quaternion

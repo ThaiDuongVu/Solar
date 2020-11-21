@@ -31,18 +31,35 @@ namespace solar
 		Vector2 operator*(Vector2 other);
 		Vector2 operator/(Vector2 other);
 
+		Vector2 operator+=(Vector2 other);
+		Vector2 operator-=(Vector2 other);
+		Vector2 operator*=(Vector2 other);
+		Vector2 operator/=(Vector2 other);
+
 		Vector2 operator+(double other);
 		Vector2 operator-(double other);
 		Vector2 operator*(double other);
 		Vector2 operator/(double other);
+
+		Vector2 operator+=(double other);
+		Vector2 operator-=(double other);
+		Vector2 operator*=(double other);
+		Vector2 operator/=(double other);
 #pragma endregion
 
 #pragma region Logical Operators
-		Vector2 operator==(Vector2 other);
+		bool operator==(Vector2 other);
+		bool operator!=(Vector2 other);
+		bool operator>(Vector2 other);
+		bool operator<(Vector2 other);
+		bool operator>=(Vector2 other);
+		bool operator<=(Vector2 other);
 #pragma endregion
 
 		static Vector2 Zero(); // (0.0f, 0.0f) vector
 		static Vector2 Identity(); // (1.0f, 1.0f) vector
+		static Vector2 UnitX(); // (1.0f, 0.0f) vector
+		static Vector2 UnitY(); // (0.0f, 1.0f) vector
 
 		static double Length(Vector2 a); // Length of a vector
 		static double Distance(Vector2 a, Vector2 b); // Distance between 2 vectors

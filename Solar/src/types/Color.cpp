@@ -23,11 +23,115 @@ namespace solar
 
 		return Color(this->r, this->g, this->b, this->a);
 	}
-
 	std::string Color::ToString()
 	{
 		return "(" + std::to_string(this->r) + ", " + std::to_string(this->g) + ", " + std::to_string(this->b) + ", " + std::to_string(this->a) + ")";
 	}
+
+#pragma region Arithmetic Operators
+	Color Color::operator+(Color other)
+	{
+		return Color(this->r + other.r, this->g + other.g, this->b + other.b, this->a + other.a);
+	}
+	Color Color::operator-(Color other)
+	{
+		return Color(this->r - other.r, this->g - other.g, this->b - other.b, this->a - other.a);
+	}
+	Color Color::operator*(Color other)
+	{
+		return Color(this->r * other.r, this->g * other.g, this->b * other.b, this->a * other.a);
+	}
+	Color Color::operator/(Color other)
+	{
+		return Color(this->r / other.r, this->g / other.g, this->b / other.b, this->a / other.a);
+	}
+
+	Color Color::operator+=(Color other)
+	{
+		*this = *this + other;
+		return *this;
+	}
+	Color Color::operator-=(Color other)
+	{
+		*this = *this - other;
+		return *this;
+	}
+	Color Color::operator*=(Color other)
+	{
+		*this = *this * other;
+		return *this;
+	}
+	Color Color::operator/=(Color other)
+	{
+		*this = *this / other;
+		return *this;
+	}
+
+	Color Color::operator+(float other)
+	{
+		return Color(this->r + other, this->g + other, this->b + other, this->a + other);
+	}
+	Color Color::operator-(float other)
+	{
+		return Color(this->r - other, this->g - other, this->b - other, this->a - other);
+	}
+	Color Color::operator*(float other)
+	{
+		return Color(this->r * other, this->g * other, this->b * other, this->a * other);
+	}
+	Color Color::operator/(float other)
+	{
+		return Color(this->r / other, this->g / other, this->b / other, this->a / other);
+	}
+
+	Color Color::operator+=(float other)
+	{
+		*this = *this + other;
+		return *this;
+	}
+	Color Color::operator-=(float other)
+	{
+		*this = *this - other;
+		return *this;
+	}
+	Color Color::operator*=(float other)
+	{
+		*this = *this * other;
+		return *this;
+	}
+	Color Color::operator/=(float other)
+	{
+		*this = *this / other;
+		return *this;
+	}
+#pragma endregion
+
+#pragma region Logical Operators
+	bool Color::operator==(Color other)
+	{
+		return (this->r == other.r && this->g == other.r && this->b == other.b && this->a == other.a);
+	}
+	bool Color::operator!=(Color other)
+	{
+		return (this->r != other.r || this->g != other.r || this->b != other.b || this->a != other.a);
+	}
+	bool Color::operator>(Color other)
+	{
+		return (this->r > other.r && this->g > other.r && this->b > other.b && this->a > other.a);
+	}
+	bool Color::operator>=(Color other)
+	{
+		return (this->r >= other.r && this->g >= other.r && this->b >= other.b && this->a >= other.a);
+	}
+	bool Color::operator<(Color other)
+	{
+		return (this->r < other.r && this->g < other.r && this->b < other.b && this->a < other.a);
+	}
+	bool Color::operator<=(Color other)
+	{
+		return (this->r <= other.r && this->g <= other.r && this->b <= other.b && this->a <= other.a);
+	}
+#pragma endregion
 
 	Color Color::Normalize(Color color)
 	{
@@ -38,7 +142,6 @@ namespace solar
 
 		return Color(color.r, color.g, color.b, color.a);
 	}
-
 	std::string Color::ToString(Color color)
 	{
 		return "(" + std::to_string(color.r) + ", " + std::to_string(color.g) + ", " + std::to_string(color.b) + ", " + std::to_string(color.a) + ")";

@@ -26,62 +26,62 @@ void InputDemo(App* app)
 	if (Input::IsKeyDown(Input::Keys::kKeySpace))
 	{
 		// Log a line to console
-		Debug::LogLine("Space key is down");
+		Debug::Log("Space key is down");
 	}
 
 	// While left mouse is down
 	if (Input::IsMouseDown(Input::MouseButtons::kMouseLeft))
 	{
-		Debug::LogLine("Left mouse button is down");
+		Debug::Log("Left mouse button is down");
 	}
 
 	// On right mouse up
 	if (Input::OnMouseUp(Input::MouseButtons::kMouseRight))
 	{
-		Debug::LogLine("Right mouse button released");
+		Debug::Log("Right mouse button released");
 	}
 
 	// Scrolling speed x and y
 	if (Input::ScrollDeltaY() > 0)
 	{
-		Debug::LogLine("Mouse scrolling up");
+		Debug::Log("Mouse scrolling up");
 	}
 	else if (Input::ScrollDeltaY() < 0)
 	{
-		Debug::LogLine("Mouse scrolling down");
+		Debug::Log("Mouse scrolling down");
 	}
 
 	// On mouse enter and exit window_
 	if (Input::OnCursorEnter())
 	{
-		Debug::LogLine("Mouse enter");
+		Debug::Log("Mouse enter");
 	}
 	if (Input::OnCursorExit())
 	{
-		Debug::LogLine("Mouse exit");
+		Debug::Log("Mouse exit");
 	}
 
 	// While A button is being pressed
 	if (Input::IsJoystickButtonDown(Input::JoystickButtons::kButtonA))
 	{
-		Debug::LogLine("A button is down");
+		Debug::Log("A button is down");
 	}
 
 	// Trigger input
 	// if (Input::GetJoystickAxes(Input::JoystickAxes::kAxesRightTrigger) > -1)
 	// {
-	// 	Debug::LogLine("Right trigger is down");
+	// 	Debug::Log("Right trigger is down");
 	// }
 
 	// If a joystick is connected
 	// if (Input::IsJoystickPresent(Input::Joysticks::kJoystick1))
 	// {
-	// 	Debug::LogLine("Joystick 1 present");
+	// 	Debug::Log("Joystick 1 present");
 	// }
 
 	// Mouse position X and Y
-	// Debug::LogLine(Input::CursorPosition().x);
-	// Debug::LogLine(Input::CursorPosition().y);
+	// Debug::Log(Input::CursorPosition().x);
+	// Debug::Log(Input::CursorPosition().y);
 }
 
 // Function to demostrate all cursor modes
@@ -103,6 +103,12 @@ void MathfDemo()
 
 }
 
+// Function to demonstrate vector2 type
+void Vector2Demo()
+{
+
+}
+
 // On game initialization
 void App::Init()
 {
@@ -117,7 +123,7 @@ void App::Init()
 void App::Update(double frame_time)
 {
 	// Frames per 1 second
-	// Debug::LogLine(Time::FrameRate(1));
+	// Debug::Log(Time::FrameRate(1));
 
 	if (Input::OnKeyDown(Input::Keys::kKeyEscape))
 	{
