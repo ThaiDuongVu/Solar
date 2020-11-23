@@ -8,7 +8,7 @@
 /// Include <glm/gtx/range.hpp> to use the features of this extension.
 ///
 /// Defines begin and end for vectors and matrices. Useful for range-based for loop.
-/// The range is defined over the elements, not over columns or rows (e.g. mat4 has 16 elements).
+/// The range is defined over the elements, not over columns or rows (e.g_. mat4 has 16 elements).
 
 #pragma once
 

@@ -402,7 +402,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER genType mod(genType x, genType y)
 	{
 #		if GLM_COMPILER & GLM_COMPILER_CUDA
-			// Another Cuda compiler bug https://github.com/g-truc/glm/issues/530
+			// Another Cuda compiler bug https://github.com/g_-truc/glm/issues/530
 			vec<1, genType, defaultp> Result(mod(vec<1, genType, defaultp>(x), y));
 			return Result.x;
 #		else
@@ -466,10 +466,10 @@ namespace detail
 
 	//// Only valid if (INT_MIN <= x-y <= INT_MAX)
 	//// min(x,y)
-	//r = y + ((x - y) & ((x - y) >> (sizeof(int) *
+	//r_ = y + ((x - y) & ((x - y) >> (sizeof(int) *
 	//CHAR_BIT - 1)));
 	//// max(x,y)
-	//r = x - ((x - y) & ((x - y) >> (sizeof(int) *
+	//r_ = x - ((x - y) & ((x - y) >> (sizeof(int) *
 	//CHAR_BIT - 1)));
 
 	// min

@@ -13,7 +13,7 @@ namespace solar
 	void App::Render() {}
 	void App::Exit() {}
 
-	// OpenGL window_
+	// OpenGL window
 	template <typename T>
 	T* App::window_;
 
@@ -22,7 +22,6 @@ namespace solar
 		App::window_width_ = width;
 		App::window_height_ = height;
 	}
-
 	void App::SetTitle(const char* title)
 	{
 		App::title_ = title;
@@ -32,6 +31,14 @@ namespace solar
 	{
 		glfwWindowHint(GLFW_RESIZABLE, resizable);
 	}
+	void App::SetFocused(bool focused)
+	{
+		glfwWindowHint(GLFW_FOCUSED, focused);
+	}
+	void App::SetMaximized(bool maximized)
+	{
+		glfwWindowHint(GLFW_MAXIMIZED, maximized);
+	}
 
 	void App::Quit()
 	{
@@ -40,11 +47,11 @@ namespace solar
 
 	void App::ClearBackground(Color color)
 	{
-		glClearColor(color.r, color.g, color.b, color.a);
+		glClearColor(color.r_, color.g_, color.b_, color.a_);
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
 
-	// On window_ resize
+	// On window resize
 	void FrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 	{
 		glViewport(0, 0, width, height);
@@ -113,12 +120,16 @@ namespace solar
 		}
 
 		// Disable resizability by default
-		SetResizable(false);
+		SetResizable();
+		// Focus window by default
+		SetFocused();
+		// Disable window maximized by default
+		SetMaximized();
 
 		// User-defined initialization
 		Init();
 
-		// Create a windowed mode window_ and its OpenGL context
+		// Create a windowed mode window and its OpenGL context
 		App::window_<GLFWwindow> = glfwCreateWindow(App::window_width_, App::window_height_, App::title_, NULL, NULL);
 		if (App::window_<GLFWwindow> == NULL)
 		{
@@ -127,7 +138,7 @@ namespace solar
 			return;
 		}
 
-		// Make the window_'s context current
+		// Make the window's context current
 		glfwMakeContextCurrent(App::window_<GLFWwindow>);
 
 		// Initialize GLAD

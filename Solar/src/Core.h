@@ -5,13 +5,13 @@
 
 #define SOLAR_API __declspec(dllexport)
 
-// Default window_ width & height
-// When no width & height is set by user
-#define DEFAULT_WINDOW_WIDTH 800
-#define DEFAULT_WINDOW_HEIGHT 600
+// Default window width & height
+// If no width & height is set by user
+#define DEFAULT_WINDOW_WIDTH 1280
+#define DEFAULT_WINDOW_HEIGHT 720
 
-// Default window_ title_
-// When no title_ is set by user
+// Default window title
+// When no title is set by user
 #define DEFAULT_TITLE "Solar System"
 
 #endif // !SOLAR_CORE_H_

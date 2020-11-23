@@ -21,8 +21,13 @@ namespace solar
 		void SetWindowSize(int width = DEFAULT_WINDOW_WIDTH, int height = DEFAULT_WINDOW_HEIGHT);
 		// Set window title
 		void SetTitle(const char* title = DEFAULT_TITLE);
+
 		// Set window resizable
 		void SetResizable(bool resizable = false);
+		// Set window focused
+		void SetFocused(bool focused = true);
+		// Set window maximized
+		void SetMaximized(bool maximized = false);
 
 		// Clear background
 		void ClearBackground(Color color = Color());
@@ -43,7 +48,7 @@ namespace solar
 		int window_width_ = DEFAULT_WINDOW_WIDTH;
 		int window_height_ = DEFAULT_WINDOW_HEIGHT;
 
-		// Default game window_ title_
+		// Default game window title
 		const char* title_ = "Solar System";
 	};
 } // namespace solar

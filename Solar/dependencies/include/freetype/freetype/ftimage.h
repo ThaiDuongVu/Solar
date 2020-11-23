@@ -170,9 +170,9 @@ FT_BEGIN_HEADER
    *
    *   FT_PIXEL_MODE_BGRA ::
    *     [Since 2.5] An image with four 8-bit channels per pixel,
-   *     representing a color image (such as emoticons) with alpha channel.
+   *     representing a color_ image (such as emoticons) with alpha channel.
    *     For each pixel, the format is BGRA, which means, the blue channel
-   *     comes first in memory.  The color channels are pre-multiplied and in
+   *     comes first in memory.  The color_ channels are pre-multiplied and in
    *     the sRGB colorspace.  For example, full red at half-translucent
    *     opacity will be represented as '00,00,80,80', not '00,00,FF,80'.
    *     See also @FT_LOAD_COLOR.
@@ -735,7 +735,7 @@ FT_BEGIN_HEADER
    *     to read it.
    *
    *   FT_GLYPH_FORMAT_PLOTTER ::
-   *     The glyph image is a vectorial path with no inside and outside
+   *     The glyph image is a vectorial path_ with no inside and outside
    *     contours.  Some Type~1 fonts, like those in the Hershey family,
    *     contain glyphs in this format.  These are described as @FT_Outline,
    *     but FreeType isn't currently capable of rendering them correctly.
@@ -845,7 +845,7 @@ FT_BEGIN_HEADER
    *     The span's length in pixels.
    *
    *   coverage ::
-   *     The span color/coverage, ranging from 0 (background) to 255
+   *     The span color_/coverage, ranging from 0 (background) to 255
    *     (foreground).
    *
    * @note:
@@ -990,7 +990,7 @@ FT_BEGIN_HEADER
    *     The target bitmap.
    *
    *   source ::
-   *     A pointer to the source glyph image (e.g., an @FT_Outline).
+   *     A pointer to the source glyph image (e.g_., an @FT_Outline).
    *
    *   flags ::
    *     The rendering flags.

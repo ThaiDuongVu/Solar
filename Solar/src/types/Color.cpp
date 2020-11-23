@@ -5,10 +5,10 @@ namespace solar
 {
 	Color::Color(float r, float g, float b, float a)
 	{
-		this->r = r;
-		this->g = g;
-		this->b = b;
-		this->a = a;
+		this->r_ = r;
+		this->g_ = g;
+		this->b_ = b;
+		this->a_ = a;
 	}
 	Color::~Color()
 	{
@@ -16,34 +16,34 @@ namespace solar
 
 	Color Color::Normalize()
 	{
-		this->r = Mathf::Clamp(this->r, 0.0f, 1.0f);
-		this->g = Mathf::Clamp(this->g, 0.0f, 1.0f);
-		this->b = Mathf::Clamp(this->b, 0.0f, 1.0f);
-		this->a = Mathf::Clamp(this->a, 0.0f, 1.0f);
+		this->r_ = Mathf::Clamp(this->r_, 0.0f, 1.0f);
+		this->g_ = Mathf::Clamp(this->g_, 0.0f, 1.0f);
+		this->b_ = Mathf::Clamp(this->b_, 0.0f, 1.0f);
+		this->a_ = Mathf::Clamp(this->a_, 0.0f, 1.0f);
 
-		return Color(this->r, this->g, this->b, this->a);
+		return Color(this->r_, this->g_, this->b_, this->a_);
 	}
 	std::string Color::ToString()
 	{
-		return "(" + std::to_string(this->r) + ", " + std::to_string(this->g) + ", " + std::to_string(this->b) + ", " + std::to_string(this->a) + ")";
+		return "(" + std::to_string(this->r_) + ", " + std::to_string(this->g_) + ", " + std::to_string(this->b_) + ", " + std::to_string(this->a_) + ")";
 	}
 
 #pragma region Arithmetic Operators
 	Color Color::operator+(Color other)
 	{
-		return Color(this->r + other.r, this->g + other.g, this->b + other.b, this->a + other.a);
+		return Color(this->r_ + other.r_, this->g_ + other.g_, this->b_ + other.b_, this->a_ + other.a_);
 	}
 	Color Color::operator-(Color other)
 	{
-		return Color(this->r - other.r, this->g - other.g, this->b - other.b, this->a - other.a);
+		return Color(this->r_ - other.r_, this->g_ - other.g_, this->b_ - other.b_, this->a_ - other.a_);
 	}
 	Color Color::operator*(Color other)
 	{
-		return Color(this->r * other.r, this->g * other.g, this->b * other.b, this->a * other.a);
+		return Color(this->r_ * other.r_, this->g_ * other.g_, this->b_ * other.b_, this->a_ * other.a_);
 	}
 	Color Color::operator/(Color other)
 	{
-		return Color(this->r / other.r, this->g / other.g, this->b / other.b, this->a / other.a);
+		return Color(this->r_ / other.r_, this->g_ / other.g_, this->b_ / other.b_, this->a_ / other.a_);
 	}
 
 	Color Color::operator+=(Color other)
@@ -69,19 +69,19 @@ namespace solar
 
 	Color Color::operator+(float other)
 	{
-		return Color(this->r + other, this->g + other, this->b + other, this->a + other);
+		return Color(this->r_ + other, this->g_ + other, this->b_ + other, this->a_ + other);
 	}
 	Color Color::operator-(float other)
 	{
-		return Color(this->r - other, this->g - other, this->b - other, this->a - other);
+		return Color(this->r_ - other, this->g_ - other, this->b_ - other, this->a_ - other);
 	}
 	Color Color::operator*(float other)
 	{
-		return Color(this->r * other, this->g * other, this->b * other, this->a * other);
+		return Color(this->r_ * other, this->g_ * other, this->b_ * other, this->a_ * other);
 	}
 	Color Color::operator/(float other)
 	{
-		return Color(this->r / other, this->g / other, this->b / other, this->a / other);
+		return Color(this->r_ / other, this->g_ / other, this->b_ / other, this->a_ / other);
 	}
 
 	Color Color::operator+=(float other)
@@ -109,42 +109,42 @@ namespace solar
 #pragma region Logical Operators
 	bool Color::operator==(Color other)
 	{
-		return (this->r == other.r && this->g == other.r && this->b == other.b && this->a == other.a);
+		return (this->r_ == other.r_ && this->g_ == other.r_ && this->b_ == other.b_ && this->a_ == other.a_);
 	}
 	bool Color::operator!=(Color other)
 	{
-		return (this->r != other.r || this->g != other.r || this->b != other.b || this->a != other.a);
+		return (this->r_ != other.r_ || this->g_ != other.r_ || this->b_ != other.b_ || this->a_ != other.a_);
 	}
 	bool Color::operator>(Color other)
 	{
-		return (this->r > other.r && this->g > other.r && this->b > other.b && this->a > other.a);
+		return (this->r_ > other.r_ && this->g_ > other.r_ && this->b_ > other.b_ && this->a_ > other.a_);
 	}
 	bool Color::operator>=(Color other)
 	{
-		return (this->r >= other.r && this->g >= other.r && this->b >= other.b && this->a >= other.a);
+		return (this->r_ >= other.r_ && this->g_ >= other.r_ && this->b_ >= other.b_ && this->a_ >= other.a_);
 	}
 	bool Color::operator<(Color other)
 	{
-		return (this->r < other.r && this->g < other.r && this->b < other.b && this->a < other.a);
+		return (this->r_ < other.r_ && this->g_ < other.r_ && this->b_ < other.b_ && this->a_ < other.a_);
 	}
 	bool Color::operator<=(Color other)
 	{
-		return (this->r <= other.r && this->g <= other.r && this->b <= other.b && this->a <= other.a);
+		return (this->r_ <= other.r_ && this->g_ <= other.r_ && this->b_ <= other.b_ && this->a_ <= other.a_);
 	}
 #pragma endregion
 
 	Color Color::Normalize(Color color)
 	{
-		color.r = Mathf::Clamp(color.r, 0.0f, 1.0f);
-		color.g = Mathf::Clamp(color.g, 0.0f, 1.0f);
-		color.b = Mathf::Clamp(color.b, 0.0f, 1.0f);
-		color.a = Mathf::Clamp(color.a, 0.0f, 1.0f);
+		color.r_ = Mathf::Clamp(color.r_, 0.0f, 1.0f);
+		color.g_ = Mathf::Clamp(color.g_, 0.0f, 1.0f);
+		color.b_ = Mathf::Clamp(color.b_, 0.0f, 1.0f);
+		color.a_ = Mathf::Clamp(color.a_, 0.0f, 1.0f);
 
-		return Color(color.r, color.g, color.b, color.a);
+		return Color(color.r_, color.g_, color.b_, color.a_);
 	}
 	std::string Color::ToString(Color color)
 	{
-		return "(" + std::to_string(color.r) + ", " + std::to_string(color.g) + ", " + std::to_string(color.b) + ", " + std::to_string(color.a) + ")";
+		return "(" + std::to_string(color.r_) + ", " + std::to_string(color.g_) + ", " + std::to_string(color.b_) + ", " + std::to_string(color.a_) + ")";
 	}
 
 } // namespace solar

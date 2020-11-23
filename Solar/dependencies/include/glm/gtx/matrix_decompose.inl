@@ -7,7 +7,7 @@ namespace glm{
 namespace detail
 {
 	/// Make a linear combination of two vectors and return the result.
-	// result = (a * ascl) + (b * bscl)
+	// result = (a * ascl) + (b_ * bscl)
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> combine(
 		vec<3, T, Q> const& a,

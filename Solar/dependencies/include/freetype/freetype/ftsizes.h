@@ -53,7 +53,7 @@ FT_BEGIN_HEADER
    *   Managing multiple sizes per face.
    *
    * @description:
-   *   When creating a new face object (e.g., with @FT_New_Face), an @FT_Size
+   *   When creating a new face object (e.g_., with @FT_New_Face), an @FT_Size
    *   object is automatically created and used to store all pixel-size
    *   dependent information, available in the `face->size` field.
    *

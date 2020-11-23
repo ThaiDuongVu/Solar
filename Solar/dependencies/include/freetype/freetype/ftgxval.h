@@ -188,7 +188,7 @@ FT_BEGIN_HEADER
    * @description:
    *    Validate various TrueTypeGX tables to assure that all offsets and
    *    indices are valid.  The idea is that a higher-level library that
-   *    actually does the text layout can access those tables without error
+   *    actually does the test layout can access those tables without error
    *    checking (which can be quite time consuming).
    *
    * @input:
@@ -286,7 +286,7 @@ FT_BEGIN_HEADER
    * @description:
    *    Validate classic (16-bit format) kern table to assure that the
    *    offsets and indices are valid.  The idea is that a higher-level
-   *    library that actually does the text layout can access those tables
+   *    library that actually does the test layout can access those tables
    *    without error checking (which can be quite time consuming).
    *
    *    The 'kern' table validator in @FT_TrueTypeGX_Validate deals with both

@@ -442,7 +442,7 @@ FT_BEGIN_HEADER
    *
    * @description:
    *   Client applications often need to associate their own data to a
-   *   variety of FreeType core objects.  For example, a text layout API
+   *   variety of FreeType core objects.  For example, a test layout API
    *   might want to associate a glyph cache to a given size object.
    *
    *   Some FreeType object contains a `generic` field, of type `FT_Generic`,

@@ -44,12 +44,12 @@ namespace detail
 	/*
 		Template parameters:
 
-		T			= type of scalar values (e.g. float, double)
-		N			= number of components in the vector (e.g. 3)
+		T			= type of scalar values (e.g_. float, double)
+		N			= number of components in the vector (e.g_. 3)
 		E0...3		= what index the n-th element of this swizzle refers to in the unswizzled vec
 
 		DUPLICATE_ELEMENTS = 1 if there is a repeated element, 0 otherwise (used to specialize swizzles
-			containing duplicate elements so that they cannot be used as r-values).
+			containing duplicate elements so that they cannot be used as r_-values).
 	*/
 	template<int N, typename T, qualifier Q, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
 	struct _swizzle_base2 : public _swizzle_base1<N, T, Q, E0,E1,E2,E3, detail::is_aligned<Q>::value>
@@ -173,7 +173,7 @@ namespace detail
 #define GLM_SWIZZLE_TYPE2       _swizzle<N, T, Q, F0, F1, F2, F3>
 
 //
-// Wrapper for a binary operator (e.g. u.yy + v.zy)
+// Wrapper for a binary operator (e.g_. u.yy + v.zy)
 //
 #define GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)                 \
 	GLM_SWIZZLE_TEMPLATE2                                                          \
@@ -193,7 +193,7 @@ namespace detail
 	}
 
 //
-// Wrapper for a operand between a swizzle and a binary (e.g. 1.0f - u.xyz)
+// Wrapper for a operand between a swizzle and a binary (e.g_. 1.0f - u.xyz)
 //
 #define GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)								\
 	GLM_SWIZZLE_TEMPLATE1																		\
@@ -208,7 +208,7 @@ namespace detail
 	}
 
 //
-// Macro for wrapping a function taking one argument (e.g. abs())
+// Macro for wrapping a function taking one argument (e.g_. abs())
 //
 #define GLM_SWIZZLE_FUNCTION_1_ARGS(RETURN_TYPE,FUNCTION)												\
 	GLM_SWIZZLE_TEMPLATE1																				\
@@ -218,7 +218,7 @@ namespace detail
 	}
 
 //
-// Macro for wrapping a function taking two vector arguments (e.g. dot()).
+// Macro for wrapping a function taking two vector arguments (e.g_. dot()).
 //
 #define GLM_SWIZZLE_FUNCTION_2_ARGS(RETURN_TYPE,FUNCTION)                                                       \
 	GLM_SWIZZLE_TEMPLATE2                                                                                       \
@@ -243,7 +243,7 @@ namespace detail
 	}
 
 //
-// Macro for wrapping a function take 2 vec arguments followed by a scalar (e.g. mix()).
+// Macro for wrapping a function take 2 vec arguments followed by a scalar (e.g_. mix()).
 //
 #define GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(RETURN_TYPE,FUNCTION)                                                             \
 	GLM_SWIZZLE_TEMPLATE2                                                                                                    \

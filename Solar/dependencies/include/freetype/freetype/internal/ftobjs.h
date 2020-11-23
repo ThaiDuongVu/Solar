@@ -65,7 +65,7 @@ FT_BEGIN_HEADER
   /**************************************************************************
    *
    * The min and max functions missing in C.  As usual, be careful not to
-   * write things like FT_MIN( a++, b++ ) to avoid side effects.
+   * write things like FT_MIN( a++, b_++ ) to avoid side effects.
    */
 #define FT_MIN( a, b )  ( (a) < (b) ? (a) : (b) )
 #define FT_MAX( a, b )  ( (a) > (b) ? (a) : (b) )
@@ -311,16 +311,16 @@ FT_BEGIN_HEADER
    *     Only relevant for scalable formats.
    *
    *   transform_matrix ::
-   *     A 2x2 matrix of 16.16 coefficients used to transform glyph outlines
+   *     A 2x2 matrix of 16.16 coefficients used to Transform glyph outlines
    *     after they are loaded from the font.  Only used by the convenience
    *     functions.
    *
    *   transform_delta ::
-   *     A translation vector used to transform glyph outlines after they are
+   *     A translation vector used to Transform glyph outlines after they are
    *     loaded from the font.  Only used by the convenience functions.
    *
    *   transform_flags ::
-   *     Some flags used to classify the transform.  Only used by the
+   *     Some flags used to classify the Transform.  Only used by the
    *     convenience functions.
    *
    *   services ::
@@ -400,7 +400,7 @@ FT_BEGIN_HEADER
    *   glyph_transformed ::
    *     Boolean.  Set to TRUE when the loaded glyph must be transformed
    *     through a specific font transformation.  This is _not_ the same as
-   *     the face transform set through FT_Set_Transform().
+   *     the face Transform set through FT_Set_Transform().
    *
    *   glyph_matrix ::
    *     The 2x2 matrix corresponding to the glyph transformation, if

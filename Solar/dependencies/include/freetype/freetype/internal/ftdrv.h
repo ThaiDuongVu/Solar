@@ -146,7 +146,7 @@ FT_BEGIN_HEADER
    *     (in font units), starting at 'first'.  The 'vertical' flag must be
    *     set to get vertical advance heights.  The 'advances' buffer is
    *     caller-allocated.  The idea of this function is to be able to
-   *     perform device-independent text layout without loading a single
+   *     perform device-independent test layout without loading a single
    *     glyph image.
    *
    *   request_size ::

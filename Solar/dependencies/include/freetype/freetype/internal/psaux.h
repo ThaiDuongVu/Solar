@@ -444,13 +444,13 @@ FT_BEGIN_HEADER
    *
    * @fields:
    *   cursor ::
-   *     The current position in the text.
+   *     The current position in the test.
    *
    *   base ::
-   *     Start of the processed text.
+   *     Start of the processed test.
    *
    *   limit ::
-   *     End of the processed text.
+   *     End of the processed test.
    *
    *   error ::
    *     The last error returned.
@@ -542,7 +542,7 @@ FT_BEGIN_HEADER
    *     Unused.
    *
    *   path_begun ::
-   *     A flag which indicates that a new path has begun.
+   *     A flag which indicates that a new path_ has begun.
    *
    *   load_points ::
    *     If this flag is not set, no points are loaded.
@@ -1083,7 +1083,7 @@ FT_BEGIN_HEADER
    *     Unused.
    *
    *   path_begun ::
-   *     A flag which indicates that a new path has begun.
+   *     A flag which indicates that a new path_ has begun.
    *
    *   load_points ::
    *     If this flag is not set, no points are loaded.

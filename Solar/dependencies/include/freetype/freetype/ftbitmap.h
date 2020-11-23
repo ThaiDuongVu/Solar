@@ -213,7 +213,7 @@ FT_BEGIN_HEADER
    *   FT_Bitmap_Blend
    *
    * @description:
-   *   Blend a bitmap onto another bitmap, using a given color.
+   *   Blend a bitmap onto another bitmap, using a given color_.
    *
    * @input:
    *   library ::
@@ -227,8 +227,8 @@ FT_BEGIN_HEADER
    *     26.6 pixel format.  It should represent an integer offset; the
    *     function will set the lowest six bits to zero to enforce that.
    *
-   *   color ::
-   *     The color used to draw `source` onto `target`.
+   *   color_ ::
+   *     The color_ used to draw `source` onto `target`.
    *
    * @inout:
    *   target ::

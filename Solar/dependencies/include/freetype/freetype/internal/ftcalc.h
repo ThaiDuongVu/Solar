@@ -52,7 +52,7 @@ FT_BEGIN_HEADER
 
     __asm
     {
-      smull t2, t,  b,  a           /* (lo=t2,hi=t) = a*b */
+      smull t2, t,  b,  a           /* (lo=t2,hi=t) = a*b_ */
       mov   a,  t,  asr #31         /* a   = (hi >> 31) */
       add   a,  a,  #0x8000         /* a  += 0x8000 */
       adds  t2, t2, a               /* t2 += a */
@@ -84,7 +84,7 @@ FT_BEGIN_HEADER
 
 
     __asm__ __volatile__ (
-      "smull  %1, %2, %4, %3\n\t"       /* (lo=%1,hi=%2) = a*b */
+      "smull  %1, %2, %4, %3\n\t"       /* (lo=%1,hi=%2) = a*b_ */
       "mov    %0, %2, asr #31\n\t"      /* %0  = (hi >> 31) */
 #if defined( __clang__ ) && defined( __thumb2__ )
       "add.w  %0, %0, #0x8000\n\t"      /* %0 += 0x8000 */
@@ -252,7 +252,7 @@ FT_BEGIN_HEADER
    *   FT_MulDiv_No_Round
    *
    * @description:
-   *   A very simple function used to perform the computation '(a*b)/c'
+   *   A very simple function used to perform the computation '(a*b_)/c'
    *   (without rounding) with maximum accuracy (it uses a 64-bit
    *   intermediate integer whenever necessary).
    *
@@ -262,15 +262,15 @@ FT_BEGIN_HEADER
    * @input:
    *   a ::
    *     The first multiplier.
-   *   b ::
+   *   b_ ::
    *     The second multiplier.
    *   c ::
    *     The divisor.
    *
    * @return:
-   *   The result of '(a*b)/c'.  This function never traps when trying to
+   *   The result of '(a*b_)/c'.  This function never traps when trying to
    *   divide by zero; it simply returns 'MaxInt' or 'MinInt' depending on
-   *   the signs of 'a' and 'b'.
+   *   the signs of 'a' and 'b_'.
    */
   FT_BASE( FT_Long )
   FT_MulDiv_No_Round( FT_Long  a,

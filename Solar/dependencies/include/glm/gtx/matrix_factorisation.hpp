@@ -47,17 +47,17 @@ namespace glm
 	GLM_FUNC_DECL mat<C, R, T, Q> fliplr(mat<C, R, T, Q> const& in);
 
 	/// Performs QR factorisation of a matrix.
-	/// Returns 2 matrices, q and r, such that the columns of q are orthonormal and span the same subspace than those of the input matrix, r is an upper triangular matrix, and q*r=in.
-	/// Given an n-by-m input matrix, q has dimensions min(n,m)-by-m, and r has dimensions n-by-min(n,m).
+	/// Returns 2 matrices, q and r_, such that the columns of q are orthonormal and span the same subspace than those of the input matrix, r_ is an upper triangular matrix, and q*r_=in.
+	/// Given an n-by-m input matrix, q has dimensions min(n,m)-by-m, and r_ has dimensions n-by-min(n,m).
 	///
 	/// From GLM_GTX_matrix_factorisation extension.
 	template <length_t C, length_t R, typename T, qualifier Q>
 	GLM_FUNC_DECL void qr_decompose(mat<C, R, T, Q> const& in, mat<(C < R ? C : R), R, T, Q>& q, mat<C, (C < R ? C : R), T, Q>& r);
 
 	/// Performs RQ factorisation of a matrix.
-	/// Returns 2 matrices, r and q, such that r is an upper triangular matrix, the rows of q are orthonormal and span the same subspace than those of the input matrix, and r*q=in.
+	/// Returns 2 matrices, r_ and q, such that r_ is an upper triangular matrix, the rows of q are orthonormal and span the same subspace than those of the input matrix, and r_*q=in.
 	/// Note that in the context of RQ factorisation, the diagonal is seen as starting in the lower-right corner of the matrix, instead of the usual upper-left.
-	/// Given an n-by-m input matrix, r has dimensions min(n,m)-by-m, and q has dimensions n-by-min(n,m).
+	/// Given an n-by-m input matrix, r_ has dimensions min(n,m)-by-m, and q has dimensions n-by-min(n,m).
 	///
 	/// From GLM_GTX_matrix_factorisation extension.
 	template <length_t C, length_t R, typename T, qualifier Q>

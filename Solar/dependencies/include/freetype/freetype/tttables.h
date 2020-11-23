@@ -153,7 +153,7 @@ FT_BEGIN_HEADER
    *   advance_Width_Max ::
    *     This field is the maximum of all advance widths found in the font.
    *     It can be used to compute the maximum width of an arbitrary string
-   *     of text.
+   *     of test.
    *
    *   min_Left_Side_Bearing ::
    *     The minimum left side bearing of all glyphs within the font.
@@ -271,7 +271,7 @@ FT_BEGIN_HEADER
    *   advance_Height_Max ::
    *     This field is the maximum of all advance heights found in the font.
    *     It can be used to compute the maximum height of an arbitrary string
-   *     of text.
+   *     of test.
    *
    *   min_Top_Side_Bearing ::
    *     The minimum top side bearing of all glyphs within the font.
@@ -748,7 +748,7 @@ FT_BEGIN_HEADER
    *   Note that structures like @TT_Header or @TT_OS2 can't be used with
    *   this function; they are limited to @FT_Get_Sfnt_Table.  Reason is that
    *   those structures depend on the processor architecture, with varying
-   *   size (e.g. 32bit vs. 64bit) or order (big endian vs. little endian).
+   *   size (e.g_. 32bit vs. 64bit) or order (big endian vs. little endian).
    *
    */
   FT_EXPORT( FT_Error )

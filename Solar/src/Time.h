@@ -20,7 +20,7 @@ namespace solar
 		static double current_time_;
 
 		// Update frame time
-		// Called every frame
+		// Is called every frame
 		static void Update(double &previous_time, double &current_time);
 	};
 } // namespace solar

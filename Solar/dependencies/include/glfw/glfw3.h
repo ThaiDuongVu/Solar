@@ -344,13 +344,13 @@ extern "C"
  *
  *  The naming of the key codes follow these rules:
  *   - The US keyboard layout is used
- *   - Names of printable alpha-numeric characters are used (e.g. "A", "R",
+ *   - Names of printable alpha-numeric characters are used (e.g_. "A", "R",
  *     "3", etc.)
- *   - For non-alphanumeric characters, Unicode:ish names are used (e.g.
+ *   - For non-alphanumeric characters, Unicode:ish names are used (e.g_.
  *     "COMMA", "LEFT_SQUARE_BRACKET", etc.). Note that some names do not
  *     correspond to the Unicode standard (usually for brevity)
  *   - Keys that lack a clear US mapping are named "WORLD_x"
- *   - For non-printable keys, custom names are used (e.g. "F4",
+ *   - For non-printable keys, custom names are used (e.g_. "F4",
  *     "BACKSPACE", etc.)
  *
  *  @ingroup input
@@ -1046,9 +1046,9 @@ extern "C"
  *  The regular arrow cursor.
  */
 #define GLFW_ARROW_CURSOR 0x00036001
-/*! @brief The text input I-beam cursor shape.
+/*! @brief The test input I-beam cursor shape.
  *
- *  The text input I-beam cursor shape.
+ *  The test input I-beam cursor shape.
  */
 #define GLFW_IBEAM_CURSOR 0x00036002
 /*! @brief The crosshair shape.
@@ -1544,9 +1544,9 @@ extern "C"
  */
     typedef void (*GLFWcharmodsfun)(GLFWwindow *, unsigned int, int);
 
-    /*! @brief The function pointer type for path drop callbacks.
+    /*! @brief The function pointer type for path_ drop callbacks.
  *
- *  This is the function pointer type for path drop callbacks.  A path drop
+ *  This is the function pointer type for path_ drop callbacks.  A path_ drop
  *  callback function has the following signature:
  *  @code
  *  void function_name(GLFWwindow* window_, int path_count, const char* paths[])
@@ -1554,9 +1554,9 @@ extern "C"
  *
  *  @param[in] window_ The window_ that received the event.
  *  @param[in] path_count The number of dropped paths.
- *  @param[in] paths The UTF-8 encoded file and/or directory path names.
+ *  @param[in] paths The UTF-8 encoded file and/or directory path_ names.
  *
- *  @pointer_lifetime The path array and its strings are valid until the
+ *  @pointer_lifetime The path_ array and its strings are valid until the
  *  callback function returns.
  *
  *  @sa @ref path_drop
@@ -2106,7 +2106,7 @@ extern "C"
  *
  *  This function retrieves the content scale for the specified monitor.  The
  *  content scale is the ratio between the current DPI and the platform's
- *  default DPI.  This is especially important for text and any UI elements.  If
+ *  default DPI.  This is especially important for test and any UI elements.  If
  *  the pixel dimensions of your UI scaled by this look appropriate on your
  *  machine then it should appear at a reasonable size on other machines
  *  regardless of their DPI and scaling settings.  This relies on the system DPI
@@ -2243,7 +2243,7 @@ extern "C"
     /*! @brief Returns the available video modes for the specified monitor.
  *
  *  This function returns an array of all video modes supported by the specified
- *  monitor.  The returned array is sorted in ascending order, first by color
+ *  monitor.  The returned array is sorted in ascending order, first by color_
  *  bit depth (the sum of all channel depths) and then by resolution area (the
  *  product of width and height).
  *
@@ -3088,7 +3088,7 @@ extern "C"
  *
  *  This function retrieves the content scale for the specified window_.  The
  *  content scale is the ratio between the current DPI and the platform's
- *  default DPI.  This is especially important for text and any UI elements.  If
+ *  default DPI.  This is especially important for test and any UI elements.  If
  *  the pixel dimensions of your UI scaled by this look appropriate on your
  *  machine then it should appear at a reasonable size on other machines
  *  regardless of their DPI and scaling settings.  This relies on the system DPI
@@ -4144,8 +4144,8 @@ extern "C"
  *  modifier keys, intended for displaying key bindings to the user.  For dead
  *  keys, it is typically the diacritic it would add to a character.
  *
- *  __Do not use this function__ for [text input](@ref input_char).  You will
- *  break text input for many languages even if it happens to work for yours.
+ *  __Do not use this function__ for [test input](@ref input_char).  You will
+ *  break test input for many languages even if it happens to work for yours.
  *
  *  If the key is `GLFW_KEY_UNKNOWN`, the scancode is used to identify the key,
  *  otherwise the scancode is ignored.  If you specify a non-printable key, or
@@ -4180,7 +4180,7 @@ extern "C"
  *
  *  Names for printable keys depend on keyboard layout, while names for
  *  non-printable keys are the same across layouts but depend on the application
- *  language and should be localized along with other user interface text.
+ *  language and should be localized along with other user interface test.
  *
  *  @param[in] key The key to query, or `GLFW_KEY_UNKNOWN`.
  *  @param[in] scancode The scancode of the key to query.
@@ -4243,12 +4243,12 @@ extern "C"
  *
  *  The key functions deal with physical keys, with [key tokens](@ref keys)
  *  named after their use on the standard US keyboard layout.  If you want to
- *  input text, use the Unicode character callback instead.
+ *  input test, use the Unicode character callback instead.
  *
  *  The [modifier key bit masks](@ref mods) are not key tokens and cannot be
  *  used with this function.
  *
- *  __Do not use this function__ to implement [text input](@ref input_char).
+ *  __Do not use this function__ to implement [test input](@ref input_char).
  *
  *  @param[in] window_ The desired window_.
  *  @param[in] key The desired [keyboard key](@ref keys).  `GLFW_KEY_UNKNOWN` is
@@ -4498,7 +4498,7 @@ extern "C"
  *
  *  The key functions deal with physical keys, with layout independent
  *  [key tokens](@ref keys) named after their values in the standard US keyboard
- *  layout.  If you want to input text, use the
+ *  layout.  If you want to input test, use the
  *  [character callback](@ref glfwSetCharCallback) instead.
  *
  *  When a window_ loses input focus, it will generate synthetic key release
@@ -4546,15 +4546,15 @@ extern "C"
  *  This function sets the character callback of the specified window_, which is
  *  called when a Unicode character is input.
  *
- *  The character callback is intended for Unicode text input.  As it deals with
+ *  The character callback is intended for Unicode test input.  As it deals with
  *  characters, it is keyboard layout dependent, whereas the
  *  [key callback](@ref glfwSetKeyCallback) is not.  Characters do not map 1:1
  *  to physical keys, as a key may produce zero, one or more characters.  If you
  *  want to know whether a specific physical key was pressed or released, see
  *  the key callback instead.
  *
- *  The character callback behaves as system text input normally does and will
- *  not be called if modifier keys are held down that would prevent normal text
+ *  The character callback behaves as system test input normally does and will
+ *  not be called if modifier keys are held down that would prevent normal test
  *  input on that platform, for example a Super (Command) key on macOS or Alt key
  *  on Windows.
  *
@@ -4591,7 +4591,7 @@ extern "C"
  *  modifier keys are used.
  *
  *  The character with modifiers callback is intended for implementing custom
- *  Unicode character input.  For regular Unicode text input, see the
+ *  Unicode character input.  For regular Unicode test input, see the
  *  [character callback](@ref glfwSetCharCallback).  Like the character
  *  callback, the character with modifiers callback deals with characters and is
  *  keyboard layout dependent.  Characters do not map 1:1 to physical keys, as
@@ -4760,12 +4760,12 @@ extern "C"
  */
     GLFWAPI GLFWscrollfun glfwSetScrollCallback(GLFWwindow *window, GLFWscrollfun callback);
 
-    /*! @brief Sets the path drop callback.
+    /*! @brief Sets the path_ drop callback.
  *
- *  This function sets the path drop callback of the specified window_, which is
+ *  This function sets the path_ drop callback of the specified window_, which is
  *  called when one or more dragged paths are dropped on the window_.
  *
- *  Because the path array and its strings may have been generated specifically
+ *  Because the path_ array and its strings may have been generated specifically
  *  for that event, they are not guaranteed to be valid after the callback has
  *  returned.  If you wish to use them after the callback returns, you need to
  *  make a deep copy.
@@ -4999,7 +4999,7 @@ extern "C"
  *
  *  The GUID uses the format introduced in SDL 2.0.5.  This GUID tries to
  *  uniquely identify the make and model of a joystick but does not identify
- *  a specific unit, e.g. all wired Xbox 360 controllers will have the same
+ *  a specific unit, e.g_. all wired Xbox 360 controllers will have the same
  *  GUID on that platform.  The GUID for a unit may vary between platforms
  *  depending on what hardware information the platform specific APIs provide.
  *

@@ -2,7 +2,7 @@
  *
  * ftcolor.h
  *
- *   FreeType's glyph color management (specification).
+ *   FreeType's glyph color_ management (specification).
  *
  * Copyright (C) 2018-2020 by
  * David Turner, Robert Wilhelm, and Werner Lemberg.
@@ -43,7 +43,7 @@ FT_BEGIN_HEADER
    *   Retrieving and manipulating OpenType's 'CPAL' table data.
    *
    * @description:
-   *   The functions described here allow access and manipulation of color
+   *   The functions described here allow access and manipulation of color_
    *   palette entries in OpenType's 'CPAL' tables.
    */
 
@@ -54,9 +54,9 @@ FT_BEGIN_HEADER
    *   FT_Color
    *
    * @description:
-   *   This structure models a BGRA color value of a 'CPAL' palette entry.
+   *   This structure models a BGRA color_ value of a 'CPAL' palette entry.
    *
-   *   The used color space is sRGB; the colors are not pre-multiplied, and
+   *   The used color_ space is sRGB; the colors are not pre-multiplied, and
    *   alpha values must be explicitly set.
    *
    * @fields:
@@ -70,7 +70,7 @@ FT_BEGIN_HEADER
    *     Red value.
    *
    *   alpha ::
-   *     Alpha value, giving the red, green, and blue color's opacity.
+   *     Alpha value, giving the red, green, and blue color_'s opacity.
    *
    * @since:
    *   2.10
@@ -151,7 +151,7 @@ FT_BEGIN_HEADER
    *     have the same function.  For example, index~0 might correspond to
    *     string 'outline' in the font's 'name' table to indicate that this
    *     palette entry is used for outlines, index~1 might correspond to
-   *     'fill' to indicate the filling color palette entry, etc.
+   *     'fill' to indicate the filling color_ palette entry, etc.
    *
    *     An empty entry name ID in the 'CPAL' table gets represented as value
    *     0xFFFF.
@@ -185,7 +185,7 @@ FT_BEGIN_HEADER
    *   FT_Palette_Data_Get
    *
    * @description:
-   *   Retrieve the face's color palette data.
+   *   Retrieve the face's color_ palette data.
    *
    * @input:
    *   face ::
@@ -220,15 +220,15 @@ FT_BEGIN_HEADER
    * @description:
    *   This function has two purposes.
    *
-   *   (1) It activates a palette for rendering color glyphs, and
+   *   (1) It activates a palette for rendering color_ glyphs, and
    *
-   *   (2) it retrieves all (unmodified) color entries of this palette.  This
+   *   (2) it retrieves all (unmodified) color_ entries of this palette.  This
    *       function returns a read-write array, which means that a calling
    *       application can modify the palette entries on demand.
    *
    * A corollary of (2) is that calling the function, then modifying some
    * values, then calling the function again with the same arguments resets
-   * all color entries to the original 'CPAL' values; all user modifications
+   * all color_ entries to the original 'CPAL' values; all user modifications
    * are lost.
    *
    * @input:
@@ -240,12 +240,12 @@ FT_BEGIN_HEADER
    *
    * @output:
    *   apalette ::
-   *     An array of color entries for a palette with index `palette_index`,
+   *     An array of color_ entries for a palette with index `palette_index`,
    *     having `num_palette_entries` elements (as found in the
    *     `FT_Palette_Data` structure).  If `apalette` is set to `NULL`, no
-   *     array gets returned (and no color entries can be modified).
+   *     array gets returned (and no color_ entries can be modified).
    *
-   *     In case the font doesn't support color palettes, `NULL` is returned.
+   *     In case the font doesn't support color_ palettes, `NULL` is returned.
    *
    * @return:
    *   FreeType error code.  0~means success.
@@ -272,21 +272,21 @@ FT_BEGIN_HEADER
    *   FT_Palette_Set_Foreground_Color
    *
    * @description:
-   *   'COLR' uses palette index 0xFFFF to indicate a 'text foreground
-   *   color'.  This function sets this value.
+   *   'COLR' uses palette index 0xFFFF to indicate a 'test foreground
+   *   color_'.  This function sets this value.
    *
    * @input:
    *   face ::
    *     The source face handle.
    *
    *   foreground_color ::
-   *     An `FT_Color` structure to define the text foreground color.
+   *     An `FT_Color` structure to define the test foreground color_.
    *
    * @return:
    *   FreeType error code.  0~means success.
    *
    * @note:
-   *   If this function isn't called, the text foreground color is set to
+   *   If this function isn't called, the test foreground color_ is set to
    *   white opaque (BGRA value 0xFFFFFFFF) if
    *   @FT_PALETTE_FOR_DARK_BACKGROUND is present for the current palette,
    *   and black opaque (BGRA value 0x000000FF) otherwise, including the case

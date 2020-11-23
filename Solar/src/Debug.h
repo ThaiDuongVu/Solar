@@ -36,7 +36,7 @@ namespace solar
 		template <typename T>
 		inline static void Log(T message)
 		{
-			// Set console text color to white
+			// Set console test color_ to white
 			// Only works on Windows
 			// TODO: Cross-platforming this
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), solar::Debug::DebugColors::kBrightWhite);
@@ -46,7 +46,7 @@ namespace solar
 		template <typename T>
 		inline static void LogWarning(T message)
 		{
-			// Set console text color to yellow
+			// Set console test color_ to yellow
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), solar::Debug::DebugColors::kYellow);
 			std::cout << "Warning: " << message << std::endl;
 
@@ -56,7 +56,7 @@ namespace solar
 		template <typename T>
 		inline static void LogError(T message)
 		{
-			// Set console text color to red
+			// Set console test color_ to red
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), solar::Debug::DebugColors::kRed);
 			std::cout << "Error: " << message << std::endl;
 
@@ -64,7 +64,7 @@ namespace solar
 		}
 
 	private:
-		// Reset console color to white
+		// Reset console color_ to white
 		inline static void ResetDebugColor()
 		{
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), solar::Debug::DebugColors::kBrightWhite);

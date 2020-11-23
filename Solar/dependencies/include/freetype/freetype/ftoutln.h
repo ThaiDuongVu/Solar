@@ -42,7 +42,7 @@ FT_BEGIN_HEADER
    *   Outline Processing
    *
    * @abstract:
-   *   Functions to create, transform, and render vectorial glyph images.
+   *   Functions to create, Transform, and render vectorial glyph images.
    *
    * @description:
    *   This section contains routines used to create and destroy scalable
@@ -97,7 +97,7 @@ FT_BEGIN_HEADER
    *
    *   func_interface ::
    *     A table of 'emitters', i.e., function pointers called during
-   *     decomposition to indicate path operations.
+   *     decomposition to indicate path_ operations.
    *
    * @inout:
    *   user ::

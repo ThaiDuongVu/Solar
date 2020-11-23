@@ -23,7 +23,7 @@
    * outlines from a given face.
    *
    * These functions should be optional if you are writing a font server or
-   * text layout engine on top of FreeType.  However, they are pretty handy
+   * test layout engine on top of FreeType.  However, they are pretty handy
    * for many other simple uses of the library.
    *
    */
@@ -609,14 +609,14 @@ FT_BEGIN_HEADER
    *   FT_Matrix_Multiply
    *
    * @description:
-   *   Perform the matrix operation `b = a*b`.
+   *   Perform the matrix operation `b = a*b_`.
    *
    * @input:
    *   a ::
    *     A pointer to matrix `a`.
    *
    * @inout:
-   *   b ::
+   *   b_ ::
    *     A pointer to matrix `b`.
    *
    * @note:

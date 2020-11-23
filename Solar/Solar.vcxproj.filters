@@ -1197,6 +1197,12 @@
     <ClInclude Include="src\components\text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\types\transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\types\font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dependencies\include\glad\glad.c">
@@ -1233,6 +1239,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\components\text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\types\transform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\types\font.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1645,5 +1657,8 @@
     <None Include="dependencies\include\glm\detail\type_vec4_simd.inl">
       <Filter>Header Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\font.ttf" />
   </ItemGroup>
 </Project>

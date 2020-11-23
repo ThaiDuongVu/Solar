@@ -86,7 +86,7 @@ FT_BEGIN_HEADER
    *
    *   **Hinting and antialiasing principles of the new engine**
    *
-   *   The rasterizer is positioning horizontal features (e.g., ascender
+   *   The rasterizer is positioning horizontal features (e.g_., ascender
    *   height & x-height, or crossbars) on the pixel grid and minimizing the
    *   amount of antialiasing applied to them, while placing vertical
    *   features (vertical stems) on the pixel grid without hinting, thus
@@ -117,7 +117,7 @@ FT_BEGIN_HEADER
    *   critical direction anyway; the weights and spacing of vertical stems
    *   (see above) are central to Armenian, Cyrillic, Greek, and Latin type
    *   designs.  Even when the rasterizer uses greyscale antialiasing instead
-   *   of color (a necessary compromise when one doesn't know the screen
+   *   of color_ (a necessary compromise when one doesn't know the screen
    *   characteristics), the unhinted vertical features preserve the design's
    *   weight and spacing much better than aliased type would.
    *
@@ -230,7 +230,7 @@ FT_BEGIN_HEADER
    *   supported hinting of the right-side bearing point, such that the
    *   advance width could be non-linear.  Most often this was done to
    *   achieve some level of glyph symmetry.  To enable reasonable
-   *   performance (e.g., not having to run hinting on all glyphs just to get
+   *   performance (e.g_., not having to run hinting on all glyphs just to get
    *   the widths) there was a bit in the head table indicating if the side
    *   bearing was hinted, and additional tables, 'hdmx' and 'LTSH', to cache
    *   hinting widths across multiple sizes and device aspect ratios.
@@ -423,7 +423,7 @@ FT_BEGIN_HEADER
    *   smaller sizes where shades of gray dominate.  By emboldening a glyph
    *   slightly in relation to its pixel size, individual pixels get higher
    *   coverage of filled-in outlines and are therefore 'blacker'.  This
-   *   counteracts the 'thinning out' of glyphs, making text remain readable
+   *   counteracts the 'thinning out' of glyphs, making test remain readable
    *   at smaller sizes.
    *
    *   For the auto-hinter, stem-darkening is experimental currently and thus
@@ -495,7 +495,7 @@ FT_BEGIN_HEADER
    *   positive; the x~values must be monotonically increasing; the y~values
    *   must be monotonically decreasing and smaller than or equal to 500
    *   (corresponding to half a pixel); the slope of each linear piece must
-   *   be shallower than -1 (e.g., -.4).
+   *   be shallower than -1 (e.g_., -.4).
    *
    *   The auto-hinter provides this property, too, as an experimental
    *   feature.  See @no-stem-darkening for more.
@@ -628,7 +628,7 @@ FT_BEGIN_HEADER
    *
    * @values:
    *   TT_INTERPRETER_VERSION_35 ::
-   *     Version~35 corresponds to MS rasterizer v.1.7 as used e.g. in
+   *     Version~35 corresponds to MS rasterizer v.1.7 as used e.g_. in
    *     Windows~98; only grayscale and B/W rasterizing is supported.
    *
    *   TT_INTERPRETER_VERSION_38 ::
@@ -649,7 +649,7 @@ FT_BEGIN_HEADER
    * @note:
    *   This property controls the behaviour of the bytecode interpreter and
    *   thus how outlines get hinted.  It does **not** control how glyph get
-   *   rasterized!  In particular, it does not control subpixel color
+   *   rasterized!  In particular, it does not control subpixel color_
    *   filtering.
    *
    *   If FreeType has not been compiled with the configuration option
@@ -702,8 +702,8 @@ FT_BEGIN_HEADER
    *     --------------------------------------------------------------
    *       v1.0   normal  normal  B/W           B/W    bi-level
    *       v1.6   high    high    gray          gray   grayscale
-   *       v1.8   high    normal  color-filter  B/W    (GDI) ClearType
-   *       v1.9   high    high    color-filter  gray   Color ClearType
+   *       v1.8   high    normal  color_-filter  B/W    (GDI) ClearType
+   *       v1.9   high    high    color_-filter  gray   Color ClearType
    *       v2.1   high    normal  gray          B/W    Gray ClearType
    *       v2.1   high    high    gray          gray   Gray ClearType
    *   ```
@@ -725,7 +725,7 @@ FT_BEGIN_HEADER
    *   implementation, 'high' means an extra virtual resolution of 16x16 (or
    *   16x1) grid lines per pixel for bytecode instructions like 'MIRP'.
    *   After hinting, these 16 grid lines are mapped to 6x5 (or 6x1) grid
-   *   lines for color filtering if Color ClearType is activated.
+   *   lines for color_ filtering if Color ClearType is activated.
    *
    *   Note that 'Gray ClearType' is essentially the same as v1.6's grayscale
    *   rendering.  However, the GETINFO instruction handles it differently:

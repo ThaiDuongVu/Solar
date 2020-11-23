@@ -3,13 +3,14 @@ using namespace solar;
 
 Color32 background_color = Color32(34, 40, 49, 255);
 
+Text test = Text("hello world", Color(34, 40, 49, 255));
+
 // Function to demonstrate input methods
 void InputDemo(App* app)
 {
 	// On key pressed
 	if (Input::OnKeyDown(Input::Keys::kKeyEscape))
 	{
-		// Quit game
 		app->Quit();
 	}
 
@@ -74,14 +75,14 @@ void InputDemo(App* app)
 	// }
 
 	// If a joystick is connected
-	// if (Input::IsJoystickPresent(Input::Joysticks::kJoystick1))
-	// {
-	// 	Debug::Log("Joystick 1 present");
-	// }
+	if (Input::IsJoystickPresent(Input::Joysticks::kJoystick1))
+	{
+		Debug::Log("Joystick 1 present");
+	}
 
 	// Mouse position X and Y
-	// Debug::Log(Input::CursorPosition().x);
-	// Debug::Log(Input::CursorPosition().y);
+	Debug::Log(Input::CursorPosition().x_);
+	Debug::Log(Input::CursorPosition().y_);
 }
 
 // Function to demostrate all cursor modes
@@ -112,8 +113,8 @@ void Vector2Demo()
 // On game initialization
 void App::Init()
 {
-	// Set window size to be 852 by 480
-	App::SetWindowSize(852, 480);
+	// Set window size to be 800 by 600
+	App::SetWindowSize(800, 600);
 
 	// Set window title to be "Lunar System"
 	App::SetTitle("Lunar System");
@@ -134,7 +135,7 @@ void App::Update(double frame_time)
 // On game render
 void App::Render()
 {
-	// Clear background color
+	// Clear background color_
 	App::ClearBackground(background_color.Normalize());
 }
 

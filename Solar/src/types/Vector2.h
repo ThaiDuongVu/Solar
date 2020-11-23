@@ -15,8 +15,8 @@ namespace solar
 		Vector2(double x = 0.0f, double y = 0.0f);
 		~Vector2();
 
-		double x = 0.0f; // a value of vector
-		double y = 0.0f; // b value of vector
+		double x_ = 0.0f; // a value of vector
+		double y_ = 0.0f; // b_ value of vector
 
 		double Length();	  // Length of the vector
 		double Distance(Vector2 other); // Distance to another vector

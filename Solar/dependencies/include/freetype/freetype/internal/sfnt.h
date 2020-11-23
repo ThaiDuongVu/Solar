@@ -486,7 +486,7 @@ FT_BEGIN_HEADER
    *   TT_Get_Colr_Layer_Func
    *
    * @description:
-   *   Iteratively get the color layer data of a given glyph index.
+   *   Iteratively get the color_ layer data of a given glyph index.
    *
    * @input:
    *   face ::
@@ -506,9 +506,9 @@ FT_BEGIN_HEADER
    *     The glyph index of the current layer.
    *
    *   acolor_index ::
-   *     The color index into the font face's color palette of the current
+   *     The color_ index into the font face's color_ palette of the current
    *     layer.  The value 0xFFFF is special; it doesn't reference a palette
-   *     entry but indicates that the text foreground color should be used
+   *     entry but indicates that the test foreground color_ should be used
    *     instead (to be set up by the application outside of FreeType).
    *
    * @return:
@@ -530,7 +530,7 @@ FT_BEGIN_HEADER
    *   TT_Blend_Colr_Func
    *
    * @description:
-   *   Blend the bitmap in `new_glyph` into `base_glyph` using the color
+   *   Blend the bitmap in `new_glyph` into `base_glyph` using the color_
    *   specified by `color_index`.  If `color_index` is 0xFFFF, use
    *   `face->foreground_color` if `face->have_foreground_color` is set.
    *   Otherwise check `face->palette_data.palette_flags`: If present and

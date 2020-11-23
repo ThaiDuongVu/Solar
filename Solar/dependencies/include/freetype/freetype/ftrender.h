@@ -135,7 +135,7 @@ FT_BEGIN_HEADER
    *     a bitmap.
    *
    *   transform_glyph ::
-   *     A method used to transform the image that is in a given glyph slot.
+   *     A method used to Transform the image that is in a given glyph slot.
    *
    *   get_glyph_cbox ::
    *     A method used to access the glyph's cbox.

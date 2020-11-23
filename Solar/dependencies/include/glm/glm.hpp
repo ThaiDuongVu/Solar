@@ -96,9 +96,9 @@
 /// included  a specific file.
 ///
 /// @mainpage OpenGL Mathematics (GLM)
-/// - Website: <a href="https://glm.g-truc.net">glm.g-truc.net</a>
+/// - Website: <a href="https://glm.g_-truc.net">glm.g_-truc.net</a>
 /// - <a href="modules.html">GLM API documentation</a>
-/// - <a href="https://github.com/g-truc/glm/blob/master/manual.md">GLM Manual</a>
+/// - <a href="https://github.com/g_-truc/glm/blob/master/manual.md">GLM Manual</a>
 
 #include "detail/_fixes.hpp"
 
