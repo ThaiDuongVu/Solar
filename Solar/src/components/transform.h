@@ -3,9 +3,9 @@
 #ifndef SOLAR_TRANSFORM_H_
 #define SOLAR_TRANSFORM_H_
 
-#include "../Core.h"
-#include "vector2.h"
-#include "quaternion.h"
+#include "../core.h"
+#include "../types/vector2.h"
+#include "../types/quaternion.h"
 
 namespace solar
 {

@@ -147,4 +147,37 @@ namespace solar
 		return "(" + std::to_string(color.r_) + ", " + std::to_string(color.g_) + ", " + std::to_string(color.b_) + ", " + std::to_string(color.a_) + ")";
 	}
 
+	Color Color::Red()
+	{
+		return Color(1.0f, 0.0f, 0.0f, 1.0f);
+	}
+	Color Color::Green()
+	{
+		return Color(0.0f, 1.0f, 0.0f, 1.0f);
+	}
+	Color Color::Blue()
+	{
+		return Color(0.0f, 0.0f, 1.0f, 1.0f);
+	}
+	Color Color::Yellow()
+	{
+		return Color(1.0f, 1.0f, 0.0f, 1.0f);
+	}
+	Color Color::Pink()
+	{
+		return Color(1.0f, 0.0f, 1.0f, 1.0f);
+	}
+	Color Color::Teal()
+	{
+		return Color(0.0f, 1.0f, 1.0f, 1.0f);
+	}
+	Color Color::White()
+	{
+		return Color(1.0f, 1.0f, 1.0f, 1.0f);
+	}
+	Color Color::Black()
+	{
+		return Color(0.0f, 0.0f, 0.0f, 1.0f);
+	}
+
 } // namespace solar

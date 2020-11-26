@@ -3,7 +3,7 @@
 
 namespace solar
 {
-	Color32::Color32(int r, int g, int b, int a)
+	Color32::Color32(unsigned int r, unsigned int g, unsigned int b, unsigned int a)
 	{
 		this->r_ = r;
 		this->g_ = g;
@@ -72,39 +72,39 @@ namespace solar
 		return *this;
 	}
 
-	Color32 Color32::operator+(int other)
+	Color32 Color32::operator+(unsigned int other)
 	{
 		return Color32(this->r_ + other, this->g_ + other, this->b_ + other, this->a_ + other);
 	}
-	Color32 Color32::operator-(int other)
+	Color32 Color32::operator-(unsigned int other)
 	{
 		return Color32(this->r_ - other, this->g_ - other, this->b_ - other, this->a_ - other);
 	}
-	Color32 Color32::operator*(int other)
+	Color32 Color32::operator*(unsigned int other)
 	{
 		return Color32(this->r_ * other, this->g_ * other, this->b_ * other, this->a_ * other);
 	}
-	Color32 Color32::operator/(int other)
+	Color32 Color32::operator/(unsigned int other)
 	{
 		return Color32(this->r_ / other, this->g_ / other, this->b_ / other, this->a_ / other);
 	}
 
-	Color32 Color32::operator+=(int other)
+	Color32 Color32::operator+=(unsigned int other)
 	{
 		*this = *this + other;
 		return *this;
 	}
-	Color32 Color32::operator-=(int other)
+	Color32 Color32::operator-=(unsigned int other)
 	{
 		*this = *this - other;
 		return *this;
 	}
-	Color32 Color32::operator*=(int other)
+	Color32 Color32::operator*=(unsigned int other)
 	{
 		*this = *this * other;
 		return *this;
 	}
-	Color32 Color32::operator/=(int other)
+	Color32 Color32::operator/=(unsigned int other)
 	{
 		*this = *this / other;
 		return *this;
@@ -155,5 +155,38 @@ namespace solar
 	std::string Color32::ToString(Color32 color)
 	{
 		return "(" + std::to_string(color.r_) + ", " + std::to_string(color.g_) + ", " + std::to_string(color.b_) + ", " + std::to_string(color.a_) + ")";
+	}
+
+	Color32 Color32::Red()
+	{
+		return Color32(255, 0, 0, 255);
+	}
+	Color32 Color32::Green()
+	{
+		return Color32(0, 255, 0, 255);
+	}
+	Color32 Color32::Blue()
+	{
+		return Color32(0, 0, 255, 255);
+	}
+	Color32 Color32::Yellow()
+	{
+		return Color32(255, 255, 0, 255);
+	}
+	Color32 Color32::Pink()
+	{
+		return Color32(255, 0, 255, 255);
+	}
+	Color32 Color32::Teal()
+	{
+		return Color32(0, 255, 255, 255);
+	}
+	Color32 Color32::White()
+	{
+		return Color32(255, 255, 255, 255);
+	}
+	Color32 Color32::Black()
+	{
+		return Color32(0, 0, 0, 255);
 	}
 } // namespace solar

@@ -56,6 +56,16 @@ namespace solar
 
 		static Color Normalize(Color color); // Clamp all values of a color_ to be between 0 and 1
 		static std::string ToString(Color color); // Convert a color_ to string for debugging & printing
+
+		// Handy default color values
+		static Color Red();
+		static Color Green();
+		static Color Blue();
+		static Color Yellow();
+		static Color Pink();
+		static Color Teal();
+		static Color White();
+		static Color Black();
 	};
 } // namespace solar
 

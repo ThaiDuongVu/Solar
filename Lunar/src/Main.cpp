@@ -3,7 +3,7 @@ using namespace solar;
 
 Color32 background_color = Color32(34, 40, 49, 255);
 
-Text test = Text("hello world", Color(34, 40, 49, 255));
+Triangle triangle = Triangle();
 
 // Function to demonstrate input methods
 void InputDemo(App* app)
@@ -85,7 +85,7 @@ void InputDemo(App* app)
 	Debug::Log(Input::CursorPosition().y_);
 }
 
-// Function to demostrate all cursor modes
+// Function to demostrate all cursor modes 
 void CursorModeDemo()
 {
 	// Hide mouse cursor
@@ -137,6 +137,8 @@ void App::Render()
 {
 	// Clear background color_
 	App::ClearBackground(background_color.Normalize());
+
+	triangle.Render();
 }
 
 // On game exit

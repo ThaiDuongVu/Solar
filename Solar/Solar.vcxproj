@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\entities\game_object.h" />
     <ClInclude Include="src\types\font.h" />
     <ClInclude Include="src\mathf.h" />
     <ClInclude Include="src\types\quaternion.h" />
@@ -405,10 +406,11 @@
     <ClInclude Include="src\solar.h" />
     <ClInclude Include="src\time.h" />
     <ClInclude Include="src\types\vector2.h" />
-    <ClInclude Include="src\components\text.h" />
-    <ClInclude Include="src\types\transform.h" />
+    <ClInclude Include="src\components\transform.h" />
+    <ClInclude Include="src\entities\triangle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\entities\game_object.cpp" />
     <ClCompile Include="src\types\font.cpp" />
     <ClCompile Include="src\mathf.cpp" />
     <ClCompile Include="src\types\quaternion.cpp" />
@@ -421,8 +423,8 @@
     <ClCompile Include="src\app.cpp" />
     <ClCompile Include="src\time.cpp" />
     <ClCompile Include="src\types\vector2.cpp" />
-    <ClCompile Include="src\components\text.cpp" />
-    <ClCompile Include="src\types\transform.cpp" />
+    <ClCompile Include="src\components\transform.cpp" />
+    <ClCompile Include="src\entities\triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\include\glm\detail\func_common.inl" />
