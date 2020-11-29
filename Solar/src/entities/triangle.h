@@ -17,43 +17,39 @@ namespace solar
 	public:
 		// Constructor & destructor
 		using GameObject::GameObject;
-		Triangle(Color color = Color::White(), Color32 color32 = Color32::White());
+		Triangle(Color color = Color::White());
 		~Triangle();
 
-		Color color_ = Color::White();
-
+		// Initialization
 		void Init();
+		// Draw triangle
 		void Draw(DrawMode draw_mode = DrawMode::kFill);
 
-		void Move(Vector2 movement);
+		// Change triangle color
+		void ChangeColor(Color color);
+		// Move triangle using movement vector
+		void Translate(Vector2 movement);
 
 	private:
-		// Vertex & fragment shader
-		unsigned int vertex_shader_ = NULL;
-		unsigned int fragment_shader_ = NULL;
-
 		// Vertex buffer objects
 		unsigned int vbo_ = NULL;
 		// Vertex array object
 		unsigned int vao_ = NULL;
 
-		// Shader program
-		unsigned int shader_program_ = NULL;
+		// Triangle color
+		Color color_ = Color::White();
 
-		const float scale_factor_ = 0.05f;
+		const float scale_factor_ = 0.075f;
 
 		// Vertices needed to draw a triangle
-		Vector2 vertex_[3] = {
-			Vector2(-transform_.scale_.x_, -transform_.scale_.y_) * scale_factor_,
-			Vector2(transform_.scale_.x_, -transform_.scale_.y_) * scale_factor_,
-			Vector2(0, transform_.scale_.y_) * scale_factor_
-		};
-
+		Vector2 vertex_[3] = { NULL, NULL, NULL };
 		float vertices_[9] = { NULL,NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL };
 
-		Shader shader = Shader("./default_vertex_shader.shader", "./default_fragment_shader.shader");
+		// Triangle shader
+		Shader shader_ = Shader("./resources/default_vertex_shader.shader", "./resources/default_fragment_shader.shader");
 
-		void UpdateVertices();
+		// Update triangle vertices
+		void Update();
 	};
 } // namespace solar
 

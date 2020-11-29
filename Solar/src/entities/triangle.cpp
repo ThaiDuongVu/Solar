@@ -9,42 +9,27 @@ namespace solar
 {
 	bool done_init = false;
 
-	const char* vertex_shader_source = "#version 330 core\n"
-		"layout (location = 0) in vec3 position;\n"
-		"void main()\n"
-		"{\n"
-		"   gl_Position = vec4(position.x, position.y, position.z, 1.0);\n"
-		"}\0";
-
-	const char* fragment_shader_source = "#version 330 core\n"
-		"out vec4 FragColor;\n"
-		"void main()\n"
-		"{\n"
-		"	FragColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);\n"
-		"}\0";
-
-	Triangle::Triangle(Color color, Color32 color32)
+	Triangle::Triangle(Color color)
 	{
 		this->color_ = color;
-		this->color_ = color32.Normalize();
 	}
 	Triangle::~Triangle()
 	{
 		glDeleteVertexArrays(1, &vao_);
 		glDeleteBuffers(1, &vbo_);
-		glDeleteProgram(shader_program_);
+		shader_.Delete();
 	}
 
 	void Triangle::Init()
 	{
-		shader.Init();
+		// Initialize shader
+		shader_.Init();
 
-		// Draw triangle
+		Update();
+
 		// Generate buffer and vertex array
 		glGenBuffers(1, &vbo_);
 		glGenVertexArrays(1, &vao_);
-
-		UpdateVertices();
 
 		// Bind buffer and vertex array
 		glBindVertexArray(vao_);
@@ -54,6 +39,12 @@ namespace solar
 		// How to interpret the vertex data
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
+
+		shader_.Use();
+		shader_.SetFloat("red", this->color_.r_);
+		shader_.SetFloat("green", this->color_.g_);
+		shader_.SetFloat("blue", this->color_.b_);
+		shader_.SetFloat("alpha", this->color_.a_);
 
 		// Finish initialization
 		done_init = true;
@@ -73,17 +64,20 @@ namespace solar
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		}
 
-		//glUseProgram(shader_program_);
-		shader.Use();
-		glBindVertexArray(vao_);
+		Update();
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 	}
 
-	void Triangle::UpdateVertices()
+	void Triangle::Update()
 	{
-		vertex_[0] *= transform_.scale_;
-		vertex_[1] *= transform_.scale_;
-		vertex_[2] *= transform_.scale_;
+		vertex_[0] = Vector2(transform_.position_.x_ - transform_.scale_.x_, transform_.position_.y_ - transform_.scale_.y_);
+		vertex_[1] = Vector2(transform_.position_.x_ + transform_.scale_.x_, transform_.position_.y_ - transform_.scale_.y_);
+		vertex_[2] = Vector2(transform_.position_.x_, transform_.position_.y_ + transform_.scale_.y_);
+
+		for (int i = 0; i < (sizeof(vertex_) / sizeof(vertex_[0])); i++)
+		{
+			vertex_[i] *= transform_.scale_ * scale_factor_;
+		}
 
 		vertices_[0] = (float)vertex_[0].x_;
 		vertices_[1] = (float)vertex_[0].y_;
@@ -91,21 +85,22 @@ namespace solar
 		vertices_[4] = (float)vertex_[1].y_;
 		vertices_[6] = (float)vertex_[2].x_;
 		vertices_[7] = (float)vertex_[2].y_;
+
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices_), vertices_, GL_DYNAMIC_DRAW);
 	}
 
-	void Triangle::Move(Vector2 movement)
+	void Triangle::ChangeColor(Color color)
 	{
-		vertex_[0].x_ += movement.x_;
-		vertex_[1].x_ += movement.x_;
-		vertex_[2].x_ += movement.x_;
+		this->color_ = color;
 
-		vertex_[0].y_ += movement.y_;
-		vertex_[1].y_ += movement.y_;
-		vertex_[2].y_ += movement.y_;
-
-		// Update all triangle vertices
-		UpdateVertices();
-		// Re-initialization
-		Init();
+		shader_.Use();
+		shader_.SetFloat("red", this->color_.r_);
+		shader_.SetFloat("green", this->color_.g_);
+		shader_.SetFloat("blue", this->color_.b_);
+		shader_.SetFloat("alpha", this->color_.a_);
+	}
+	void Triangle::Translate(Vector2 movement)
+	{
+		transform_.position_ += movement;
 	}
 } // namespace solar

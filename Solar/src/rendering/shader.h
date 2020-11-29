@@ -5,10 +5,6 @@
 
 #include "../core.h"
 #include "../debug.h"
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <iostream>
 
 namespace solar
 {
@@ -22,13 +18,16 @@ namespace solar
 		const char* vertex_path_ = NULL;
 		const char* fragment_path_ = NULL;
 
+		// Shader initialization
 		void Init();
 
-		// the program ID
+		// Shader program
 		unsigned int program_ = NULL;
 
 		// Activate the shader
 		void Use();
+		// Delete shader program
+		void Delete();
 
 		// Utility uniform functions
 		void SetBool(const std::string& name, bool value) const;

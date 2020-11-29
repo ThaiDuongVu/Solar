@@ -20,7 +20,7 @@ namespace solar
 		Quaternion rotation_; // Transform rotation
 		Vector2 scale_; // Transform scale
 
-		static Transform Default(); // Default transform_
+		static Transform Default(); // Default transform
 	};
 } // namespace solar
 

@@ -15,13 +15,13 @@ namespace solar
 		GameObject(Transform transform = Transform::Default());
 		~GameObject();
 
-		Transform transform_;
-
 		enum class DrawMode 
 		{
 			kFill,
 			kLine
 		};
+
+		Transform transform_;
 	};
 } // namespace solar
 
