@@ -1206,6 +1206,9 @@
     <ClInclude Include="src\entities\triangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\rendering\shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dependencies\include\glad\glad.c">
@@ -1251,6 +1254,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\entities\triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1663,6 +1669,8 @@
     <None Include="dependencies\include\glm\detail\type_vec4_simd.inl">
       <Filter>Header Files</Filter>
     </None>
+    <None Include="src\rendering\default_fragment_shader.shader" />
+    <None Include="src\rendering\default_vertex_shader.shader" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="resources\font.ttf" />

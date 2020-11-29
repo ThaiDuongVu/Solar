@@ -1,4 +1,6 @@
 #include "game_object.h"
+#include <glad.h>
+#include <glfw3.h>
 
 namespace solar
 {

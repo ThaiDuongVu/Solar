@@ -130,6 +130,23 @@ void App::Update(double frame_time)
 	{
 		App::Quit();
 	}
+
+	if (Input::IsKeyDown(Input::Keys::kKeyRight))
+	{
+		triangle.Move(Vector2(frame_time, 0));
+	}
+	if (Input::IsKeyDown(Input::Keys::kKeyLeft))
+	{
+		triangle.Move(Vector2(-frame_time, 0));
+	}
+	if (Input::IsKeyDown(Input::Keys::kKeyUp))
+	{
+		triangle.Move(Vector2(0, frame_time));
+	}
+	if (Input::IsKeyDown(Input::Keys::kKeyDown))
+	{
+		triangle.Move(Vector2(0, -frame_time));
+	}
 }
 
 // On game render
@@ -138,7 +155,7 @@ void App::Render()
 	// Clear background color_
 	App::ClearBackground(background_color.Normalize());
 
-	triangle.Render();
+	triangle.Draw(GameObject::DrawMode::kFill);
 }
 
 // On game exit

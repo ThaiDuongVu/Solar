@@ -16,6 +16,12 @@ namespace solar
 		~GameObject();
 
 		Transform transform_;
+
+		enum class DrawMode 
+		{
+			kFill,
+			kLine
+		};
 	};
 } // namespace solar
 

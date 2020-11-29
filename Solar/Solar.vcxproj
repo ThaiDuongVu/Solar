@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\rendering\shader.h" />
     <ClInclude Include="src\entities\game_object.h" />
     <ClInclude Include="src\types\font.h" />
     <ClInclude Include="src\mathf.h" />
@@ -410,6 +411,7 @@
     <ClInclude Include="src\entities\triangle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\rendering\shader.cpp" />
     <ClCompile Include="src\entities\game_object.cpp" />
     <ClCompile Include="src\types\font.cpp" />
     <ClCompile Include="src\mathf.cpp" />
@@ -563,6 +565,8 @@
     <None Include="dependencies\include\glm\gtx\vector_angle.inl" />
     <None Include="dependencies\include\glm\gtx\vector_query.inl" />
     <None Include="dependencies\include\glm\gtx\wrap.inl" />
+    <None Include="src\rendering\default_fragment_shader.shader" />
+    <None Include="src\rendering\default_vertex_shader.shader" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="resources\font.ttf" />

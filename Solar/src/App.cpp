@@ -17,6 +17,15 @@ namespace solar
 	template <typename T>
 	T* App::window_;
 
+	int App::Width()
+	{
+		return window_width_;
+	}
+	int App::Height()
+	{
+		return window_height_;
+	}
+
 	void App::SetWindowSize(int width, int height)
 	{
 		App::window_width_ = width;
@@ -170,9 +179,6 @@ namespace solar
 			// User-defined update
 			Update(Time::frame_time_);
 
-			// Poll for and process events
-			glfwPollEvents();
-
 			// Clear the back ground
 			glClear(GL_COLOR_BUFFER_BIT);
 
@@ -181,6 +187,8 @@ namespace solar
 
 			// Swap front and back buffers
 			glfwSwapBuffers(App::window_<GLFWwindow>);
+			// Poll for and process events
+			glfwPollEvents();
 		}
 
 		// User-defined shutdown

@@ -17,6 +17,10 @@ namespace solar
 		virtual void Render();
 		virtual void Exit();
 
+		// Window width & height
+		int Width();
+		int Height();
+
 		// Set window width and height
 		void SetWindowSize(int width = DEFAULT_WINDOW_WIDTH, int height = DEFAULT_WINDOW_HEIGHT);
 		// Set window title
