@@ -129,12 +129,31 @@ void App::Update(double frame_time)
 	{
 		App::Quit();
 	}
+
+	if (Input::IsKeyDown(Input::Keys::kKeyRight))
+	{
+		triangle.Translate(Vector2(frame_time * 10, 0));
+	}
+	if (Input::IsKeyDown(Input::Keys::kKeyLeft))
+	{
+		triangle.Translate(Vector2(-frame_time * 10, 0));
+	}
+	if (Input::IsKeyDown(Input::Keys::kKeyUp))
+	{
+		triangle.Translate(Vector2(0, frame_time * 10));
+	}
+	if (Input::IsKeyDown(Input::Keys::kKeyDown))
+	{
+		triangle.Translate(Vector2(0, -frame_time * 10));
+	}
+
+	Debug::Log(triangle.transform_.position_.ToString());
 }
 
 // On game render
 void App::Render()
 {
-	// Clear background color_
+	// Clear background color
 	App::ClearBackground(background_color.Normalize());
 
 	triangle.Draw(GameObject::DrawMode::kLine);

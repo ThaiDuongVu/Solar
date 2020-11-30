@@ -259,6 +259,8 @@ namespace solar
 		static int button_up_buffer_;
 #pragma endregion
 
+		// TODO: Get vertical/horizontal axis (WASD, arrow keys, joystick)
+
 	private:
 		static double cursor_x_;
 		static double cursor_y_;
