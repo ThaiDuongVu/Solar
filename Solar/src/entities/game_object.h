@@ -12,7 +12,7 @@ namespace solar
 	{
 	public:
 		// Constructor & destructor
-		GameObject(Transform transform = Transform::Default());
+		GameObject(Transform transform = Transform::Default(), bool is_visible = true);
 		~GameObject();
 
 		enum class DrawMode 
@@ -22,6 +22,7 @@ namespace solar
 		};
 
 		Transform transform_;
+		bool is_visible_ = true;
 	};
 } // namespace solar
 

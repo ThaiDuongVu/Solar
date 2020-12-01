@@ -4,6 +4,7 @@
 #define SOLAR_TRIANGLE_H_
 
 #include "../core.h"
+#include "../app.h"
 #include "game_object.h"
 #include "../types/color.h"
 #include "../types/color32.h"
@@ -19,11 +20,9 @@ namespace solar
 		using GameObject::GameObject;
 		Triangle(Color color = Color::White());
 		~Triangle();
-
-		// Initialization
-		void Init();
+		
 		// Draw triangle
-		void Draw(DrawMode draw_mode = DrawMode::kFill);
+		void Draw(App app, DrawMode draw_mode = DrawMode::kFill);
 
 		// Change triangle color
 		void ChangeColor(Color color);
@@ -39,7 +38,7 @@ namespace solar
 		// Triangle color
 		Color color_ = Color::White();
 
-		const float scale_factor_ = 0.075f;
+		const float scale_factor_ = 0.1f;
 
 		// Vertices needed to draw a triangle
 		Vector2 vertex_[3] = { NULL, NULL, NULL };
@@ -48,8 +47,10 @@ namespace solar
 		// Triangle shader
 		Shader shader_ = Shader("./resources/default_vertex_shader.shader", "./resources/default_fragment_shader.shader");
 
+		// Initialization
+		void Init(App app);
 		// Update triangle vertices
-		void Update();
+		void Update(App app);
 	};
 } // namespace solar
 

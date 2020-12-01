@@ -117,6 +117,8 @@ void App::Init()
 
 	// Set window title to be "Lunar System"
 	App::SetTitle("Lunar System");
+
+	triangle.transform_.scale_ = Vector2(2, 2);
 }
 
 // On game update
@@ -130,21 +132,32 @@ void App::Update(double frame_time)
 		App::Quit();
 	}
 
+	float speed = 5;
+
 	if (Input::IsKeyDown(Input::Keys::kKeyRight))
 	{
-		triangle.Translate(Vector2(frame_time * 10, 0));
+		triangle.Translate(Vector2(speed, 0));
 	}
 	if (Input::IsKeyDown(Input::Keys::kKeyLeft))
 	{
-		triangle.Translate(Vector2(-frame_time * 10, 0));
+		triangle.Translate(Vector2(-speed, 0));
 	}
 	if (Input::IsKeyDown(Input::Keys::kKeyUp))
 	{
-		triangle.Translate(Vector2(0, frame_time * 10));
+		triangle.Translate(Vector2(0, speed));
 	}
 	if (Input::IsKeyDown(Input::Keys::kKeyDown))
 	{
-		triangle.Translate(Vector2(0, -frame_time * 10));
+		triangle.Translate(Vector2(0, -speed));
+	}
+
+	if (Input::IsKeyDown(Input::Keys::kKeySpace))
+	{
+		triangle.transform_.scale_ -= Vector2(frame_time, frame_time);
+	}
+	if (Input::IsKeyDown(Input::Keys::kKeyEnter))
+	{
+		triangle.transform_.scale_ += Vector2(frame_time, frame_time);
 	}
 
 	Debug::Log(triangle.transform_.position_.ToString());
@@ -156,7 +169,7 @@ void App::Render()
 	// Clear background color
 	App::ClearBackground(background_color.Normalize());
 
-	triangle.Draw(GameObject::DrawMode::kLine);
+	triangle.Draw(*this, GameObject::DrawMode::kLine);
 }
 
 // On game exit
