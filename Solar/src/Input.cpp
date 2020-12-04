@@ -129,7 +129,7 @@ namespace solar
 		return glfwJoystickPresent(joystick);
 	}
 
-	const float *Input::joystick_axes_[] = {0};
+	const float* Input::joystick_axes_[] = { 0 };
 	int Input::joystick_axes_count_ = 0;
 
 	float Input::GetJoystickAxes(int axes, int joystick)
@@ -181,6 +181,65 @@ namespace solar
 
 #pragma endregion
 
+#pragma region Presets
+	double Input::IsPresetDown(Presets preset)
+	{
+		switch (preset)
+		{
+		case Input::Presets::kPresetHorizontal:
+			return Mathf::Clamp(-(double)(IsKeyDown(Keys::kKeyLeft) || IsKeyDown(Keys::kKeyA)) + (double)(IsKeyDown(Keys::kKeyRight) || IsKeyDown(Keys::kKeyD)) + (double)(GetJoystickAxes(JoystickAxes::kAxesLeftStickX)), (double)-1.0f, (double)1.0f);
+			break;
+		case Input::Presets::kPresetVertical:
+			return Mathf::Clamp(-(double)(IsKeyDown(Keys::kKeyDown) || IsKeyDown(Keys::kKeyS)) + (double)(IsKeyDown(Keys::kKeyUp) || IsKeyDown(Keys::kKeyW)) + (double)(-GetJoystickAxes(JoystickAxes::kAxesLeftStickY)), (double)-1.0f, (double)1.0f);
+			break;
+
+		case Input::Presets::kPresetJump:
+			return IsKeyDown(Keys::kKeySpace) || IsJoystickButtonDown(JoystickButtons::kButtonA);
+
+		case Input::Presets::kPresetFire1:
+			return IsMouseDown(MouseButtons::kMouseLeft) || IsKeyDown(Keys::kKeyZ);
+		case Input::Presets::kPresetFire2:
+			return IsMouseDown(MouseButtons::kMouseRight) || IsKeyDown(Keys::kKeyX);
+
+		case Input::Presets::kPresetCrouch:
+			return IsKeyDown(Keys::kKeyLeftCtrl);
+
+		default:
+			return 0;
+			break;
+		}
+	}
+
+	double Input::OnPresetDown(Presets preset)
+	{
+		switch (preset)
+		{
+		case Input::Presets::kPresetHorizontal:
+			return -(double)(OnKeyDown(Keys::kKeyLeft) || OnKeyDown(Keys::kKeyA)) + (double)(OnKeyDown(Keys::kKeyRight) || OnKeyDown(Keys::kKeyD));
+			break;
+		case Input::Presets::kPresetVertical:
+			return -(double)(OnKeyDown(Keys::kKeyDown) || OnKeyDown(Keys::kKeyS)) + (double)(OnKeyDown(Keys::kKeyUp) || OnKeyDown(Keys::kKeyW));
+			break;
+
+		case Input::Presets::kPresetJump:
+			return OnKeyDown(Keys::kKeySpace) || OnJoystickButtonDown(JoystickButtons::kButtonA);
+
+		case Input::Presets::kPresetFire1:
+			return OnMouseDown(MouseButtons::kMouseLeft) || OnKeyDown(Keys::kKeyZ);
+		case Input::Presets::kPresetFire2:
+			return OnMouseDown(MouseButtons::kMouseRight) || OnKeyDown(Keys::kKeyX);
+
+		case Input::Presets::kPresetCrouch:
+			return OnKeyDown(Keys::kKeyLeftCtrl);
+
+		default:
+			return 0;
+			break;
+		}
+	}
+#pragma endregion
+
+
 	void Input::Update()
 	{
 		glfwGetCursorPos(solar::App::window_<GLFWwindow>, &Input::cursor_x_, &Input::cursor_y_);
@@ -209,7 +268,7 @@ namespace solar
 #pragma endregion
 
 		// Update all input axes
-		for (int i = solar::Input::Joysticks::kJoystick1; i <= solar::Input::Joysticks::kJoystickLast; i++)
+		for (int i = Input::Joysticks::kJoystick1; i <= Input::Joysticks::kJoystickLast; i++)
 		{
 			if (Input::IsJoystickPresent(i))
 			{

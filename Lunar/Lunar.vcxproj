@@ -110,6 +110,9 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cursor_mode_demo.cpp" />
+    <ClCompile Include="input_demo.cpp" />
+    <ClCompile Include="mathf_demo.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

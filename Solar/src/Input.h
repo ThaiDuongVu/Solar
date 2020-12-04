@@ -5,6 +5,7 @@
 
 #include "core.h"
 #include "types/vector2.h"
+#include "mathf.h"
 
 namespace solar
 {
@@ -259,13 +260,25 @@ namespace solar
 		static int button_up_buffer_;
 #pragma endregion
 
-		// TODO: Get vertical/horizontal axis (WASD, arrow keys, joystick)
+#pragma region Presets
+		enum class Presets
+		{
+			kPresetHorizontal,
+			kPresetVertical,
+			kPresetJump,
+			kPresetFire1,
+			kPresetFire2,
+			kPresetCrouch
+		};
+		static double IsPresetDown(Presets preset);
+		static double OnPresetDown(Presets preset);
+#pragma endregion
 
 	private:
 		static double cursor_x_;
 		static double cursor_y_;
 
-		static const float *joystick_axes_[]; // 2D Array representing joystick axes
+		static const float* joystick_axes_[]; // 2D Array representing joystick axes
 		static int joystick_axes_count_;
 		static int joystick_button_count_;
 

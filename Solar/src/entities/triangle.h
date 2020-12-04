@@ -16,8 +16,10 @@ namespace solar
 	class SOLAR_API Triangle : public GameObject
 	{
 	public:
-		// Constructor & destructor
+		// Base constructor
 		using GameObject::GameObject;
+
+		// Constructor & destructor
 		Triangle(Color color = Color::White());
 		~Triangle();
 		
@@ -25,9 +27,10 @@ namespace solar
 		void Draw(App app, DrawMode draw_mode = DrawMode::kFill);
 
 		// Change triangle color
-		void ChangeColor(Color color);
+		void SetColor(Color color = Color::White());
 		// Move triangle using movement vector
-		void Translate(Vector2 movement);
+		void Translate(Vector2 movement = Vector2::Zero());
+		void Translate(double movement_x = 0.0f, double movement_y = 0.0f);
 
 	private:
 		// Vertex buffer objects

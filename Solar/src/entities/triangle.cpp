@@ -40,7 +40,7 @@ namespace solar
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
 
-		ChangeColor(this->color_);
+		SetColor(this->color_);
 
 		// Finish initialization
 		done_init = true;
@@ -66,7 +66,6 @@ namespace solar
 		Update(app);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 	}
-
 	void Triangle::Update(App app)
 	{
 		double x = transform_.position_.x_;
@@ -75,8 +74,8 @@ namespace solar
 		double width = transform_.scale_.x_;
 		double height = transform_.scale_.y_;
 
-		double width_scale = (app.Width() / 2 * scale_factor_);
-		double height_scale = (app.Height() / 2 * scale_factor_);
+		double width_scale = (app.Width() / 2.0f * (double)scale_factor_);
+		double height_scale = (app.Height() / 2.0f * (double)scale_factor_);
 
 		// Left vertex
 		vertex_[0] = Vector2(x / width_scale - width / 2, y / height_scale - height / 2) * scale_factor_;
@@ -96,7 +95,7 @@ namespace solar
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices_), vertices_, GL_DYNAMIC_DRAW);
 	}
 
-	void Triangle::ChangeColor(Color color)
+	void Triangle::SetColor(Color color)
 	{
 		this->color_ = color;
 
@@ -106,8 +105,13 @@ namespace solar
 		shader_.SetFloat("blue", this->color_.b_);
 		shader_.SetFloat("alpha", this->color_.a_);
 	}
+
 	void Triangle::Translate(Vector2 movement)
 	{
 		transform_.position_ += movement;
+	}
+	void Triangle::Translate(double movement_x, double movement_y)
+	{
+		transform_.position_ += Vector2(movement_x, movement_y);
 	}
 } // namespace solar
