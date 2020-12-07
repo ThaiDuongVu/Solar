@@ -22,12 +22,15 @@ namespace solar
 		// Constructor & destructor
 		Triangle(Color color = Color::White());
 		~Triangle();
-		
+
 		// Draw triangle
 		void Draw(App app, DrawMode draw_mode = DrawMode::kFill);
 
 		// Change triangle color
 		void SetColor(Color color = Color::White());
+		// Set whether object is bounded
+		void SetBounded(bool is_bounded = false);
+
 		// Move triangle using movement vector
 		void Translate(Vector2 movement = Vector2::Zero());
 		void Translate(double movement_x = 0.0f, double movement_y = 0.0f);
@@ -40,6 +43,8 @@ namespace solar
 
 		// Triangle color
 		Color color_ = Color::White();
+		// Whether object is confined within window bound
+		bool is_bounded_ = false;
 
 		const float scale_factor_ = 0.1f;
 

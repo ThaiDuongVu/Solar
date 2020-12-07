@@ -68,12 +68,15 @@ namespace solar
 	}
 	void Triangle::Update(App app)
 	{
+		// Triangle position
 		double x = transform_.position_.x_;
 		double y = transform_.position_.y_;
 
+		// Triangle scale
 		double width = transform_.scale_.x_;
 		double height = transform_.scale_.y_;
 
+		// Width & height scale factor
 		double width_scale = (app.Width() / 2.0f * (double)scale_factor_);
 		double height_scale = (app.Height() / 2.0f * (double)scale_factor_);
 
@@ -83,6 +86,21 @@ namespace solar
 		vertex_[1] = Vector2(x / width_scale + width / 2, y / height_scale - height / 2) * scale_factor_;
 		// Up vertex
 		vertex_[2] = Vector2(x / width_scale, y / height_scale + height / 2) * scale_factor_;
+
+		if (is_bounded_)
+		{
+			double x_left_bound = -(app.Width() / 2.0f) + width / 2.0f * width_scale;
+			double x_right_bound = (app.Width() / 2.0f) - width / 2.0f * width_scale;
+
+			if (transform_.position_.x_ < x_left_bound) transform_.position_.x_ = x_left_bound;
+			else if (transform_.position_.x_ > x_right_bound) transform_.position_.x_ = x_right_bound;
+
+			double y_lower_bound = -(app.Height() / 2.0f) + height / 2.0f * height_scale;
+			double y_upper_bound = (app.Height() / 2.0f) - height / 2.0f * height_scale;
+
+			if (transform_.position_.y_ < y_lower_bound) transform_.position_.y_ = y_lower_bound;
+			else if (transform_.position_.y_ > y_upper_bound) transform_.position_.y_ = y_upper_bound;
+		}
 
 		vertices_[0] = (float)vertex_[0].x_;
 		vertices_[1] = (float)vertex_[0].y_;
@@ -104,6 +122,10 @@ namespace solar
 		shader_.SetFloat("green", this->color_.g_);
 		shader_.SetFloat("blue", this->color_.b_);
 		shader_.SetFloat("alpha", this->color_.a_);
+	}
+	void Triangle::SetBounded(bool is_bounded)
+	{
+		this->is_bounded_ = is_bounded;
 	}
 
 	void Triangle::Translate(Vector2 movement)

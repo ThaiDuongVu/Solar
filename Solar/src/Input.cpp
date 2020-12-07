@@ -239,7 +239,6 @@ namespace solar
 	}
 #pragma endregion
 
-
 	void Input::Update()
 	{
 		glfwGetCursorPos(solar::App::window_<GLFWwindow>, &Input::cursor_x_, &Input::cursor_y_);

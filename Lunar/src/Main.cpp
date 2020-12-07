@@ -14,6 +14,8 @@ void App::Init()
 
 	// Set window title to "Lunar System"
 	App::SetTitle("Lunar System");
+
+	triangle.SetBounded(true);
 }
 
 // On game update
