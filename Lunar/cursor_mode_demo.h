@@ -2,7 +2,7 @@
 using namespace solar;
 
 // Function to demostrate all cursor modes 
-void CursorModeDemo()
+inline void CursorModeDemo()
 {
 	// Hide mouse cursor
 	// Input::SetCursorMode(Input::CursorModes::kModeHidden);

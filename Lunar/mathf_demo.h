@@ -2,7 +2,7 @@
 using namespace solar;
 
 // Function to demonstrate math methods provided
-void MathfDemo()
+inline void MathfDemo()
 {
-
+	// TODO: Add math demonstrations
 }

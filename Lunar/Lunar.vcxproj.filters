@@ -18,14 +18,16 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="input_demo.cpp">
+    <ClCompile Include="input_demo.h">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cursor_mode_demo.cpp">
+    <ClCompile Include="cursor_mode_demo.h">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mathf_demo.cpp">
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mathf_demo.h">
       <Filter>Source Files</Filter>
-    </ClCompile>
+    </ClInclude>
   </ItemGroup>
 </Project>

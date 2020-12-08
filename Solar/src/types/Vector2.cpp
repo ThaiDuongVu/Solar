@@ -139,7 +139,7 @@ namespace solar
 	}
 	bool Vector2::operator!=(Vector2 other)
 	{
-		return glm::notEqual(Vector2Toglm(*this), Vector2Toglm(other)).x == 1.0f && glm::notEqual(Vector2Toglm(*this), Vector2Toglm(other)).y == 1.0f;
+		return glm::notEqual(Vector2Toglm(*this), Vector2Toglm(other)).x == 1.0f || glm::notEqual(Vector2Toglm(*this), Vector2Toglm(other)).y == 1.0f;
 	}
 	bool Vector2::operator>(Vector2 other)
 	{

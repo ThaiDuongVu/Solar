@@ -31,10 +31,6 @@ namespace solar
 		// Set whether object is bounded
 		void SetBounded(bool is_bounded = false);
 
-		// Move triangle using movement vector
-		void Translate(Vector2 movement = Vector2::Zero());
-		void Translate(double movement_x = 0.0f, double movement_y = 0.0f);
-
 	private:
 		// Vertex buffer objects
 		unsigned int vbo_ = NULL;

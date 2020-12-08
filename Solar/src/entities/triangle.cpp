@@ -46,26 +46,6 @@ namespace solar
 		done_init = true;
 	}
 
-	void Triangle::Draw(App app, DrawMode draw_mode)
-	{
-		// If object is not visible then return
-		if (!this->is_visible_) return;
-
-		// Perform initialization if not already
-		if (!done_init) this->Init(app);
-
-		if (draw_mode == DrawMode::kFill)
-		{
-			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-		}
-		else
-		{
-			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-		}
-
-		Update(app);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-	}
 	void Triangle::Update(App app)
 	{
 		// Triangle position
@@ -112,6 +92,26 @@ namespace solar
 		// Buffer vertices
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices_), vertices_, GL_DYNAMIC_DRAW);
 	}
+	void Triangle::Draw(App app, DrawMode draw_mode)
+	{
+		// If object is not visible then return
+		if (!this->is_visible_) return;
+
+		// Perform initialization if not already
+		if (!done_init) this->Init(app);
+
+		if (draw_mode == DrawMode::kFill)
+		{
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		}
+		else
+		{
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		}
+
+		Update(app);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+	}
 
 	void Triangle::SetColor(Color color)
 	{
@@ -126,14 +126,5 @@ namespace solar
 	void Triangle::SetBounded(bool is_bounded)
 	{
 		this->is_bounded_ = is_bounded;
-	}
-
-	void Triangle::Translate(Vector2 movement)
-	{
-		transform_.position_ += movement;
-	}
-	void Triangle::Translate(double movement_x, double movement_y)
-	{
-		transform_.position_ += Vector2(movement_x, movement_y);
 	}
 } // namespace solar

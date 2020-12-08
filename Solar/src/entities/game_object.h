@@ -23,6 +23,12 @@ namespace solar
 
 		Transform transform_;
 		bool is_visible_ = true;
+
+		void Destroy();
+
+		// Move object using movement vector
+		void Translate(Vector2 movement = Vector2::Zero());
+		void Translate(double movement_x = 0.0f, double movement_y = 0.0f);
 	};
 } // namespace solar
 

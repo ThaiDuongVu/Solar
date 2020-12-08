@@ -2,14 +2,8 @@
 using namespace solar;
 
 // Function to demonstrate input methods
-void InputDemo(App* app)
+inline void InputDemo(App* app)
 {
-	// On key pressed
-	if (Input::OnKeyDown(Input::Keys::kKeyEscape))
-	{
-		app->Quit();
-	}
-
 	// On key released
 	if (Input::OnKeyDown(Input::Keys::kKeyEnter))
 	{
@@ -64,19 +58,25 @@ void InputDemo(App* app)
 		Debug::Log("A button is down");
 	}
 
-	// Trigger input
-	if (Input::GetJoystickAxes(Input::JoystickAxes::kAxesRightTrigger) > -1)
-	{
-		Debug::Log("Right trigger is down");
-	}
-
 	// If a joystick is connected
 	if (Input::IsJoystickPresent(Input::Joysticks::kJoystick1))
 	{
 		Debug::Log("Joystick 1 present");
+
+		// Trigger input
+		if (Input::GetJoystickAxes(Input::JoystickAxes::kAxesRightTrigger) > -1)
+		{
+			Debug::Log("Right trigger is down");
+		}
+	}
+
+	Vector2 direction = Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical));
+	if (direction != Vector2::Zero())
+	{
+		Debug::Log(direction.ToString());
 	}
 
 	// Mouse position X and Y
-	Debug::Log(Input::CursorPosition().x_);
-	Debug::Log(Input::CursorPosition().y_);
+	// Debug::Log(Input::CursorPosition().x_);
+	// Debug::Log(Input::CursorPosition().y_);
 }
