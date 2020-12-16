@@ -67,20 +67,7 @@ namespace solar
 		// Up vertex
 		vertex_[2] = Vector2(x / width_scale, y / height_scale + height / 2) * scale_factor_;
 
-		if (is_bounded_)
-		{
-			double x_left_bound = -(app.Width() / 2.0f) + width / 2.0f * width_scale;
-			double x_right_bound = (app.Width() / 2.0f) - width / 2.0f * width_scale;
-
-			if (transform_.position_.x_ < x_left_bound) transform_.position_.x_ = x_left_bound;
-			else if (transform_.position_.x_ > x_right_bound) transform_.position_.x_ = x_right_bound;
-
-			double y_lower_bound = -(app.Height() / 2.0f) + height / 2.0f * height_scale;
-			double y_upper_bound = (app.Height() / 2.0f) - height / 2.0f * height_scale;
-
-			if (transform_.position_.y_ < y_lower_bound) transform_.position_.y_ = y_lower_bound;
-			else if (transform_.position_.y_ > y_upper_bound) transform_.position_.y_ = y_upper_bound;
-		}
+		Bound(app, width_scale, height_scale);
 
 		vertices_[0] = (float)vertex_[0].x_;
 		vertices_[1] = (float)vertex_[0].y_;
@@ -126,5 +113,23 @@ namespace solar
 	void Triangle::SetBounded(bool is_bounded)
 	{
 		this->is_bounded_ = is_bounded;
+	}
+
+	void Triangle::Bound(App app, double width_scale, double height_scale)
+	{
+		if (is_bounded_)
+		{
+			double x_left_bound = -(app.Width() / 2.0f) + transform_.scale_.x_ / 2.0f * width_scale;
+			double x_right_bound = (app.Width() / 2.0f) - transform_.scale_.x_ / 2.0f * width_scale;
+
+			if (transform_.position_.x_ < x_left_bound) transform_.position_.x_ = x_left_bound;
+			else if (transform_.position_.x_ > x_right_bound) transform_.position_.x_ = x_right_bound;
+
+			double y_lower_bound = -(app.Height() / 2.0f) + transform_.scale_.y_ / 2.0f * height_scale;
+			double y_upper_bound = (app.Height() / 2.0f) - transform_.scale_.y_ / 2.0f * height_scale;
+
+			if (transform_.position_.y_ < y_lower_bound) transform_.position_.y_ = y_lower_bound;
+			else if (transform_.position_.y_ > y_upper_bound) transform_.position_.y_ = y_upper_bound;
+		}
 	}
 } // namespace solar

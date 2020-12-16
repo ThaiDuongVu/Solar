@@ -29,6 +29,9 @@ namespace solar
 		// Move object using movement vector
 		void Translate(Vector2 movement = Vector2::Zero());
 		void Translate(double movement_x = 0.0f, double movement_y = 0.0f);
+
+		// Rotate object
+		void Rotate(double rotation = 0.0f);
 	};
 } // namespace solar
 

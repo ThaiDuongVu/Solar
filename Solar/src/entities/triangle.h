@@ -55,6 +55,8 @@ namespace solar
 		void Init(App app);
 		// Update triangle vertices
 		void Update(App app);
+
+		void Bound(App app, double width_scale, double height_scale);
 	};
 } // namespace solar
 

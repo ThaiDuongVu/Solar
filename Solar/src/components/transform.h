@@ -13,11 +13,11 @@ namespace solar
 	{
 	public:
 		// Constructor & destructor
-		Transform(Vector2 position = Vector2::Zero(), Quaternion rotation = Quaternion::Identity(), Vector2 scale = Vector2::Identity());
+		Transform(Vector2 position = Vector2::Zero(), double rotation = 0.0f, Vector2 scale = Vector2::Identity());
 		~Transform();
 
 		Vector2 position_; // Transform position
-		Quaternion rotation_; // Transform rotation
+		double rotation_; // Transform rotation
 		Vector2 scale_; // Transform scale
 
 		static Transform Default(); // Default transform

@@ -22,6 +22,11 @@ namespace solar
 		transform_.position_ += Vector2(movement_x, movement_y);
 	}
 
+	void GameObject::Rotate(double rotation)
+	{
+		transform_.rotation_ += rotation;
+	}
+
 	void GameObject::Destroy()
 	{
 		delete(this);
