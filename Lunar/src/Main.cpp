@@ -3,7 +3,7 @@ using namespace solar;
 
 Color32 background_color = Color32(34, 40, 49, 255);
 
-Triangle triangle = Triangle(Color::Yellow());
+Triangle triangle = Triangle(Color::Pink());
 float speed = 5;
 
 // On game initialization
@@ -25,18 +25,13 @@ void App::Update(double frame_time)
 	// Debug::Log(Time::FrameRate(1));
 
 	if (Input::OnKeyDown(Input::Keys::kKeyEscape))
-	{
 		App::Quit();
-	}
 
 	if (Input::IsPresetDown(Input::Presets::kPresetFire1))
-	{
-		triangle.transform_.scale_ -= Vector2(frame_time, frame_time);
-	}
+		triangle.Rotate(1.0f);
+
 	if (Input::IsPresetDown(Input::Presets::kPresetFire2))
-	{
-		triangle.transform_.scale_ += Vector2(frame_time, frame_time);
-	}
+		triangle.Rotate(-1.0f);
 
 	triangle.Translate(Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical)) * speed);
 }
