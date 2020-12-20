@@ -94,15 +94,15 @@ namespace solar
 
 		// Left vertex
 		vertex_[0] = Vector2(x / width_scale - width / 2.0f, y / height_scale - height / 2.0f) * scale_factor_;
-		vertex_[0] = CalculateRotation(vertex_[0], app);
+		vertex_[0] = CalculateRotation(app, vertex_[0]);
 
 		// Right vertex
 		vertex_[1] = Vector2(x / width_scale + width / 2.0f, y / height_scale - height / 2.0f) * scale_factor_;
-		vertex_[1] = CalculateRotation(vertex_[1], app);
+		vertex_[1] = CalculateRotation(app, vertex_[1]);
 
 		// Up vertex
 		vertex_[2] = Vector2(x / width_scale, y / height_scale + height / 2.0f) * scale_factor_;
-		vertex_[2] = CalculateRotation(vertex_[2], app);
+		vertex_[2] = CalculateRotation(app,vertex_[2]);
 
 		if (is_bounded_) Bound(app, width_scale, height_scale);
 
@@ -132,7 +132,7 @@ namespace solar
 		else if (transform_.position_.y_ > y_upper_bound) transform_.position_.y_ = y_upper_bound;
 
 	}
-	Vector2 Triangle::CalculateRotation(Vector2 vertex, App app)
+	Vector2 Triangle::CalculateRotation(App app, Vector2 vertex)
 	{
 		// Sine & Cosine of current rotation
 		double sin = Mathf::Sin(Mathf::DegreeToRadian(transform_.rotation_));

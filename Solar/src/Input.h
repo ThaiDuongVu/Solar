@@ -268,10 +268,15 @@ namespace solar
 			kPresetJump,
 			kPresetFire1,
 			kPresetFire2,
-			kPresetCrouch
+			kPresetCrouch,
+			kPresetEscape
 		};
+
 		static double IsPresetDown(Presets preset);
+		static double IsPresetUp(Presets preset);
+
 		static double OnPresetDown(Presets preset);
+		static double OnPresetUp(Presets preset);
 #pragma endregion
 
 	private:

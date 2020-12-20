@@ -24,7 +24,7 @@ void App::Update(double frame_time)
 	// Frames per 1 second
 	// Debug::Log(Time::FrameRate(1));
 
-	if (Input::OnKeyDown(Input::Keys::kKeyEscape))
+	if (Input::IsPresetDown(Input::Presets::kPresetEscape))
 		App::Quit();
 
 	if (Input::IsPresetDown(Input::Presets::kPresetFire1))
@@ -33,7 +33,7 @@ void App::Update(double frame_time)
 	if (Input::IsPresetDown(Input::Presets::kPresetFire2))
 		triangle.Rotate(-1.0f);
 
-	triangle.Translate(Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical)) * speed);
+	triangle.Move(Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical)) * speed);
 }
 
 // On game render

@@ -195,14 +195,57 @@ namespace solar
 
 		case Input::Presets::kPresetJump:
 			return IsKeyDown(Keys::kKeySpace) || IsJoystickButtonDown(JoystickButtons::kButtonA);
+			break;
 
 		case Input::Presets::kPresetFire1:
-			return IsMouseDown(MouseButtons::kMouseLeft) || IsKeyDown(Keys::kKeyZ);
+			return IsMouseDown(MouseButtons::kMouseLeft) || IsKeyDown(Keys::kKeyZ) || GetJoystickAxes(JoystickAxes::kAxesRightTrigger) > 0.0f;
+			break;
 		case Input::Presets::kPresetFire2:
-			return IsMouseDown(MouseButtons::kMouseRight) || IsKeyDown(Keys::kKeyX);
+			return IsMouseDown(MouseButtons::kMouseRight) || IsKeyDown(Keys::kKeyX) || GetJoystickAxes(JoystickAxes::kAxesLeftTrigger) > 0.0f;
+			break;
 
 		case Input::Presets::kPresetCrouch:
-			return IsKeyDown(Keys::kKeyLeftCtrl);
+			return IsKeyDown(Keys::kKeyLeftCtrl) || IsJoystickButtonDown(JoystickButtons::kButtonB);
+			break;
+
+		case Input::Presets::kPresetEscape:
+			return IsKeyDown(Keys::kKeyEscape) || IsJoystickButtonDown(JoystickButtons::kButtonStart);
+			break;
+
+		default:
+			return 0;
+			break;
+		}
+	}
+	double Input::IsPresetUp(Presets preset)
+	{
+		switch (preset)
+		{
+		case Input::Presets::kPresetHorizontal:
+			return Mathf::Clamp(-(double)(IsKeyUp(Keys::kKeyLeft) || IsKeyUp(Keys::kKeyA)) + (double)(IsKeyUp(Keys::kKeyRight) || IsKeyUp(Keys::kKeyD)) + (double)(GetJoystickAxes(JoystickAxes::kAxesLeftStickX)), (double)-1.0f, (double)1.0f);
+			break;
+		case Input::Presets::kPresetVertical:
+			return Mathf::Clamp(-(double)(IsKeyUp(Keys::kKeyUp) || IsKeyUp(Keys::kKeyS)) + (double)(IsKeyUp(Keys::kKeyUp) || IsKeyUp(Keys::kKeyW)) + (double)(-GetJoystickAxes(JoystickAxes::kAxesLeftStickY)), (double)-1.0f, (double)1.0f);
+			break;
+
+		case Input::Presets::kPresetJump:
+			return IsKeyUp(Keys::kKeySpace) || IsJoystickButtonUp(JoystickButtons::kButtonA);
+			break;
+
+		case Input::Presets::kPresetFire1:
+			return IsMouseUp(MouseButtons::kMouseLeft) || IsKeyUp(Keys::kKeyZ) || GetJoystickAxes(JoystickAxes::kAxesRightTrigger) > 0.0f;
+			break;
+		case Input::Presets::kPresetFire2:
+			return IsMouseUp(MouseButtons::kMouseRight) || IsKeyUp(Keys::kKeyX) || GetJoystickAxes(JoystickAxes::kAxesLeftTrigger) > 0.0f;
+			break;
+
+		case Input::Presets::kPresetCrouch:
+			return IsKeyUp(Keys::kKeyLeftCtrl) || IsJoystickButtonUp(JoystickButtons::kButtonB);
+			break;
+
+		case Input::Presets::kPresetEscape:
+			return IsKeyUp(Keys::kKeyEscape) || IsJoystickButtonUp(JoystickButtons::kButtonStart);
+			break;
 
 		default:
 			return 0;
@@ -223,14 +266,57 @@ namespace solar
 
 		case Input::Presets::kPresetJump:
 			return OnKeyDown(Keys::kKeySpace) || OnJoystickButtonDown(JoystickButtons::kButtonA);
+			break;
 
 		case Input::Presets::kPresetFire1:
-			return OnMouseDown(MouseButtons::kMouseLeft) || OnKeyDown(Keys::kKeyZ);
+			return OnMouseDown(MouseButtons::kMouseLeft) || OnKeyDown(Keys::kKeyZ) || GetJoystickAxes(JoystickAxes::kAxesRightTrigger) <= 0.0f;
+			break;
 		case Input::Presets::kPresetFire2:
-			return OnMouseDown(MouseButtons::kMouseRight) || OnKeyDown(Keys::kKeyX);
+			return OnMouseDown(MouseButtons::kMouseRight) || OnKeyDown(Keys::kKeyX) || GetJoystickAxes(JoystickAxes::kAxesLeftTrigger) <= 0.0f;
+			break;
 
 		case Input::Presets::kPresetCrouch:
-			return OnKeyDown(Keys::kKeyLeftCtrl);
+			return OnKeyDown(Keys::kKeyLeftCtrl) || OnJoystickButtonDown(JoystickButtons::kButtonB);
+			break;
+
+		case Input::Presets::kPresetEscape:
+			return OnKeyDown(Keys::kKeyEscape) || OnJoystickButtonDown(JoystickButtons::kButtonStart);
+			break;
+
+		default:
+			return 0;
+			break;
+		}
+	}
+	double Input::OnPresetUp(Presets preset)
+	{
+		switch (preset)
+		{
+		case Input::Presets::kPresetHorizontal:
+			return -(double)(OnKeyUp(Keys::kKeyLeft) || OnKeyUp(Keys::kKeyA)) + (double)(OnKeyUp(Keys::kKeyRight) || OnKeyUp(Keys::kKeyD));
+			break;
+		case Input::Presets::kPresetVertical:
+			return -(double)(OnKeyUp(Keys::kKeyUp) || OnKeyUp(Keys::kKeyS)) + (double)(OnKeyUp(Keys::kKeyUp) || OnKeyUp(Keys::kKeyW));
+			break;
+
+		case Input::Presets::kPresetJump:
+			return OnKeyUp(Keys::kKeySpace) || OnJoystickButtonUp(JoystickButtons::kButtonA);
+			break;
+
+		case Input::Presets::kPresetFire1:
+			return OnMouseUp(MouseButtons::kMouseLeft) || OnKeyUp(Keys::kKeyZ) || GetJoystickAxes(JoystickAxes::kAxesRightTrigger) <= 0.0f;
+			break;
+		case Input::Presets::kPresetFire2:
+			return OnMouseUp(MouseButtons::kMouseRight) || OnKeyUp(Keys::kKeyX) || GetJoystickAxes(JoystickAxes::kAxesLeftTrigger) <= 0.0f;
+			break;
+
+		case Input::Presets::kPresetCrouch:
+			return OnKeyUp(Keys::kKeyLeftCtrl) || OnJoystickButtonUp(JoystickButtons::kButtonB);
+			break;
+
+		case Input::Presets::kPresetEscape:
+			return OnKeyUp(Keys::kKeyEscape) || OnJoystickButtonUp(JoystickButtons::kButtonStart);
+			break;
 
 		default:
 			return 0;
@@ -270,9 +356,7 @@ namespace solar
 		for (int i = Input::Joysticks::kJoystick1; i <= Input::Joysticks::kJoystickLast; i++)
 		{
 			if (Input::IsJoystickPresent(i))
-			{
 				joystick_axes_[i] = glfwGetJoystickAxes(i, &Input::joystick_axes_count_);
-			}
 		}
 	}
 } // namespace solar

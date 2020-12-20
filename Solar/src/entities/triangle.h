@@ -59,7 +59,7 @@ namespace solar
 		// Limit object within the game window
 		void Bound(App app, double width_scale, double height_scale);
 		// Calculate vertex coordinates based on current rotation
-		Vector2 CalculateRotation(Vector2 vertex, App app);
+		Vector2 CalculateRotation(App app, Vector2 vertex);
 	};
 } // namespace solar
 
