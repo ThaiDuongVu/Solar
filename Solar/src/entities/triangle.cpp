@@ -102,7 +102,7 @@ namespace solar
 
 		// Up vertex
 		vertex_[2] = Vector2(x / width_scale, y / height_scale + height / 2.0f) * scale_factor_;
-		vertex_[2] = CalculateRotation(app,vertex_[2]);
+		vertex_[2] = CalculateRotation(app, vertex_[2]);
 
 		if (is_bounded_) Bound(app, width_scale, height_scale);
 

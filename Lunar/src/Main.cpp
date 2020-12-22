@@ -3,7 +3,7 @@ using namespace solar;
 
 Color32 background_color = Color32(34, 40, 49, 255);
 
-Triangle triangle = Triangle(Color::Pink());
+Triangle triangle = Triangle(Color::Yellow());
 float speed = 5;
 
 // On game initialization

@@ -15,48 +15,32 @@ inline void InputDemo(App* app)
 
 	// While key being pressed
 	if (Input::IsKeyDown(Input::Keys::kKeySpace))
-	{
 		// Log a line to console
 		Debug::Log("Space key is down");
-	}
 
 	// While left mouse is down
 	if (Input::IsMouseDown(Input::MouseButtons::kMouseLeft))
-	{
 		Debug::Log("Left mouse button is down");
-	}
 
 	// On right mouse up
 	if (Input::OnMouseUp(Input::MouseButtons::kMouseRight))
-	{
 		Debug::Log("Right mouse button released");
-	}
 
 	// Scrolling speed x and y
 	if (Input::ScrollDeltaY() > 0)
-	{
 		Debug::Log("Mouse scrolling up");
-	}
 	else if (Input::ScrollDeltaY() < 0)
-	{
 		Debug::Log("Mouse scrolling down");
-	}
 
-	// On mouse enter and exit window_
+	// On mouse enter and exit window
 	if (Input::OnCursorEnter())
-	{
 		Debug::Log("Mouse enter");
-	}
 	if (Input::OnCursorExit())
-	{
 		Debug::Log("Mouse exit");
-	}
 
 	// While A button is being pressed
 	if (Input::IsJoystickButtonDown(Input::JoystickButtons::kButtonA))
-	{
 		Debug::Log("A button is down");
-	}
 
 	// If a joystick is connected
 	if (Input::IsJoystickPresent(Input::Joysticks::kJoystick1))
@@ -65,16 +49,12 @@ inline void InputDemo(App* app)
 
 		// Trigger input
 		if (Input::GetJoystickAxes(Input::JoystickAxes::kAxesRightTrigger) > -1)
-		{
 			Debug::Log("Right trigger is down");
-		}
 	}
 
 	Vector2 direction = Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical));
 	if (direction != Vector2::Zero())
-	{
 		Debug::Log(direction.ToString());
-	}
 
 	// Mouse position X and Y
 	// Debug::Log(Input::CursorPosition().x_);

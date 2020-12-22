@@ -72,26 +72,19 @@ namespace solar
 	{
 		// Set key buffers
 		if (action == GLFW_PRESS)
-		{
 			Input::key_down_buffer_ = key;
-		}
 		else if (action == GLFW_RELEASE)
-		{
 			Input::key_up_buffer_ = key;
-		}
 	}
 
 	// On cursor enter or exit callback
 	void CursorEnterCallback(GLFWwindow* window, int entered)
 	{
 		if (entered)
-		{
 			Input::cursor_enter_ = true;
-		}
 		else
-		{
 			Input::cursor_exit_ = true;
-		}
+
 		Input::cursor_enter_exit_buffer_ = true;
 	}
 
@@ -100,13 +93,9 @@ namespace solar
 	{
 		// Set mouse buffers
 		if (action == GLFW_PRESS)
-		{
 			Input::mouse_down_buffer_ = button;
-		}
 		else if (action == GLFW_RELEASE)
-		{
 			Input::mouse_up_buffer_ = button;
-		}
 	}
 
 	// Mouse scroll callback
@@ -140,7 +129,7 @@ namespace solar
 
 		// Create a windowed mode window and its OpenGL context
 		App::window_<GLFWwindow> = glfwCreateWindow(App::window_width_, App::window_height_, App::title_, NULL, NULL);
-		if (App::window_<GLFWwindow> == NULL)
+		if (!App::window_<GLFWwindow>)
 		{
 			solar::Debug::LogError("Failed to create window");
 			glfwTerminate();
