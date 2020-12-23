@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef SOLAR_TRIANGLE_H_
-#define SOLAR_TRIANGLE_H_
+#ifndef SOLAR_LINE_H_
+#define SOLAR_LINE_H_
 
 #include "../core.h"
 #include "../app.h"
@@ -13,23 +13,25 @@
 
 namespace solar
 {
-	class SOLAR_API Triangle : public GameObject
+	class SOLAR_API Line : public GameObject
 	{
 	public:
 		// Base constructor
 		using GameObject::GameObject;
 
 		// Constructor & destructor
-		Triangle(Color color = Color::White());
-		~Triangle();
+		Line(Color color = Color::White());
+		~Line();
 
-		// Draw triangle
-		void Draw(App app, DrawMode draw_mode = DrawMode::kFill);
+		// Draw Line
+		void Draw(App app, DrawMode draw_mode = DrawMode::kLine);
 
-		// Change triangle color
+		// Change Line color
 		void SetColor(Color color = Color::White());
 		// Set whether object is bounded
 		void SetBounded(bool is_bounded = false);
+		// Set line length
+		void SetLength(double length = 1.0f);
 
 	private:
 		// Vertex buffer objects
@@ -37,25 +39,27 @@ namespace solar
 		// Vertex array object
 		unsigned int vao_ = NULL;
 
-		// Triangle color
+		// Line color
 		Color color_ = Color::White();
 		// Whether object is confined within window bound
 		bool is_bounded_ = false;
+		// Line length
+		double length_ = 1.0f;
 
 		const float scale_factor_ = 0.1f;
 
-		// Vertices needed to draw a triangle
-		Vector2 vertex_[3] = { NULL, NULL, NULL };
-		float vertices_[9] = { NULL,NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL };
+		// Vertices needed to draw a Line
+		Vector2 vertex_[2] = { NULL, NULL };
+		float vertices_[6] = { NULL,NULL, NULL, NULL, NULL, NULL };
 
-		// Triangle shader
+		// Line shader
 		Shader shader_ = Shader("./resources/default_vertex_shader.shader", "./resources/default_fragment_shader.shader");
 
 		bool done_init_ = false;
 
 		// Initialization
 		void Init(App app);
-		// Update triangle vertices
+		// Update Line vertices
 		void Update(App app);
 
 		// Limit object within the game window
@@ -66,4 +70,4 @@ namespace solar
 } // namespace solar
 
 
-#endif // !SOLAR_TRIANGLE_H_
+#endif // !SOLAR_LINE_H_

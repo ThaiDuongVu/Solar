@@ -1,4 +1,4 @@
-#include "triangle.h"
+#include "line.h"
 #include "../mathf.h"
 #include <glad.h>
 #include <glfw3.h>
@@ -8,18 +8,18 @@
 
 namespace solar
 {
-	Triangle::Triangle(Color color)
+	Line::Line(Color color)
 	{
 		this->color_ = color;
 	}
-	Triangle::~Triangle()
+	Line::~Line()
 	{
 		glDeleteVertexArrays(1, &vao_);
 		glDeleteBuffers(1, &vbo_);
 		shader_.Delete();
 	}
 
-	void Triangle::Draw(App app, DrawMode draw_mode)
+	void Line::Draw(App app, DrawMode draw_mode)
 	{
 		// If object is not visible then return
 		if (!this->is_visible_) return;
@@ -33,10 +33,10 @@ namespace solar
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		Update(app);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawArrays(GL_LINE_STRIP, 0, 2);
 	}
 
-	void Triangle::SetColor(Color color)
+	void Line::SetColor(Color color)
 	{
 		this->color_ = color;
 
@@ -46,12 +46,16 @@ namespace solar
 		shader_.SetFloat("blue", this->color_.b_);
 		shader_.SetFloat("alpha", this->color_.a_);
 	}
-	void Triangle::SetBounded(bool is_bounded)
+	void Line::SetBounded(bool is_bounded)
 	{
 		this->is_bounded_ = is_bounded;
 	}
+	void Line::SetLength(double length)
+	{
+		this->length_ = length;
+	}
 
-	void Triangle::Init(App app)
+	void Line::Init(App app)
 	{
 		// Initialize shader
 		shader_.Init();
@@ -76,31 +80,23 @@ namespace solar
 		// Finish initialization
 		done_init_ = true;
 	}
-	void Triangle::Update(App app)
+	void Line::Update(App app)
 	{
-		// Triangle position
+		// Line position
 		double x = transform_.position_.x_;
 		double y = transform_.position_.y_;
-
-		// Triangle scale
-		double width = transform_.scale_.x_;
-		double height = transform_.scale_.y_;
 
 		// Width & height scale factor
 		double width_scale = (app.Width() / 2.0f * (double)scale_factor_);
 		double height_scale = (app.Height() / 2.0f * (double)scale_factor_);
 
-		// Left vertex
-		vertex_[0] = Vector2(x / width_scale - width / 2.0f, y / height_scale - height / 2.0f) * scale_factor_;
+		// Down vertex
+		vertex_[0] = Vector2(x / width_scale, y / height_scale) * scale_factor_;
 		vertex_[0] = CalculateRotation(app, vertex_[0]);
 
-		// Right vertex
-		vertex_[1] = Vector2(x / width_scale + width / 2.0f, y / height_scale - height / 2.0f) * scale_factor_;
-		vertex_[1] = CalculateRotation(app, vertex_[1]);
-
 		// Up vertex
-		vertex_[2] = Vector2(x / width_scale, y / height_scale + height / 2.0f) * scale_factor_;
-		vertex_[2] = CalculateRotation(app, vertex_[2]);
+		vertex_[1] = Vector2(x / width_scale, y / height_scale + length_) * scale_factor_;
+		vertex_[1] = CalculateRotation(app, vertex_[1]);
 
 		if (is_bounded_) Bound(app, width_scale, height_scale);
 
@@ -108,14 +104,12 @@ namespace solar
 		vertices_[1] = (float)vertex_[0].y_;
 		vertices_[3] = (float)vertex_[1].x_;
 		vertices_[4] = (float)vertex_[1].y_;
-		vertices_[6] = (float)vertex_[2].x_;
-		vertices_[7] = (float)vertex_[2].y_;
 
 		// Buffer vertices
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices_), vertices_, GL_DYNAMIC_DRAW);
 	}
 
-	void Triangle::Bound(App app, double width_scale, double height_scale)
+	void Line::Bound(App app, double width_scale, double height_scale)
 	{
 		double x_left_bound = -(app.Width() / 2.0f) + transform_.scale_.x_ / 2.0f * width_scale;
 		double x_right_bound = (app.Width() / 2.0f) - transform_.scale_.x_ / 2.0f * width_scale;
@@ -130,7 +124,7 @@ namespace solar
 		else if (transform_.position_.y_ > y_upper_bound) transform_.position_.y_ = y_upper_bound;
 
 	}
-	Vector2 Triangle::CalculateRotation(App app, Vector2 vertex)
+	Vector2 Line::CalculateRotation(App app, Vector2 vertex)
 	{
 		// Sine & Cosine of current rotation
 		double sin = Mathf::Sin(Mathf::DegreeToRadian(transform_.rotation_));

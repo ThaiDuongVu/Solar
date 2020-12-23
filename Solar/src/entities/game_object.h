@@ -32,6 +32,10 @@ namespace solar
 
 		// Rotate object
 		void Rotate(double rotation = 0.0f);
+
+		// Scale object
+		void Scale(Vector2 scale = Vector2::Zero());
+		void Scale(double scale_x = 0.0f, double scaley_y = 0.0f);
 	};
 } // namespace solar
 

@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\entities\line.h" />
     <ClInclude Include="src\rendering\shader.h" />
     <ClInclude Include="src\entities\game_object.h" />
     <ClInclude Include="src\types\font.h" />
@@ -411,6 +412,7 @@
     <ClInclude Include="src\entities\triangle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\entities\line.cpp" />
     <ClCompile Include="src\rendering\shader.cpp" />
     <ClCompile Include="src\entities\game_object.cpp" />
     <ClCompile Include="src\types\font.cpp" />

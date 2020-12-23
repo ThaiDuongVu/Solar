@@ -3,8 +3,8 @@ using namespace solar;
 
 Color32 background_color = Color32(34, 40, 49, 255);
 
-Triangle triangle = Triangle(Color::Yellow());
-float speed = 5;
+Triangle triangle = Triangle();
+Line line = Line();
 
 // On game initialization
 void App::Init()
@@ -16,6 +16,7 @@ void App::Init()
 	App::SetTitle("Lunar System");
 
 	triangle.SetBounded(true);
+	line.SetLength(10.0f);
 }
 
 // On game update
@@ -33,7 +34,7 @@ void App::Update(double frame_time)
 	if (Input::IsPresetDown(Input::Presets::kPresetFire2))
 		triangle.Rotate(-1.0f);
 
-	triangle.Move(Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical)) * speed);
+	line.Move(Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical)) * 5.0f);
 }
 
 // On game render
@@ -43,6 +44,7 @@ void App::Render()
 	App::ClearBackground(background_color.Normalize());
 
 	triangle.Draw(*this, GameObject::DrawMode::kLine);
+	line.Draw(*this);
 }
 
 // On game exit
