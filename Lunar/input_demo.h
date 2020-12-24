@@ -57,6 +57,6 @@ inline void InputDemo(App* app)
 		Debug::Log(direction.ToString());
 
 	// Mouse position X and Y
-	// Debug::Log(Input::CursorPosition().x_);
-	// Debug::Log(Input::CursorPosition().y_);
+	// Debug::Log(Input::CursorPosition().x);
+	// Debug::Log(Input::CursorPosition().y);
 }

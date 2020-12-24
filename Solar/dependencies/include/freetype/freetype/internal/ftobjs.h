@@ -65,7 +65,7 @@ FT_BEGIN_HEADER
   /**************************************************************************
    *
    * The min and max functions missing in C.  As usual, be careful not to
-   * write things like FT_MIN( a++, b_++ ) to avoid side effects.
+   * write things like FT_MIN( a++, b++ ) to avoid side effects.
    */
 #define FT_MIN( a, b )  ( (a) < (b) ? (a) : (b) )
 #define FT_MAX( a, b )  ( (a) > (b) ? (a) : (b) )
@@ -1067,7 +1067,7 @@ FT_BEGIN_HEADER
           init_,                  \
           done_,                  \
           copy_,                  \
-          transform_,             \
+          transform,             \
           bbox_,                  \
           prepare_ )              \
   FT_CALLBACK_TABLE_DEF           \
@@ -1078,7 +1078,7 @@ FT_BEGIN_HEADER
     init_,                        \
     done_,                        \
     copy_,                        \
-    transform_,                   \
+    transform,                   \
     bbox_,                        \
     prepare_                      \
   };

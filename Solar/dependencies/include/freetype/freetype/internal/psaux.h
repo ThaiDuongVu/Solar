@@ -542,7 +542,7 @@ FT_BEGIN_HEADER
    *     Unused.
    *
    *   path_begun ::
-   *     A flag which indicates that a new path_ has begun.
+   *     A flag which indicates that a new path has begun.
    *
    *   load_points ::
    *     If this flag is not set, no points are loaded.
@@ -1083,7 +1083,7 @@ FT_BEGIN_HEADER
    *     Unused.
    *
    *   path_begun ::
-   *     A flag which indicates that a new path_ has begun.
+   *     A flag which indicates that a new path has begun.
    *
    *   load_points ::
    *     If this flag is not set, no points are loaded.

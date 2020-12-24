@@ -344,13 +344,13 @@ extern "C"
  *
  *  The naming of the key codes follow these rules:
  *   - The US keyboard layout is used
- *   - Names of printable alpha-numeric characters are used (e.g_. "A", "R",
+ *   - Names of printable alpha-numeric characters are used (e.g. "A", "R",
  *     "3", etc.)
- *   - For non-alphanumeric characters, Unicode:ish names are used (e.g_.
+ *   - For non-alphanumeric characters, Unicode:ish names are used (e.g.
  *     "COMMA", "LEFT_SQUARE_BRACKET", etc.). Note that some names do not
  *     correspond to the Unicode standard (usually for brevity)
  *   - Keys that lack a clear US mapping are named "WORLD_x"
- *   - For non-printable keys, custom names are used (e.g_. "F4",
+ *   - For non-printable keys, custom names are used (e.g. "F4",
  *     "BACKSPACE", etc.)
  *
  *  @ingroup input
@@ -1544,9 +1544,9 @@ extern "C"
  */
     typedef void (*GLFWcharmodsfun)(GLFWwindow *, unsigned int, int);
 
-    /*! @brief The function pointer type for path_ drop callbacks.
+    /*! @brief The function pointer type for path drop callbacks.
  *
- *  This is the function pointer type for path_ drop callbacks.  A path_ drop
+ *  This is the function pointer type for path drop callbacks.  A path drop
  *  callback function has the following signature:
  *  @code
  *  void function_name(GLFWwindow* window_, int path_count, const char* paths[])
@@ -1554,9 +1554,9 @@ extern "C"
  *
  *  @param[in] window_ The window_ that received the event.
  *  @param[in] path_count The number of dropped paths.
- *  @param[in] paths The UTF-8 encoded file and/or directory path_ names.
+ *  @param[in] paths The UTF-8 encoded file and/or directory path names.
  *
- *  @pointer_lifetime The path_ array and its strings are valid until the
+ *  @pointer_lifetime The path array and its strings are valid until the
  *  callback function returns.
  *
  *  @sa @ref path_drop
@@ -2243,7 +2243,7 @@ extern "C"
     /*! @brief Returns the available video modes for the specified monitor.
  *
  *  This function returns an array of all video modes supported by the specified
- *  monitor.  The returned array is sorted in ascending order, first by color_
+ *  monitor.  The returned array is sorted in ascending order, first by color
  *  bit depth (the sum of all channel depths) and then by resolution area (the
  *  product of width and height).
  *
@@ -4760,12 +4760,12 @@ extern "C"
  */
     GLFWAPI GLFWscrollfun glfwSetScrollCallback(GLFWwindow *window, GLFWscrollfun callback);
 
-    /*! @brief Sets the path_ drop callback.
+    /*! @brief Sets the path drop callback.
  *
- *  This function sets the path_ drop callback of the specified window_, which is
+ *  This function sets the path drop callback of the specified window_, which is
  *  called when one or more dragged paths are dropped on the window_.
  *
- *  Because the path_ array and its strings may have been generated specifically
+ *  Because the path array and its strings may have been generated specifically
  *  for that event, they are not guaranteed to be valid after the callback has
  *  returned.  If you wish to use them after the callback returns, you need to
  *  make a deep copy.
@@ -4999,7 +4999,7 @@ extern "C"
  *
  *  The GUID uses the format introduced in SDL 2.0.5.  This GUID tries to
  *  uniquely identify the make and model of a joystick but does not identify
- *  a specific unit, e.g_. all wired Xbox 360 controllers will have the same
+ *  a specific unit, e.g. all wired Xbox 360 controllers will have the same
  *  GUID on that platform.  The GUID for a unit may vary between platforms
  *  depending on what hardware information the platform specific APIs provide.
  *

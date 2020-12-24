@@ -748,7 +748,7 @@ FT_BEGIN_HEADER
    *   Note that structures like @TT_Header or @TT_OS2 can't be used with
    *   this function; they are limited to @FT_Get_Sfnt_Table.  Reason is that
    *   those structures depend on the processor architecture, with varying
-   *   size (e.g_. 32bit vs. 64bit) or order (big endian vs. little endian).
+   *   size (e.g. 32bit vs. 64bit) or order (big endian vs. little endian).
    *
    */
   FT_EXPORT( FT_Error )

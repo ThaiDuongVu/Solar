@@ -15,14 +15,16 @@ namespace solar
 		Shader(const char* vertex_path, const char* fragment_path);
 		~Shader();
 
-		const char* vertex_path_ = NULL;
-		const char* fragment_path_ = NULL;
+		// Path to vertex shader file
+		const char* vertex_path = NULL;
+		// Path to fragment shader file
+		const char* fragment_path = NULL;
 
 		// Shader initialization
 		void Init();
 
 		// Shader program
-		unsigned int program_ = NULL;
+		unsigned int program = NULL;
 
 		// Activate the shader
 		void Use();
@@ -35,7 +37,6 @@ namespace solar
 		void SetFloat(const std::string& name, float value) const;
 	};
 } // namespace solar
-
 
 #endif // !SOLAR_SHADER_H_
 

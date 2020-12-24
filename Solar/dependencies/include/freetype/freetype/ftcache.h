@@ -71,7 +71,7 @@ FT_BEGIN_HEADER
    *   **persistent**, which means that the contents they point to should not
    *   change at runtime, or that their value should not become invalid.
    *
-   *   If this is unavoidable (e.g_., when a font is uninstalled at runtime),
+   *   If this is unavoidable (e.g., when a font is uninstalled at runtime),
    *   you should call @FTC_Manager_RemoveFaceID as soon as possible, to let
    *   the cache get rid of any references to the old @FTC_FaceID it may keep
    *   internally.  Failure to do so will lead to incorrect behaviour or even
@@ -151,7 +151,7 @@ FT_BEGIN_HEADER
    *   contents of such objects is application-dependent.
    *
    *   These pointers are typically used to point to a user-defined structure
-   *   containing a font file path_, and face index.
+   *   containing a font file path, and face index.
    *
    * @note:
    *   Never use `NULL` as a valid @FTC_FaceID.
@@ -161,7 +161,7 @@ FT_BEGIN_HEADER
    *   @FT_Face objects.
    *
    *   If the content of a given face ID changes at runtime, or if the value
-   *   becomes invalid (e.g_., when uninstalling a font), you should
+   *   becomes invalid (e.g., when uninstalling a font), you should
    *   immediately call @FTC_Manager_RemoveFaceID before any other cache
    *   function.
    *

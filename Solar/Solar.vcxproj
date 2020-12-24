@@ -16,7 +16,6 @@
     <ClInclude Include="src\entities\game_object.h" />
     <ClInclude Include="src\types\font.h" />
     <ClInclude Include="src\mathf.h" />
-    <ClInclude Include="src\types\quaternion.h" />
     <ClInclude Include="src\types\color32.h" />
     <ClInclude Include="src\types\color.h" />
     <ClInclude Include="dependencies\include\freetype\freetype\config\ftconfig.h" />
@@ -417,7 +416,6 @@
     <ClCompile Include="src\entities\game_object.cpp" />
     <ClCompile Include="src\types\font.cpp" />
     <ClCompile Include="src\mathf.cpp" />
-    <ClCompile Include="src\types\quaternion.cpp" />
     <ClCompile Include="src\types\color32.cpp" />
     <ClCompile Include="src\types\color.cpp" />
     <ClCompile Include="dependencies\include\glad\glad.c" />

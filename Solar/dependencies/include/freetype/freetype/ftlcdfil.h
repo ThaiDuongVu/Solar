@@ -2,7 +2,7 @@
  *
  * ftlcdfil.h
  *
- *   FreeType API for color_ filtering of subpixel bitmap glyphs
+ *   FreeType API for color filtering of subpixel bitmap glyphs
  *   (specification).
  *
  * Copyright (C) 2006-2020 by
@@ -52,25 +52,25 @@ FT_BEGIN_HEADER
    *   available, performs its function when appropriate method is enabled
    *   and does nothing otherwise.
    *
-   *   ClearType-style LCD rendering exploits the color_-striped structure of
+   *   ClearType-style LCD rendering exploits the color-striped structure of
    *   LCD pixels, increasing the available resolution in the direction of
    *   the stripe (usually horizontal RGB) by a factor of~3.  Using the
-   *   subpixels coverages unfiltered can create severe color_ fringes
+   *   subpixels coverages unfiltered can create severe color fringes
    *   especially when rendering thin features.  Indeed, to produce
-   *   black-on-white test, the nearby color_ subpixels must be dimmed
+   *   black-on-white test, the nearby color subpixels must be dimmed
    *   equally.
    *
    *   A good 5-tap FIR filter should be applied to subpixel coverages
    *   regardless of pixel boundaries and should have these properties:
    *
-   *   1. It should be symmetrical, like {~a, b_, c, b_, a~}, to avoid
+   *   1. It should be symmetrical, like {~a, b, c, b, a~}, to avoid
    *      any shifts in appearance.
    *
-   *   2. It should be color_-balanced, meaning a~+ b_~=~c, to reduce color_
+   *   2. It should be color-balanced, meaning a~+ b~=~c, to reduce color
    *      fringes by distributing the computed coverage for one subpixel to
    *      all subpixels equally.
    *
-   *   3. It should be normalized, meaning 2a~+ 2b_~+ c~=~1.0 to maintain
+   *   3. It should be normalized, meaning 2a~+ 2b~+ c~=~1.0 to maintain
    *      overall brightness.
    *
    *   Boxy 3-tap filter {0, 1/3, 1/3, 1/3, 0} is sharper but is less
@@ -82,11 +82,11 @@ FT_BEGIN_HEADER
    *   subpixel-rendered bitmaps generated through @FT_Render_Glyph.
    *
    *   Harmony LCD rendering is suitable to panels with any regular subpixel
-   *   structure, not just monitors with 3 color_ striped subpixels, as long
-   *   as the color_ subpixels have fixed positions relative to the pixel
-   *   center.  In this case, each color_ channel is then rendered separately
+   *   structure, not just monitors with 3 color striped subpixels, as long
+   *   as the color subpixels have fixed positions relative to the pixel
+   *   center.  In this case, each color channel is then rendered separately
    *   after shifting the outline opposite to the subpixel shift so that the
-   *   coverage maps are aligned.  This method is immune to color_ fringes
+   *   coverage maps are aligned.  This method is immune to color fringes
    *   because the shifts do not change integral coverage.
    *
    *   The subpixel geometry must be specified by xy-coordinates for each
@@ -115,11 +115,11 @@ FT_BEGIN_HEADER
    *   is specified.  This API does not control @FT_Outline_Render and
    *   @FT_Outline_Get_Bitmap.
    *
-   *   The described algorithms can completely remove color_ artefacts when
+   *   The described algorithms can completely remove color artefacts when
    *   combined with gamma-corrected alpha blending in linear space.  Each of
    *   the 3~alpha values (subpixels) must by independently used to blend one
-   *   color_ channel.  That is, red alpha blends the red channel of the test
-   *   color_ with the red channel of the background pixel.
+   *   color channel.  That is, red alpha blends the red channel of the test
+   *   color with the red channel of the background pixel.
    */
 
 
@@ -134,20 +134,20 @@ FT_BEGIN_HEADER
    * @values:
    *   FT_LCD_FILTER_NONE ::
    *     Do not perform filtering.  When used with subpixel rendering, this
-   *     results in sometimes severe color_ fringes.
+   *     results in sometimes severe color fringes.
    *
    *   FT_LCD_FILTER_DEFAULT ::
-   *     This is a beveled, normalized, and color_-balanced five-tap filter
+   *     This is a beveled, normalized, and color-balanced five-tap filter
    *     with weights of [0x08 0x4D 0x56 0x4D 0x08] in 1/256th units.
    *
    *   FT_LCD_FILTER_LIGHT ::
-   *     this is a boxy, normalized, and color_-balanced three-tap filter with
+   *     this is a boxy, normalized, and color-balanced three-tap filter with
    *     weights of [0x00 0x55 0x56 0x55 0x00] in 1/256th units.
    *
    *   FT_LCD_FILTER_LEGACY ::
    *   FT_LCD_FILTER_LEGACY1 ::
-   *     This filter corresponds to the original libXft color_ filter.  It
-   *     provides high contrast output but can exhibit really bad color_
+   *     This filter corresponds to the original libXft color filter.  It
+   *     provides high contrast output but can exhibit really bad color
    *     fringes if glyphs are not extremely well hinted to the pixel grid.
    *     This filter is only provided for comparison purposes, and might be
    *     disabled or stay unsupported in the future. The second value is
@@ -272,7 +272,7 @@ FT_BEGIN_HEADER
    *   FT_Library_SetLcdGeometry
    *
    * @description:
-   *   This function can be used to modify default positions of color_
+   *   This function can be used to modify default positions of color
    *   subpixels, which controls Harmony LCD rendering.
    *
    * @input:
@@ -289,7 +289,7 @@ FT_BEGIN_HEADER
    * @note:
    *   Subpixel geometry examples:
    *
-   *   - {{-21, 0}, {0, 0}, {21, 0}} is the default, corresponding to 3 color_
+   *   - {{-21, 0}, {0, 0}, {21, 0}} is the default, corresponding to 3 color
    *   stripes shifted by a third of a pixel. This could be an RGB panel.
    *
    *   - {{21, 0}, {0, 0}, {-21, 0}} looks the same as the default but can

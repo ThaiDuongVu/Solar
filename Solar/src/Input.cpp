@@ -7,24 +7,24 @@
 namespace solar
 {
 #pragma region Keyboard
-	int Input::key_down_buffer_ = NULL;
-	int Input::key_up_buffer_ = NULL;
+	int Input::key_down_buffer = NULL;
+	int Input::key_up_buffer = NULL;
 
 	bool Input::IsKeyDown(int key)
 	{
-		return glfwGetKey(solar::App::window_<GLFWwindow>, key) == GLFW_PRESS;
+		return glfwGetKey(solar::App::window<GLFWwindow>, key) == GLFW_PRESS;
 	}
 
 	bool Input::IsKeyUp(int key)
 	{
-		return glfwGetKey(solar::App::window_<GLFWwindow>, key) == GLFW_RELEASE;
+		return glfwGetKey(solar::App::window<GLFWwindow>, key) == GLFW_RELEASE;
 	}
 
 	bool Input::OnKeyDown(int key)
 	{
-		if (key == Input::key_down_buffer_)
+		if (key == Input::key_down_buffer)
 		{
-			Input::key_down_buffer_ = NULL;
+			Input::key_down_buffer = NULL;
 			return true;
 		}
 		return false;
@@ -32,9 +32,9 @@ namespace solar
 
 	bool Input::OnKeyUp(int key)
 	{
-		if (key == Input::key_up_buffer_)
+		if (key == Input::key_up_buffer)
 		{
-			Input::key_up_buffer_ = NULL;
+			Input::key_up_buffer = NULL;
 			return true;
 		}
 		return false;
@@ -42,56 +42,56 @@ namespace solar
 #pragma endregion
 
 #pragma region Cursor
-	double Input::cursor_x_ = 0;
-	double Input::cursor_y_ = 0;
+	double Input::cursor_x = 0;
+	double Input::cursor_y = 0;
 
-	int Input::cursor_mode_ = 0;
+	int Input::cursor_mode = 0;
 
 	Vector2 Input::CursorPosition()
 	{
-		return Vector2(cursor_x_, cursor_y_);
+		return Vector2(cursor_x, cursor_y);
 	}
 
 	void Input::SetCursorMode(int mode)
 	{
-		Input::cursor_mode_ = mode;
+		Input::cursor_mode = mode;
 	}
 
-	bool Input::cursor_enter_ = false;
-	bool Input::cursor_exit_ = false;
+	bool Input::cursor_enter = false;
+	bool Input::cursor_exit = false;
 
-	bool Input::cursor_enter_exit_buffer_ = false;
+	bool Input::cursor_enter_exit_buffer = false;
 
 	bool Input::OnCursorEnter()
 	{
-		return Input::cursor_enter_;
+		return Input::cursor_enter;
 	}
 
 	bool Input::OnCursorExit()
 	{
-		return Input::cursor_exit_;
+		return Input::cursor_exit;
 	}
 #pragma endregion
 
 #pragma region Mouse
-	int Input::mouse_down_buffer_ = NULL;
-	int Input::mouse_up_buffer_ = NULL;
+	int Input::mouse_down_buffer = NULL;
+	int Input::mouse_up_buffer = NULL;
 
 	bool Input::IsMouseDown(int mouse)
 	{
-		return glfwGetMouseButton(App::window_<GLFWwindow>, mouse) == GLFW_PRESS;
+		return glfwGetMouseButton(App::window<GLFWwindow>, mouse) == GLFW_PRESS;
 	}
 
 	bool Input::IsMouseUp(int mouse)
 	{
-		return glfwGetMouseButton(App::window_<GLFWwindow>, mouse) == GLFW_RELEASE;
+		return glfwGetMouseButton(App::window<GLFWwindow>, mouse) == GLFW_RELEASE;
 	}
 
 	bool Input::OnMouseDown(int mouse)
 	{
-		if (mouse == mouse_down_buffer_)
+		if (mouse == mouse_down_buffer)
 		{
-			mouse_down_buffer_ = NULL;
+			mouse_down_buffer = NULL;
 			return true;
 		}
 		return false;
@@ -99,27 +99,27 @@ namespace solar
 
 	bool Input::OnMouseUp(int mouse)
 	{
-		if (mouse == mouse_up_buffer_)
+		if (mouse == mouse_up_buffer)
 		{
-			mouse_up_buffer_ = NULL;
+			mouse_up_buffer = NULL;
 			return true;
 		}
 		return false;
 	}
 
-	double Input::scroll_delta_x_ = 0;
-	double Input::scroll_delta_y_ = 0;
+	double Input::scroll_delta_x = 0;
+	double Input::scroll_delta_y = 0;
 
-	bool Input::scroll_buffer_ = false;
+	bool Input::scroll_buffer = false;
 
 	double Input::ScrollDeltaX()
 	{
-		return scroll_delta_x_;
+		return scroll_delta_x;
 	}
 
 	double Input::ScrollDeltaY()
 	{
-		return scroll_delta_y_;
+		return scroll_delta_y;
 	}
 #pragma endregion
 
@@ -129,28 +129,28 @@ namespace solar
 		return glfwJoystickPresent(joystick);
 	}
 
-	const float* Input::joystick_axes_[] = { 0 };
-	int Input::joystick_axes_count_ = 0;
+	const float* Input::joystick_axes[] = { 0 };
+	int Input::joystick_axes_count = 0;
 
 	float Input::GetJoystickAxes(int axes, int joystick)
 	{
 		if (!Input::IsJoystickPresent(joystick))
 			return 0;
 
-		return Input::joystick_axes_[joystick][axes];
+		return Input::joystick_axes[joystick][axes];
 	}
 
-	int Input::joystick_button_count_ = 0;
+	int Input::joystick_button_count = 0;
 
-	int Input::button_down_buffer_ = NULL;
-	int Input::button_up_buffer_ = NULL;
+	int Input::button_down_buffer = NULL;
+	int Input::button_up_buffer = NULL;
 
 	bool Input::IsJoystickButtonDown(int button, int joystick)
 	{
 		if (!Input::IsJoystickPresent(joystick))
 			return false;
 
-		return glfwGetJoystickButtons(joystick, &Input::joystick_button_count_)[button] == GLFW_PRESS;
+		return glfwGetJoystickButtons(joystick, &Input::joystick_button_count)[button] == GLFW_PRESS;
 	}
 
 	bool Input::IsJoystickButtonUp(int button, int joystick)
@@ -158,7 +158,7 @@ namespace solar
 		if (!Input::IsJoystickPresent(joystick))
 			return false;
 
-		return glfwGetJoystickButtons(joystick, &Input::joystick_button_count_)[button] == GLFW_RELEASE;
+		return glfwGetJoystickButtons(joystick, &Input::joystick_button_count)[button] == GLFW_RELEASE;
 	}
 
 	// Currently not working
@@ -327,28 +327,28 @@ namespace solar
 
 	void Input::Update()
 	{
-		glfwGetCursorPos(solar::App::window_<GLFWwindow>, &Input::cursor_x_, &Input::cursor_y_);
-		glfwSetInputMode(solar::App::window_<GLFWwindow>, GLFW_CURSOR, Input::cursor_mode_);
+		glfwGetCursorPos(solar::App::window<GLFWwindow>, &Input::cursor_x, &Input::cursor_y);
+		glfwSetInputMode(solar::App::window<GLFWwindow>, GLFW_CURSOR, Input::cursor_mode);
 
 #pragma region Buffer Handling
-		if (!Input::scroll_buffer_)
+		if (!Input::scroll_buffer)
 		{
-			Input::scroll_delta_x_ = 0;
-			Input::scroll_delta_y_ = 0;
+			Input::scroll_delta_x = 0;
+			Input::scroll_delta_y = 0;
 		}
 		else
 		{
-			Input::scroll_buffer_ = false;
+			Input::scroll_buffer = false;
 		}
 
-		if (!Input::cursor_enter_exit_buffer_)
+		if (!Input::cursor_enter_exit_buffer)
 		{
-			Input::cursor_enter_ = false;
-			Input::cursor_exit_ = false;
+			Input::cursor_enter = false;
+			Input::cursor_exit = false;
 		}
 		else
 		{
-			Input::cursor_enter_exit_buffer_ = false;
+			Input::cursor_enter_exit_buffer = false;
 		}
 #pragma endregion
 
@@ -356,7 +356,7 @@ namespace solar
 		for (int i = Input::Joysticks::kJoystick1; i <= Input::Joysticks::kJoystickLast; i++)
 		{
 			if (Input::IsJoystickPresent(i))
-				joystick_axes_[i] = glfwGetJoystickAxes(i, &Input::joystick_axes_count_);
+				joystick_axes[i] = glfwGetJoystickAxes(i, &Input::joystick_axes_count);
 		}
 	}
 } // namespace solar

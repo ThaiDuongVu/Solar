@@ -46,7 +46,7 @@
    * platforms the library has been tested on.
    *
    * Note that on the extremely rare platforms that do not provide integer
-   * types that are _exactly_ 16 and 32~bits wide (e.g_., some old Crays where
+   * types that are _exactly_ 16 and 32~bits wide (e.g., some old Crays where
    * `int` is 36~bits), we do not make any guarantee about the correct
    * behaviour of FreeType~2 with all fonts.
    *

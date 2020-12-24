@@ -9,7 +9,6 @@
 #include "input.h"
 #include "mathf.h"
 #include "types/vector2.h"
-#include "types/quaternion.h"
 #include "types/color.h"
 #include "types/color32.h"
 #include "components/transform.h"

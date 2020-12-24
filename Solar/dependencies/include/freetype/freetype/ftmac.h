@@ -117,7 +117,7 @@ FT_BEGIN_HEADER
    *
    * @input:
    *   fontName ::
-   *     Mac OS name of the font (e.g_., Times New Roman Bold).
+   *     Mac OS name of the font (e.g., Times New Roman Bold).
    *
    * @output:
    *   pathSpec ::
@@ -179,7 +179,7 @@ FT_BEGIN_HEADER
    *     Mac OS name of the font in ATS framework.
    *
    * @output:
-   *   path_ ::
+   *   path ::
    *     Buffer to store pathname of the file.  For passing to @FT_New_Face.
    *     The client must allocate this buffer before calling this function.
    *
@@ -229,7 +229,7 @@ FT_BEGIN_HEADER
    *
    * @note:
    *   @FT_New_Face_From_FSSpec is identical to @FT_New_Face except it
-   *   accepts an FSSpec instead of a path_.
+   *   accepts an FSSpec instead of a path.
    */
   FT_EXPORT( FT_Error )
   FT_New_Face_From_FSSpec( FT_Library     library,
@@ -268,7 +268,7 @@ FT_BEGIN_HEADER
    *
    * @note:
    *   @FT_New_Face_From_FSRef is identical to @FT_New_Face except it accepts
-   *   an FSRef instead of a path_.
+   *   an FSRef instead of a path.
    */
   FT_EXPORT( FT_Error )
   FT_New_Face_From_FSRef( FT_Library    library,

@@ -11,14 +11,18 @@ namespace solar
 	class SOLAR_API App
 	{
 	public:
-		// User-defined functions
+		// User-defined initialization
 		virtual void Init();
+		// User-defined update
 		virtual void Update(double frame_time);
+		// User-defined rendering
 		virtual void Render();
+		// User-defined shutdown
 		virtual void Exit();
 
-		// Window width & height
+		// Window width
 		int Width();
+		// Window height
 		int Height();
 
 		// Set window width and height
@@ -26,11 +30,11 @@ namespace solar
 		// Set window title
 		void SetTitle(const char* title = DEFAULT_TITLE);
 
-		// Set window resizable
+		// Set whether window is resizable
 		void SetResizable(bool resizable = false);
-		// Set window focused
+		// Set whether window is focused
 		void SetFocused(bool focused = true);
-		// Set window maximized
+		// Set whether window is maximized
 		void SetMaximized(bool maximized = false);
 
 		// Clear background
@@ -45,15 +49,15 @@ namespace solar
 		// Current active window
 		// Use generics type since glfw is not included in header
 		template <typename T>
-		static T* window_;
+		static T* window;
 
 	private:
 		// Default screen dimension
-		int window_width_ = DEFAULT_WINDOW_WIDTH;
-		int window_height_ = DEFAULT_WINDOW_HEIGHT;
+		int window_width = DEFAULT_WINDOW_WIDTH;
+		int window_height = DEFAULT_WINDOW_HEIGHT;
 
 		// Default game window title
-		const char* title_ = "Solar System";
+		const char* title = "Solar System";
 	};
 } // namespace solar
 

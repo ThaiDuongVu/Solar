@@ -140,7 +140,7 @@ FT_BEGIN_HEADER
    *
    * @description:
    *   This function is used to recompute the global metrics in a given font.
-   *   This is useful when global font data changes (e.g_. Multiple Masters
+   *   This is useful when global font data changes (e.g. Multiple Masters
    *   fonts where blend coordinates change).
    *
    * @input:

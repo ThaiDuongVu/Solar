@@ -2,7 +2,7 @@
  *
  * ftstroke.h
  *
- *   FreeType path_ stroker (specification).
+ *   FreeType path stroker (specification).
  *
  * Copyright (C) 2002-2020 by
  * David Turner, Robert Wilhelm, and Werner Lemberg.
@@ -86,7 +86,7 @@ FT_BEGIN_HEADER
    *   FT_Stroker
    *
    * @description:
-   *   Opaque handle to a path_ stroker object.
+   *   Opaque handle to a path stroker object.
    */
   typedef struct FT_StrokerRec_*  FT_Stroker;
 
@@ -350,7 +350,7 @@ FT_BEGIN_HEADER
    *     The source outline.
    *
    *   opened ::
-   *     A boolean.  If~1, the outline is treated as an open path_ instead of
+   *     A boolean.  If~1, the outline is treated as an open path instead of
    *     a closed one.
    *
    * @return:
@@ -358,9 +358,9 @@ FT_BEGIN_HEADER
    *
    * @note:
    *   If `opened` is~0 (the default), the outline is treated as a closed
-   *   path_, and the stroker generates two distinct 'border' outlines.
+   *   path, and the stroker generates two distinct 'border' outlines.
    *
-   *   If `opened` is~1, the outline is processed as an open path_, and the
+   *   If `opened` is~1, the outline is processed as an open path, and the
    *   stroker generates a single 'stroke' outline.
    *
    *   This function calls @FT_Stroker_Rewind automatically.
@@ -377,7 +377,7 @@ FT_BEGIN_HEADER
    *   FT_Stroker_BeginSubPath
    *
    * @description:
-   *   Start a new sub-path_ in the stroker.
+   *   Start a new sub-path in the stroker.
    *
    * @input:
    *   stroker ::
@@ -387,13 +387,13 @@ FT_BEGIN_HEADER
    *     A pointer to the start vector.
    *
    *   open ::
-   *     A boolean.  If~1, the sub-path_ is treated as an open one.
+   *     A boolean.  If~1, the sub-path is treated as an open one.
    *
    * @return:
    *   FreeType error code.  0~means success.
    *
    * @note:
-   *   This function is useful when you need to stroke a path_ that is not
+   *   This function is useful when you need to stroke a path that is not
    *   stored as an @FT_Outline object.
    */
   FT_EXPORT( FT_Error )
@@ -408,7 +408,7 @@ FT_BEGIN_HEADER
    *   FT_Stroker_EndSubPath
    *
    * @description:
-   *   Close the current sub-path_ in the stroker.
+   *   Close the current sub-path in the stroker.
    *
    * @input:
    *   stroker ::
@@ -432,7 +432,7 @@ FT_BEGIN_HEADER
    *   FT_Stroker_LineTo
    *
    * @description:
-   *   'Draw' a single line segment in the stroker's current sub-path_, from
+   *   'Draw' a single line segment in the stroker's current sub-path, from
    *   the last position.
    *
    * @input:
@@ -460,7 +460,7 @@ FT_BEGIN_HEADER
    *   FT_Stroker_ConicTo
    *
    * @description:
-   *   'Draw' a single quadratic Bezier in the stroker's current sub-path_,
+   *   'Draw' a single quadratic Bezier in the stroker's current sub-path,
    *   from the last position.
    *
    * @input:
@@ -492,7 +492,7 @@ FT_BEGIN_HEADER
    *   FT_Stroker_CubicTo
    *
    * @description:
-   *   'Draw' a single cubic Bezier in the stroker's current sub-path_, from
+   *   'Draw' a single cubic Bezier in the stroker's current sub-path, from
    *   the last position.
    *
    * @input:
@@ -551,10 +551,10 @@ FT_BEGIN_HEADER
    *   FreeType error code.  0~means success.
    *
    * @note:
-   *   When an outline, or a sub-path_, is 'closed', the stroker generates two
+   *   When an outline, or a sub-path, is 'closed', the stroker generates two
    *   independent 'border' outlines, named 'left' and 'right'.
    *
-   *   When the outline, or a sub-path_, is 'opened', the stroker merges the
+   *   When the outline, or a sub-path, is 'opened', the stroker merges the
    *   'border' outlines with caps.  The 'left' border receives all points,
    *   while the 'right' border becomes empty.
    *
@@ -595,10 +595,10 @@ FT_BEGIN_HEADER
    *   sure that there is enough room in your @FT_Outline object to receive
    *   all new data.
    *
-   *   When an outline, or a sub-path_, is 'closed', the stroker generates two
+   *   When an outline, or a sub-path, is 'closed', the stroker generates two
    *   independent 'border' outlines, named 'left' and 'right'.
    *
-   *   When the outline, or a sub-path_, is 'opened', the stroker merges the
+   *   When the outline, or a sub-path, is 'opened', the stroker merges the
    *   'border' outlines with caps.  The 'left' border receives all points,
    *   while the 'right' border becomes empty.
    *
@@ -619,7 +619,7 @@ FT_BEGIN_HEADER
    * @description:
    *   Call this function once you have finished parsing your paths with the
    *   stroker.  It returns the number of points and contours necessary to
-   *   export all points/borders from the stroked outline/path_.
+   *   export all points/borders from the stroked outline/path.
    *
    * @input:
    *   stroker ::

@@ -97,7 +97,7 @@ FT_BEGIN_HEADER
    *
    *   func_interface ::
    *     A table of 'emitters', i.e., function pointers called during
-   *     decomposition to indicate path_ operations.
+   *     decomposition to indicate path operations.
    *
    * @inout:
    *   user ::

@@ -12,34 +12,41 @@ namespace solar
 	class SOLAR_API Color32
 	{
 	public:
-		// Constructor and destructor
+		// Constructor
 		Color32(unsigned int r = 0, unsigned int g = 0, unsigned int b = 0, unsigned int a = 255);
+		// Destructor
 		~Color32();
 
-		unsigned int r_ = 0;	 // Red
-		unsigned int g_ = 0;	 // Green
-		unsigned int b_ = 0;	 // Blue
-		unsigned int a_ = 255; // Apha
+		// Red value
+		unsigned int r = 0;
+		// Green value
+		unsigned int g = 0;
+		// Blue value
+		unsigned int b = 0;
+		// Apha value
+		unsigned int a = 255;
 
-		Color Normalize(); // Convert this 32-bit Color type to Color type and clamp all values to be between 0 and 1
-		std::string ToString(); // Convert this color_ to string for debugging & prunsigned inting
+		// Convert this 32-bit Color type to Color type and clamp all values to be between 0 and 1
+		Color Normalize();
+		// Convert this color to string
+		std::string ToString();
 
 #pragma region Arithmetic Operators
 		Color32 operator+(Color32 other);
 		Color32 operator-(Color32 other);
 		Color32 operator*(Color32 other);
 		Color32 operator/(Color32 other);
-			 
+
 		Color32 operator+=(Color32 other);
 		Color32 operator-=(Color32 other);
 		Color32 operator*=(Color32 other);
 		Color32 operator/=(Color32 other);
-			 
+
 		Color32 operator+(unsigned int other);
 		Color32 operator-(unsigned int other);
 		Color32 operator*(unsigned int other);
 		Color32 operator/(unsigned int other);
-			 
+
 		Color32 operator+=(unsigned int other);
 		Color32 operator-=(unsigned int other);
 		Color32 operator*=(unsigned int other);
@@ -55,8 +62,10 @@ namespace solar
 		bool operator<=(Color32 other);
 #pragma endregion
 
-		static Color Normalize(Color32 color); // Convert a 32-bit Color type to Color type and clamp all values to be between 0 and 1
-		static std::string ToString(Color32 color); // Convert a color_ to string for debugging & prunsigned inting
+		// Convert a 32-bit Color type to Color type and clamp all values to be between 0 and 1
+		static Color Normalize(Color32 color);
+		// Convert a color to string
+		static std::string ToString(Color32 color);
 
 		// Handy default color values
 		static Color32 Red();

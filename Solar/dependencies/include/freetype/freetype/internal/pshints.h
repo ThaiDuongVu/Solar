@@ -94,7 +94,7 @@ FT_BEGIN_HEADER
    *
    *   - Close the recording session by calling the 'close' method.  It
    *     returns an error code if the hints were invalid or something strange
-   *     happened (e.g_., memory shortage).
+   *     happened (e.g., memory shortage).
    *
    *   The hints accumulated in the object can later be used by the
    *   PostScript hinter.
@@ -381,7 +381,7 @@ FT_BEGIN_HEADER
    *
    *   - Close the recording session by calling the 'close' method.  It
    *     returns an error code if the hints were invalid or something strange
-   *     happened (e.g_., memory shortage).
+   *     happened (e.g., memory shortage).
    *
    *   The hints accumulated in the object can later be used by the
    *   Postscript hinter.

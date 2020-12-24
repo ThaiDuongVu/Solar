@@ -11,19 +11,27 @@ namespace solar
 	class SOLAR_API Vector2
 	{
 	public:
-		// Constructor and destructor
+		// Constructor
 		Vector2(double x = 0.0f, double y = 0.0f);
+		// Destructor
 		~Vector2();
 
-		double x_ = 0.0f; // x value of vector
-		double y_ = 0.0f; // y value of vector
+		// x value of vector
+		double x = 0.0f;
+		// y value of vector
+		double y = 0.0f;
 
-		double Length();	  // Length of the vector
-		double Distance(Vector2 other); // Distance to another vector
-		double Dot(Vector2 other); // Dot product of this vector and another vector
-		Vector2 Normalized(); // Vector normalized so that its length is 1
+		// Length of the vector
+		double Length();
+		// Distance from this vector to another vector
+		double Distance(Vector2 other);
+		// Dot product of this vector and another vector
+		double Dot(Vector2 other);
+		// Vector normalized so that its length is 1
+		Vector2 Normalized();
 
-		std::string ToString(); // Convert this vector to string for debugging & printing
+		// Convert this vector to string
+		std::string ToString();
 
 #pragma region Arithmetic Operators
 		Vector2 operator+(Vector2 other);
@@ -56,17 +64,32 @@ namespace solar
 		bool operator<=(Vector2 other);
 #pragma endregion
 
-		static Vector2 Zero(); // (0.0f, 0.0f) vector
-		static Vector2 Identity(); // (1.0f, 1.0f) vector
-		static Vector2 UnitX(); // (1.0f, 0.0f) vector
-		static Vector2 UnitY(); // (0.0f, 1.0f) vector
+		// (0.0f, 0.0f) vector
+		static Vector2 Zero();
+		// (1.0f, 1.0f) vector
+		static Vector2 Identity();
+		// (1.0f, 0.0f) vector
+		static Vector2 UnitX();
+		// (0.0f, 1.0f) vector
+		static Vector2 UnitY();
 
-		static double Length(Vector2 a); // Length of a vector
-		static double Distance(Vector2 a, Vector2 b); // Distance between 2 vectors
-		static double Dot(Vector2 a, Vector2 b); // Dot product of 2 vectors
-		static Vector2 Normalized(Vector2 a); // Vector normalized so that its length is 1
+		// Directional vectors
+		static Vector2 Up();
+		static Vector2 Down();
+		static Vector2 Left();
+		static Vector2 Right();
 
-		static std::string ToString(Vector2 a); // Convert a vector to string for debugging & printing
+		// Length of a vector
+		static double Length(Vector2 a);
+		// Distance between 2 vectors
+		static double Distance(Vector2 a, Vector2 b);
+		// Dot product of 2 vectors
+		static double Dot(Vector2 a, Vector2 b);
+		// Vector normalized so that its length is 1
+		static Vector2 Normalized(Vector2 a);
+
+		// Convert a vector to string
+		static std::string ToString(Vector2 a);
 	};
 } // namespace solar
 

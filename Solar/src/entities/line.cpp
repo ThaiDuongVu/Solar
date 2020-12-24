@@ -10,22 +10,22 @@ namespace solar
 {
 	Line::Line(Color color)
 	{
-		this->color_ = color;
+		this->color = color;
 	}
 	Line::~Line()
 	{
-		glDeleteVertexArrays(1, &vao_);
-		glDeleteBuffers(1, &vbo_);
-		shader_.Delete();
+		glDeleteVertexArrays(1, &vao);
+		glDeleteBuffers(1, &vbo);
+		shader.Delete();
 	}
 
 	void Line::Draw(App app, DrawMode draw_mode)
 	{
 		// If object is not visible then return
-		if (!this->is_visible_) return;
+		if (!this->is_visible) return;
 
 		// Perform initialization if not already
-		if (!done_init_) this->Init(app);
+		if (!done_init) this->Init(app);
 
 		if (draw_mode == DrawMode::kFill)
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -38,103 +38,93 @@ namespace solar
 
 	void Line::SetColor(Color color)
 	{
-		this->color_ = color;
+		this->color = color;
 
-		shader_.Use();
-		shader_.SetFloat("red", this->color_.r_);
-		shader_.SetFloat("green", this->color_.g_);
-		shader_.SetFloat("blue", this->color_.b_);
-		shader_.SetFloat("alpha", this->color_.a_);
+		shader.Use();
+		shader.SetFloat("red", this->color.r);
+		shader.SetFloat("green", this->color.g);
+		shader.SetFloat("blue", this->color.b);
+		shader.SetFloat("alpha", this->color.a);
 	}
 	void Line::SetBounded(bool is_bounded)
 	{
-		this->is_bounded_ = is_bounded;
+		this->is_bounded = is_bounded;
 	}
 	void Line::SetLength(double length)
 	{
-		this->length_ = length;
+		this->length = length;
 	}
 
 	void Line::Init(App app)
 	{
 		// Initialize shader
-		shader_.Init();
+		shader.Init();
 
 		Update(app);
 
 		// Generate buffer and vertex array
-		glGenBuffers(1, &vbo_);
-		glGenVertexArrays(1, &vao_);
+		glGenBuffers(1, &vbo);
+		glGenVertexArrays(1, &vao);
 
 		// Bind buffer and vertex array
-		glBindVertexArray(vao_);
-		glBindBuffer(GL_ARRAY_BUFFER, vbo_);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices_), vertices_, GL_DYNAMIC_DRAW);
+		glBindVertexArray(vao);
+		glBindBuffer(GL_ARRAY_BUFFER, vbo);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
 
 		// How to interpret the vertex data
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
 
-		SetColor(this->color_);
+		SetColor(this->color);
 
 		// Finish initialization
-		done_init_ = true;
+		done_init = true;
 	}
 	void Line::Update(App app)
 	{
 		// Line position
-		double x = transform_.position_.x_;
-		double y = transform_.position_.y_;
+		double x = transform.position.x;
+		double y = transform.position.y;
 
 		// Width & height scale factor
 		double width_scale = (app.Width() / 2.0f * (double)scale_factor_);
 		double height_scale = (app.Height() / 2.0f * (double)scale_factor_);
 
 		// Down vertex
-		vertex_[0] = Vector2(x / width_scale, y / height_scale) * scale_factor_;
-		vertex_[0] = CalculateRotation(app, vertex_[0]);
+		vertex[0] = Vector2(x / width_scale, y / height_scale) * scale_factor_;
+		vertex[0] = CalculateRotation(app, vertex[0]);
 
 		// Up vertex
-		vertex_[1] = Vector2(x / width_scale, y / height_scale + length_) * scale_factor_;
-		vertex_[1] = CalculateRotation(app, vertex_[1]);
+		vertex[1] = Vector2(x / width_scale, y / height_scale + length) * scale_factor_;
+		vertex[1] = CalculateRotation(app, vertex[1]);
 
-		if (is_bounded_) Bound(app, width_scale, height_scale);
+		if (is_bounded) Bound(app, width_scale, height_scale);
 
-		vertices_[0] = (float)vertex_[0].x_;
-		vertices_[1] = (float)vertex_[0].y_;
-		vertices_[3] = (float)vertex_[1].x_;
-		vertices_[4] = (float)vertex_[1].y_;
+		vertices[0] = (float)vertex[0].x;
+		vertices[1] = (float)vertex[0].y;
+		vertices[3] = (float)vertex[1].x;
+		vertices[4] = (float)vertex[1].y;
 
 		// Buffer vertices
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices_), vertices_, GL_DYNAMIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
 	}
 
 	void Line::Bound(App app, double width_scale, double height_scale)
 	{
-		double x_left_bound = -(app.Width() / 2.0f) + transform_.scale_.x_ / 2.0f * width_scale;
-		double x_right_bound = (app.Width() / 2.0f) - transform_.scale_.x_ / 2.0f * width_scale;
-
-		if (transform_.position_.x_ < x_left_bound) transform_.position_.x_ = x_left_bound;
-		else if (transform_.position_.x_ > x_right_bound) transform_.position_.x_ = x_right_bound;
-
-		double y_lower_bound = -(app.Height() / 2.0f) + transform_.scale_.y_ / 2.0f * height_scale;
-		double y_upper_bound = (app.Height() / 2.0f) - transform_.scale_.y_ / 2.0f * height_scale;
-
-		if (transform_.position_.y_ < y_lower_bound) transform_.position_.y_ = y_lower_bound;
-		else if (transform_.position_.y_ > y_upper_bound) transform_.position_.y_ = y_upper_bound;
-
+		
 	}
+
 	Vector2 Line::CalculateRotation(App app, Vector2 vertex)
 	{
 		// Sine & Cosine of current rotation
-		double sin = Mathf::Sin(Mathf::DegreeToRadian(transform_.rotation_));
-		double cos = Mathf::Cos(Mathf::DegreeToRadian(transform_.rotation_));
+		double sin = Mathf::Sin(Mathf::DegreeToRadian(transform.rotation));
+		double cos = Mathf::Cos(Mathf::DegreeToRadian(transform.rotation));
 
 		// Scale factors
-		double x_scale = transform_.position_.x_ / app.Width() * 2.0f;
-		double y_scale = transform_.position_.y_ / app.Height() * 2.0f;
+		double x_scale = transform.position.x / app.Width() * 2.0f;
+		double y_scale = transform.position.y / app.Height() * 2.0f;
 
 		// Rotate vertex vector to match with current rotation
-		return Vector2(cos * (vertex.x_ - x_scale) - sin * (vertex.y_ - y_scale) + x_scale, sin * (vertex.x_ - x_scale) + cos * (vertex.y_ - y_scale) + y_scale);
+		return Vector2(cos * (vertex.x - x_scale) - sin * (vertex.y - y_scale) + x_scale, sin * (vertex.x - x_scale) + cos * (vertex.y - y_scale) + y_scale);
 	}
 } // namespace solar

@@ -15,7 +15,7 @@ namespace solar
 		static void Update();
 
 #pragma region Keyboard
-		// GLFW Keys input
+		// Keys input
 		enum Keys
 		{
 			kKeyUnknown = -1,
@@ -141,18 +141,24 @@ namespace solar
 			kKeyLast = 348
 		};
 
-		static bool IsKeyDown(int key); // Returns true if a key is being held down
-		static bool IsKeyUp(int key);	// Returns true if a key is NOT being held down
+		// Returns true if a key is being held down
+		static bool IsKeyDown(int key);
+		// Returns true if a key is NOT being held down
+		static bool IsKeyUp(int key);
 
-		static bool OnKeyDown(int key); // Returns true FOR THE FIRST FRAME a key is held down
-		static bool OnKeyUp(int key);	// Returns true FOR THE FIRST FRAME a key is released
+		// Returns true FOR THE FIRST FRAME a key is held down
+		static bool OnKeyDown(int key);
+		// Returns true FOR THE FIRST FRAME a key is released
+		static bool OnKeyUp(int key);
 
-		static int key_down_buffer_; // Buffer memory for key down
-		static int key_up_buffer_;	 // Buffer memory for key up
+		// Buffer memory for key down
+		static int key_down_buffer;
+		// Buffer memory for key up
+		static int key_up_buffer;
 #pragma endregion
 
 #pragma region Cursor
-		// GLFW Input modes
+		// Input modes
 		enum CursorModes
 		{
 			kModeLocked = 212995,
@@ -160,16 +166,21 @@ namespace solar
 			kModeNormal = 212993
 		};
 
-		static Vector2 CursorPosition();	 // X and Y position of cursor
-		static void SetCursorMode(int mode); // Set cursor mode to locked, hidden or normal
+		// X and Y position of cursor
+		static Vector2 CursorPosition();
+		// Set cursor mode to locked, hidden or normal
+		static void SetCursorMode(int mode);
 
-		static bool cursor_enter_;
-		static bool cursor_exit_;
+		static bool cursor_enter;
+		static bool cursor_exit;
 
-		static bool OnCursorEnter(); // On cursor enter window_
-		static bool OnCursorExit();	 // On cursor exit window_
+		// On cursor enter window
+		static bool OnCursorEnter();
+		// On cursor exit window
+		static bool OnCursorExit();
 
-		static bool cursor_enter_exit_buffer_;
+		// Buffer memory for cursor enter & exit
+		static bool cursor_enter_exit_buffer;
 #pragma endregion
 
 #pragma region Mouse
@@ -181,22 +192,31 @@ namespace solar
 			kMouseMiddle = 2
 		};
 
-		static bool IsMouseDown(int mouse); // Returns true if a mouse button is being held down
-		static bool IsMouseUp(int mouse);	// Returns true if a mouse button is NOT being held down
+		// Returns true if a mouse button is being held down
+		static bool IsMouseDown(int mouse);
+		// Returns true if a mouse button is NOT being held down
+		static bool IsMouseUp(int mouse);
 
-		static bool OnMouseDown(int mouse); // Returns true FOR THE FIRST FRAME a mouse button is held down
-		static bool OnMouseUp(int mouse);	// Returns true FOR THE FIRST FRAME a mouse button is released
+		// Returns true FOR THE FIRST FRAME a mouse button is held down
+		static bool OnMouseDown(int mouse);
+		// Returns true FOR THE FIRST FRAME a mouse button is released
+		static bool OnMouseUp(int mouse);
 
-		static int mouse_down_buffer_; // Buffer memory for mouse button down
-		static int mouse_up_buffer_;   // Buffer memory for mouse button up
+		// Buffer memory for mouse button down
+		static int mouse_down_buffer;
+		// Buffer memory for mouse button up
+		static int mouse_up_buffer;
 
-		static double scroll_delta_x_;
-		static double scroll_delta_y_;
+		static double scroll_delta_x;
+		static double scroll_delta_y;
 
-		static double ScrollDeltaX(); // Return mouse scrolling speed x
-		static double ScrollDeltaY(); // Return mouse scrolling speed y
+		// Return mouse scrolling speed x
+		static double ScrollDeltaX();
+		// Return mouse scrolling speed y
+		static double ScrollDeltaY();
 
-		static bool scroll_buffer_;
+		// Buffer memory for scroll delta
+		static bool scroll_buffer;
 #pragma endregion
 
 #pragma region Joystick
@@ -247,17 +267,25 @@ namespace solar
 			kButtonDPadLeft = 13,
 		};
 
-		static bool IsJoystickPresent(int joystick);								  // Whether a joystick is connected
-		static float GetJoystickAxes(int axes, int joystick = Joysticks::kJoystick1); // Get values of different joystick axes
+		// Returns true if a joystick is connected
+		static bool IsJoystickPresent(int joystick);
+		// Get values of different joystick axes
+		static float GetJoystickAxes(int axes, int joystick = Joysticks::kJoystick1);
 
-		static bool IsJoystickButtonDown(int button, int joystick = Joysticks::kJoystick1); // Returns true if a joystick button is being held down
-		static bool IsJoystickButtonUp(int button, int joystick = Joysticks::kJoystick1);	// Returns true if a joystick button is NOT being held down
+		// Returns true if a joystick button is being held down
+		static bool IsJoystickButtonDown(int button, int joystick = Joysticks::kJoystick1);
+		// Returns true if a joystick button is NOT being held down
+		static bool IsJoystickButtonUp(int button, int joystick = Joysticks::kJoystick1);
 
-		static bool OnJoystickButtonDown(int button, int joystick = Joysticks::kJoystick1); // Returns true FOR THE FIRST FRAME a joystick button is held down
-		static bool OnJoystickButtonUp(int button, int joystick = Joysticks::kJoystick1);	// Returns true FOR THE FIRST FRAME a joystick button is released
+		// Returns true FOR THE FIRST FRAME a joystick button is held down
+		static bool OnJoystickButtonDown(int button, int joystick = Joysticks::kJoystick1);
+		// Returns true FOR THE FIRST FRAME a joystick button is released
+		static bool OnJoystickButtonUp(int button, int joystick = Joysticks::kJoystick1);
 
-		static int button_down_buffer_;
-		static int button_up_buffer_;
+		// Buffer memory for joystick button down
+		static int button_down_buffer;
+		// Buffer memory for joystick button up
+		static int button_up_buffer;
 #pragma endregion
 
 #pragma region Presets
@@ -272,22 +300,30 @@ namespace solar
 			kPresetEscape
 		};
 
+		// Returns true if a preset input is being held down
 		static double IsPresetDown(Presets preset);
+		// Returns true if a preset input is NOT being held down
 		static double IsPresetUp(Presets preset);
 
+		// Returns true FOR THE FIRST FRAME a preset input is being held down
 		static double OnPresetDown(Presets preset);
+		// Returns true FOR THE FIRST FRAME a preset input is NOT being held down
 		static double OnPresetUp(Presets preset);
 #pragma endregion
 
 	private:
-		static double cursor_x_;
-		static double cursor_y_;
+		// Current cursor coordinates x
+		static double cursor_x;
+		// Current cursor coordinates y
+		static double cursor_y;
 
-		static const float* joystick_axes_[]; // 2D Array representing joystick axes
-		static int joystick_axes_count_;
-		static int joystick_button_count_;
+		// 2D array representing joystick axes
+		static const float* joystick_axes[];
 
-		static int cursor_mode_;
+		static int joystick_axes_count;
+		static int joystick_button_count;
+
+		static int cursor_mode;
 	};
 } // namespace solar
 

@@ -53,7 +53,7 @@ FT_TRACE_DEF( sfwoff2 )   /* WOFF2 format handler    (sfwoff2.c)  */
 FT_TRACE_DEF( ttbdf )     /* TrueType embedded BDF   (ttbdf.c)    */
 FT_TRACE_DEF( ttcmap )    /* charmap handler         (ttcmap.c)   */
 FT_TRACE_DEF( ttcolr )    /* glyph layer table       (ttcolr.c)   */
-FT_TRACE_DEF( ttcpal )    /* color_ palette table     (ttcpal.c)   */
+FT_TRACE_DEF( ttcpal )    /* color palette table     (ttcpal.c)   */
 FT_TRACE_DEF( ttkern )    /* kerning handler         (ttkern.c)   */
 FT_TRACE_DEF( ttload )    /* basic TrueType tables   (ttload.c)   */
 FT_TRACE_DEF( ttmtx )     /* metrics-related tables  (ttmtx.c)    */

@@ -11,13 +11,13 @@ namespace solar
 	{
 	public:
 		// Elapsed time since last frame
-		static double frame_time_;
+		static double frame_time;
 		// How many frames drawn per some seconds
 		static int FrameRate(int seconds);
 
 		// Previous & current time
-		static double previous_time_;
-		static double current_time_;
+		static double previous_time;
+		static double current_time;
 
 		// Update frame time
 		// Is called every frame

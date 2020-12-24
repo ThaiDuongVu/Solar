@@ -19,8 +19,9 @@ namespace solar
 		// Base constructor
 		using GameObject::GameObject;
 
-		// Constructor & destructor
+		// Constructor
 		Triangle(Color color = Color::White());
+		// Destructor
 		~Triangle();
 
 		// Draw triangle
@@ -33,25 +34,26 @@ namespace solar
 
 	private:
 		// Vertex buffer objects
-		unsigned int vbo_ = NULL;
+		unsigned int vbo = NULL;
 		// Vertex array object
-		unsigned int vao_ = NULL;
+		unsigned int vao = NULL;
 
 		// Triangle color
-		Color color_ = Color::White();
+		Color color = Color::White();
 		// Whether object is confined within window bound
-		bool is_bounded_ = false;
+		bool is_bounded = false;
 
 		const float scale_factor_ = 0.1f;
 
 		// Vertices needed to draw a triangle
-		Vector2 vertex_[3] = { NULL, NULL, NULL };
-		float vertices_[9] = { NULL,NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL };
+		Vector2 vertex[3] = { NULL, NULL, NULL };
+		float vertices[9] = { NULL,NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL };
 
 		// Triangle shader
-		Shader shader_ = Shader("./resources/default_vertex_shader.shader", "./resources/default_fragment_shader.shader");
+		Shader shader = Shader("./resources/default_vertex_shader.shader", "./resources/default_fragment_shader.shader");
 
-		bool done_init_ = false;
+		// Whether triangle is initialized
+		bool done_init = false;
 
 		// Initialization
 		void Init(App app);

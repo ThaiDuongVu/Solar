@@ -79,7 +79,7 @@ namespace solar
 		static double Sqrt(double value);
 #pragma endregion Return square root of a value
 
-		// TODO: Implement log functions
+		// TODO (Duong): Implement log functions
 #pragma region Log
 
 #pragma endregion Return the logarithm of a value in a base

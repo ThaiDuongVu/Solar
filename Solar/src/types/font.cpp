@@ -4,10 +4,10 @@ namespace solar
 {
 	Font::Font(const char* path, int width, int height)
 	{
-		this->path_ = path;
+		this->path = path;
 
-		this->width_ = width;
-		this->height_ = height;
+		this->width = width;
+		this->height = height;
 	}
 	Font::~Font()
 	{

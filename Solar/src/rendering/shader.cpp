@@ -10,8 +10,8 @@ namespace solar
 {
 	Shader::Shader(const char* vertex_path, const char* fragment_path)
 	{
-		this->vertex_path_ = vertex_path;
-		this->fragment_path_ = fragment_path;
+		this->vertex_path = vertex_path;
+		this->fragment_path = fragment_path;
 	}
 	Shader::~Shader()
 	{
@@ -27,8 +27,8 @@ namespace solar
 		std::ifstream fragment_shader_file;
 
 		// Open files
-		vertex_shader_file.open(vertex_path_);
-		fragment_shader_file.open(fragment_path_);
+		vertex_shader_file.open(vertex_path);
+		fragment_shader_file.open(fragment_path);
 
 		std::stringstream vertex_shader_stream;
 		std::stringstream fragment_shader_stream;
@@ -63,10 +63,10 @@ namespace solar
 		glCompileShader(fragment);
 
 		// Shader program
-		program_ = glCreateProgram();
-		glAttachShader(program_, vertex);
-		glAttachShader(program_, fragment);
-		glLinkProgram(program_);
+		program = glCreateProgram();
+		glAttachShader(program, vertex);
+		glAttachShader(program, fragment);
+		glLinkProgram(program);
 
 		// Delete the shaders as they're no longer necessary
 		glDeleteShader(vertex);
@@ -75,23 +75,23 @@ namespace solar
 
 	void Shader::Use()
 	{
-		glUseProgram(this->program_);
+		glUseProgram(this->program);
 	}
 	void Shader::Delete()
 	{
-		glDeleteProgram(this->program_);
+		glDeleteProgram(this->program);
 	}
 
 	void Shader::SetBool(const std::string& name, bool value) const
 	{
-		glUniform1i(glGetUniformLocation(this->program_, name.c_str()), (int)value);
+		glUniform1i(glGetUniformLocation(this->program, name.c_str()), (int)value);
 	}
 	void Shader::SetInt(const std::string& name, int value) const
 	{
-		glUniform1i(glGetUniformLocation(this->program_, name.c_str()), value);
+		glUniform1i(glGetUniformLocation(this->program, name.c_str()), value);
 	}
 	void Shader::SetFloat(const std::string& name, float value) const
 	{
-		glUniform1f(glGetUniformLocation(this->program_, name.c_str()), value);
+		glUniform1f(glGetUniformLocation(this->program, name.c_str()), value);
 	}
 } // namespace solar

@@ -1185,9 +1185,6 @@
     <ClInclude Include="src\types\vector2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\types\quaternion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\types\color32.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1236,9 +1233,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\types\vector2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\types\quaternion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\types\color32.cpp">

@@ -640,7 +640,7 @@ FT_BEGIN_HEADER
    *
    *  color_ref ::
    *    Unused.  `color_ref` is put in for future enhancements, but these
-   *    fields are already in use by other platforms (e.g_. Newton).  For
+   *    fields are already in use by other platforms (e.g. Newton).  For
    *    details, please see
    *
    *    https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6bloc.html
@@ -917,8 +917,8 @@ FT_BEGIN_HEADER
    *
    *   ULONG    item_name    Offset in string table to item name.
    *   USHORT   item_type    The item type.  Possible values are
-   *                            0 => string (e.g_., COMMENT)
-   *                            1 => atom   (e.g_., FONT or even SIZE)
+   *                            0 => string (e.g., COMMENT)
+   *                            1 => atom   (e.g., FONT or even SIZE)
    *                            2 => int32
    *                            3 => uint32
    *                         0x10 => A flag to indicate a properties.  This
@@ -1058,7 +1058,7 @@ FT_BEGIN_HEADER
    * @note:
    *   This function is normally equivalent to FT_STREAM_SEEK(offset)
    *   followed by FT_FRAME_ENTER(byte_count) with the loader's stream, but
-   *   alternative formats (e.g_. compressed ones) might use something
+   *   alternative formats (e.g. compressed ones) might use something
    *   different.
    */
   typedef FT_Error
@@ -1222,7 +1222,7 @@ FT_BEGIN_HEADER
    *     A function called by each TrueType table loader to position a
    *     stream's cursor to the start of a given table according to its tag.
    *     It defaults to TT_Goto_Face but can be different for strange formats
-   *     (e.g_.  Type 42).
+   *     (e.g.  Type 42).
    *
    *   access_glyph_frame ::
    *     A function used to access the frame of a given glyph within the
@@ -1292,7 +1292,7 @@ FT_BEGIN_HEADER
    *     There was a call to @FT_Palette_Set_Foreground_Color.
    *
    *   foreground_color ::
-   *     The current foreground color_ corresponding to 'CPAL' color_ index
+   *     The current foreground color corresponding to 'CPAL' color index
    *     0xFFFF.  Only valid if `have_foreground_color` is set.
    *
    *   font_program_size ::

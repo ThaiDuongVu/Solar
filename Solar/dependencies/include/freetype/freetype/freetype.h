@@ -580,7 +580,7 @@ FT_BEGIN_HEADER
    *   redefine this macro in case of problems to something like this:
    *
    *   ```
-   *     #define FT_ENC_TAG( value, a, b_, c, d )  value
+   *     #define FT_ENC_TAG( value, a, b, c, d )  value
    *   ```
    *
    *   to get a simple enumeration without assigning special numbers.
@@ -607,7 +607,7 @@ FT_BEGIN_HEADER
    *
    * @note:
    *   Despite the name, this enumeration lists specific character
-   *   repertories (i.e., charsets), and not test encoding methods (e.g_.,
+   *   repertories (i.e., charsets), and not test encoding methods (e.g.,
    *   UTF-8, UTF-16, etc.).
    *
    *   Other encodings might be defined in the future.
@@ -911,7 +911,7 @@ FT_BEGIN_HEADER
    *     denominator used to list fonts.  Some formats (TrueType & OpenType)
    *     provide localized and Unicode versions of this string.  Applications
    *     should use the format-specific interface to access them.  Can be
-   *     `NULL` (e.g_., in fonts embedded in a PDF file).
+   *     `NULL` (e.g., in fonts embedded in a PDF file).
    *
    *     In case the font doesn't provide a specific family name entry,
    *     FreeType tries to synthesize one, deriving it from other name
@@ -1185,7 +1185,7 @@ FT_BEGIN_HEADER
    *     tricky fonts; they are hard-coded in file `ttobjs.c`.
    *
    *   FT_FACE_FLAG_COLOR ::
-   *     [Since 2.5.1] The face has color_ glyph tables.  See @FT_LOAD_COLOR
+   *     [Since 2.5.1] The face has color glyph tables.  See @FT_LOAD_COLOR
    *     for more information.
    *
    *   FT_FACE_FLAG_VARIATION ::
@@ -1440,7 +1440,7 @@ FT_BEGIN_HEADER
    *
    * @description:
    *   A macro that returns true whenever a face object contains tables for
-   *   color_ glyphs.
+   *   color glyphs.
    *
    * @since:
    *   2.5.1
@@ -1771,7 +1771,7 @@ FT_BEGIN_HEADER
    *
    *   control_data ::
    *     Certain font drivers can also return the control data for a given
-   *     glyph image (e.g_.  TrueType bytecode, Type~1 charstrings, etc.).
+   *     glyph image (e.g.  TrueType bytecode, Type~1 charstrings, etc.).
    *     This field is a pointer to such data; it is currently internal to
    *     FreeType.
    *
@@ -1793,7 +1793,7 @@ FT_BEGIN_HEADER
    * @note:
    *   If @FT_Load_Glyph is called with default flags (see @FT_LOAD_DEFAULT)
    *   the glyph image is loaded in the glyph slot in its native format
-   *   (e.g_., an outline glyph for TrueType and Type~1 formats).  [Since 2.9]
+   *   (e.g., an outline glyph for TrueType and Type~1 formats).  [Since 2.9]
    *   The prospective bitmap metrics are calculated according to
    *   @FT_LOAD_TARGET_XXX and other flags even for the outline glyph, even
    *   if @FT_LOAD_RENDER is not set.
@@ -1808,7 +1808,7 @@ FT_BEGIN_HEADER
    *
    *   Note that `slot->bitmap_left` and `slot->bitmap_top` are also used to
    *   specify the position of the bitmap relative to the current pen
-   *   position (e.g_., coordinates (0,0) on the baseline).  Of course,
+   *   position (e.g., coordinates (0,0) on the baseline).  Of course,
    *   `slot->format` is also changed to @FT_GLYPH_FORMAT_BITMAP.
    *
    *   Here is a small pseudo code fragment that shows how to use `lsb_delta`
@@ -1988,7 +1988,7 @@ FT_BEGIN_HEADER
    *     Copy the stream from the `stream` field.
    *
    *   FT_OPEN_PATHNAME ::
-   *     Create a new input stream from a C~path_ name.
+   *     Create a new input stream from a C~path name.
    *
    *   FT_OPEN_DRIVER ::
    *     Use the `driver` field.
@@ -2136,7 +2136,7 @@ FT_BEGIN_HEADER
    *
    * @input:
    *   pathname ::
-   *     A path_ to the font file.
+   *     A path to the font file.
    *
    *   face_index ::
    *     See @FT_Open_Face for a detailed description of this parameter.
@@ -2769,7 +2769,7 @@ FT_BEGIN_HEADER
    *
    *   load_flags ::
    *     A flag indicating what to load for this glyph.  The @FT_LOAD_XXX
-   *     constants can be used to control the glyph loading process (e.g_.,
+   *     constants can be used to control the glyph loading process (e.g.,
    *     whether the outline should be scaled, whether to load bitmaps or
    *     not, whether to hint the outline, etc).
    *
@@ -2815,7 +2815,7 @@ FT_BEGIN_HEADER
    *
    *   load_flags ::
    *     A flag indicating what to load for this glyph.  The @FT_LOAD_XXX
-   *     constants can be used to control the glyph loading process (e.g_.,
+   *     constants can be used to control the glyph loading process (e.g.,
    *     whether the outline should be scaled, whether to load bitmaps or
    *     not, whether to hint the outline, etc).
    *
@@ -2957,19 +2957,19 @@ FT_BEGIN_HEADER
    *     Load colored glyphs.  There are slight differences depending on the
    *     font format.
    *
-   *     [Since 2.5] Load embedded color_ bitmap images.  The resulting color_
+   *     [Since 2.5] Load embedded color bitmap images.  The resulting color
    *     bitmaps, if available, will have the @FT_PIXEL_MODE_BGRA format,
-   *     with pre-multiplied color_ channels.  If the flag is not set and
-   *     color_ bitmaps are found, they are converted to 256-level gray
+   *     with pre-multiplied color channels.  If the flag is not set and
+   *     color bitmaps are found, they are converted to 256-level gray
    *     bitmaps, using the @FT_PIXEL_MODE_GRAY format.
    *
    *     [Since 2.10, experimental] If the glyph index contains an entry in
    *     the face's 'COLR' table with a 'CPAL' palette table (as defined in
    *     the OpenType specification), make @FT_Render_Glyph provide a default
-   *     blending of the color_ glyph layers associated with the glyph index,
-   *     using the same bitmap format as embedded color_ bitmap images.  This
-   *     is mainly for convenience; for full control of color_ layers use
-   *     @FT_Get_Color_Glyph_Layer and FreeType's color_ functions like
+   *     blending of the color glyph layers associated with the glyph index,
+   *     using the same bitmap format as embedded color bitmap images.  This
+   *     is mainly for convenience; for full control of color layers use
+   *     @FT_Get_Color_Glyph_Layer and FreeType's color functions like
    *     @FT_Palette_Select instead of setting @FT_LOAD_COLOR for rendering
    *     so that the client application can handle blending by itself.
    *
@@ -3056,7 +3056,7 @@ FT_BEGIN_HEADER
    *   calling @FT_Load_Glyph.
    *
    *   Note that a font's native hinters may ignore the hinting algorithm you
-   *   have specified (e.g_., the TrueType bytecode interpreter).  You can set
+   *   have specified (e.g., the TrueType bytecode interpreter).  You can set
    *   @FT_LOAD_FORCE_AUTOHINT to ensure that the auto-hinter is used.
    *
    * @values:
@@ -3340,7 +3340,7 @@ FT_BEGIN_HEADER
    *
    *   To correctly composite an antialiased pixel of a glyph onto a surface,
    *
-   *   1. take the foreground and background colors (e.g_., in sRGB space)
+   *   1. take the foreground and background colors (e.g., in sRGB space)
    *      and apply gamma to get them in a linear space,
    *
    *   2. use OVER to blend the two linear colors using the glyph pixel
@@ -3355,14 +3355,14 @@ FT_BEGIN_HEADER
    *   gamma curve or a similar one.
    *
    *   This process can cost performance.  There is an approximation that
-   *   does not need to know about the background color_; see
+   *   does not need to know about the background color; see
    *   https://bel.fi/alankila/lcd/ and
    *   https://bel.fi/alankila/lcd/alpcor.html for details.
    *
    *   **ATTENTION**: Linear blending is even more important when dealing
-   *   with subpixel-rendered glyphs to prevent color_-fringing!  A
+   *   with subpixel-rendered glyphs to prevent color-fringing!  A
    *   subpixel-rendered glyph must first be filtered with a filter that
-   *   gives equal weight to the three color_ primaries and does not exceed a
+   *   gives equal weight to the three color primaries and does not exceed a
    *   sum of 0x100, see section @lcd_rendering.  Then the only difference to
    *   gray linear blending is that subpixel-rendered linear blending is done
    *   3~times per pixel: red foreground subpixel to red background subpixel
@@ -3398,7 +3398,7 @@ FT_BEGIN_HEADER
    *   that they don't become too big.
    *
    *   Both `FT_KERNING_DEFAULT` and `FT_KERNING_UNFITTED` use the current
-   *   horizontal scaling factor (as set e.g_. with @FT_Set_Char_Size) to
+   *   horizontal scaling factor (as set e.g. with @FT_Set_Char_Size) to
    *   convert font units to pixels.
    */
   typedef enum  FT_Kerning_Mode_
@@ -4074,14 +4074,14 @@ FT_BEGIN_HEADER
    *     https://docs.microsoft.com/en-us/typography/opentype/spec/colr
    *
    *   The glyph layer data for a given glyph index, if present, provides an
-   *   alternative, multi-color_ glyph representation: Instead of rendering
+   *   alternative, multi-color glyph representation: Instead of rendering
    *   the outline or bitmap with the given glyph index, glyphs with the
    *   indices and colors returned by this function are rendered layer by
    *   layer.
    *
    *   The returned elements are ordered in the z~direction from bottom to
    *   top; the 'n'th element should be rendered with the associated palette
-   *   color_ and blended on top of the already rendered layers (elements 0,
+   *   color and blended on top of the already rendered layers (elements 0,
    *   1, ..., n-1).
    *
    * @input:
@@ -4102,12 +4102,12 @@ FT_BEGIN_HEADER
    *     The glyph index of the current layer.
    *
    *   acolor_index ::
-   *     The color_ index into the font face's color_ palette of the current
+   *     The color index into the font face's color palette of the current
    *     layer.  The value 0xFFFF is special; it doesn't reference a palette
-   *     entry but indicates that the test foreground color_ should be used
+   *     entry but indicates that the test foreground color should be used
    *     instead (to be set up by the application outside of FreeType).
    *
-   *     The color_ palette can be retrieved with @FT_Palette_Select.
+   *     The color palette can be retrieved with @FT_Palette_Select.
    *
    * @return:
    *   Value~1 if everything is OK.  If there are no more layers (or if there
@@ -4158,7 +4158,7 @@ FT_BEGIN_HEADER
    *           layer_color = palette[layer_color_index];
    *
    *         // Load and render glyph `layer_glyph_index', then
-   *         // blend resulting pixmap (using color_ `layer_color')
+   *         // blend resulting pixmap (using color `layer_color')
    *         // with previously created pixmaps.
    *
    *       } while ( FT_Get_Color_Glyph_Layer( face,
@@ -4356,7 +4356,7 @@ FT_BEGIN_HEADER
    *
    *   This function is only meaningful if
    *     a) the font has a variation selector cmap sub table, and
-   *     b_) the current charmap has a Unicode encoding.
+   *     b) the current charmap has a Unicode encoding.
    *
    * @since:
    *   2.3.6
@@ -4540,7 +4540,7 @@ FT_BEGIN_HEADER
    *   FT_MulDiv
    *
    * @description:
-   *   Compute `(a*b_)/c` with maximum accuracy, using a 64-bit intermediate
+   *   Compute `(a*b)/c` with maximum accuracy, using a 64-bit intermediate
    *   integer whenever necessary.
    *
    *   This function isn't necessarily as fast as some processor-specific
@@ -4550,14 +4550,14 @@ FT_BEGIN_HEADER
    *   a ::
    *     The first multiplier.
    *
-   *   b_ ::
+   *   b ::
    *     The second multiplier.
    *
    *   c ::
    *     The divisor.
    *
    * @return:
-   *   The result of `(a*b_)/c`.  This function never traps when trying to
+   *   The result of `(a*b)/c`.  This function never traps when trying to
    *   divide by zero; it simply returns 'MaxInt' or 'MinInt' depending on
    *   the signs of `a` and `b`.
    */
@@ -4573,19 +4573,19 @@ FT_BEGIN_HEADER
    *   FT_MulFix
    *
    * @description:
-   *   Compute `(a*b_)/0x10000` with maximum accuracy.  Its main use is to
+   *   Compute `(a*b)/0x10000` with maximum accuracy.  Its main use is to
    *   multiply a given value by a 16.16 fixed-point factor.
    *
    * @input:
    *   a ::
    *     The first multiplier.
    *
-   *   b_ ::
+   *   b ::
    *     The second multiplier.  Use a 16.16 factor here whenever possible
    *     (see note below).
    *
    * @return:
-   *   The result of `(a*b_)/0x10000`.
+   *   The result of `(a*b)/0x10000`.
    *
    * @note:
    *   This function has been optimized for the case where the absolute value
@@ -4608,18 +4608,18 @@ FT_BEGIN_HEADER
    *   FT_DivFix
    *
    * @description:
-   *   Compute `(a*0x10000)/b_` with maximum accuracy.  Its main use is to
+   *   Compute `(a*0x10000)/b` with maximum accuracy.  Its main use is to
    *   divide a given value by a 16.16 fixed-point factor.
    *
    * @input:
    *   a ::
    *     The numerator.
    *
-   *   b_ ::
+   *   b ::
    *     The denominator.  Use a 16.16 factor here.
    *
    * @return:
-   *   The result of `(a*0x10000)/b_`.
+   *   The result of `(a*0x10000)/b`.
    */
   FT_EXPORT( FT_Long )
   FT_DivFix( FT_Long  a,

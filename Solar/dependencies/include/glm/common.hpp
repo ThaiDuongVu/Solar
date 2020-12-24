@@ -294,16 +294,16 @@ namespace glm
 	/// #include <glm/glm.hpp>
 	/// ...
 	/// float a;
-	/// bool b_;
+	/// bool b;
 	/// glm::dvec3 e;
 	/// glm::dvec3 f;
-	/// glm::vec4 g_;
+	/// glm::vec4 g;
 	/// glm::vec4 h;
 	/// ...
-	/// glm::vec4 r_ = glm::mix(g_, h, a); // Interpolate with a floating-point scalar two vectors.
-	/// glm::vec4 s = glm::mix(g_, h, b_); // Returns g_ or h;
+	/// glm::vec4 r = glm::mix(g, h, a); // Interpolate with a floating-point scalar two vectors.
+	/// glm::vec4 s = glm::mix(g, h, b); // Returns g or h;
 	/// glm::dvec3 t = glm::mix(e, f, a); // Types of the third parameter is not required to match with the first and the second.
-	/// glm::vec4 u = glm::mix(g_, h, r_); // Interpolations can be perform per component with a vector for the last parameter.
+	/// glm::vec4 u = glm::mix(g, h, r); // Interpolations can be perform per component with a vector for the last parameter.
 	/// @endcode
 	template<typename genTypeT, typename genTypeU>
 	GLM_FUNC_DECL genTypeT mix(genTypeT x, genTypeT y, genTypeU a);
@@ -486,7 +486,7 @@ namespace glm
 	template<length_t L, qualifier Q>
 	GLM_FUNC_DECL vec<L, float, Q> uintBitsToFloat(vec<L, uint, Q> const& v);
 
-	/// Computes and returns a * b_ + c.
+	/// Computes and returns a * b + c.
 	///
 	/// @tparam genType Floating-point scalar or vector types.
 	///

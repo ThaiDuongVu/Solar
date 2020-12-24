@@ -91,7 +91,7 @@ namespace glm
 		}
 		else
 		{
-			// If r_ = g_ = b_ = 0 then s = 0, h is undefined
+			// If r = g = b = 0 then s = 0, h is undefined
 			hsv.y = static_cast<T>(0);
 			hsv.x = static_cast<T>(0);
 		}

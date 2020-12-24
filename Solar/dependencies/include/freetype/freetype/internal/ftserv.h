@@ -23,7 +23,7 @@
    *
    * Note that a service's data cannot be a mere function pointer because in
    * C it is possible that function pointers might be implemented differently
-   * than data pointers (e.g_. 48 bits instead of 32).
+   * than data pointers (e.g. 48 bits instead of 32).
    *
    */
 
@@ -49,7 +49,7 @@ FT_BEGIN_HEADER
    *
    *   id ::
    *     A string describing the service as defined in the service's header
-   *     files (e.g_. FT_SERVICE_ID_MULTI_MASTERS which expands to
+   *     files (e.g. FT_SERVICE_ID_MULTI_MASTERS which expands to
    *     'multi-masters').  It is automatically prefixed with
    *     `FT_SERVICE_ID_`.
    *
@@ -101,7 +101,7 @@ FT_BEGIN_HEADER
    *
    *   id ::
    *     A string describing the service as defined in the service's header
-   *     files (e.g_. FT_SERVICE_ID_MULTI_MASTERS which expands to
+   *     files (e.g. FT_SERVICE_ID_MULTI_MASTERS which expands to
    *     'multi-masters').  It is automatically prefixed with
    *     `FT_SERVICE_ID_`.
    *

@@ -4,9 +4,9 @@ namespace solar
 {
 	Transform::Transform(Vector2 position, double rotation, Vector2 scale)
 	{
-		this->position_ = position;
-		this->rotation_ = rotation;
-		this->scale_ = scale;
+		this->position = position;
+		this->rotation = rotation;
+		this->scale = scale;
 	}
 	Transform::~Transform()
 	{

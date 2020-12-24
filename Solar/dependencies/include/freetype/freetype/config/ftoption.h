@@ -40,7 +40,7 @@ FT_BEGIN_HEADER
    * - You can put a copy of this file in your build directory, more
    *   precisely in `$BUILD/freetype/config/ftoption.h`, where `$BUILD` is
    *   the name of a directory that is included _before_ the FreeType include
-   *   path_ during compilation.
+   *   path during compilation.
    *
    *   The default FreeType Makefiles use the build directory
    *   `builds/<system>` by default, but you can easily change that for your
@@ -117,8 +117,8 @@ FT_BEGIN_HEADER
    *
    * Uncomment the line below if you want to activate LCD rendering
    * technology similar to ClearType in this build of the library.  This
-   * technology triples the resolution in the direction color_ subpixels.  To
-   * mitigate color_ fringes inherent to this technology, you also need to
+   * technology triples the resolution in the direction color subpixels.  To
+   * mitigate color fringes inherent to this technology, you also need to
    * explicitly set up LCD filtering.
    *
    * When this macro is not defined, FreeType offers alternative LCD
@@ -150,7 +150,7 @@ FT_BEGIN_HEADER
   /**************************************************************************
    *
    * If this macro is defined, do not try to use an assembler version of
-   * performance-critical functions (e.g_., @FT_MulFix).  You should only do
+   * performance-critical functions (e.g., @FT_MulFix).  You should only do
    * that to verify that the assembler function works properly, or to execute
    * benchmark tests of the various implementations.
    */
@@ -259,9 +259,9 @@ FT_BEGIN_HEADER
    *
    * PNG bitmap support.
    *
-   *   FreeType now handles loading color_ bitmap glyphs in the PNG format.
+   *   FreeType now handles loading color bitmap glyphs in the PNG format.
    *   This requires help from the external libpng library.  Uncompressed
-   *   color_ bitmaps do not need any external libraries and will be supported
+   *   color bitmaps do not need any external libraries and will be supported
    *   regardless of this configuration.
    *
    *   Define this macro if you want to enable this 'feature'.
@@ -365,7 +365,7 @@ FT_BEGIN_HEADER
    *
    * Guessing methods to access embedded resource forks
    *
-   *   Enable extra Mac fonts support on non-Mac platforms (e.g_., GNU/Linux).
+   *   Enable extra Mac fonts support on non-Mac platforms (e.g., GNU/Linux).
    *
    *   Resource forks which include fonts data are stored sometimes in
    *   locations which users or developers don't expected.  In some cases,
@@ -718,7 +718,7 @@ FT_BEGIN_HEADER
    * Option `TT_CONFIG_OPTION_MAX_RUNNABLE_OPCODES` controls the maximum
    * number of bytecode instructions executed for a single run of the
    * bytecode interpreter, needed to prevent infinite loops.  You don't want
-   * to change this except for very special situations (e.g_., making a
+   * to change this except for very special situations (e.g., making a
    * library fuzzer spend less time to handle broken fonts).
    *
    * It is not expected that this value is ever modified by a configuring

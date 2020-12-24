@@ -55,7 +55,7 @@ namespace glm
 		vec<3, T, Q> const& v,
 		qua<T, Q> const& q);
 
-	//! Compute a point on a path_ according squad equation.
+	//! Compute a point on a path according squad equation.
 	//! q1 and q2 are control points; s1 and s2 are intermediate control points.
 	///
 	/// @see gtx_quaternion
@@ -134,7 +134,7 @@ namespace glm
 	GLM_FUNC_DECL qua<T, Q> toQuat(
 		mat<4, 4, T, Q> const& x){return quat_cast(x);}
 
-	/// Quaternion interpolation using the rotation short path_.
+	/// Quaternion interpolation using the rotation short path.
 	///
 	/// @see gtx_quaternion
 	template<typename T, qualifier Q>

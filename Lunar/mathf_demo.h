@@ -4,5 +4,5 @@ using namespace solar;
 // Function to demonstrate math methods provided
 inline void MathfDemo()
 {
-	// TODO: Add math demonstrations
+	// TODO (Duong): Add math demonstrations
 }

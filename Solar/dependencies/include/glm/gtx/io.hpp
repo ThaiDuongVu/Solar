@@ -86,7 +86,7 @@ namespace glm
 			state_type&     state_;
 			flags_type      flags_;
 			streamsize_type precision_;
-			streamsize_type width_;
+			streamsize_type width;
 			char_type       fill_;
 			locale_type     locale_;
 

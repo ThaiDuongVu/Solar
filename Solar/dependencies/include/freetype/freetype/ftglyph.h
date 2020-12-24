@@ -609,14 +609,14 @@ FT_BEGIN_HEADER
    *   FT_Matrix_Multiply
    *
    * @description:
-   *   Perform the matrix operation `b = a*b_`.
+   *   Perform the matrix operation `b = a*b`.
    *
    * @input:
    *   a ::
    *     A pointer to matrix `a`.
    *
    * @inout:
-   *   b_ ::
+   *   b ::
    *     A pointer to matrix `b`.
    *
    * @note:

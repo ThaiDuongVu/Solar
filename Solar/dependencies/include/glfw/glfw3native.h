@@ -458,14 +458,14 @@ typedef void *id;
 #endif
 
 #if defined(GLFW_EXPOSE_NATIVE_OSMESA)
-    /*! @brief Retrieves the color_ buffer associated with the specified window_.
+    /*! @brief Retrieves the color buffer associated with the specified window_.
  *
- *  @param[in] window_ The window_ whose color_ buffer to retrieve.
- *  @param[out] width Where to store the width of the color_ buffer, or `NULL`.
- *  @param[out] height Where to store the height of the color_ buffer, or `NULL`.
- *  @param[out] format Where to store the OSMesa pixel format of the color_
+ *  @param[in] window_ The window_ whose color buffer to retrieve.
+ *  @param[out] width Where to store the width of the color buffer, or `NULL`.
+ *  @param[out] height Where to store the height of the color buffer, or `NULL`.
+ *  @param[out] format Where to store the OSMesa pixel format of the color
  *  buffer, or `NULL`.
- *  @param[out] buffer Where to store the address of the color_ buffer, or
+ *  @param[out] buffer Where to store the address of the color buffer, or
  *  `NULL`.
  *  @return `GLFW_TRUE` if successful, or `GLFW_FALSE` if an
  *  [error](@ref error_handling) occurred.

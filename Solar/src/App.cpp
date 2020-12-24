@@ -15,25 +15,25 @@ namespace solar
 
 	// OpenGL window
 	template <typename T>
-	T* App::window_;
+	T* App::window;
 
 	int App::Width()
 	{
-		return window_width_;
+		return window_width;
 	}
 	int App::Height()
 	{
-		return window_height_;
+		return window_height;
 	}
 
 	void App::SetWindowSize(int width, int height)
 	{
-		App::window_width_ = width;
-		App::window_height_ = height;
+		App::window_width = width;
+		App::window_height = height;
 	}
 	void App::SetTitle(const char* title)
 	{
-		App::title_ = title;
+		App::title = title;
 	}
 
 	void App::SetResizable(bool resizable)
@@ -51,12 +51,12 @@ namespace solar
 
 	void App::Quit()
 	{
-		glfwSetWindowShouldClose(App::window_<GLFWwindow>, true);
+		glfwSetWindowShouldClose(App::window<GLFWwindow>, true);
 	}
 
 	void App::ClearBackground(Color color)
 	{
-		glClearColor(color.r_, color.g_, color.b_, color.a_);
+		glClearColor(color.r, color.g, color.b, color.a);
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
 
@@ -72,20 +72,20 @@ namespace solar
 	{
 		// Set key buffers
 		if (action == GLFW_PRESS)
-			Input::key_down_buffer_ = key;
+			Input::key_down_buffer = key;
 		else if (action == GLFW_RELEASE)
-			Input::key_up_buffer_ = key;
+			Input::key_up_buffer = key;
 	}
 
 	// On cursor enter or exit callback
 	void CursorEnterCallback(GLFWwindow* window, int entered)
 	{
 		if (entered)
-			Input::cursor_enter_ = true;
+			Input::cursor_enter = true;
 		else
-			Input::cursor_exit_ = true;
+			Input::cursor_exit = true;
 
-		Input::cursor_enter_exit_buffer_ = true;
+		Input::cursor_enter_exit_buffer = true;
 	}
 
 	// Mouse button callback
@@ -93,18 +93,18 @@ namespace solar
 	{
 		// Set mouse buffers
 		if (action == GLFW_PRESS)
-			Input::mouse_down_buffer_ = button;
+			Input::mouse_down_buffer = button;
 		else if (action == GLFW_RELEASE)
-			Input::mouse_up_buffer_ = button;
+			Input::mouse_up_buffer = button;
 	}
 
 	// Mouse scroll callback
 	void ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
 	{
-		Input::scroll_delta_x_ = xoffset;
-		Input::scroll_delta_y_ = yoffset;
+		Input::scroll_delta_x = xoffset;
+		Input::scroll_delta_y = yoffset;
 
-		Input::scroll_buffer_ = true;
+		Input::scroll_buffer = true;
 	}
 #pragma endregion
 
@@ -124,12 +124,11 @@ namespace solar
 		// Disable window maximized by default
 		SetMaximized();
 
-		// User-defined initialization
 		Init();
 
 		// Create a windowed mode window and its OpenGL context
-		App::window_<GLFWwindow> = glfwCreateWindow(App::window_width_, App::window_height_, App::title_, NULL, NULL);
-		if (!App::window_<GLFWwindow>)
+		App::window<GLFWwindow> = glfwCreateWindow(App::window_width, App::window_height, App::title, NULL, NULL);
+		if (!App::window<GLFWwindow>)
 		{
 			solar::Debug::LogError("Failed to create window");
 			glfwTerminate();
@@ -137,7 +136,7 @@ namespace solar
 		}
 
 		// Make the window's context current
-		glfwMakeContextCurrent(App::window_<GLFWwindow>);
+		glfwMakeContextCurrent(App::window<GLFWwindow>);
 
 		// Initialize GLAD
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -147,26 +146,25 @@ namespace solar
 		}
 
 		// GLAD viewport
-		glViewport(0, 0, App::window_width_, App::window_height_);
+		glViewport(0, 0, App::window_width, App::window_height);
 
 		// Buffer size callback
-		glfwSetFramebufferSizeCallback(App::window_<GLFWwindow>, FrameBufferSizeCallback);
+		glfwSetFramebufferSizeCallback(App::window<GLFWwindow>, FrameBufferSizeCallback);
 
-		// Set input callbacks
-		glfwSetKeyCallback(App::window_<GLFWwindow>, KeyboardCallback);
-		glfwSetCursorEnterCallback(App::window_<GLFWwindow>, CursorEnterCallback);
-		glfwSetMouseButtonCallback(App::window_<GLFWwindow>, MouseButtonCallback);
-		glfwSetScrollCallback(App::window_<GLFWwindow>, ScrollCallback);
+		// Input callbacks
+		glfwSetKeyCallback(App::window<GLFWwindow>, KeyboardCallback);
+		glfwSetCursorEnterCallback(App::window<GLFWwindow>, CursorEnterCallback);
+		glfwSetMouseButtonCallback(App::window<GLFWwindow>, MouseButtonCallback);
+		glfwSetScrollCallback(App::window<GLFWwindow>, ScrollCallback);
 
 		// Main program loop
-		while (!glfwWindowShouldClose(App::window_<GLFWwindow>))
+		while (!glfwWindowShouldClose(App::window<GLFWwindow>))
 		{
 			// Update frame time
-			Time::Update(Time::previous_time_, Time::current_time_);
+			Time::Update(Time::previous_time, Time::current_time);
 			Input::Update();
 
-			// User-defined update
-			Update(Time::frame_time_);
+			Update(Time::frame_time);
 
 			// Clear the back ground
 			glClear(GL_COLOR_BUFFER_BIT);
@@ -175,12 +173,11 @@ namespace solar
 			Render();
 
 			// Swap front and back buffers
-			glfwSwapBuffers(App::window_<GLFWwindow>);
+			glfwSwapBuffers(App::window<GLFWwindow>);
 			// Poll for and process events
 			glfwPollEvents();
 		}
 
-		// User-defined shutdown
 		Exit();
 		glfwTerminate();
 	}

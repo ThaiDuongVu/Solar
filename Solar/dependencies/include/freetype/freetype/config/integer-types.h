@@ -46,7 +46,7 @@
 
 #ifndef FT_SIZEOF_LONG
 
-  /* The size of a `long` type.  A five-byte `long` (as used e.g_. on the */
+  /* The size of a `long` type.  A five-byte `long` (as used e.g. on the */
   /* DM642) is recognized but avoided.                                   */
 #if                                  FT_ULONG_MAX == 0xFFFFFFFFUL
 #define FT_SIZEOF_LONG  ( 32 / FT_CHAR_BIT )

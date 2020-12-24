@@ -11,17 +11,24 @@ namespace solar
 	class SOLAR_API Color
 	{
 	public:
-		// Constructor and destructor
+		// Constructor
 		Color(float r = 0.0f, float g = 0.0f, float b = 0.0f, float a = 1.0f);
+		// Destructor
 		~Color();
 
-		float r_ = 0.0f; // Red
-		float g_ = 0.0f; // Green
-		float b_ = 0.0f; // Blue
-		float a_ = 1.0f; // Alpha
+		// Red value
+		float r = 0.0f;
+		// Green value
+		float g = 0.0f;
+		// Blue value
+		float b = 0.0f;
+		// Alpha value
+		float a = 1.0f;
 
-		Color Normalize(); // Clamp all values of this color_ to be between 0 and 1
-		std::string ToString(); // Convert this color_ to string for debugging & printing
+		// Clamp all values of this color to be between 0 and 1
+		Color Normalize();
+		// Convert this color to string
+		std::string ToString();
 
 #pragma region Arithmetic Operators
 		Color operator+(Color other);
@@ -54,8 +61,10 @@ namespace solar
 		bool operator<=(Color other);
 #pragma endregion
 
-		static Color Normalize(Color color); // Clamp all values of a color_ to be between 0 and 1
-		static std::string ToString(Color color); // Convert a color_ to string for debugging & printing
+		// Clamp all values of a color to be between 0 and 1
+		static Color Normalize(Color color);
+		// Convert a color to string
+		static std::string ToString(Color color);
 
 		// Handy default color values
 		static Color Red();

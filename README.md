@@ -109,4 +109,4 @@ And *voila* you have a project configured to work with Solar framework, time to 
 
 ### Contributing
 
-**Solar** is completely open to community contribution. If you want to contribute to the development of the project, please follow the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) in your code, just to keep things consistent :).
+**Solar** is completely open to community contribution. Any effort to help expand the scope and capability of the framework is greatly appreciated 🤗.

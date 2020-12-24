@@ -21,8 +21,8 @@ namespace solar
 			kLine
 		};
 
-		Transform transform_;
-		bool is_visible_ = true;
+		Transform transform;
+		bool is_visible = true;
 
 		void Destroy();
 

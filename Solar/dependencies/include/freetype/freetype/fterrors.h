@@ -63,7 +63,7 @@
    *   ```
    *
    *   This macro is called to define one single error.  'e' is the error
-   *   code identifier (e.g_., `Invalid_Argument`), 'v' is the error's
+   *   code identifier (e.g., `Invalid_Argument`), 'v' is the error's
    *   numerical value, and 's' is the corresponding error string.
    *
    *   ```

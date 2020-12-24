@@ -257,7 +257,7 @@ typedef float khronos_float_t;
  *
  * These types can be used to represent a time interval in nanoseconds or
  * an absolute Unadjusted System Time.  Unadjusted System Time is the number
- * of nanoseconds since some arbitrary system event (e.g_. since the last
+ * of nanoseconds since some arbitrary system event (e.g. since the last
  * time the system booted).  The Unadjusted System Time is an unsigned
  * 64 bit value that wraps back to 0 every 584 years.  Time intervals
  * may be either signed or unsigned.

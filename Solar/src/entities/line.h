@@ -35,27 +35,27 @@ namespace solar
 
 	private:
 		// Vertex buffer objects
-		unsigned int vbo_ = NULL;
+		unsigned int vbo = NULL;
 		// Vertex array object
-		unsigned int vao_ = NULL;
+		unsigned int vao = NULL;
 
 		// Line color
-		Color color_ = Color::White();
+		Color color = Color::White();
 		// Whether object is confined within window bound
-		bool is_bounded_ = false;
+		bool is_bounded = false;
 		// Line length
-		double length_ = 1.0f;
+		double length = 1.0f;
 
 		const float scale_factor_ = 0.1f;
 
 		// Vertices needed to draw a Line
-		Vector2 vertex_[2] = { NULL, NULL };
-		float vertices_[6] = { NULL,NULL, NULL, NULL, NULL, NULL };
+		Vector2 vertex[2] = { NULL, NULL };
+		float vertices[6] = { NULL,NULL, NULL, NULL, NULL, NULL };
 
 		// Line shader
-		Shader shader_ = Shader("./resources/default_vertex_shader.shader", "./resources/default_fragment_shader.shader");
+		Shader shader = Shader("./resources/default_vertex_shader.shader", "./resources/default_fragment_shader.shader");
 
-		bool done_init_ = false;
+		bool done_init = false;
 
 		// Initialization
 		void Init(App app);

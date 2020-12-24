@@ -44,7 +44,7 @@ namespace io
 		: state_(a)
 		, flags_(a.flags())
 		, precision_(a.precision())
-		, width_(a.width())
+		, width(a.width())
 		, fill_(a.fill())
 		, locale_(a.getloc())
 	{}
@@ -54,7 +54,7 @@ namespace io
 	{
 		state_.imbue(locale_);
 		state_.fill(fill_);
-		state_.width(width_);
+		state_.width(width);
 		state_.precision(precision_);
 		state_.flags(flags_);
 	}

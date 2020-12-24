@@ -6,8 +6,8 @@ namespace solar
 {
 	Vector2::Vector2(double x, double y)
 	{
-		this->x_ = x;
-		this->y_ = y;
+		this->x = x;
+		this->y = y;
 	}
 	Vector2::~Vector2()
 	{
@@ -16,7 +16,7 @@ namespace solar
 	// Convert a Vector2 to glm type
 	glm::dvec2 Vector2Toglm(Vector2 vector2)
 	{
-		return glm::dvec2(vector2.x_, vector2.y_);
+		return glm::dvec2(vector2.x, vector2.y);
 	}
 	// Convert glm to a Vector2
 	Vector2 glmToVector2(glm::dvec2 vector2)
@@ -43,7 +43,7 @@ namespace solar
 
 	std::string Vector2::ToString()
 	{
-		return "(" + std::to_string(this->x_) + ", " + std::to_string(this->y_) + ")";
+		return "(" + std::to_string(this->x) + ", " + std::to_string(this->y) + ")";
 	}
 
 #pragma region Arithmetic Operators
@@ -196,7 +196,7 @@ namespace solar
 
 	std::string Vector2::ToString(Vector2 a)
 	{
-		return "(" + std::to_string(a.x_) + ", " + std::to_string(a.y_) + ")";
+		return "(" + std::to_string(a.x) + ", " + std::to_string(a.y) + ")";
 	}
 
 } // namespace solar

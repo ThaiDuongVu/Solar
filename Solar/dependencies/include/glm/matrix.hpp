@@ -106,8 +106,8 @@ namespace detail
 	GLM_FUNC_DECL mat<C, R, T, Q> matrixCompMult(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y);
 
 	/// Treats the first parameter c as a column vector
-	/// and the second parameter r_ as a row vector
-	/// and does a linear algebraic matrix multiply c * r_.
+	/// and the second parameter r as a row vector
+	/// and does a linear algebraic matrix multiply c * r.
 	///
 	/// @tparam C Integer between 1 and 4 included that qualify the number a column
 	/// @tparam R Integer between 1 and 4 included that qualify the number a row

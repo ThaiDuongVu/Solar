@@ -638,7 +638,7 @@ namespace gtc
 		// Compute final noise value at P
 		vec<3, T, Q> g;
 		g.x  = a0.x  * x0.x  + h.x  * x0.y;
-		//g_.yz = a0.yz * x12.xz + h.yz * x12.yw;
+		//g.yz = a0.yz * x12.xz + h.yz * x12.yw;
 		g.y = a0.y * x12.x + h.y * x12.y;
 		g.z = a0.z * x12.z + h.z * x12.w;
 		return T(130) * dot(m, g);
@@ -682,11 +682,11 @@ namespace gtc
 
 		vec<4, T, Q> j(p - T(49) * floor(p * ns.z * ns.z));  //  mod(p,7*7)
 
-		vec<4, T, Q> x_(floor(j * ns.z));
-		vec<4, T, Q> y_(floor(j - T(7) * x_));    // mod(j,N)
+		vec<4, T, Q> x(floor(j * ns.z));
+		vec<4, T, Q> y(floor(j - T(7) * x));    // mod(j,N)
 
-		vec<4, T, Q> x(x_ * ns.x + ns.y);
-		vec<4, T, Q> y(y_ * ns.x + ns.y);
+		vec<4, T, Q> x(x * ns.x + ns.y);
+		vec<4, T, Q> y(y * ns.x + ns.y);
 		vec<4, T, Q> h(T(1) - abs(x) - abs(y));
 
 		vec<4, T, Q> b0(x.x, x.y, y.x, y.y);
