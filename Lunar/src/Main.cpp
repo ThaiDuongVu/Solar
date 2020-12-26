@@ -16,7 +16,7 @@ void App::Init()
 	App::SetTitle("Lunar System");
 
 	triangle.SetBounded(true);
-	line.SetLength(5.0f);
+	line.SetLength(1.0f);
 }
 
 // On game update
@@ -29,10 +29,12 @@ void App::Update(double frame_time)
 		App::Quit();
 
 	if (Input::IsPresetDown(Input::Presets::kPresetFire1))
-		line.Rotate(1.0f);
+		triangle.Rotate(1.0f);
 
 	if (Input::IsPresetDown(Input::Presets::kPresetFire2))
-		line.Rotate(-1.0f);
+		triangle.Rotate(-1.0f);
+
+	line.Rotate(10.0f);
 
 	line.Move(Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical)) * 5.0f);
 }

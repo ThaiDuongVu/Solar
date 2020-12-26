@@ -93,14 +93,17 @@ namespace solar
 		// Left vertex
 		vertex[0] = Vector2(x / width_scale - width / 2.0f, y / height_scale - height / 2.0f) * scale_factor_;
 		vertex[0] = CalculateRotation(app, vertex[0]);
+		vertex[0] *= Vector2(500.0f / app.Width(), 500.0f / app.Height());
 
 		// Right vertex
 		vertex[1] = Vector2(x / width_scale + width / 2.0f, y / height_scale - height / 2.0f) * scale_factor_;
 		vertex[1] = CalculateRotation(app, vertex[1]);
+		vertex[1] *= Vector2(500.0f / app.Width(), 500.0f / app.Height());
 
 		// Up vertex
 		vertex[2] = Vector2(x / width_scale, y / height_scale + height / 2.0f) * scale_factor_;
 		vertex[2] = CalculateRotation(app, vertex[2]);
+		vertex[2] *= Vector2(500.0f / app.Width(), 500.0f / app.Height());
 
 		if (is_bounded) Bound(app, width_scale, height_scale);
 
