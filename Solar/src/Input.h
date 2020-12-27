@@ -12,10 +12,12 @@ namespace solar
 	class SOLAR_API Input
 	{
 	public:
+		/// <summary>
+		/// Update input states & buffers.
+		/// </summary>
 		static void Update();
 
 #pragma region Keyboard
-		// Keys input
 		enum Keys
 		{
 			kKeyUnknown = -1,
@@ -141,24 +143,43 @@ namespace solar
 			kKeyLast = 348
 		};
 
-		// Returns true if a key is being held down
+		/// <summary>
+		/// Returns true if a key is being held down.
+		/// </summary>
+		/// <param name="key">Key to check</param>
+		/// <returns>Whether key is being held down</returns>
 		static bool IsKeyDown(int key);
-		// Returns true if a key is NOT being held down
+		/// <summary>
+		/// Returns true if a key is NOT being held down.
+		/// </summary>
+		/// <param name="key">Key to check</param>
+		/// <returns>Whether key is being NOT held down</returns>
 		static bool IsKeyUp(int key);
 
-		// Returns true FOR THE FIRST FRAME a key is held down
+		/// <summary>
+		/// Returns true FOR THE FIRST FRAME a key is held down.
+		/// </summary>
+		/// <param name="key">Key to check</param>
+		/// <returns>Whether key is held down during 1 frame</returns>
 		static bool OnKeyDown(int key);
-		// Returns true FOR THE FIRST FRAME a key is released
+		/// <summary>
+		/// Returns true FOR THE FIRST FRAME a key is NOT held down.
+		/// </summary>
+		/// <param name="key">Key to check</param>
+		/// <returns>Whether key is NOT held down during 1 frame</returns>
 		static bool OnKeyUp(int key);
 
-		// Buffer memory for key down
+		/// <summary>
+		/// Buffer memory for key down.
+		/// </summary>
 		static int key_down_buffer;
-		// Buffer memory for key up
+		/// <summary>
+		/// Buffer memory for key up.
+		/// </summary>
 		static int key_up_buffer;
 #pragma endregion
 
 #pragma region Cursor
-		// Input modes
 		enum CursorModes
 		{
 			kModeLocked = 212995,
@@ -166,25 +187,38 @@ namespace solar
 			kModeNormal = 212993
 		};
 
-		// X and Y position of cursor
+		/// <summary>
+		/// x and y coordinates of cursor.
+		/// </summary>
+		/// <returns>Cursor position vector</returns>
 		static Vector2 CursorPosition();
-		// Set cursor mode to locked, hidden or normal
+		/// <summary>
+		/// Set cursor mode to locked, hidden or normal.
+		/// </summary>
+		/// <param name="mode">Mode to set</param>
 		static void SetCursorMode(int mode);
 
 		static bool cursor_enter;
 		static bool cursor_exit;
 
-		// On cursor enter window
+		/// <summary>
+		/// On cursor enter window.
+		/// </summary>
+		/// <returns>Whether cursor is entering window</returns>
 		static bool OnCursorEnter();
-		// On cursor exit window
+		/// <summary>
+		/// On cursor exit window.
+		/// </summary>
+		/// <returns>Whether cursor is exiting window</returns>
 		static bool OnCursorExit();
 
-		// Buffer memory for cursor enter & exit
+		/// <summary>
+		/// Buffer memory for cursor enter & exit.
+		/// </summary>
 		static bool cursor_enter_exit_buffer;
 #pragma endregion
 
 #pragma region Mouse
-		// GLFW mouse buttons
 		enum MouseButtons
 		{
 			kMouseLeft = 0,
@@ -192,55 +226,83 @@ namespace solar
 			kMouseMiddle = 2
 		};
 
-		// Returns true if a mouse button is being held down
-		static bool IsMouseDown(int mouse);
-		// Returns true if a mouse button is NOT being held down
-		static bool IsMouseUp(int mouse);
+		/// <summary>
+		/// Returns true if a mouse button is being held down.
+		/// </summary>
+		/// <param name="button">Mouse button to check</param>
+		/// <returns>Whether mouse button is being held down</returns>
+		static bool IsMouseDown(int button);
+		/// <summary>
+		/// Returns true if a mouse button is NOT being held down.
+		/// </summary>
+		/// <param name="button">Mouse button to check</param>
+		/// <returns>Whether mouse button is NOT being held down</returns>
+		static bool IsMouseUp(int button);
 
-		// Returns true FOR THE FIRST FRAME a mouse button is held down
-		static bool OnMouseDown(int mouse);
-		// Returns true FOR THE FIRST FRAME a mouse button is released
-		static bool OnMouseUp(int mouse);
+		/// <summary>
+		/// Returns true FOR THE FIRST FRAME a mouse button is held down.
+		/// </summary>
+		/// <param name="button">Mouse button to check</param>
+		/// <returns>Whether mouse is down during 1 frame</returns>
+		static bool OnMouseDown(int button);
+		/// <summary>
+		/// Returns true FOR THE FIRST FRAME a mouse button is released.
+		/// </summary>
+		/// <param name="button">Mouse button to check</param>
+		/// <returns>Whether mouse is released during 1 frame</returns>
+		static bool OnMouseUp(int button);
 
-		// Buffer memory for mouse button down
+		/// <summary>
+		/// Buffer memory for mouse button down.
+		/// </summary>
 		static int mouse_down_buffer;
-		// Buffer memory for mouse button up
+		/// <summary>
+		/// Buffer memory for mouse button up.
+		/// </summary>
 		static int mouse_up_buffer;
 
 		static double scroll_delta_x;
 		static double scroll_delta_y;
 
-		// Return mouse scrolling speed x
+		/// <summary>
+		/// Returns mouse scrolling speed x.
+		/// </summary>
+		/// <returns>Mouse scrolling speed x</returns>
 		static double ScrollDeltaX();
-		// Return mouse scrolling speed y
+		/// <summary>
+		/// Returns mouse scrolling speed y.
+		/// </summary>
+		/// <returns>Mouse scrolling speed y</returns>
 		static double ScrollDeltaY();
 
-		// Buffer memory for scroll delta
+		/// <summary>
+		/// Buffer memory for scroll delta.
+		/// </summary>
 		static bool scroll_buffer;
 #pragma endregion
 
-#pragma region Joystick
-		enum Joysticks
+#pragma region Gamepad
+		enum Gamepads
 		{
-			kJoystick1 = 0,
-			kJoystick2 = 1,
-			kJoystick3 = 2,
-			kJoystick4 = 3,
-			kJoystick5 = 4,
-			kJoystick6 = 5,
-			kJoystick7 = 6,
-			kJoystick8 = 7,
-			kJoystick9 = 8,
-			kJoystick10 = 9,
-			kJoystick11 = 10,
-			kJoystick12 = 11,
-			kJoystick13 = 12,
-			kJoystick14 = 13,
-			kJoystick15 = 14,
-			kJoystick16 = 15,
-			kJoystickLast = 15,
+			kGamepad1 = 0,
+			kGamepad2 = 1,
+			kGamepad3 = 2,
+			kGamepad4 = 3,
+			kGamepad5 = 4,
+			kGamepad6 = 5,
+			kGamepad7 = 6,
+			kGamepad8 = 7,
+			kGamepad9 = 8,
+			kGamepad10 = 9,
+			kGamepad11 = 10,
+			kGamepad12 = 11,
+			kGamepad13 = 12,
+			kGamepad14 = 13,
+			kGamepad15 = 14,
+			kGamepad16 = 15,
+			kGamepadLast = 15,
 		};
-		enum JoystickAxes
+		enum GamepadAxes
 		{
 			kAxesLeftStickX = 0,
 			kAxesLeftStickY = 1,
@@ -249,7 +311,7 @@ namespace solar
 			kAxesLeftTrigger = 4,
 			kAxesRightTrigger = 5,
 		};
-		enum JoystickButtons
+		enum GamepadButtons
 		{
 			kButtonA = 0,
 			kButtonB = 1,
@@ -267,24 +329,57 @@ namespace solar
 			kButtonDPadLeft = 13,
 		};
 
-		// Returns true if a joystick is connected
-		static bool IsJoystickPresent(int joystick);
-		// Get values of different joystick axes
-		static float GetJoystickAxes(int axes, int joystick = Joysticks::kJoystick1);
+		/// <summary>
+		/// Returns true if a gamepad is connected.
+		/// </summary>
+		/// <param name="gamepad">Gamepad to check</param>
+		/// <returns>Whether gamepad is connected</returns>
+		static bool IsGamepadPresent(int gamepad);
+		/// <summary>
+		/// Get values of different gamepad axes.
+		/// </summary>
+		/// <param name="axes">Axes to get</param>
+		/// <param name="gamepad">Gamepad to get</param>
+		/// <returns>Gamepad axes value</returns>
+		static float GetGamepadAxes(int axes, int gamepad = Gamepads::kGamepad1);
 
-		// Returns true if a joystick button is being held down
-		static bool IsJoystickButtonDown(int button, int joystick = Joysticks::kJoystick1);
-		// Returns true if a joystick button is NOT being held down
-		static bool IsJoystickButtonUp(int button, int joystick = Joysticks::kJoystick1);
+		/// <summary>
+		/// Returns true if a gamepad button is being held down.
+		/// </summary>
+		/// <param name="button">Gamepad button to check</param>
+		/// <param name="gamepad">Gamepad to check</param>
+		/// <returns>Whether a gamepad button is being held down</returns>
+		static bool IsGamepadButtonDown(int button, int gamepad = Gamepads::kGamepad1);
+		/// <summary>
+		/// Returns true if a gamepad button is NOT being held down.
+		/// </summary>
+		/// <param name="button">Gamepad button to check</param>
+		/// <param name="gamepad">Gamepad to check</param>
+		/// <returns>Whether a gamepad button is NOT being held down</returns>
+		static bool IsGamepadButtonUp(int button, int gamepad = Gamepads::kGamepad1);
 
-		// Returns true FOR THE FIRST FRAME a joystick button is held down
-		static bool OnJoystickButtonDown(int button, int joystick = Joysticks::kJoystick1);
-		// Returns true FOR THE FIRST FRAME a joystick button is released
-		static bool OnJoystickButtonUp(int button, int joystick = Joysticks::kJoystick1);
+		/// <summary>
+		/// Returns true FOR THE FIRST FRAME a gamepad button is held down.
+		/// </summary>
+		/// <param name="button">Gamepad button to check</param>
+		/// <param name="gamepad">Gamepad to check</param>
+		/// <returns>Whether gamepad button is held down during 1 frame</returns>
+		static bool OnGamepadButtonDown(int button, int gamepad = Gamepads::kGamepad1);
+		/// <summary>
+		/// Returns true FOR THE FIRST FRAME a gamepad button is released.
+		/// </summary>
+		/// <param name="button">Gamepad button to check</param>
+		/// <param name="gamepad">Gamepad to check</param>
+		/// <returns>Whether gamepad button is released during 1 frame</returns>
+		static bool OnGamepadButtonUp(int button, int gamepad = Gamepads::kGamepad1);
 
-		// Buffer memory for joystick button down
+		/// <summary>
+		/// Buffer memory for gamepad button down.
+		/// </summary>
 		static int button_down_buffer;
-		// Buffer memory for joystick button up
+		/// <summary>
+		/// Buffer memory for gamepad button up.
+		/// </summary>
 		static int button_up_buffer;
 #pragma endregion
 
@@ -300,29 +395,54 @@ namespace solar
 			kPresetEscape
 		};
 
-		// Returns true if a preset input is being held down
+		/// <summary>
+		/// Returns true if a preset input is being held down.
+		/// </summary>
+		/// <param name="preset">Preset to check</param>
+		/// <returns>Whether preset input is being held down</returns>
 		static double IsPresetDown(Presets preset);
-		// Returns true if a preset input is NOT being held down
+		/// <summary>
+		/// Returns true if a preset input is NOT being held down.
+		/// </summary>
+		/// <param name="preset">Preset to check</param>
+		/// <returns>Whether preset input is NOT being held down</returns>
 		static double IsPresetUp(Presets preset);
 
-		// Returns true FOR THE FIRST FRAME a preset input is being held down
+		/// <summary>
+		/// Returns true FOR THE FIRST FRAME a preset input is held down.
+		/// </summary>
+		/// <param name="preset">Preset to check</param>
+		/// <returns>Whether input is held down during 1 frame</returns>
 		static double OnPresetDown(Presets preset);
-		// Returns true FOR THE FIRST FRAME a preset input is NOT being held down
+		/// <summary>
+		/// Returns true FOR THE FIRST FRAME a preset input is released.
+		/// </summary>
+		/// <param name="preset">Preset to check</param>
+		/// <returns>Whether input is released during 1 frame</returns>
 		static double OnPresetUp(Presets preset);
 #pragma endregion
 
 	private:
-		// Current cursor coordinates x
+		/// <summary>
+		/// Current cursor coordinates x.
+		/// </summary>
 		static double cursor_x;
-		// Current cursor coordinates y
+		/// <summary>
+		/// Current cursor coordinates y.
+		/// </summary>
 		static double cursor_y;
 
-		// 2D array representing joystick axes
-		static const float* joystick_axes[];
+		/// <summary>
+		/// 2D array representing gamepad axes.
+		/// </summary>
+		static const float* gamepad_axes[];
 
-		static int joystick_axes_count;
-		static int joystick_button_count;
+		static int gamepad_axes_count;
+		static int gamepad_button_count;
 
+		/// <summary>
+		/// Current cursor mode.
+		/// </summary>
 		static int cursor_mode;
 	};
 } // namespace solar

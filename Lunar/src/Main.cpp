@@ -6,7 +6,6 @@ Color32 background_color = Color32(34, 40, 49, 255);
 Triangle triangle = Triangle();
 Line line = Line();
 
-// On game initialization
 void App::Init()
 {
 	// Set window size to 800 by 600
@@ -19,7 +18,6 @@ void App::Init()
 	line.SetLength(1.0f);
 }
 
-// On game update
 void App::Update(double frame_time)
 {
 	// Frames per 1 second
@@ -39,7 +37,6 @@ void App::Update(double frame_time)
 	line.Move(Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical)) * 5.0f);
 }
 
-// On game render
 void App::Render()
 {
 	// Clear background color
@@ -49,7 +46,6 @@ void App::Render()
 	line.Draw(*this);
 }
 
-// On game exit
 void App::Exit()
 {
 }

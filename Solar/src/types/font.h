@@ -11,17 +11,30 @@ namespace solar
 	class SOLAR_API Font
 	{
 	public:
-		// Constructor
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="path">Initial path to font</param>
+		/// <param name="width">Initial font width</param>
+		/// <param name="height">Initial font height</param>
 		Font(const char* path = "./resources/font.ttf", int width = 0, int height = 48);
-		// Destructor
+		/// <summary>
+		/// Destructor.
+		/// </summary>
 		~Font();
 
-		// Path to font
+		/// <summary>
+		/// Path to font.
+		/// </summary>
 		const char* path;
 
-		// Font width
+		/// <summary>
+		/// Font width.
+		/// </summary>
 		int width;
-		// Font height
+		/// <summary>
+		/// Font height.
+		/// </summary>
 		int height;
 	};
 } // namespace solar

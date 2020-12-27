@@ -12,12 +12,6 @@ namespace solar
 	}
 
 #pragma region Approximate
-	bool Mathf::Approximate(float x, float y, float epsilon)
-	{
-		float difference = x - y;
-		return (Mathf::Abs(difference) <= epsilon);
-	}
-
 	bool Mathf::Approximate(double x, double y, double epsilon)
 	{
 		double difference = x - y;

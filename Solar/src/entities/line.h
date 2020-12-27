@@ -16,55 +16,109 @@ namespace solar
 	class SOLAR_API Line : public GameObject
 	{
 	public:
-		// Base constructor
+		/// <summary>
+		/// Base constructor.
+		/// </summary>
 		using GameObject::GameObject;
 
-		// Constructor & destructor
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="color">Initial color</param>
 		Line(Color color = Color::White());
+		/// <summary>
+		/// Destructor.
+		/// </summary>
 		~Line();
 
-		// Draw Line
+		/// <summary>
+		/// Render triangle.
+		/// </summary>
+		/// <param name="app">Application to render on</param>
+		/// <param name="draw_mode">Which mode to draw</param>
 		void Draw(App app, DrawMode draw_mode = DrawMode::kLine);
 
-		// Change Line color
+		/// <summary>
+		/// Change line color.
+		/// </summary>
+		/// <param name="color">Color to set</param>
 		void SetColor(Color color = Color::White());
-		// Set whether object is bounded
+		/// <summary>
+		/// Set whether object is bounded.
+		/// </summary>
+		/// <param name="is_bounded">Value to set</param>
 		void SetBounded(bool is_bounded = false);
-		// Set line length
+		/// <summary>
+		/// Set line length.
+		/// </summary>
+		/// <param name="length">Length to set</param>
 		void SetLength(double length = 1.0f);
 
 	private:
-		// Vertex buffer objects
+		/// <summary>
+		/// Vertex buffer objects.
+		/// </summary>
 		unsigned int vbo = NULL;
-		// Vertex array object
+		/// <summary>
+		/// Vertex array object.
+		/// </summary>
 		unsigned int vao = NULL;
 
-		// Line color
+		/// <summary>
+		/// Line color.
+		/// </summary>
 		Color color = Color::White();
-		// Whether object is confined within window bound
+		/// <summary>
+		/// Whether object is confined within window bound.
+		/// </summary>
 		bool is_bounded = false;
-		// Line length
+		/// <summary>
+		/// Line length.
+		/// </summary>
 		double length = 1.0f;
 
 		const float scale_factor_ = 0.1f;
 
-		// Vertices needed to draw a Line
+		/// <summary>
+		/// Vertices needed to draw a line.
+		/// </summary>
 		Vector2 vertex[2] = { NULL, NULL };
 		float vertices[6] = { NULL,NULL, NULL, NULL, NULL, NULL };
 
-		// Line shader
+		/// <summary>
+		/// Line shader.
+		/// </summary>
 		Shader shader = Shader("./resources/default_vertex_shader.shader", "./resources/default_fragment_shader.shader");
 
+		/// <summary>
+		/// Whether line has been initialized.
+		/// </summary>
 		bool done_init = false;
 
-		// Initialization
+		/// <summary>
+		/// Initialize line.
+		/// </summary>
+		/// <param name="app">Application to init on</param>
 		void Init(App app);
-		// Update Line vertices
+		/// <summary>
+		/// Update triangle line.
+		/// </summary>
+		/// <param name="app">Application to update on</param>
 		void Update(App app);
 
-		// Limit object within the game window
+		/// <summary>
+		/// Limit object within the game window.
+		/// </summary>
+		/// <param name="app">Application to limit to</param>
+		/// <param name="width_scale">Width scale of the window</param>
+		/// <param name="height_scale">Height scale of the window</param>
 		void Bound(App app, double width_scale, double height_scale);
-		// Calculate vertex coordinates based on current rotation
+
+		/// <summary>
+		/// Calculate vertex coordinates based on current rotation.
+		/// </summary>
+		/// <param name="app">Application to calculate on</param>
+		/// <param name="vertex">Vertex to calculate</param>
 		Vector2 CalculateRotation(App app, Vector2 vertex);
 	};
 } // namespace solar

@@ -11,52 +11,100 @@ namespace solar
 	class SOLAR_API App
 	{
 	public:
-		// User-defined initialization
+		/// <summary>
+		/// User-defined initialization.
+		/// </summary>
 		virtual void Init();
-		// User-defined update
+		/// <summary>
+		/// User-defined update.
+		/// </summary>
+		/// <param name="frame_time">Current frame time</param>
 		virtual void Update(double frame_time);
-		// User-defined rendering
+		/// <summary>
+		/// User-defined rendering
+		/// </summary>
 		virtual void Render();
-		// User-defined shutdown
+		/// <summary>
+		/// User-defined shutdown
+		/// </summary>
 		virtual void Exit();
 
-		// Window width
+		/// <summary>
+		/// Window width.
+		/// </summary>
+		/// <returns>Window width</returns>
 		int Width();
-		// Window height
+		/// <summary>
+		/// Window height.
+		/// </summary>
+		/// <returns>Window height</returns>
 		int Height();
 
-		// Set window width and height
+		/// <summary>
+		/// Set window width and height.
+		/// </summary>
+		/// <param name="width">Width to set</param>
+		/// <param name="height">Height to set</param>
 		void SetWindowSize(int width = DEFAULT_WINDOW_WIDTH, int height = DEFAULT_WINDOW_HEIGHT);
-		// Set window title
+		/// <summary>
+		/// Set window title.
+		/// </summary>
+		/// <param name="title">Title to set</param>
 		void SetTitle(const char* title = DEFAULT_TITLE);
 
-		// Set whether window is resizable
+		/// <summary>
+		/// Set whether window is resizable.
+		/// </summary>
+		/// <param name="resizable">Window resizable</param>
 		void SetResizable(bool resizable = false);
-		// Set whether window is focused
+		/// <summary>
+		/// Set whether window is focused.
+		/// </summary>
+		/// <param name="focused">Window focused</param>
 		void SetFocused(bool focused = true);
-		// Set whether window is maximized
+		/// <summary>
+		/// Set whether window is maximized.
+		/// </summary>
+		/// <param name="maximized">Window maximized</param>
 		void SetMaximized(bool maximized = false);
 
-		// Clear background
+		/// <summary>
+		/// Clear background color.
+		/// </summary>
+		/// <param name="color">Background color</param>
 		void ClearBackground(Color color = Color());
 
-		// Run the app
+		/// <summary>
+		/// Run the app.
+		/// </summary>
 		void Run();
 
-		// Quit the app
+		/// <summary>
+		/// Quit the app.
+		/// </summary>
 		void Quit();
 
-		// Current active window
-		// Use generics type since glfw is not included in header
+		/// <summary>
+		/// Current active window.
+		/// Use generics type since glfw is not included in header.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
 		template <typename T>
 		static T* window;
 
 	private:
-		// Default screen dimension
+		/// <summary>
+		/// Default window width.
+		/// </summary>
 		int window_width = DEFAULT_WINDOW_WIDTH;
+		/// <summary>
+		/// Default window height.
+		/// </summary>
 		int window_height = DEFAULT_WINDOW_HEIGHT;
 
-		// Default game window title
+		/// <summary>
+		/// Default window title.
+		/// </summary>
 		const char* title = "Solar System";
 	};
 } // namespace solar

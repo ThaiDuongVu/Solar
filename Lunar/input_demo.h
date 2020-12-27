@@ -1,7 +1,10 @@
 #include <solar.h>
 using namespace solar;
 
-// Function to demonstrate input methods
+/// <summary>
+/// Demonstrate input methods.
+/// </summary>
+/// <param name="app">Current app</param>
 inline void InputDemo(App* app)
 {
 	// On key released
@@ -39,16 +42,16 @@ inline void InputDemo(App* app)
 		Debug::Log("Mouse exit");
 
 	// While A button is being pressed
-	if (Input::IsJoystickButtonDown(Input::JoystickButtons::kButtonA))
+	if (Input::IsGamepadButtonDown(Input::GamepadButtons::kButtonA))
 		Debug::Log("A button is down");
 
 	// If a joystick is connected
-	if (Input::IsJoystickPresent(Input::Joysticks::kJoystick1))
+	if (Input::IsGamepadPresent(Input::Gamepads::kGamepad1))
 	{
 		Debug::Log("Joystick 1 present");
 
 		// Trigger input
-		if (Input::GetJoystickAxes(Input::JoystickAxes::kAxesRightTrigger) > -1)
+		if (Input::GetGamepadAxes(Input::GamepadAxes::kAxesRightTrigger) > -1)
 			Debug::Log("Right trigger is down");
 	}
 

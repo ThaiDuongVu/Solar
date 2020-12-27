@@ -11,23 +11,45 @@ namespace solar
 	class SOLAR_API Color
 	{
 	public:
-		// Constructor
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="r">Initial red value</param>
+		/// <param name="g">Initial green value</param>
+		/// <param name="b">Initial blue value</param>
+		/// <param name="a">Initial alpha value</param>
 		Color(float r = 0.0f, float g = 0.0f, float b = 0.0f, float a = 1.0f);
-		// Destructor
+		/// <summary>
+		/// Destructor.
+		/// </summary>
 		~Color();
 
-		// Red value
+		/// <summary>
+		/// Red value.
+		/// </summary>
 		float r = 0.0f;
-		// Green value
+		/// <summary>
+		/// Green value.
+		/// </summary>
 		float g = 0.0f;
-		// Blue value
+		/// <summary>
+		/// Blue value
+		/// </summary>
 		float b = 0.0f;
-		// Alpha value
+		/// <summary>
+		/// Alpha value.
+		/// </summary>
 		float a = 1.0f;
 
-		// Clamp all values of this color to be between 0 and 1
+		/// <summary>
+		/// Clamp all values of this color to be between 0 and 1.
+		/// </summary>
+		/// <returns>Normalized color</returns>
 		Color Normalize();
-		// Convert this color to string
+		/// <summary>
+		/// Convert this color to string.
+		/// </summary>
+		/// <returns>Color in string format</returns>
 		std::string ToString();
 
 #pragma region Arithmetic Operators
@@ -61,12 +83,21 @@ namespace solar
 		bool operator<=(Color other);
 #pragma endregion
 
-		// Clamp all values of a color to be between 0 and 1
+		/// <summary>
+		/// Clamp all values of a color to be between 0 and 1.
+		/// </summary>
+		/// <param name="color">Color to normalize</param>
+		/// <returns>Normalized color</returns>
 		static Color Normalize(Color color);
-		// Convert a color to string
+		/// <summary>
+		/// Convert a color to string.
+		/// </summary>
+		/// <param name="color">Color to convert</param>
+		/// <returns>Color in string format</returns>
 		static std::string ToString(Color color);
 
-		// Handy default color values
+		// Some handy default color values
+
 		static Color Red();
 		static Color Green();
 		static Color Blue();

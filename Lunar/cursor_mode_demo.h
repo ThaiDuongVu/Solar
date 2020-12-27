@@ -1,7 +1,9 @@
 #include <solar.h>
 using namespace solar;
 
-// Function to demostrate all cursor modes 
+/// <summary>
+/// Demostrate all cursor modes.
+/// </summary>
 inline void CursorModeDemo()
 {
 	// Hide mouse cursor

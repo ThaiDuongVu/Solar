@@ -77,19 +77,19 @@ namespace solar
 	int Input::mouse_down_buffer = NULL;
 	int Input::mouse_up_buffer = NULL;
 
-	bool Input::IsMouseDown(int mouse)
+	bool Input::IsMouseDown(int button)
 	{
-		return glfwGetMouseButton(App::window<GLFWwindow>, mouse) == GLFW_PRESS;
+		return glfwGetMouseButton(App::window<GLFWwindow>, button) == GLFW_PRESS;
 	}
 
-	bool Input::IsMouseUp(int mouse)
+	bool Input::IsMouseUp(int button)
 	{
-		return glfwGetMouseButton(App::window<GLFWwindow>, mouse) == GLFW_RELEASE;
+		return glfwGetMouseButton(App::window<GLFWwindow>, button) == GLFW_RELEASE;
 	}
 
-	bool Input::OnMouseDown(int mouse)
+	bool Input::OnMouseDown(int button)
 	{
-		if (mouse == mouse_down_buffer)
+		if (button == mouse_down_buffer)
 		{
 			mouse_down_buffer = NULL;
 			return true;
@@ -97,9 +97,9 @@ namespace solar
 		return false;
 	}
 
-	bool Input::OnMouseUp(int mouse)
+	bool Input::OnMouseUp(int button)
 	{
-		if (mouse == mouse_up_buffer)
+		if (button == mouse_up_buffer)
 		{
 			mouse_up_buffer = NULL;
 			return true;
@@ -123,57 +123,57 @@ namespace solar
 	}
 #pragma endregion
 
-#pragma region Joystick
-	bool Input::IsJoystickPresent(int joystick)
+#pragma region Gamepad
+	bool Input::IsGamepadPresent(int gamepad)
 	{
-		return glfwJoystickPresent(joystick);
+		return glfwJoystickPresent(gamepad);
 	}
 
-	const float* Input::joystick_axes[] = { 0 };
-	int Input::joystick_axes_count = 0;
+	const float* Input::gamepad_axes[] = { 0 };
+	int Input::gamepad_axes_count = 0;
 
-	float Input::GetJoystickAxes(int axes, int joystick)
+	float Input::GetGamepadAxes(int axes, int gamepad)
 	{
-		if (!Input::IsJoystickPresent(joystick))
+		if (!Input::IsGamepadPresent(gamepad))
 			return 0;
 
-		return Input::joystick_axes[joystick][axes];
+		return Input::gamepad_axes[gamepad][axes];
 	}
 
-	int Input::joystick_button_count = 0;
+	int Input::gamepad_button_count = 0;
 
 	int Input::button_down_buffer = NULL;
 	int Input::button_up_buffer = NULL;
 
-	bool Input::IsJoystickButtonDown(int button, int joystick)
+	bool Input::IsGamepadButtonDown(int button, int gamepad)
 	{
-		if (!Input::IsJoystickPresent(joystick))
+		if (!Input::IsGamepadPresent(gamepad))
 			return false;
 
-		return glfwGetJoystickButtons(joystick, &Input::joystick_button_count)[button] == GLFW_PRESS;
+		return glfwGetJoystickButtons(gamepad, &Input::gamepad_button_count)[button] == GLFW_PRESS;
 	}
 
-	bool Input::IsJoystickButtonUp(int button, int joystick)
+	bool Input::IsGamepadButtonUp(int button, int gamepad)
 	{
-		if (!Input::IsJoystickPresent(joystick))
+		if (!Input::IsGamepadPresent(gamepad))
 			return false;
 
-		return glfwGetJoystickButtons(joystick, &Input::joystick_button_count)[button] == GLFW_RELEASE;
+		return glfwGetJoystickButtons(gamepad, &Input::gamepad_button_count)[button] == GLFW_RELEASE;
 	}
 
 	// Currently not working
 	// TODO: Investigate further
-	bool Input::OnJoystickButtonDown(int button, int joystick)
+	bool Input::OnGamepadButtonDown(int button, int gamepad)
 	{
-		if (!Input::IsJoystickPresent(joystick))
+		if (!Input::IsGamepadPresent(gamepad))
 			return false;
 
 		return false;
 	}
 
-	bool Input::OnJoystickButtonUp(int button, int joystick)
+	bool Input::OnGamepadButtonUp(int button, int gamepad)
 	{
-		if (!Input::IsJoystickPresent(joystick))
+		if (!Input::IsGamepadPresent(gamepad))
 			return false;
 
 		return false;
@@ -187,29 +187,29 @@ namespace solar
 		switch (preset)
 		{
 		case Input::Presets::kPresetHorizontal:
-			return Mathf::Clamp(-(double)(IsKeyDown(Keys::kKeyLeft) || IsKeyDown(Keys::kKeyA)) + (double)(IsKeyDown(Keys::kKeyRight) || IsKeyDown(Keys::kKeyD)) + (double)(GetJoystickAxes(JoystickAxes::kAxesLeftStickX)), (double)-1.0f, (double)1.0f);
+			return Mathf::Clamp(-(double)(IsKeyDown(Keys::kKeyLeft) || IsKeyDown(Keys::kKeyA)) + (double)(IsKeyDown(Keys::kKeyRight) || IsKeyDown(Keys::kKeyD)) + (double)(GetGamepadAxes(GamepadAxes::kAxesLeftStickX)), (double)-1.0f, (double)1.0f);
 			break;
 		case Input::Presets::kPresetVertical:
-			return Mathf::Clamp(-(double)(IsKeyDown(Keys::kKeyDown) || IsKeyDown(Keys::kKeyS)) + (double)(IsKeyDown(Keys::kKeyUp) || IsKeyDown(Keys::kKeyW)) + (double)(-GetJoystickAxes(JoystickAxes::kAxesLeftStickY)), (double)-1.0f, (double)1.0f);
+			return Mathf::Clamp(-(double)(IsKeyDown(Keys::kKeyDown) || IsKeyDown(Keys::kKeyS)) + (double)(IsKeyDown(Keys::kKeyUp) || IsKeyDown(Keys::kKeyW)) + (double)(-GetGamepadAxes(GamepadAxes::kAxesLeftStickY)), (double)-1.0f, (double)1.0f);
 			break;
 
 		case Input::Presets::kPresetJump:
-			return IsKeyDown(Keys::kKeySpace) || IsJoystickButtonDown(JoystickButtons::kButtonA);
+			return IsKeyDown(Keys::kKeySpace) || IsGamepadButtonDown(GamepadButtons::kButtonA);
 			break;
 
 		case Input::Presets::kPresetFire1:
-			return IsMouseDown(MouseButtons::kMouseLeft) || IsKeyDown(Keys::kKeyZ) || GetJoystickAxes(JoystickAxes::kAxesRightTrigger) > 0.0f;
+			return IsMouseDown(MouseButtons::kMouseLeft) || IsKeyDown(Keys::kKeyZ) || GetGamepadAxes(GamepadAxes::kAxesRightTrigger) > 0.0f;
 			break;
 		case Input::Presets::kPresetFire2:
-			return IsMouseDown(MouseButtons::kMouseRight) || IsKeyDown(Keys::kKeyX) || GetJoystickAxes(JoystickAxes::kAxesLeftTrigger) > 0.0f;
+			return IsMouseDown(MouseButtons::kMouseRight) || IsKeyDown(Keys::kKeyX) || GetGamepadAxes(GamepadAxes::kAxesLeftTrigger) > 0.0f;
 			break;
 
 		case Input::Presets::kPresetCrouch:
-			return IsKeyDown(Keys::kKeyLeftCtrl) || IsJoystickButtonDown(JoystickButtons::kButtonB);
+			return IsKeyDown(Keys::kKeyLeftCtrl) || IsGamepadButtonDown(GamepadButtons::kButtonB);
 			break;
 
 		case Input::Presets::kPresetEscape:
-			return IsKeyDown(Keys::kKeyEscape) || IsJoystickButtonDown(JoystickButtons::kButtonStart);
+			return IsKeyDown(Keys::kKeyEscape) || IsGamepadButtonDown(GamepadButtons::kButtonStart);
 			break;
 
 		default:
@@ -222,29 +222,29 @@ namespace solar
 		switch (preset)
 		{
 		case Input::Presets::kPresetHorizontal:
-			return Mathf::Clamp(-(double)(IsKeyUp(Keys::kKeyLeft) || IsKeyUp(Keys::kKeyA)) + (double)(IsKeyUp(Keys::kKeyRight) || IsKeyUp(Keys::kKeyD)) + (double)(GetJoystickAxes(JoystickAxes::kAxesLeftStickX)), (double)-1.0f, (double)1.0f);
+			return Mathf::Clamp(-(double)(IsKeyUp(Keys::kKeyLeft) || IsKeyUp(Keys::kKeyA)) + (double)(IsKeyUp(Keys::kKeyRight) || IsKeyUp(Keys::kKeyD)) + (double)(GetGamepadAxes(GamepadAxes::kAxesLeftStickX)), (double)-1.0f, (double)1.0f);
 			break;
 		case Input::Presets::kPresetVertical:
-			return Mathf::Clamp(-(double)(IsKeyUp(Keys::kKeyUp) || IsKeyUp(Keys::kKeyS)) + (double)(IsKeyUp(Keys::kKeyUp) || IsKeyUp(Keys::kKeyW)) + (double)(-GetJoystickAxes(JoystickAxes::kAxesLeftStickY)), (double)-1.0f, (double)1.0f);
+			return Mathf::Clamp(-(double)(IsKeyUp(Keys::kKeyUp) || IsKeyUp(Keys::kKeyS)) + (double)(IsKeyUp(Keys::kKeyUp) || IsKeyUp(Keys::kKeyW)) + (double)(-GetGamepadAxes(GamepadAxes::kAxesLeftStickY)), (double)-1.0f, (double)1.0f);
 			break;
 
 		case Input::Presets::kPresetJump:
-			return IsKeyUp(Keys::kKeySpace) || IsJoystickButtonUp(JoystickButtons::kButtonA);
+			return IsKeyUp(Keys::kKeySpace) || IsGamepadButtonUp(GamepadButtons::kButtonA);
 			break;
 
 		case Input::Presets::kPresetFire1:
-			return IsMouseUp(MouseButtons::kMouseLeft) || IsKeyUp(Keys::kKeyZ) || GetJoystickAxes(JoystickAxes::kAxesRightTrigger) > 0.0f;
+			return IsMouseUp(MouseButtons::kMouseLeft) || IsKeyUp(Keys::kKeyZ) || GetGamepadAxes(GamepadAxes::kAxesRightTrigger) > 0.0f;
 			break;
 		case Input::Presets::kPresetFire2:
-			return IsMouseUp(MouseButtons::kMouseRight) || IsKeyUp(Keys::kKeyX) || GetJoystickAxes(JoystickAxes::kAxesLeftTrigger) > 0.0f;
+			return IsMouseUp(MouseButtons::kMouseRight) || IsKeyUp(Keys::kKeyX) || GetGamepadAxes(GamepadAxes::kAxesLeftTrigger) > 0.0f;
 			break;
 
 		case Input::Presets::kPresetCrouch:
-			return IsKeyUp(Keys::kKeyLeftCtrl) || IsJoystickButtonUp(JoystickButtons::kButtonB);
+			return IsKeyUp(Keys::kKeyLeftCtrl) || IsGamepadButtonUp(GamepadButtons::kButtonB);
 			break;
 
 		case Input::Presets::kPresetEscape:
-			return IsKeyUp(Keys::kKeyEscape) || IsJoystickButtonUp(JoystickButtons::kButtonStart);
+			return IsKeyUp(Keys::kKeyEscape) || IsGamepadButtonUp(GamepadButtons::kButtonStart);
 			break;
 
 		default:
@@ -265,22 +265,22 @@ namespace solar
 			break;
 
 		case Input::Presets::kPresetJump:
-			return OnKeyDown(Keys::kKeySpace) || OnJoystickButtonDown(JoystickButtons::kButtonA);
+			return OnKeyDown(Keys::kKeySpace) || OnGamepadButtonDown(GamepadButtons::kButtonA);
 			break;
 
 		case Input::Presets::kPresetFire1:
-			return OnMouseDown(MouseButtons::kMouseLeft) || OnKeyDown(Keys::kKeyZ) || GetJoystickAxes(JoystickAxes::kAxesRightTrigger) <= 0.0f;
+			return OnMouseDown(MouseButtons::kMouseLeft) || OnKeyDown(Keys::kKeyZ) || GetGamepadAxes(GamepadAxes::kAxesRightTrigger) <= 0.0f;
 			break;
 		case Input::Presets::kPresetFire2:
-			return OnMouseDown(MouseButtons::kMouseRight) || OnKeyDown(Keys::kKeyX) || GetJoystickAxes(JoystickAxes::kAxesLeftTrigger) <= 0.0f;
+			return OnMouseDown(MouseButtons::kMouseRight) || OnKeyDown(Keys::kKeyX) || GetGamepadAxes(GamepadAxes::kAxesLeftTrigger) <= 0.0f;
 			break;
 
 		case Input::Presets::kPresetCrouch:
-			return OnKeyDown(Keys::kKeyLeftCtrl) || OnJoystickButtonDown(JoystickButtons::kButtonB);
+			return OnKeyDown(Keys::kKeyLeftCtrl) || OnGamepadButtonDown(GamepadButtons::kButtonB);
 			break;
 
 		case Input::Presets::kPresetEscape:
-			return OnKeyDown(Keys::kKeyEscape) || OnJoystickButtonDown(JoystickButtons::kButtonStart);
+			return OnKeyDown(Keys::kKeyEscape) || OnGamepadButtonDown(GamepadButtons::kButtonStart);
 			break;
 
 		default:
@@ -300,22 +300,22 @@ namespace solar
 			break;
 
 		case Input::Presets::kPresetJump:
-			return OnKeyUp(Keys::kKeySpace) || OnJoystickButtonUp(JoystickButtons::kButtonA);
+			return OnKeyUp(Keys::kKeySpace) || OnGamepadButtonUp(GamepadButtons::kButtonA);
 			break;
 
 		case Input::Presets::kPresetFire1:
-			return OnMouseUp(MouseButtons::kMouseLeft) || OnKeyUp(Keys::kKeyZ) || GetJoystickAxes(JoystickAxes::kAxesRightTrigger) <= 0.0f;
+			return OnMouseUp(MouseButtons::kMouseLeft) || OnKeyUp(Keys::kKeyZ) || GetGamepadAxes(GamepadAxes::kAxesRightTrigger) <= 0.0f;
 			break;
 		case Input::Presets::kPresetFire2:
-			return OnMouseUp(MouseButtons::kMouseRight) || OnKeyUp(Keys::kKeyX) || GetJoystickAxes(JoystickAxes::kAxesLeftTrigger) <= 0.0f;
+			return OnMouseUp(MouseButtons::kMouseRight) || OnKeyUp(Keys::kKeyX) || GetGamepadAxes(GamepadAxes::kAxesLeftTrigger) <= 0.0f;
 			break;
 
 		case Input::Presets::kPresetCrouch:
-			return OnKeyUp(Keys::kKeyLeftCtrl) || OnJoystickButtonUp(JoystickButtons::kButtonB);
+			return OnKeyUp(Keys::kKeyLeftCtrl) || OnGamepadButtonUp(GamepadButtons::kButtonB);
 			break;
 
 		case Input::Presets::kPresetEscape:
-			return OnKeyUp(Keys::kKeyEscape) || OnJoystickButtonUp(JoystickButtons::kButtonStart);
+			return OnKeyUp(Keys::kKeyEscape) || OnGamepadButtonUp(GamepadButtons::kButtonStart);
 			break;
 
 		default:
@@ -353,10 +353,10 @@ namespace solar
 #pragma endregion
 
 		// Update all input axes
-		for (int i = Input::Joysticks::kJoystick1; i <= Input::Joysticks::kJoystickLast; i++)
+		for (int i = Input::Gamepads::kGamepad1; i <= Input::Gamepads::kGamepad1; i++)
 		{
-			if (Input::IsJoystickPresent(i))
-				joystick_axes[i] = glfwGetJoystickAxes(i, &Input::joystick_axes_count);
+			if (Input::IsGamepadPresent(i))
+				gamepad_axes[i] = glfwGetJoystickAxes(i, &Input::gamepad_axes_count);
 		}
 	}
 } // namespace solar

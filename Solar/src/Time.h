@@ -10,17 +10,33 @@ namespace solar
 	class SOLAR_API Time
 	{
 	public:
-		// Elapsed time since last frame
+		/// <summary>
+		/// Elapsed time since last frame.
+		/// </summary>
 		static double frame_time;
-		// How many frames drawn per some seconds
+
+		/// <summary>
+		/// Number of frames drawn per some seconds.
+		/// </summary>
+		/// <param name="seconds">Second to scale frame rate</param>
+		/// <returns>Frames per second(s)</returns>
 		static int FrameRate(int seconds);
 
-		// Previous & current time
+		/// <summary>
+		/// Previous time.
+		/// </summary>
 		static double previous_time;
+		/// <summary>
+		/// Current time.
+		/// </summary>
 		static double current_time;
 
-		// Update frame time
-		// Is called every frame
+		/// <summary>
+		/// Update frame time.
+		/// Is called every frame.
+		/// </summary>
+		/// <param name="previous_time">Previous time</param>
+		/// <param name="current_time">Current time</param>
 		static void Update(double &previous_time, double &current_time);
 	};
 } // namespace solar

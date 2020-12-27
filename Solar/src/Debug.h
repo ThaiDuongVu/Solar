@@ -33,6 +33,11 @@ namespace solar
 			kBrightWhite = 15,
 		};
 
+		/// <summary>
+		/// Log a message to console.
+		/// </summary>
+		/// <typeparam name="T">Message type</typeparam>
+		/// <param name="message">Message to log</param>
 		template <typename T>
 		inline static void Log(T message)
 		{
@@ -43,6 +48,11 @@ namespace solar
 			std::cout << message << std::endl;
 		}
 
+		/// <summary>
+		/// Log a warning message to console.
+		/// </summary>
+		/// <typeparam name="T">Message type</typeparam>
+		/// <param name="message">Message to log</param>
 		template <typename T>
 		inline static void LogWarning(T message)
 		{
@@ -53,6 +63,11 @@ namespace solar
 			ResetDebugColor();
 		}
 
+		/// <summary>
+		/// Log a error message to console.
+		/// </summary>
+		/// <typeparam name="T">Message type</typeparam>
+		/// <param name="message">Message to log</param>
 		template <typename T>
 		inline static void LogError(T message)
 		{
@@ -64,7 +79,9 @@ namespace solar
 		}
 
 	private:
-		// Reset console color to white
+		/// <summary>
+		/// Reset console color to white.
+		/// </summary>
 		inline static void ResetDebugColor()
 		{
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), solar::Debug::DebugColors::kBrightWhite);

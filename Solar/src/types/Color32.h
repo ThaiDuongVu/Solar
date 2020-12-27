@@ -12,23 +12,45 @@ namespace solar
 	class SOLAR_API Color32
 	{
 	public:
-		// Constructor
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="r">Initial red value</param>
+		/// <param name="g">Initial green value</param>
+		/// <param name="b">Initial blue value</param>
+		/// <param name="a">Initial alpha value</param>
 		Color32(unsigned int r = 0, unsigned int g = 0, unsigned int b = 0, unsigned int a = 255);
-		// Destructor
+		/// <summary>
+		/// Destructor.
+		/// </summary>
 		~Color32();
 
-		// Red value
+		/// <summary>
+		/// Red value.
+		/// </summary>
 		unsigned int r = 0;
-		// Green value
+		/// <summary>
+		/// Green value.
+		/// </summary>
 		unsigned int g = 0;
-		// Blue value
+		/// <summary>
+		/// Blue value.
+		/// </summary>
 		unsigned int b = 0;
-		// Apha value
+		/// <summary>
+		/// Apha value.
+		/// </summary>
 		unsigned int a = 255;
 
-		// Convert this 32-bit Color type to Color type and clamp all values to be between 0 and 1
+		/// <summary>
+		/// Convert this 32-bit Color type to Color type and clamp all values to be between 0 and 1.
+		/// </summary>
+		/// <returns>Normalized color</returns>
 		Color Normalize();
-		// Convert this color to string
+		/// <summary>
+		/// Convert this color to string.
+		/// </summary>
+		/// <returns>Color in string format</returns>
 		std::string ToString();
 
 #pragma region Arithmetic Operators
@@ -62,12 +84,21 @@ namespace solar
 		bool operator<=(Color32 other);
 #pragma endregion
 
-		// Convert a 32-bit Color type to Color type and clamp all values to be between 0 and 1
+		/// <summary>
+		/// Convert a 32-bit Color type to Color type and clamp all values to be between 0 and 1.
+		/// </summary>
+		/// <param name="color">Color to normalize</param>
+		/// <returns>Normalized color</returns>
 		static Color Normalize(Color32 color);
-		// Convert a color to string
+		/// <summary>
+		/// Convert a color to string.
+		/// </summary>
+		/// <param name="color">Color to convert</param>
+		/// <returns>Color in string format</returns>
 		static std::string ToString(Color32 color);
 
-		// Handy default color values
+		// Some handy default color values
+
 		static Color32 Red();
 		static Color32 Green();
 		static Color32 Blue();

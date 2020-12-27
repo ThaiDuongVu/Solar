@@ -27,6 +27,15 @@ namespace solar
 		transform.rotation += rotation;
 	}
 
+	void GameObject::Scale(Vector2 scale)
+	{
+		transform.scale += scale;
+	}
+	void GameObject::Scale(double scale_x, double scale_y)
+	{
+		transform.scale += Vector2(scale_x, scale_y);
+	}
+
 	void GameObject::Destroy()
 	{
 		delete(this);

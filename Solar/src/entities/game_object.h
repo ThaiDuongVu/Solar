@@ -11,8 +11,15 @@ namespace solar
 	class SOLAR_API GameObject
 	{
 	public:
-		// Constructor & destructor
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="transform">Initial object transform</param>
+		/// <param name="is_visible">Initial object visibility</param>
 		GameObject(Transform transform = Transform::Default(), bool is_visible = true);
+		/// <summary>
+		/// Destructor.
+		/// </summary>
 		~GameObject();
 
 		enum class DrawMode 
@@ -21,21 +28,49 @@ namespace solar
 			kLine
 		};
 
+		/// <summary>
+		/// Object transform.
+		/// </summary>
 		Transform transform;
+		/// <summary>
+		/// Object visibility.
+		/// </summary>
 		bool is_visible = true;
 
+		/// <summary>
+		/// Destroy current object.
+		/// </summary>
 		void Destroy();
 
-		// Move object using movement vector
+		/// <summary>
+		/// Move object with movement vector.
+		/// </summary>
+		/// <param name="movement">Movement vector</param>
 		void Move(Vector2 movement = Vector2::Zero());
+		/// <summary>
+		/// Move object with x & y axis speed.
+		/// </summary>
+		/// <param name="movement_x">x axis speed</param>
+		/// <param name="movement_y">y axis speed</param>
 		void Move(double movement_x = 0.0f, double movement_y = 0.0f);
 
-		// Rotate object
+		/// <summary>
+		/// Rotate object.
+		/// </summary>
+		/// <param name="rotation"></param>
 		void Rotate(double rotation = 0.0f);
 
-		// Scale object
+		/// <summary>
+		/// Scale object with scale vector.
+		/// </summary>
+		/// <param name="scale">Scale vector</param>
 		void Scale(Vector2 scale = Vector2::Zero());
-		void Scale(double scale_x = 0.0f, double scaley_y = 0.0f);
+		/// <summary>
+		/// Scale object with x & y scale axis.
+		/// </summary>
+		/// <param name="scale_x">x scale axis</param>
+		/// <param name="scale_y">y scale axis</param>
+		void Scale(double scale_x = 0.0f, double scale_y = 0.0f);
 	};
 } // namespace solar
 

@@ -1,10 +1,9 @@
 #include "line.h"
 #include "../mathf.h"
+#include "../core.h"
 #include <glad.h>
 #include <glfw3.h>
 #include <glm.hpp>
-
-#include "../debug.h"
 
 namespace solar
 {
@@ -93,12 +92,12 @@ namespace solar
 		// Down vertex
 		vertex[0] = Vector2(x / width_scale, y / height_scale) * scale_factor_;
 		vertex[0] = CalculateRotation(app, vertex[0]);
-		vertex[0] *= Vector2(500.0f / app.Width(), 500.0f / app.Height());
+		vertex[0] *= Vector2(OBJECT_SCALER / app.Width(), OBJECT_SCALER / app.Height());
 
 		// Up vertex
 		vertex[1] = Vector2(x / width_scale, y / height_scale + length) * scale_factor_;
 		vertex[1] = CalculateRotation(app, vertex[1]);
-		vertex[1] *= Vector2(500.0f / app.Width(), 500.0f / app.Height());
+		vertex[1] *= Vector2(OBJECT_SCALER / app.Width(), OBJECT_SCALER / app.Height());
 
 		if (is_bounded) Bound(app, width_scale, height_scale);
 

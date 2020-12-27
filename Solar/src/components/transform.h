@@ -11,15 +11,36 @@ namespace solar
 	class SOLAR_API Transform
 	{
 	public:
-		// Constructor & destructor
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="position">Initial position</param>
+		/// <param name="rotation">Initial rotation</param>
+		/// <param name="scale">Initial scale</param>
 		Transform(Vector2 position = Vector2::Zero(), double rotation = 0.0f, Vector2 scale = Vector2::Identity());
+		/// <summary>
+		/// Destructor.
+		/// </summary>
 		~Transform();
 
-		Vector2 position; // Transform position
-		double rotation; // Transform rotation
-		Vector2 scale; // Transform scale
+		/// <summary>
+		/// Transform position.
+		/// </summary>
+		Vector2 position;
+		/// <summary>
+		/// Transform rotation.
+		/// </summary>
+		double rotation;
+		/// <summary>
+		/// Transform scale.
+		/// </summary>
+		Vector2 scale;
 
-		static Transform Default(); // Default transform
+		/// <summary>
+		/// Returns default transform.
+		/// </summary>
+		/// <returns>Default transform</returns>
+		static Transform Default();
 	};
 } // namespace solar
 

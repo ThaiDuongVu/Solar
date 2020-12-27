@@ -177,6 +177,23 @@ namespace solar
 		return Vector2(0.0f, 1.0f);
 	}
 
+	Vector2 Vector2::Up()
+	{
+		return Vector2(0.0f, 1.0f);
+	}
+	Vector2 Vector2::Down()
+	{
+		return Vector2(0.0f, -1.0f);
+	}
+	Vector2 Vector2::Left()
+	{
+		return Vector2(-1.0f, 0.0f);
+	}
+	Vector2 Vector2::Right()
+	{
+		return Vector2(1.0f, 0.0f);
+	}
+
 	double Vector2::Length(Vector2 a)
 	{
 		return glm::length(Vector2Toglm(a));

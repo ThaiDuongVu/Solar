@@ -3,7 +3,6 @@
 
 namespace solar
 {
-	// Declare frame time as 0
 	double Time::frame_time = 0.0;
 
 	int Time::FrameRate(int seconds)
@@ -11,7 +10,6 @@ namespace solar
 		return (int)(1 / Time::frame_time);
 	}
 
-	// Declare previous & current time
 	double Time::previous_time = 0.0;
 	double Time::current_time = 0.0;
 
