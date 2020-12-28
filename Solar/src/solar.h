@@ -15,3 +15,4 @@
 #include "entities/game_object.h"
 #include "entities/triangle.h"
 #include "entities/line.h"
+#include "entities/square.h"

@@ -20,7 +20,7 @@ namespace solar
 
 	void Shader::Init()
 	{
-		// Retrieve the vertex/fragment source code from path
+		// Retrieve the vertex / fragment source code from path
 		std::string vertex_source;
 		std::string fragment_source;
 		std::ifstream vertex_shader_file;

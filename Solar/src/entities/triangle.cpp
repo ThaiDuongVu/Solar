@@ -18,23 +18,6 @@ namespace solar
 		shader.Delete();
 	}
 
-	void Triangle::Draw(App app, DrawMode draw_mode)
-	{
-		// If object is not visible then return
-		if (!this->is_visible) return;
-
-		// Perform initialization if not already
-		if (!done_init) this->Init(app);
-
-		if (draw_mode == DrawMode::kFill)
-			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-		else
-			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
-		Update(app);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-	}
-
 	void Triangle::SetColor(Color color)
 	{
 		this->color = color;
@@ -91,19 +74,16 @@ namespace solar
 
 		// Left vertex
 		vertex[0] = Vector2(x / width_scale - width / 2.0f, y / height_scale - height / 2.0f) * scale_factor_;
-		vertex[0] = CalculateRotation(app, vertex[0]);
-		vertex[0] *= Vector2(OBJECT_SCALER / app.Width(), OBJECT_SCALER / app.Height());
-
 		// Right vertex
 		vertex[1] = Vector2(x / width_scale + width / 2.0f, y / height_scale - height / 2.0f) * scale_factor_;
-		vertex[1] = CalculateRotation(app, vertex[1]);
-		vertex[1] *= Vector2(OBJECT_SCALER / app.Width(), OBJECT_SCALER / app.Height());
-
 		// Up vertex
 		vertex[2] = Vector2(x / width_scale, y / height_scale + height / 2.0f) * scale_factor_;
-		vertex[2] = CalculateRotation(app, vertex[2]);
-		vertex[2] *= Vector2(OBJECT_SCALER / app.Width(), OBJECT_SCALER / app.Height());
 
+		for (int i = 0; i < 3; i++)
+		{
+			vertex[i] = CalculateRotation(app, vertex[i]);
+			vertex[i] *= Vector2(OBJECT_SCALER / app.Width(), OBJECT_SCALER / app.Height());
+		}
 		if (is_bounded) Bound(app, width_scale, height_scale);
 
 		vertices[0] = (float)vertex[0].x;
@@ -119,14 +99,14 @@ namespace solar
 
 	void Triangle::Bound(App app, double width_scale, double height_scale)
 	{
-		double x_left_bound = -(app.Width() / 2.0f) + transform.scale.x / 2.0f * width_scale;
-		double x_right_bound = (app.Width() / 2.0f) - transform.scale.x / 2.0f * width_scale;
+		double x_left_bound = (-(app.Width() / 2.0f) + transform.scale.x / 2.0f * width_scale) / (OBJECT_SCALER / app.Width());
+		double x_right_bound = ((app.Width() / 2.0f) - transform.scale.x / 2.0f * width_scale) / (OBJECT_SCALER / app.Width());
 
 		if (transform.position.x < x_left_bound) transform.position.x = x_left_bound;
 		else if (transform.position.x > x_right_bound) transform.position.x = x_right_bound;
 
-		double y_lower_bound = -(app.Height() / 2.0f) + transform.scale.y / 2.0f * height_scale;
-		double y_upper_bound = (app.Height() / 2.0f) - transform.scale.y / 2.0f * height_scale;
+		double y_lower_bound = (-(app.Height() / 2.0f) + transform.scale.y / 2.0f * height_scale) / (OBJECT_SCALER / app.Height());
+		double y_upper_bound = ((app.Height() / 2.0f) - transform.scale.y / 2.0f * height_scale) / (OBJECT_SCALER / app.Height());
 
 		if (transform.position.y < y_lower_bound) transform.position.y = y_lower_bound;
 		else if (transform.position.y > y_upper_bound) transform.position.y = y_upper_bound;
@@ -144,5 +124,22 @@ namespace solar
 
 		// Rotate vertex vector to match with current rotation
 		return Vector2(cos * (vertex.x - x_scale) - sin * (vertex.y - y_scale) + x_scale, sin * (vertex.x - x_scale) + cos * (vertex.y - y_scale) + y_scale);
+	}
+
+	void Triangle::Draw(App app, DrawMode draw_mode)
+	{
+		// If object is not visible then return
+		if (!this->is_visible) return;
+
+		// Perform initialization if not already
+		if (!done_init) this->Init(app);
+
+		if (draw_mode == DrawMode::kFill)
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		else
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+		Update(app);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 	}
 } // namespace solar

@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef SOLAR_LINE_H_
-#define SOLAR_LINE_H_
+#ifndef SOLAR_Square_H_
+#define SOLAR_Square_H_
 
 #include "../core.h"
 #include "../app.h"
@@ -13,7 +13,7 @@
 
 namespace solar
 {
-	class SOLAR_API Line : public GameObject
+	class SOLAR_API Square : public GameObject
 	{
 	public:
 		/// <summary>
@@ -25,21 +25,21 @@ namespace solar
 		/// Constructor.
 		/// </summary>
 		/// <param name="color">Initial color</param>
-		Line(Color color = Color::White());
+		Square(Color color = Color::White());
 		/// <summary>
 		/// Destructor.
 		/// </summary>
-		~Line();
+		~Square();
 
 		/// <summary>
-		/// Render line.
+		/// Render square.
 		/// </summary>
 		/// <param name="app">Application to render on</param>
 		/// <param name="draw_mode">Which mode to draw</param>
-		void Draw(App app, DrawMode draw_mode = DrawMode::kLine);
+		void Draw(App app, DrawMode draw_mode = DrawMode::kFill);
 
 		/// <summary>
-		/// Change line color.
+		/// Change square color.
 		/// </summary>
 		/// <param name="color">Color to set</param>
 		void SetColor(Color color = Color::White());
@@ -49,7 +49,7 @@ namespace solar
 		/// <param name="is_bounded">Value to set</param>
 		void SetBounded(bool is_bounded = false);
 		/// <summary>
-		/// Set line length.
+		/// Set Square length.
 		/// </summary>
 		/// <param name="length">Length to set</param>
 		void SetLength(double length = 1.0f);
@@ -65,43 +65,39 @@ namespace solar
 		unsigned int vao = NULL;
 
 		/// <summary>
-		/// Line color.
+		/// Square color.
 		/// </summary>
 		Color color = Color::White();
 		/// <summary>
 		/// Whether object is confined within window bound.
 		/// </summary>
 		bool is_bounded = false;
-		/// <summary>
-		/// Line length.
-		/// </summary>
-		double length = 1.0f;
 
 		const float scale_factor_ = 0.1f;
 
 		/// <summary>
-		/// Vertices needed to draw a line.
+		/// Vertices needed to draw a Square.
 		/// </summary>
-		Vector2 vertex[2] = { NULL, NULL };
-		float vertices[6] = { NULL,NULL, NULL, NULL, NULL, NULL };
+		Vector2 vertex[4] = { NULL, NULL, NULL, NULL };
+		float vertices[12] = { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL };
 
 		/// <summary>
-		/// Line shader.
+		/// Square shader.
 		/// </summary>
 		Shader shader = Shader("./resources/default_vertex_shader.shader", "./resources/default_fragment_shader.shader");
 
 		/// <summary>
-		/// Whether line has been initialized.
+		/// Whether Square has been initialized.
 		/// </summary>
 		bool done_init = false;
 
 		/// <summary>
-		/// Initialize line.
+		/// Initialize Square.
 		/// </summary>
 		/// <param name="app">Application to init on</param>
 		void Init(App app);
 		/// <summary>
-		/// Update triangle line.
+		/// Update triangle Square.
 		/// </summary>
 		/// <param name="app">Application to update on</param>
 		void Update(App app);
@@ -121,7 +117,8 @@ namespace solar
 		/// <param name="vertex">Vertex to calculate</param>
 		Vector2 CalculateRotation(App app, Vector2 vertex);
 	};
+
 } // namespace solar
 
+#endif // !SOLAR_Square_H_
 
-#endif // !SOLAR_LINE_H_
