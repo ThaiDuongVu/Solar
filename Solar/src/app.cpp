@@ -169,7 +169,6 @@ namespace solar
 			// Clear the back ground
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			// User-defined render
 			Render();
 
 			// Swap front and back buffers

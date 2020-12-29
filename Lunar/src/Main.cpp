@@ -4,8 +4,8 @@ using namespace solar;
 Color32 background_color = Color32(34, 40, 49, 255);
 
 Triangle triangle = Triangle();
-Line line = Line();
 Square square = Square();
+Line line = Line();
 
 void App::Init()
 {
@@ -17,7 +17,7 @@ void App::Init()
 
 	triangle.SetBounded(true);
 	square.SetBounded(true);
-	line.SetLength(1.0f);
+	line.SetLength(2.0f);
 }
 
 void App::Update(double frame_time)
@@ -37,9 +37,9 @@ void App::Update(double frame_time)
 	if (Input::OnKeyDown(Input::Keys::kKeySpace))
 		triangle.SetColor(Color::Red());
 
-	line.Rotate(10.0f);
-
 	square.Move(Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical)) * 5.0f);
+
+	line.Rotate(10.0f);
 }
 
 void App::Render()
@@ -47,8 +47,8 @@ void App::Render()
 	// Clear background color
 	App::ClearBackground(background_color.Normalize());
 
-	triangle.Draw(*this);
-	square.Draw(*this);
+	triangle.Draw(*this, GameObject::DrawMode::kLine);
+	square.Draw(*this, GameObject::DrawMode::kLine);
 	line.Draw(*this);
 }
 

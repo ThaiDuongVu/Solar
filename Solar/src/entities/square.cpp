@@ -38,8 +38,6 @@ namespace solar
 		// Initialize shader
 		shader.Init();
 
-		Update(app);
-
 		// Generate buffer and vertex array
 		glGenBuffers(1, &vbo);
 		glGenVertexArrays(1, &vao);
@@ -50,7 +48,7 @@ namespace solar
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
 
 		// How to interpret the vertex data
-		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
 
 		SetColor(this->color);
@@ -96,9 +94,6 @@ namespace solar
 		vertices[7] = (float)vertex[2].y;
 		vertices[9] = (float)vertex[3].x;
 		vertices[10] = (float)vertex[3].y;
-
-		// Buffer vertices
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
 	}
 
 	void Square::Bound(App app, double width_scale, double height_scale)
@@ -135,7 +130,7 @@ namespace solar
 		if (!this->is_visible) return;
 
 		// Perform initialization if not already
-		if (!done_init) this->Init(app);
+		if (!done_init) Init(app);
 
 		if (draw_mode == DrawMode::kFill)
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -143,6 +138,11 @@ namespace solar
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		Update(app);
-		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
+		// Buffer vertices
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
+		// Draw vertices
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawArrays(GL_TRIANGLES, 1, 4);
 	}
 } // namespace solar

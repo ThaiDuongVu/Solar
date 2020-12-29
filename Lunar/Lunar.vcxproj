@@ -112,12 +112,12 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cursor_mode_demo.h" />
-    <ClCompile Include="input_demo.h" />
+    <ClCompile Include="src\cursor_mode_demo.h" />
+    <ClCompile Include="src\input_demo.h" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mathf_demo.h" />
+    <ClInclude Include="src\mathf_demo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

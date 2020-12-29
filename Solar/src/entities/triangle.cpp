@@ -38,8 +38,6 @@ namespace solar
 		// Initialize shader
 		shader.Init();
 
-		Update(app);
-
 		// Generate buffer and vertex array
 		glGenBuffers(1, &vbo);
 		glGenVertexArrays(1, &vao);
@@ -92,9 +90,6 @@ namespace solar
 		vertices[4] = (float)vertex[1].y;
 		vertices[6] = (float)vertex[2].x;
 		vertices[7] = (float)vertex[2].y;
-
-		// Buffer vertices
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
 	}
 
 	void Triangle::Bound(App app, double width_scale, double height_scale)
@@ -140,6 +135,10 @@ namespace solar
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		Update(app);
+
+		// Buffer vertices
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
+		// Draw vertices
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 	}
 } // namespace solar

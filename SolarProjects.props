@@ -80,8 +80,8 @@
       <Command>
       xcopy /y /d "$(SolutionDir)Solar\bin\$(Platform)\$(Configuration)\Solar.dll" "$(OutDir)"
       if not exist $(OutDir)resources mkdir $(OutDir)resources
-      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_fragment_shader.shader" "$(OutDir)"
-      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_shader.shader" "$(OutDir)"
+      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_fragment_shader.shader" "$(OutDir)resources"
+      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_shader.shader" "$(OutDir)resources"
       </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -112,8 +112,8 @@
       <Command>
       xcopy /y /d "$(SolutionDir)Solar\bin\$(Platform)\$(Configuration)\Solar.dll" "$(OutDir)"
       if not exist $(OutDir)resources mkdir $(OutDir)resources
-      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_fragment_shader.shader" "$(OutDir)"
-      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_shader.shader" "$(OutDir)"
+      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_fragment_shader.shader" "$(OutDir)resources"
+      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_shader.shader" "$(OutDir)resources"
       </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
