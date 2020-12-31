@@ -50,23 +50,23 @@ namespace solar
 		/// Set window title.
 		/// </summary>
 		/// <param name="title">Title to set</param>
-		void SetTitle(const char* title = DEFAULT_TITLE);
+		void SetWindowTitle(const char* title = DEFAULT_TITLE);
 
 		/// <summary>
 		/// Set whether window is resizable.
 		/// </summary>
 		/// <param name="resizable">Window resizable</param>
-		void SetResizable(bool resizable = false);
+		void SetWindowResizable(bool resizable = false);
 		/// <summary>
 		/// Set whether window is focused.
 		/// </summary>
 		/// <param name="focused">Window focused</param>
-		void SetFocused(bool focused = true);
+		void SetWindowFocused(bool focused = true);
 		/// <summary>
 		/// Set whether window is maximized.
 		/// </summary>
 		/// <param name="maximized">Window maximized</param>
-		void SetMaximized(bool maximized = false);
+		void SetWindowMaximized(bool maximized = false);
 
 		/// <summary>
 		/// Clear background color.

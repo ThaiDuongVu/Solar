@@ -31,20 +31,20 @@ namespace solar
 		App::window_width = width;
 		App::window_height = height;
 	}
-	void App::SetTitle(const char* title)
+	void App::SetWindowTitle(const char* title)
 	{
 		App::title = title;
 	}
 
-	void App::SetResizable(bool resizable)
+	void App::SetWindowResizable(bool resizable)
 	{
 		glfwWindowHint(GLFW_RESIZABLE, resizable);
 	}
-	void App::SetFocused(bool focused)
+	void App::SetWindowFocused(bool focused)
 	{
 		glfwWindowHint(GLFW_FOCUSED, focused);
 	}
-	void App::SetMaximized(bool maximized)
+	void App::SetWindowMaximized(bool maximized)
 	{
 		glfwWindowHint(GLFW_MAXIMIZED, maximized);
 	}
@@ -118,11 +118,11 @@ namespace solar
 		}
 
 		// Disable resizability by default
-		SetResizable();
+		SetWindowResizable();
 		// Focus window by default
-		SetFocused();
+		SetWindowFocused();
 		// Disable window maximized by default
-		SetMaximized();
+		SetWindowMaximized();
 
 		Init();
 

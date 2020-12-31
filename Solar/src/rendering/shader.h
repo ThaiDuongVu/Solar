@@ -50,10 +50,23 @@ namespace solar
 		/// </summary>
 		void Delete();
 
-		// Utility uniform functions
-
+		/// <summary>
+		/// Set shader bool value.
+		/// </summary>
+		/// <param name="name">Name of value</param>
+		/// <param name="value">Value to set</param>
 		void SetBool(const std::string& name, bool value) const;
+		/// <summary>
+		/// Set shader int value.
+		/// </summary>
+		/// <param name="name">Name of value</param>
+		/// <param name="value">Value to set</param>
 		void SetInt(const std::string& name, int value) const;
+		/// <summary>
+		/// Set shader float value.
+		/// </summary>
+		/// <param name="name">Name of value</param>
+		/// <param name="value">Value to set</param>
 		void SetFloat(const std::string& name, float value) const;
 	};
 } // namespace solar

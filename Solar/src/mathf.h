@@ -4,6 +4,8 @@
 #define SOLAR_MATHF_H_
 
 #include "core.h"
+#include <random>
+#include <chrono>
 
 namespace solar
 {
@@ -348,6 +350,11 @@ namespace solar
 		/// <param name="value">Value in degrees</param>
 		/// <returns>Converted value</returns>
 		static double DegreeToRadian(double value);
+#pragma endregion
+
+#pragma region Random
+		static double Random(double min, double max);
+		static int Random(int min, int max);
 #pragma endregion
 
 	};

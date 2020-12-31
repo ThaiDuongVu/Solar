@@ -252,4 +252,23 @@ namespace solar
 	}
 #pragma endregion
 
+#pragma region Random
+	double Mathf::Random(double min, double max)
+	{
+		unsigned int seed = (unsigned int)std::chrono::system_clock::now().time_since_epoch().count();
+		std::default_random_engine engine(seed);
+		std::uniform_real_distribution<double> uniform_double(min, max);
+
+		return uniform_double(engine);
+	}
+	int Mathf::Random(int min, int max)
+	{
+		unsigned int seed = (unsigned int)std::chrono::system_clock::now().time_since_epoch().count();
+		std::default_random_engine engine(seed);
+		std::uniform_int_distribution<int> uniform_int(min, max);
+
+		return uniform_int(engine);
+	}
+#pragma endregion
+
 } // namespace solar

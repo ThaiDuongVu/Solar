@@ -13,7 +13,7 @@ void App::Init()
 	App::SetWindowSize(800, 600);
 
 	// Set window title to "Lunar System"
-	App::SetTitle("Lunar System");
+	App::SetWindowTitle("Lunar System");
 
 	triangle.SetBounded(true);
 	square.SetBounded(true);
