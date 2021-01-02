@@ -73,8 +73,6 @@ namespace solar
 		/// </summary>
 		bool is_bounded = false;
 
-		const float scale_factor_ = 0.1f;
-
 		/// <summary>
 		/// Vertices needed to draw a Square.
 		/// </summary>
@@ -108,7 +106,7 @@ namespace solar
 		/// <param name="app">Application to limit to</param>
 		/// <param name="width_scale">Width scale of the window</param>
 		/// <param name="height_scale">Height scale of the window</param>
-		void Bound(App app, double width_scale, double height_scale);
+		void CalculateBound(App app);
 
 		/// <summary>
 		/// Calculate vertex coordinates based on current rotation.

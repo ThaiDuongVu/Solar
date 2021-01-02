@@ -66,21 +66,16 @@ namespace solar
 		double x = transform.position.x;
 		double y = transform.position.y;
 
-		// Width & height scale factor
-		double width_scale = (app.Width() / 2.0f * (double)scale_factor_);
-		double height_scale = (app.Height() / 2.0f * (double)scale_factor_);
-
 		// Down vertex
-		vertex[0] = Vector2(x / width_scale, y / height_scale) * scale_factor_;
+		vertex[0] = Vector2(x / (app.Width() / 2.0f), y / (app.Height() / 2.0f));
 		// Up vertex
-		vertex[1] = Vector2(x / width_scale, y / height_scale + length) * scale_factor_;
+		vertex[1] = Vector2(x / (app.Width() / 2.0f), y / (app.Height() / 2.0f) + length / app.Height());
 
 		for (int i = 0; i < 2; i++)
 		{
 			vertex[i] = CalculateRotation(app, vertex[i]);
-			vertex[i] *= Vector2(OBJECT_SCALER / app.Width(), OBJECT_SCALER / app.Height());
 		}
-		if (is_bounded) Bound(app, width_scale, height_scale);
+		if (is_bounded) CalculateBound(app);
 
 		vertices[0] = (float)vertex[0].x;
 		vertices[1] = (float)vertex[0].y;
@@ -88,7 +83,7 @@ namespace solar
 		vertices[4] = (float)vertex[1].y;
 	}
 
-	void Line::Bound(App app, double width_scale, double height_scale)
+	void Line::CalculateBound(App app)
 	{
 
 	}
@@ -98,12 +93,12 @@ namespace solar
 		double sin = Mathf::Sin(Mathf::DegreeToRadian(transform.rotation));
 		double cos = Mathf::Cos(Mathf::DegreeToRadian(transform.rotation));
 
-		// Scale factors
-		double x_scale = transform.position.x / app.Width() * 2.0f;
-		double y_scale = transform.position.y / app.Height() * 2.0f;
+		// Point of rotation
+		double x_point = transform.position.x / (app.Width() / 2.0f);
+		double y_point = transform.position.y / (app.Height() / 2.0f);
 
 		// Rotate vertex vector to match with current rotation
-		return Vector2(cos * (vertex.x - x_scale) - sin * (vertex.y - y_scale) + x_scale, sin * (vertex.x - x_scale) + cos * (vertex.y - y_scale) + y_scale);
+		return Vector2(cos * (vertex.x - x_point) - sin * (vertex.y - y_point) + x_point, sin * (vertex.x - x_point) + cos * (vertex.y - y_point) + y_point);
 	}
 
 	void Line::Draw(App app, DrawMode draw_mode)

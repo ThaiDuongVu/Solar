@@ -17,7 +17,6 @@ void App::Init()
 
 	triangle.SetBounded(true);
 	square.SetBounded(true);
-	line.SetLength(2.0f);
 }
 
 void App::Update(double frame_time)
@@ -29,15 +28,15 @@ void App::Update(double frame_time)
 		App::Quit();
 
 	if (Input::IsPresetDown(Input::Presets::kPresetFire1))
-		triangle.Rotate(1.0f);
+		square.Rotate(1.0f);
 
 	if (Input::IsPresetDown(Input::Presets::kPresetFire2))
-		triangle.Rotate(-1.0f);
+		square.Rotate(-1.0f);
 
 	if (Input::OnKeyDown(Input::Keys::kKeySpace))
 		triangle.SetColor(Color::Red());
 
-	square.Move(Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical)) * 5.0f);
+	line.Move(Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical)) * 5.0f);
 
 	line.Rotate(10.0f);
 }

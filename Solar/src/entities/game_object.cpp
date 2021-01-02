@@ -25,6 +25,9 @@ namespace solar
 	void GameObject::Rotate(double rotation)
 	{
 		transform.rotation += rotation;
+
+		if (transform.rotation >= 360.0f)
+			transform.rotation = 0.0f;
 	}
 
 	void GameObject::Scale(Vector2 scale)

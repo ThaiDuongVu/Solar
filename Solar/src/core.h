@@ -14,6 +14,4 @@
 // When no title is set by user
 #define DEFAULT_TITLE "Solar System"
 
-#define OBJECT_SCALER 720.0f
-
 #endif // !SOLAR_CORE_H_

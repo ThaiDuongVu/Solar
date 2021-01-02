@@ -17,7 +17,7 @@ namespace solar
 		/// <param name="position">Initial position</param>
 		/// <param name="rotation">Initial rotation</param>
 		/// <param name="scale">Initial scale</param>
-		Transform(Vector2 position = Vector2::Zero(), double rotation = 0.0f, Vector2 scale = Vector2::Identity());
+		Transform(Vector2 position = Vector2::Zero(), double rotation = 0.0f, Vector2 scale = Vector2(50.0f, 50.0f));
 		/// <summary>
 		/// Destructor.
 		/// </summary>
