@@ -1,6 +1,7 @@
 #include "line.h"
 #include "../mathf.h"
 #include "../core.h"
+#include "../debug.h"
 #include <glad.h>
 #include <glfw3.h>
 #include <glm.hpp>
@@ -69,12 +70,13 @@ namespace solar
 		// Down vertex
 		vertex[0] = Vector2(x / (app.Width() / 2.0f), y / (app.Height() / 2.0f));
 		// Up vertex
-		vertex[1] = Vector2(x / (app.Width() / 2.0f), y / (app.Height() / 2.0f) + length / app.Height());
+		vertex[1] = Vector2(x / (app.Width() / 2.0f), y / (app.Height() / 2.0f) + length / (app.Height()));
 
 		for (int i = 0; i < 2; i++)
 		{
 			vertex[i] = CalculateRotation(app, vertex[i]);
 		}
+		//Debug::Log(vertex[1].ToString());
 		if (is_bounded) CalculateBound(app);
 
 		vertices[0] = (float)vertex[0].x;
@@ -94,11 +96,17 @@ namespace solar
 		double cos = Mathf::Cos(Mathf::DegreeToRadian(transform.rotation));
 
 		// Point of rotation
-		double x_point = transform.position.x / (app.Width() / 2.0f);
-		double y_point = transform.position.y / (app.Height() / 2.0f);
+		double x_point = transform.position.x;
+		double y_point = transform.position.y;
+
+		// Current vertex point
+		double vertex_x = vertex.x * (app.Width() / 2.0f);
+		double vertex_y = vertex.y * (app.Height() / 2.0f);
 
 		// Rotate vertex vector to match with current rotation
-		return Vector2(cos * (vertex.x - x_point) - sin * (vertex.y - y_point) + x_point, sin * (vertex.x - x_point) + cos * (vertex.y - y_point) + y_point);
+		return (Vector2(x_point, y_point)
+			+ Vector2(cos * (vertex_x - x_point) - sin * (vertex_y - y_point), sin * (vertex_x - x_point) + cos * (vertex_y - y_point)))
+			/ Vector2((app.Width() / 2.0f), (app.Height() / 2.0f));
 	}
 
 	void Line::Draw(App app, DrawMode draw_mode)
