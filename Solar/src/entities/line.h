@@ -32,39 +32,6 @@ namespace solar
 		~Line();
 
 		/// <summary>
-		/// Render line.
-		/// </summary>
-		/// <param name="app">Application to render on</param>
-		/// <param name="draw_mode">Which mode to draw</param>
-		void Draw(App app, DrawMode draw_mode = DrawMode::kLine);
-
-		/// <summary>
-		/// Change line color.
-		/// </summary>
-		/// <param name="color">Color to set</param>
-		void SetColor(Color color = Color::White());
-		/// <summary>
-		/// Set whether object is bounded.
-		/// </summary>
-		/// <param name="is_bounded">Value to set</param>
-		void SetBounded(bool is_bounded = false);
-		/// <summary>
-		/// Set line length.
-		/// </summary>
-		/// <param name="length">Length to set</param>
-		void SetLength(double length = 1.0f);
-
-	private:
-		/// <summary>
-		/// Vertex buffer objects.
-		/// </summary>
-		unsigned int vbo = NULL;
-		/// <summary>
-		/// Vertex array object.
-		/// </summary>
-		unsigned int vao = NULL;
-
-		/// <summary>
 		/// Line color.
 		/// </summary>
 		Color color = Color::White();
@@ -76,6 +43,23 @@ namespace solar
 		/// Line length.
 		/// </summary>
 		double length = 50.0f;
+
+		/// <summary>
+		/// Render line.
+		/// </summary>
+		/// <param name="app">Application to render on</param>
+		/// <param name="draw_mode">Which mode to draw</param>
+		void Draw(App app, DrawMode draw_mode = DrawMode::kLine);
+
+	private:
+		/// <summary>
+		/// Vertex buffer objects.
+		/// </summary>
+		unsigned int vbo = NULL;
+		/// <summary>
+		/// Vertex array object.
+		/// </summary>
+		unsigned int vao = NULL;
 
 		/// <summary>
 		/// Vertices needed to draw a line.
@@ -99,7 +83,7 @@ namespace solar
 		/// <param name="app">Application to init on</param>
 		void Init(App app);
 		/// <summary>
-		/// Update triangle line.
+		/// Update line vertices.
 		/// </summary>
 		/// <param name="app">Application to update on</param>
 		void Update(App app);

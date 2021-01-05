@@ -1212,6 +1212,9 @@
     <ClInclude Include="src\entities\square.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\entities\text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dependencies\include\glad\glad.c">
@@ -1263,6 +1266,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\entities\square.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\text.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

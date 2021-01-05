@@ -3,9 +3,8 @@ using namespace solar;
 
 Color32 background_color = Color32(34, 40, 49, 255);
 
-Triangle triangle = Triangle();
-Square square = Square();
 Line line = Line();
+Triangle triangle = Triangle();
 
 void App::Init()
 {
@@ -15,9 +14,7 @@ void App::Init()
 	// Set window title to "Lunar System"
 	App::SetWindowTitle("Lunar System");
 
-	triangle.SetBounded(true);
-	square.SetBounded(true);
-	line.SetLength(200.0f);
+	triangle.is_bounded = true;
 }
 
 void App::Update(double frame_time)
@@ -25,21 +22,13 @@ void App::Update(double frame_time)
 	// Frames per 1 second
 	// Debug::Log(Time::FrameRate(1));
 
-	if (Input::IsPresetDown(Input::Presets::kPresetEscape))
+	if (Input::OnPresetDown(Input::Presets::kPresetEscape))
 		App::Quit();
 
-	if (Input::IsPresetDown(Input::Presets::kPresetFire1))
-		square.Rotate(1.0f);
-
-	if (Input::IsPresetDown(Input::Presets::kPresetFire2))
-		square.Rotate(-1.0f);
-
 	if (Input::OnKeyDown(Input::Keys::kKeySpace))
-		triangle.SetColor(Color::Red());
+		triangle.color = Color::Red();
 
-	square.Move(Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical)) * 5.0f);
-
-	line.Rotate(15.0f);
+	triangle.Move(Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical)) * 5.0f);
 }
 
 void App::Render()
@@ -47,9 +36,8 @@ void App::Render()
 	// Clear background color
 	App::ClearBackground(background_color.Normalize());
 
-	triangle.Draw(*this, GameObject::DrawMode::kLine);
-	square.Draw(*this, GameObject::DrawMode::kLine);
 	line.Draw(*this);
+	triangle.Draw(*this, GameObject::DrawMode::kLine);
 }
 
 void App::Exit()

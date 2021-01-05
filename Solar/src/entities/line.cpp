@@ -1,7 +1,6 @@
 #include "line.h"
 #include "../mathf.h"
 #include "../core.h"
-#include "../debug.h"
 #include <glad.h>
 #include <glfw3.h>
 #include <glm.hpp>
@@ -17,25 +16,6 @@ namespace solar
 		glDeleteVertexArrays(1, &vao);
 		glDeleteBuffers(1, &vbo);
 		shader.Delete();
-	}
-
-	void Line::SetColor(Color color)
-	{
-		this->color = color;
-
-		shader.Use();
-		shader.SetFloat("red", this->color.r);
-		shader.SetFloat("green", this->color.g);
-		shader.SetFloat("blue", this->color.b);
-		shader.SetFloat("alpha", this->color.a);
-	}
-	void Line::SetBounded(bool is_bounded)
-	{
-		this->is_bounded = is_bounded;
-	}
-	void Line::SetLength(double length)
-	{
-		this->length = length;
 	}
 
 	void Line::Init(App app)
@@ -55,8 +35,6 @@ namespace solar
 		// How to interpret the vertex data
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
-
-		SetColor(this->color);
 
 		// Finish initialization
 		done_init = true;
@@ -123,6 +101,13 @@ namespace solar
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		Update(app);
+
+		// Set shader color
+		shader.Use();
+		shader.SetFloat("red", this->color.r);
+		shader.SetFloat("green", this->color.g);
+		shader.SetFloat("blue", this->color.b);
+		shader.SetFloat("alpha", this->color.a);
 
 		// Buffer vertices
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);

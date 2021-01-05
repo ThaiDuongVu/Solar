@@ -18,21 +18,6 @@ namespace solar
 		shader.Delete();
 	}
 
-	void Triangle::SetColor(Color color)
-	{
-		this->color = color;
-
-		shader.Use();
-		shader.SetFloat("red", this->color.r);
-		shader.SetFloat("green", this->color.g);
-		shader.SetFloat("blue", this->color.b);
-		shader.SetFloat("alpha", this->color.a);
-	}
-	void Triangle::SetBounded(bool is_bounded)
-	{
-		this->is_bounded = is_bounded;
-	}
-
 	void Triangle::Init(App app)
 	{
 		// Initialize shader
@@ -50,8 +35,6 @@ namespace solar
 		// How to interpret the vertex data
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
-
-		SetColor(this->color);
 
 		// Finish initialization
 		done_init = true;
@@ -90,13 +73,13 @@ namespace solar
 	void Triangle::CalculateBound(App app)
 	{
 		// Bound horizontally
-		double x_left_bound = (-(app.Width() / 2.0f) + transform.scale.x / 2.0f);
+		double x_left_bound = (-(app.Width() / 2.0f) + (transform.scale.x * (Mathf::Sin(transform.rotation) + Mathf::Cos(transform.rotation))) / 2.0f);
 		double x_right_bound = -x_left_bound;
 		if (transform.position.x < x_left_bound) transform.position.x = x_left_bound;
 		else if (transform.position.x > x_right_bound) transform.position.x = x_right_bound;
 
 		// Bound vertically
-		double y_lower_bound = (-(app.Height() / 2.0f) + transform.scale.y / 2.0f);
+		double y_lower_bound = (-(app.Height() / 2.0f) + (transform.scale.y * (Mathf::Sin(transform.rotation) + Mathf::Cos(transform.rotation))) / 2.0f);
 		double y_upper_bound = -y_lower_bound;
 		if (transform.position.y < y_lower_bound) transform.position.y = y_lower_bound;
 		else if (transform.position.y > y_upper_bound) transform.position.y = y_upper_bound;
@@ -135,6 +118,13 @@ namespace solar
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		Update(app);
+
+		// Set shader color
+		shader.Use();
+		shader.SetFloat("red", this->color.r);
+		shader.SetFloat("green", this->color.g);
+		shader.SetFloat("blue", this->color.b);
+		shader.SetFloat("alpha", this->color.a);
 
 		// Buffer vertices
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);

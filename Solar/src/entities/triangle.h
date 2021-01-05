@@ -32,22 +32,20 @@ namespace solar
 		~Triangle();
 
 		/// <summary>
+		/// Triangle color.
+		/// </summary>
+		Color color = Color::White();
+		/// <summary>
+		/// Whether object is confined within window bound.
+		/// </summary>
+		bool is_bounded = false;
+
+		/// <summary>
 		/// Render triangle.
 		/// </summary>
 		/// <param name="app">Application to render on</param>
 		/// <param name="draw_mode">Which mode to draw</param>
 		void Draw(App app, DrawMode draw_mode = DrawMode::kFill);
-
-		/// <summary>
-		/// Change triangle color.
-		/// </summary>
-		/// <param name="color">Color to set</param>
-		void SetColor(Color color = Color::White());
-		/// <summary>
-		/// Set whether object is bounded.
-		/// </summary>
-		/// <param name="is_bounded">Value to set</param>
-		void SetBounded(bool is_bounded = false);
 
 	private:
 		/// <summary>
@@ -58,15 +56,6 @@ namespace solar
 		/// Vertex array object.
 		/// </summary>
 		unsigned int vao = NULL;
-
-		/// <summary>
-		/// Triangle color.
-		/// </summary>
-		Color color = Color::White();
-		/// <summary>
-		/// Whether object is confined within window bound.
-		/// </summary>
-		bool is_bounded = false;
 
 		/// <summary>
 		/// Vertices needed to draw a triangle.

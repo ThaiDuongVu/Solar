@@ -32,27 +32,20 @@ namespace solar
 		~Square();
 
 		/// <summary>
+		/// Square color.
+		/// </summary>
+		Color color = Color::White();
+		/// <summary>
+		/// Whether object is confined within window bound.
+		/// </summary>
+		bool is_bounded = false;
+
+		/// <summary>
 		/// Render square.
 		/// </summary>
 		/// <param name="app">Application to render on</param>
 		/// <param name="draw_mode">Which mode to draw</param>
 		void Draw(App app, DrawMode draw_mode = DrawMode::kFill);
-
-		/// <summary>
-		/// Change square color.
-		/// </summary>
-		/// <param name="color">Color to set</param>
-		void SetColor(Color color = Color::White());
-		/// <summary>
-		/// Set whether object is bounded.
-		/// </summary>
-		/// <param name="is_bounded">Value to set</param>
-		void SetBounded(bool is_bounded = false);
-		/// <summary>
-		/// Set Square length.
-		/// </summary>
-		/// <param name="length">Length to set</param>
-		void SetLength(double length = 1.0f);
 
 	private:
 		/// <summary>
@@ -63,15 +56,6 @@ namespace solar
 		/// Vertex array object.
 		/// </summary>
 		unsigned int vao = NULL;
-
-		/// <summary>
-		/// Square color.
-		/// </summary>
-		Color color = Color::White();
-		/// <summary>
-		/// Whether object is confined within window bound.
-		/// </summary>
-		bool is_bounded = false;
 
 		/// <summary>
 		/// Vertices needed to draw a Square.
@@ -85,17 +69,17 @@ namespace solar
 		Shader shader = Shader("./resources/default_vertex_shader.shader", "./resources/default_fragment_shader.shader");
 
 		/// <summary>
-		/// Whether Square has been initialized.
+		/// Whether square has been initialized.
 		/// </summary>
 		bool done_init = false;
 
 		/// <summary>
-		/// Initialize Square.
+		/// Initialize square.
 		/// </summary>
 		/// <param name="app">Application to init on</param>
 		void Init(App app);
 		/// <summary>
-		/// Update triangle Square.
+		/// Update square vertices.
 		/// </summary>
 		/// <param name="app">Application to update on</param>
 		void Update(App app);

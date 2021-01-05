@@ -410,6 +410,7 @@
     <ClInclude Include="src\types\vector2.h" />
     <ClInclude Include="src\components\transform.h" />
     <ClInclude Include="src\entities\triangle.h" />
+    <ClInclude Include="src\entities\text.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\entities\square.cpp" />
@@ -429,6 +430,7 @@
     <ClCompile Include="src\types\vector2.cpp" />
     <ClCompile Include="src\components\transform.cpp" />
     <ClCompile Include="src\entities\triangle.cpp" />
+    <ClCompile Include="src\entities\text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\include\glm\detail\func_common.inl" />
