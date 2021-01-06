@@ -41,6 +41,11 @@ namespace solar
 		bool is_bounded = false;
 
 		/// <summary>
+		/// Square shader.
+		/// </summary>
+		Shader shader = Shader("./resources/default_vertex_shader.shader", "./resources/default_fragment_shader.shader");
+
+		/// <summary>
 		/// Render square.
 		/// </summary>
 		/// <param name="app">Application to render on</param>
@@ -61,12 +66,13 @@ namespace solar
 		/// Vertices needed to draw a Square.
 		/// </summary>
 		Vector2 vertex[4] = { NULL, NULL, NULL, NULL };
-		float vertices[12] = { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL };
-
-		/// <summary>
-		/// Square shader.
-		/// </summary>
-		Shader shader = Shader("./resources/default_vertex_shader.shader", "./resources/default_fragment_shader.shader");
+		float vertices[24] = { 
+			// Position data	// Color data
+			0.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.0f, 
+			0.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.0f, 
+			0.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.0f, 
+			0.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.0f 
+		};
 
 		/// <summary>
 		/// Whether square has been initialized.

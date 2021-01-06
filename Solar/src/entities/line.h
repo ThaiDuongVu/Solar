@@ -65,7 +65,11 @@ namespace solar
 		/// Vertices needed to draw a line.
 		/// </summary>
 		Vector2 vertex[2] = { NULL, NULL };
-		float vertices[6] = { NULL,NULL, NULL, NULL, NULL, NULL };
+		float vertices[12] = {
+			// Position data	// Color data
+			0.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			0.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.0f 
+		};
 
 		/// <summary>
 		/// Line shader.

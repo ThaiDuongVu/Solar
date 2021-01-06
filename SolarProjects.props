@@ -82,7 +82,7 @@
       if not exist $(OutDir)resources mkdir $(OutDir)resources
       xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_fragment_shader.shader" "$(OutDir)resources"
       xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_shader.shader" "$(OutDir)resources"
-      xcopy /y /d "$(SolutionDir)Solar\resources\font.ttf" "$(OutDir)resources"
+      xcopy /y /d "$(SolutionDir)Solar\resources\default_font.ttf" "$(OutDir)resources"
       </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -115,7 +115,7 @@
       if not exist $(OutDir)resources mkdir $(OutDir)resources
       xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_fragment_shader.shader" "$(OutDir)resources"
       xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_shader.shader" "$(OutDir)resources"
-      xcopy /y /d "$(SolutionDir)Solar\resources\font.ttf" "$(OutDir)resources"
+      xcopy /y /d "$(SolutionDir)Solar\resources\default_font.ttf" "$(OutDir)resources"
       </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

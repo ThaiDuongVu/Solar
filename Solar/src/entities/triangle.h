@@ -61,7 +61,12 @@ namespace solar
 		/// Vertices needed to draw a triangle.
 		/// </summary>
 		Vector2 vertex[3] = { NULL, NULL, NULL };
-		float vertices[9] = { NULL,NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL };
+		float vertices[18] = {
+			// Position data	// Color data
+			0.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			0.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			0.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.0f
+		};
 
 		/// <summary>
 		/// Triangle shader.
@@ -91,7 +96,7 @@ namespace solar
 		/// <param name="width_scale">Width scale of the window</param>
 		/// <param name="height_scale">Height scale of the window</param>
 		void CalculateBound(App app);
-		
+
 		/// <summary>
 		/// Calculate vertex coordinates based on current rotation.
 		/// </summary>

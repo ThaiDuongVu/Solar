@@ -1,10 +1,9 @@
 #version 330 core
-out vec4 color;
-uniform float red = 1.0f;
-uniform float green = 1.0f;
-uniform float blue = 1.0f;
-uniform float alpha = 1.0f;
+
+out vec4 FragColor;
+in vec3 ourColor;
+
 void main()
 {
-	color = vec4(red, green, blue, alpha);
+    FragColor = vec4(ourColor, 1.0);
 }

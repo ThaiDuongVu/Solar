@@ -1,6 +1,7 @@
 #include "triangle.h"
 #include "../mathf.h"
 #include "../core.h"
+#include "../debug.h"
 #include <glad.h>
 #include <glfw3.h>
 #include <glm.hpp>
@@ -33,8 +34,12 @@ namespace solar
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
 
 		// How to interpret the vertex data
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+		// Position attribute
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
+		// Color attribute
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+		glEnableVertexAttribArray(1);
 
 		// Finish initialization
 		done_init = true;
@@ -64,10 +69,24 @@ namespace solar
 
 		vertices[0] = (float)vertex[0].x;
 		vertices[1] = (float)vertex[0].y;
-		vertices[3] = (float)vertex[1].x;
-		vertices[4] = (float)vertex[1].y;
-		vertices[6] = (float)vertex[2].x;
-		vertices[7] = (float)vertex[2].y;
+		vertices[2] = 0.0f;
+		vertices[3] = color.r;
+		vertices[4] = color.g;
+		vertices[5] = color.b;
+
+		vertices[6] = (float)vertex[1].x;
+		vertices[7] = (float)vertex[1].y;
+		vertices[8] = 0.0f;
+		vertices[9] = color.r;
+		vertices[10] = color.g;
+		vertices[11] = color.b;
+
+		vertices[12] = (float)vertex[2].x;
+		vertices[13] = (float)vertex[2].y;
+		vertices[14] = 0.0f;
+		vertices[15] = color.r;
+		vertices[16] = color.g;
+		vertices[17] = color.b;
 	}
 
 	void Triangle::CalculateBound(App app)
@@ -119,12 +138,7 @@ namespace solar
 
 		Update(app);
 
-		// Set shader color
 		shader.Use();
-		shader.SetFloat("red", this->color.r);
-		shader.SetFloat("green", this->color.g);
-		shader.SetFloat("blue", this->color.b);
-		shader.SetFloat("alpha", this->color.a);
 
 		// Buffer vertices
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
