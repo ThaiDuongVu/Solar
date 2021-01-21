@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{14f35a1f-fc5f-4005-b7b6-ce69136c55f4}</ProjectGuid>
+    <ProjectGuid>{14F35A1F-FC5F-4005-B7B6-CE69136C55F4}</ProjectGuid>
     <RootNamespace>Pong</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -131,6 +131,8 @@
       if not exist $(OutDir)resources mkdir $(OutDir)resources
       xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_fragment_shader.shader" "$(OutDir)resources"
       xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_shader.shader" "$(OutDir)resources"
+      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_fragment_text_shader.shader" "$(OutDir)resources"
+      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_text_shader.shader" "$(OutDir)resources"
       xcopy /y /d "$(SolutionDir)Solar\resources\default_font.ttf" "$(OutDir)resources"
       </Command>
     </PostBuildEvent>

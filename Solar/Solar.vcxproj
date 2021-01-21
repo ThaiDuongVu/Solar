@@ -570,7 +570,9 @@
     <None Include="dependencies\include\glm\gtx\vector_query.inl" />
     <None Include="dependencies\include\glm\gtx\wrap.inl" />
     <None Include="src\rendering\default_fragment_shader.shader" />
+    <None Include="src\rendering\default_fragment_text_shader.shader" />
     <None Include="src\rendering\default_vertex_shader.shader" />
+    <None Include="src\rendering\default_vertex_text_shader.shader" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="resources\font.ttf" />

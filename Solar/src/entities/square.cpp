@@ -148,13 +148,6 @@ namespace solar
 
 		Update(app);
 
-		// Set shader color
-		//shader.Use();
-		/*shader.SetFloat("red", this->color.r);
-		shader.SetFloat("green", this->color.g);
-		shader.SetFloat("blue", this->color.b);
-		shader.SetFloat("alpha", this->color.a);*/
-
 		// Buffer vertices
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
 

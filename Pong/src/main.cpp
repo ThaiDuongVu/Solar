@@ -22,6 +22,8 @@ Square player2 = Square(PLAYER_COLOR.Normalize());
 Square ball = Square(BALL_COLOR.Normalize());
 Vector2 ball_movement = Vector2::Right() * BALL_SPEED;
 
+Text text = Text("Hello", Color::White());
+
 void App::Init()
 {
 	// Set window size
@@ -42,6 +44,8 @@ void App::Init()
 
 	// Set initial ball values
 	ball.transform.scale = BALL_SCALE;
+
+	text.transform.scale = Vector2(1.0f, 1.0f);
 }
 
 void App::Update(double frame_time)
@@ -103,6 +107,9 @@ void App::Render()
 	// Render players
 	player1.Draw(*this, GameObject::DrawMode::kFill);
 	player2.Draw(*this, GameObject::DrawMode::kFill);
+
+	// Render text
+	text.Draw(*this);
 }
 
 void App::Exit()
