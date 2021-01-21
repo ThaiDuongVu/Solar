@@ -628,6 +628,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\dependencies\include\freetype;$(SolutionDir)$(ProjectName)\dependencies\include\glfw;$(SolutionDir)$(ProjectName)\dependencies\include\glm;$(SolutionDir)$(ProjectName)\dependencies\include\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -650,6 +651,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\dependencies\include\freetype;$(SolutionDir)$(ProjectName)\dependencies\include\glfw;$(SolutionDir)$(ProjectName)\dependencies\include\glm;$(SolutionDir)$(ProjectName)\dependencies\include\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

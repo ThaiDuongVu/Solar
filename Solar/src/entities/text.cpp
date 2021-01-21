@@ -41,7 +41,6 @@ namespace solar
 
 	void Text::Init(App app)
 	{
-		glEnable(GL_CULL_FACE);
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -114,18 +113,22 @@ namespace solar
 		FT_Done_Face(face);
 		FT_Done_FreeType(ft);
 
+		// Generate buffer and vertex array
 		glGenBuffers(1, &vbo);
 		glGenVertexArrays(1, &vao);
 
+		// Bind buffer and vertex array
 		glBindVertexArray(vao);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
 
+		// How to interpret the vertex data
+		//Position attribute
 		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), 0);
 		glEnableVertexAttribArray(0);
 
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 		done_init = true;
 	}
@@ -145,42 +148,43 @@ namespace solar
 		float y = (float)transform.position.y;
 
 		// Iterate through all characters
-		std::string::const_iterator c;
-		for (c = message.begin(); c != message.end(); c++)
+		for (std::string::const_iterator c = message.begin(); c != message.end(); c++)
 		{
 			Character ch = characters[*c];
 
-			float xpos = (float)(x + ch.bearing.x * transform.scale.x);
-			float ypos = (float)(y - (ch.size.y - ch.bearing.y) * transform.scale.y);
+			float x_pos = (float)(x + ch.bearing.x * transform.scale.x);
+			float y_pos = (float)(y - (ch.size.y - ch.bearing.y) * transform.scale.y);
 
-			float w = (float)(ch.size.x * transform.scale.x);
-			float h = (float)(ch.size.y * transform.scale.y);
+			float width = (float)(ch.size.x * transform.scale.x);
+			float height = (float)(ch.size.y * transform.scale.y);
 
 			// Update VBO for each character
 			float vertices[6][4] = {
-				{ xpos,     ypos + h,   0.0f, 0.0f },
-				{ xpos,     ypos,       0.0f, 1.0f },
-				{ xpos + w, ypos,       1.0f, 1.0f },
+				{ x_pos,		 y_pos + height,   0.0f, 0.0f },
+				{ x_pos,		 y_pos,			   0.0f, 1.0f },
+				{ x_pos + width, y_pos,			   1.0f, 1.0f },
 
-				{ xpos,     ypos + h,   0.0f, 0.0f },
-				{ xpos + w, ypos,       1.0f, 1.0f },
-				{ xpos + w, ypos + h,   1.0f, 0.0f }
+				{ x_pos,		 y_pos + height,   0.0f, 0.0f },
+				{ x_pos + width, y_pos,			   1.0f, 1.0f },
+				{ x_pos + width, y_pos + height,   1.0f, 0.0f }
 			};
+
 			// Render glyph texture over quad
 			glBindTexture(GL_TEXTURE_2D, ch.texture_id);
 
 			// Update content of VBO memory
 			glBindBuffer(GL_ARRAY_BUFFER, vbo);
 			glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
 			// Render quad
 			glDrawArrays(GL_TRIANGLES, 0, 6);
 
-			// Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
+			// Advance cursors for next glyph (note that advance is number of 1/64 pixels)
 			// Bitshift by 6 to get value in pixels (2^6 = 64)
 			x += (float)((ch.advance >> 6) * transform.scale.x);
 		}
+
 		glBindVertexArray(0);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}

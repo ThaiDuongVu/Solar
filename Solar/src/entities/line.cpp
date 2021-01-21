@@ -27,19 +27,6 @@ namespace solar
 		glGenBuffers(1, &vbo);
 		glGenVertexArrays(1, &vao);
 
-		// Bind buffer and vertex array
-		glBindVertexArray(vao);
-		glBindBuffer(GL_ARRAY_BUFFER, vbo);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
-
-		// How to interpret the vertex data
-		// Position attribute
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-		// Color attribute
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-		glEnableVertexAttribArray(1);
-
 		// Finish initialization
 		done_init = true;
 	}
@@ -102,7 +89,7 @@ namespace solar
 
 	void Line::Draw(App app, DrawMode draw_mode)
 	{
-		// If object is not visible then return
+		// If object is not visible then don't render
 		if (!this->is_visible) return;
 
 		// Perform initialization if not already
@@ -115,10 +102,23 @@ namespace solar
 
 		Update(app);
 
-		shader.Use();
-
+		/* ----- Offload this part to initialization instead? ----- */
+		// Bind buffer and vertex array
+		glBindVertexArray(vao);
+		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 		// Buffer vertices
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
+
+		// How to interpret the vertex data
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+		glEnableVertexAttribArray(1);
+
+		// Ativate shader
+		shader.Use();
+		/* -------------------------------------------------------- */
+
 		// Draw vertices
 		glDrawArrays(GL_LINE_STRIP, 0, 2);
 	}
