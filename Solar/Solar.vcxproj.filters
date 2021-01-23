@@ -1688,5 +1688,6 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="resources\font.ttf" />
+    <Font Include="resources\default_font.ttf" />
   </ItemGroup>
 </Project>

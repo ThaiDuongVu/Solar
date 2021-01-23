@@ -1,4 +1,5 @@
 #include <solar.h>
+#include <string>
 using namespace solar;
 
 // Values for window
@@ -17,12 +18,17 @@ using namespace solar;
 #define BALL_SPEED 5.0f
 
 Square player1 = Square(PLAYER_COLOR.Normalize());
+unsigned int player1_score = 0;
+Text player1_score_text = Text("0", PLAYER_COLOR.Normalize(), Transform::Default(), Font("./resources/default_font.ttf", 0, 32));
+
 Square player2 = Square(PLAYER_COLOR.Normalize());
+unsigned int player2_score = 0;
+Text player2_score_text = Text("0", PLAYER_COLOR.Normalize(), Transform::Default(), Font("./resources/default_font.ttf", 0, 32));
 
 Square ball = Square(BALL_COLOR.Normalize());
 Vector2 ball_movement = Vector2::Right() * BALL_SPEED;
 
-Text text = Text("Hello", Color::White());
+Text text = Text("Press Space to start game", Color::White(), Transform::Default(), Font("./resources/default_font.ttf", 0, 32));
 
 void App::Init()
 {
@@ -45,7 +51,11 @@ void App::Init()
 	// Set initial ball values
 	ball.transform.scale = BALL_SCALE;
 
-	text.transform.scale = Vector2(1.0f, 1.0f);
+	text.transform.position.x = -225.0f;
+	text.transform.position.y = 0.0f;
+
+	player1_score_text.transform.position = Vector2(-(double)WIDTH / 2.0f + 100.0f, (double)HEIGHT / 2.0f - 100.0f);
+	player2_score_text.transform.position = Vector2((double)WIDTH / 2.0f - 100.0f, (double)HEIGHT / 2.0f - 100.0f);
 }
 
 void App::Update(double frame_time)
@@ -62,11 +72,23 @@ void App::Update(double frame_time)
 	ball.Move(ball_movement);
 
 	// Handle ball collisions
-	if (ball.transform.position.x + ball.transform.scale.x / 2.0f >= WIDTH / 2.0f || ball.transform.position.x - ball.transform.scale.x / 2.0f <= -WIDTH / 2.0f)
+	if (ball.transform.position.x + ball.transform.scale.x / 2.0f >= WIDTH / 2.0f)
 	{
 		ball.transform.position = Vector2();
 		ball_movement.x = -ball_movement.x;
 		ball_movement.y = Mathf::Random(-BALL_SPEED, BALL_SPEED);
+
+		player1_score++;
+		player1_score_text.message = std::to_string(player1_score);
+	}
+	else if (ball.transform.position.x - ball.transform.scale.x / 2.0f <= -WIDTH / 2.0f)
+	{
+		ball.transform.position = Vector2();
+		ball_movement.x = -ball_movement.x;
+		ball_movement.y = Mathf::Random(-BALL_SPEED, BALL_SPEED);
+
+		player2_score++;
+		player2_score_text.message = std::to_string(player2_score);
 	}
 
 	if (ball.transform.position.x + ball.transform.scale.x / 2.0f >= player2.transform.position.x - player2.transform.scale.x / 2.0f && ball.transform.position.x - ball.transform.scale.x / 2.0f <= player2.transform.position.x + player2.transform.scale.x / 2.0f)
@@ -110,6 +132,10 @@ void App::Render()
 
 	// Render text
 	text.Draw(*this);
+
+	// Render score texts
+	player1_score_text.Draw(*this);
+	player2_score_text.Draw(*this);
 }
 
 void App::Exit()

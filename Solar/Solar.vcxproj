@@ -575,6 +575,7 @@
     <None Include="src\rendering\default_vertex_text_shader.shader" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="resources\default_font.ttf" />
     <Font Include="resources\font.ttf" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

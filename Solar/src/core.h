@@ -7,8 +7,8 @@
 
 // Default window width & height
 // If no width & height is set by user
-#define DEFAULT_WINDOW_WIDTH 1280
-#define DEFAULT_WINDOW_HEIGHT 720
+#define DEFAULT_WINDOW_WIDTH 800
+#define DEFAULT_WINDOW_HEIGHT 600
 
 // Default window title
 // When no title is set by user

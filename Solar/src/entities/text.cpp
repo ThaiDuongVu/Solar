@@ -130,6 +130,8 @@ namespace solar
 		glBindVertexArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+		transform.scale = Vector2(1.0f, 1.0f);
+
 		done_init = true;
 	}
 
@@ -144,8 +146,8 @@ namespace solar
 		glActiveTexture(GL_TEXTURE0);
 		glBindVertexArray(vao);
 
-		float x = (float)transform.position.x;
-		float y = (float)transform.position.y;
+		float x = (float)transform.position.x + app.Width() / 2.0f;
+		float y = (float)transform.position.y + app.Height() / 2.0f;
 
 		// Iterate through all characters
 		for (std::string::const_iterator c = message.begin(); c != message.end(); c++)

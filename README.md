@@ -7,6 +7,7 @@
 ### Disclaimer
 
 **Solar** framework is free and open-source under the [MIT license](LICENSE).
+
 **Solar** only supports 64-bit Windows applications (for now).
 
 **Solar** is an education project for learning purposes, feel free to use it in personal and commercial projects, just keep in mind that support is minimal.
@@ -17,7 +18,7 @@
 
 - Visual Studio 2019 (Untested on older versions of Visual Studio)
 - or Visual Studio Code.
-- Visual C++ compiler.
+- Microsoft Visual C++ compiler.
 
 ---
 
@@ -25,9 +26,9 @@
 
 Clone Solar repository to your local system using `git clone --recursive https://github.com/ThaiDuongVu/Solar.git`
 
-Open Solar solution with Visual Studio.
+Open Solar solution `Solar.sln` with Visual Studio.
 
-You can see 2 projects in Solar solution: Solar and Lunar.
+You can see 2 projects in Solar solution: **Solar** and **Lunar**.
 
 <!-- ![projects](images/projects.png) -->
 <img src="images/projects.png" width=200>
@@ -89,7 +90,7 @@ Hit `F5` to run **Lunar**.
 
 And *voila* you have a project configured to work with Solar framework, time to jump into the code.
 
-8. Verify everything is working by creating a main.cpp in new project and running this code:
+8. Verify everything is working by creating a `main.cpp` in new project and running this code:
 
         #include <solar.h>
         using namespace solar;
@@ -104,6 +105,10 @@ And *voila* you have a project configured to work with Solar framework, time to 
 
 <!-- ![default window](images/default_window.png) -->
 <img src="images/default_window.png" width=450>
+
+---
+
+### Tutorials & Documentation
 
 ---
 
