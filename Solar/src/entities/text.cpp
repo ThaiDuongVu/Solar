@@ -1,5 +1,4 @@
 #include "text.h"
-#include <map>
 #include "../debug.h"
 #include "../types/vector2.h"
 #include <glad.h>
@@ -14,19 +13,6 @@ namespace solar
 {
 	FT_Library ft;
 	FT_Face face;
-
-	struct Character
-	{
-		// ID handle of the glyph texture
-		unsigned int texture_id = 0;
-		// Size of glyph
-		Vector2 size = Vector2();
-		// Offset from baseline to left/top of glyph
-		Vector2 bearing = Vector2();
-		// Offset to advance to next glyph
-		unsigned int advance = 0;
-	};
-	std::map<char, Character> characters;
 
 	Text::Text(std::string message, Color color, Transform transform, Font font)
 	{
@@ -108,6 +94,7 @@ namespace solar
 			};
 			characters.insert(std::pair<char, Character>(c, character));
 		}
+
 		glBindTexture(GL_TEXTURE_2D, 0);
 
 		FT_Done_Face(face);
@@ -152,13 +139,13 @@ namespace solar
 		// Iterate through all characters
 		for (std::string::const_iterator c = message.begin(); c != message.end(); c++)
 		{
-			Character ch = characters[*c];
+			Character character = characters[*c];
 
-			float x_pos = (float)(x + ch.bearing.x * transform.scale.x);
-			float y_pos = (float)(y - (ch.size.y - ch.bearing.y) * transform.scale.y);
+			float x_pos = (float)(x + character.bearing.x * transform.scale.x);
+			float y_pos = (float)(y - (character.size.y - character.bearing.y) * transform.scale.y);
 
-			float width = (float)(ch.size.x * transform.scale.x);
-			float height = (float)(ch.size.y * transform.scale.y);
+			float width = (float)(character.size.x * transform.scale.x);
+			float height = (float)(character.size.y * transform.scale.y);
 
 			// Update VBO for each character
 			float vertices[6][4] = {
@@ -172,19 +159,19 @@ namespace solar
 			};
 
 			// Render glyph texture over quad
-			glBindTexture(GL_TEXTURE_2D, ch.texture_id);
+			glBindTexture(GL_TEXTURE_2D, character.texture_id);
 
 			// Update content of VBO memory
 			glBindBuffer(GL_ARRAY_BUFFER, vbo);
 			glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
-
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
+
 			// Render quad
 			glDrawArrays(GL_TRIANGLES, 0, 6);
 
 			// Advance cursors for next glyph (note that advance is number of 1/64 pixels)
 			// Bitshift by 6 to get value in pixels (2^6 = 64)
-			x += (float)((ch.advance >> 6) * transform.scale.x);
+			x += (float)((character.advance >> 6) * transform.scale.x);
 		}
 
 		glBindVertexArray(0);

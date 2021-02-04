@@ -4,6 +4,7 @@
 #define SOLAR_TEXT_H_
 
 #include <string>
+#include <map>
 #include "../core.h"
 #include "../app.h"
 #include "../types/color.h"
@@ -81,6 +82,22 @@ namespace solar
 		/// Whether text has been initialized.
 		/// </summary>
 		bool done_init = false;
+
+		struct Character
+		{
+			// ID handle of the glyph texture
+			unsigned int texture_id = 0;
+			// Size of glyph
+			Vector2 size = Vector2();
+			// Offset from baseline to left/top of glyph
+			Vector2 bearing = Vector2();
+			// Offset to advance to next glyph
+			unsigned int advance = 0;
+		};
+		/// <summary>
+		/// Characters map.
+		/// </summary>
+		std::map<char, Character> characters;
 	};
 
 } // namespace solar
