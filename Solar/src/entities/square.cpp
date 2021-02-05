@@ -5,7 +5,7 @@
 #include <glfw3.h>
 #include <glm.hpp>
 
-namespace solar
+namespace Solar
 {
 	Square::Square(Color color)
 	{
@@ -153,4 +153,4 @@ namespace solar
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 		glDrawArrays(GL_TRIANGLES, 1, 4);
 	}
-} // namespace solar
+} // namespace Solar

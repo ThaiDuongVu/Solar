@@ -1,6 +1,6 @@
 #include "transform.h"
 
-namespace solar
+namespace Solar
 {
 	Transform::Transform(Vector2 position, double rotation, Vector2 scale)
 	{
@@ -17,4 +17,4 @@ namespace solar
 	{
 		return Transform();
 	}
-} // namespace solar
+} // namespace Solar

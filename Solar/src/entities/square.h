@@ -11,7 +11,7 @@
 #include "../types/vector2.h"
 #include "../rendering/shader.h"
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API Square : public GameObject
 	{
@@ -106,7 +106,7 @@ namespace solar
 		Vector2 CalculateRotation(App app, Vector2 vertex);
 	};
 
-} // namespace solar
+} // namespace Solar
 
 #endif // !SOLAR_Square_H_
 

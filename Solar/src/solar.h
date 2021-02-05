@@ -1,8 +1,9 @@
 #pragma once
 
-// To be included by solar applications
+// To be included by Solar applications
 
 #include "core.h"
+#include "viewport.h"
 #include "app.h"
 #include "debug.h"
 #include "time.h"

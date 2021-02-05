@@ -7,7 +7,7 @@
 #include <random>
 #include <chrono>
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API Mathf
 	{
@@ -358,6 +358,6 @@ namespace solar
 #pragma endregion
 
 	};
-} // namespace solar
+} // namespace Solar
 
 #endif // !SOLAR_MATHF_H_

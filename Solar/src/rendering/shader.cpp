@@ -6,7 +6,7 @@
 #include <glad.h>
 #include <glfw3.h>
 
-namespace solar
+namespace Solar
 {
 	Shader::Shader(const char* vertex_path, const char* fragment_path)
 	{
@@ -94,4 +94,4 @@ namespace solar
 	{
 		glUniform1f(glGetUniformLocation(this->program, name.c_str()), value);
 	}
-} // namespace solar
+} // namespace Solar

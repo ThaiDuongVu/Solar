@@ -6,7 +6,7 @@
 #include "../core.h"
 #include "../components/transform.h"
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API GameObject
 	{
@@ -72,6 +72,6 @@ namespace solar
 		/// <param name="scale_y">y scale axis</param>
 		void Scale(double scale_x = 0.0f, double scale_y = 0.0f);
 	};
-} // namespace solar
+} // namespace Solar
 
 #endif // !SOLAR_GAME_OBJECT_H_

@@ -11,7 +11,7 @@
 #include "../types/vector2.h"
 #include "../rendering/shader.h"
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API Triangle : public GameObject
 	{
@@ -104,7 +104,7 @@ namespace solar
 		/// <param name="vertex">Vertex to calculate</param>
 		Vector2 CalculateRotation(App app, Vector2 vertex);
 	};
-} // namespace solar
+} // namespace Solar
 
 
 #endif // !SOLAR_TRIANGLE_H_

@@ -6,7 +6,7 @@
 #include "core.h"
 #include "types/color.h"
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API App
 	{
@@ -107,6 +107,6 @@ namespace solar
 		/// </summary>
 		const char* title = "Solar System";
 	};
-} // namespace solar
+} // namespace Solar
 
 #endif // !SOLAR_APP_H_

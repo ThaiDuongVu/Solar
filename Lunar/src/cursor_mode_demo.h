@@ -1,5 +1,5 @@
 #include <solar.h>
-using namespace solar;
+using namespace Solar;
 
 /// <summary>
 /// Demostrate all cursor modes.
@@ -7,11 +7,11 @@ using namespace solar;
 inline void CursorModeDemo()
 {
 	// Hide mouse cursor
-	// Input::SetCursorMode(Input::CursorModes::kModeHidden);
+	// Input::SetCursorMode(Input::CursorModes::ModeHidden);
 
 	// Hide mouse cursor and lock its position
-	// Input::SetCursorMode(Input::CursorModes::kModeLocked);
+	// Input::SetCursorMode(Input::CursorModes::ModeLocked);
 
 	// Show mouse cursor and unlock its position
-	Input::SetCursorMode(Input::CursorModes::kModeNormal);
+	Input::SetCursorMode(Input::CursorModes::ModeNormal);
 }

@@ -411,6 +411,7 @@
     <ClInclude Include="src\components\transform.h" />
     <ClInclude Include="src\entities\triangle.h" />
     <ClInclude Include="src\entities\text.h" />
+    <ClInclude Include="src\viewport.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\entities\square.cpp" />
@@ -431,6 +432,7 @@
     <ClCompile Include="src\components\transform.cpp" />
     <ClCompile Include="src\entities\triangle.cpp" />
     <ClCompile Include="src\entities\text.cpp" />
+    <ClCompile Include="src\viewport.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\include\glm\detail\func_common.inl" />

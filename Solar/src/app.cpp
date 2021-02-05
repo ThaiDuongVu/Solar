@@ -6,7 +6,7 @@
 #include <glad.h>
 #include <glfw3.h>
 
-namespace solar
+namespace Solar
 {
 	void App::Init() {}
 	void App::Update(double FrameTime) {}
@@ -113,7 +113,7 @@ namespace solar
 		// Initialize GLFW
 		if (!glfwInit())
 		{
-			solar::Debug::LogError("Failed to initialize GLFW");
+			Solar::Debug::LogError("Failed to initialize GLFW");
 			return;
 		}
 
@@ -130,7 +130,7 @@ namespace solar
 		App::window<GLFWwindow> = glfwCreateWindow(App::window_width, App::window_height, App::title, NULL, NULL);
 		if (!App::window<GLFWwindow>)
 		{
-			solar::Debug::LogError("Failed to create window");
+			Solar::Debug::LogError("Failed to create window");
 			glfwTerminate();
 			return;
 		}
@@ -141,7 +141,7 @@ namespace solar
 		// Initialize GLAD
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 		{
-			solar::Debug::LogError("Failed to initialize GLAD");
+			Solar::Debug::LogError("Failed to initialize GLAD");
 			return;
 		}
 
@@ -180,4 +180,4 @@ namespace solar
 		Exit();
 		glfwTerminate();
 	}
-} // namespace solar
+} // namespace Solar

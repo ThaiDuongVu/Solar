@@ -14,7 +14,7 @@
 #include "../rendering/shader.h"
 #include "../types/font.h"
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API Text
 	{
@@ -100,6 +100,6 @@ namespace solar
 		std::map<char, Character> characters;
 	};
 
-} // namespace solar
+} // namespace Solar
 
 #endif // !SOLAR_TEXT_H_

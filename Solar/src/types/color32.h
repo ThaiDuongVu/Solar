@@ -7,7 +7,7 @@
 #include "color.h"
 #include <string>
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API Color32
 	{
@@ -108,6 +108,6 @@ namespace solar
 		static Color32 White();
 		static Color32 Black();
 	};
-} // namespace solar
+} // namespace Solar
 
 #endif // !SOLAR_COLOR32_H_

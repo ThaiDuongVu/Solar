@@ -6,7 +6,7 @@
 #include <glfw3.h>
 #include <glm.hpp>
 
-namespace solar
+namespace Solar
 {
 	Triangle::Triangle(Color color)
 	{
@@ -147,4 +147,4 @@ namespace solar
 		// Draw vertices
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 	}
-} // namespace solar
+} // namespace Solar

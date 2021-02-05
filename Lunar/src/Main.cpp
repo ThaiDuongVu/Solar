@@ -1,5 +1,5 @@
 #include <solar.h>
-using namespace solar;
+using namespace Solar;
 
 Color32 background_color = Color32(34, 40, 49, 255);
 

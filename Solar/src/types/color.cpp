@@ -1,7 +1,7 @@
 #include "color.h"
 #include "../mathf.h"
 
-namespace solar
+namespace Solar
 {
 	Color::Color(float r, float g, float b, float a)
 	{
@@ -180,4 +180,4 @@ namespace solar
 		return Color(0.0f, 0.0f, 0.0f, 1.0f);
 	}
 
-} // namespace solar
+} // namespace Solar

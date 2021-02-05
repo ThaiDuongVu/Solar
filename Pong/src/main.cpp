@@ -1,6 +1,6 @@
 #include <solar.h>
 #include <string>
-using namespace solar;
+using namespace Solar;
 
 // Values for window
 #define WIDTH 800
@@ -17,14 +17,17 @@ using namespace solar;
 #define BALL_SCALE Vector2(20.0f, 20.0f)
 #define BALL_SPEED 5.0f
 
+// Player 1 definitions
 Square player1 = Square(PLAYER_COLOR.Normalize());
 unsigned int player1_score = 0;
 Text player1_score_text = Text("0", PLAYER_COLOR.Normalize(), Transform::Default(), Font("./resources/default_font.ttf", 0, 32));
 
+// Player 2 definitions
 Square player2 = Square(PLAYER_COLOR.Normalize());
 unsigned int player2_score = 0;
 Text player2_score_text = Text("0", PLAYER_COLOR.Normalize(), Transform::Default(), Font("./resources/default_font.ttf", 0, 32));
 
+// Ball definitions
 Square ball = Square(BALL_COLOR.Normalize());
 Vector2 ball_movement = Vector2::Right() * BALL_SPEED;
 
@@ -61,12 +64,12 @@ void App::Init()
 void App::Update(double frame_time)
 {
 	// If escape button pressed then exit game
-	if (Input::OnPresetDown(Input::Presets::kPresetEscape))
+	if (Input::OnPresetDown(Input::Presets::PresetEscape))
 		App::Quit();
 
 	// Move players with keyboard input
-	player1.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::kKeyW) - Input::IsKeyDown(Input::Keys::kKeyS)) * PLAYER_SPEED);
-	player2.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::kKeyUp) - Input::IsKeyDown(Input::Keys::kKeyDown)) * PLAYER_SPEED);
+	player1.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyW) - Input::IsKeyDown(Input::Keys::KeyS)) * PLAYER_SPEED);
+	player2.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyUp) - Input::IsKeyDown(Input::Keys::KeyDown)) * PLAYER_SPEED);
 
 	// Move ball
 	ball.Move(ball_movement);

@@ -6,7 +6,7 @@
 #include "../core.h"
 #include "../types/vector2.h"
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API Transform
 	{
@@ -42,7 +42,7 @@ namespace solar
 		/// <returns>Default transform</returns>
 		static Transform Default();
 	};
-} // namespace solar
+} // namespace Solar
 
 
 #endif // !SOLAR_TRANSFORM_H_

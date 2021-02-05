@@ -6,7 +6,7 @@
 #include "../core.h"
 #include "../debug.h"
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API Shader
 	{
@@ -69,7 +69,7 @@ namespace solar
 		/// <param name="value">Value to set</param>
 		void SetFloat(const std::string& name, float value) const;
 	};
-} // namespace solar
+} // namespace Solar
 
 #endif // !SOLAR_SHADER_H_
 

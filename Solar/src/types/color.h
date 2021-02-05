@@ -6,7 +6,7 @@
 #include "../core.h"
 #include <string>
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API Color
 	{
@@ -107,6 +107,6 @@ namespace solar
 		static Color White();
 		static Color Black();
 	};
-} // namespace solar
+} // namespace Solar
 
 #endif // !SOLAR_COLOR_H_

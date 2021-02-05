@@ -6,7 +6,7 @@
 #include "../core.h"
 #include <string>
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API Vector2
 	{
@@ -168,6 +168,6 @@ namespace solar
 		/// <returns>Vector in string format</returns>
 		static std::string ToString(Vector2 a);
 	};
-} // namespace solar
+} // namespace Solar
 
 #endif // !SOLAR_VECTOR2_H_

@@ -1,5 +1,5 @@
 #include <solar.h>
-using namespace solar;
+using namespace Solar;
 
 /// <summary>
 /// Demonstrate math methods provided.

@@ -4,7 +4,7 @@
 #include "gtx/integer.hpp"
 #include "gtc/integer.hpp"
 
-namespace solar
+namespace Solar
 {
 	double Mathf::Pi()
 	{
@@ -271,4 +271,4 @@ namespace solar
 	}
 #pragma endregion
 
-} // namespace solar
+} // namespace Solar

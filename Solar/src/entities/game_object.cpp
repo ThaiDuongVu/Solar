@@ -2,7 +2,7 @@
 #include <glad.h>
 #include <glfw3.h>
 
-namespace solar
+namespace Solar
 {
 	GameObject::GameObject(Transform transform, bool is_visible)
 	{
@@ -43,4 +43,4 @@ namespace solar
 	{
 		delete(this);
 	}
-} // namespace solar
+} // namespace Solar

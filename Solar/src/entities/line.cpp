@@ -5,7 +5,7 @@
 #include <glfw3.h>
 #include <glm.hpp>
 
-namespace solar
+namespace Solar
 {
 	Line::Line(Color color)
 	{
@@ -122,4 +122,4 @@ namespace solar
 		// Draw vertices
 		glDrawArrays(GL_LINE_STRIP, 0, 2);
 	}
-} // namespace solar
+} // namespace Solar

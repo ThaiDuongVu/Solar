@@ -5,7 +5,7 @@
 
 #include "core.h"
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API Time
 	{
@@ -39,6 +39,6 @@ namespace solar
 		/// <param name="current_time">Current time</param>
 		static void Update(double &previous_time, double &current_time);
 	};
-} // namespace solar
+} // namespace Solar
 
 #endif // !SOLAR_TIME_H_

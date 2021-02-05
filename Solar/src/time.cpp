@@ -1,7 +1,7 @@
 #include "time.h"
 #include <glfw3.h>
 
-namespace solar
+namespace Solar
 {
 	double Time::frame_time = 0.0;
 
@@ -22,4 +22,4 @@ namespace solar
 		// Set previous time for next frame update
 		Time::previous_time = currentTime;
 	}
-} // namespace solar
+} // namespace Solar

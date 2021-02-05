@@ -8,7 +8,7 @@
 #include <string>
 #include "core.h"
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API Debug
 	{
@@ -44,7 +44,7 @@ namespace solar
 			// Set console test color to white
 			// Only works on Windows
 			// TODO (Duong): Cross-platforming this
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), solar::Debug::DebugColors::kBrightWhite);
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Solar::Debug::DebugColors::kBrightWhite);
 			std::cout << message << std::endl;
 		}
 
@@ -57,7 +57,7 @@ namespace solar
 		inline static void LogWarning(T message)
 		{
 			// Set console test color to yellow
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), solar::Debug::DebugColors::kYellow);
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Solar::Debug::DebugColors::kYellow);
 			std::cout << "Warning: " << message << std::endl;
 
 			ResetDebugColor();
@@ -72,7 +72,7 @@ namespace solar
 		inline static void LogError(T message)
 		{
 			// Set console test color to red
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), solar::Debug::DebugColors::kRed);
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Solar::Debug::DebugColors::kRed);
 			std::cout << "Error: " << message << std::endl;
 
 			ResetDebugColor();
@@ -84,9 +84,9 @@ namespace solar
 		/// </summary>
 		inline static void ResetDebugColor()
 		{
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), solar::Debug::DebugColors::kBrightWhite);
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Solar::Debug::DebugColors::kBrightWhite);
 		}
 	};
-} // namespace solar
+} // namespace Solar
 
 #endif // !SOLAR_DEBUG_H_

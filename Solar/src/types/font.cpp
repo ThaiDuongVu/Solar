@@ -1,6 +1,6 @@
 #include "font.h"
 
-namespace solar
+namespace Solar
 {
 	Font::Font(const char* path, int width, int height)
 	{
@@ -13,4 +13,4 @@ namespace solar
 	{
 
 	}
-} // namespace solar
+} // namespace Solar

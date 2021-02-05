@@ -6,7 +6,7 @@
 #include "../core.h"
 #include "../debug.h"
 
-namespace solar
+namespace Solar
 {
 	class SOLAR_API Font
 	{
@@ -37,6 +37,6 @@ namespace solar
 		/// </summary>
 		int height;
 	};
-} // namespace solar
+} // namespace Solar
 
 #endif // !SOLAR_FONT_H_

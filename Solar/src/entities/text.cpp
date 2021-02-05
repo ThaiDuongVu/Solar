@@ -9,7 +9,7 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H  
 
-namespace solar
+namespace Solar
 {
 	FT_Library ft;
 	FT_Face face;
@@ -178,4 +178,4 @@ namespace solar
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-} // namespace solar
+} // namespace Solar

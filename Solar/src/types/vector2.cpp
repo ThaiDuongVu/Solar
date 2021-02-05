@@ -2,7 +2,7 @@
 #include <iostream>
 #include <glm.hpp>
 
-namespace solar
+namespace Solar
 {
 	Vector2::Vector2(double x, double y)
 	{
@@ -216,4 +216,4 @@ namespace solar
 		return "(" + std::to_string(a.x) + ", " + std::to_string(a.y) + ")";
 	}
 
-} // namespace solar
+} // namespace Solar

@@ -1,5 +1,5 @@
 #include <solar.h>
-using namespace solar;
+using namespace Solar;
 
 /// <summary>
 /// Demonstrate input methods.
@@ -8,7 +8,7 @@ using namespace solar;
 inline void InputDemo(App* app)
 {
 	// On key released
-	if (Input::OnKeyDown(Input::Keys::kKeyEnter))
+	if (Input::OnKeyDown(Input::Keys::KeyEnter))
 	{
 		// Log error
 		Debug::LogError("Test Error");
@@ -17,16 +17,16 @@ inline void InputDemo(App* app)
 	}
 
 	// While key being pressed
-	if (Input::IsKeyDown(Input::Keys::kKeySpace))
+	if (Input::IsKeyDown(Input::Keys::KeySpace))
 		// Log a line to console
 		Debug::Log("Space key is down");
 
 	// While left mouse is down
-	if (Input::IsMouseDown(Input::MouseButtons::kMouseLeft))
+	if (Input::IsMouseDown(Input::MouseButtons::MouseLeft))
 		Debug::Log("Left mouse button is down");
 
 	// On right mouse up
-	if (Input::OnMouseUp(Input::MouseButtons::kMouseRight))
+	if (Input::OnMouseUp(Input::MouseButtons::MouseRight))
 		Debug::Log("Right mouse button released");
 
 	// Scrolling speed x and y
@@ -42,20 +42,20 @@ inline void InputDemo(App* app)
 		Debug::Log("Mouse exit");
 
 	// While A button is being pressed
-	if (Input::IsGamepadButtonDown(Input::GamepadButtons::kButtonA))
+	if (Input::IsGamepadButtonDown(Input::GamepadButtons::ButtonA))
 		Debug::Log("A button is down");
 
 	// If a joystick is connected
-	if (Input::IsGamepadPresent(Input::Gamepads::kGamepad1))
+	if (Input::IsGamepadPresent(Input::Gamepads::Gamepad1))
 	{
 		Debug::Log("Joystick 1 present");
 
 		// Trigger input
-		if (Input::GetGamepadAxes(Input::GamepadAxes::kAxesRightTrigger) > -1)
+		if (Input::GetGamepadAxes(Input::GamepadAxes::AxesRightTrigger) > -1)
 			Debug::Log("Right trigger is down");
 	}
 
-	Vector2 direction = Vector2(Input::IsPresetDown(Input::Presets::kPresetHorizontal), Input::IsPresetDown(Input::Presets::kPresetVertical));
+	Vector2 direction = Vector2(Input::IsPresetDown(Input::Presets::PresetHorizontal), Input::IsPresetDown(Input::Presets::PresetVertical));
 	if (direction != Vector2::Zero())
 		Debug::Log(direction.ToString());
 
