@@ -5,6 +5,7 @@
 
 #include "core.h"
 #include "types/color.h"
+#include "viewport.h"
 
 namespace Solar
 {
@@ -69,12 +70,6 @@ namespace Solar
 		void SetWindowMaximized(bool maximized = false);
 
 		/// <summary>
-		/// Clear background color.
-		/// </summary>
-		/// <param name="color">Background color</param>
-		void ClearBackground(Color color = Color());
-
-		/// <summary>
 		/// Run the app.
 		/// </summary>
 		void Run();
@@ -91,6 +86,11 @@ namespace Solar
 		/// <typeparam name="T"></typeparam>
 		template <typename T>
 		static T* window;
+
+		/// <summary>
+		/// Current window viewport.
+		/// </summary>
+		Viewport viewport;
 
 	private:
 		/// <summary>

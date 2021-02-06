@@ -15,11 +15,11 @@ namespace Solar
 
 	void GameObject::Move(Vector2 movement)
 	{
-		transform.position += movement;
+		transform.position.Translate(movement);
 	}
 	void GameObject::Move(double movement_x, double movement_y)
 	{
-		transform.position += Vector2(movement_x, movement_y);
+		transform.position.Translate(movement_x, movement_y);
 	}
 
 	void GameObject::Rotate(double rotation)

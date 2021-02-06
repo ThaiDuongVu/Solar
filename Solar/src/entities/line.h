@@ -49,7 +49,7 @@ namespace Solar
 		/// </summary>
 		/// <param name="app">Application to render on</param>
 		/// <param name="draw_mode">Which mode to draw</param>
-		void Draw(App app, DrawMode draw_mode = DrawMode::kLine);
+		void Draw(App app, DrawMode draw_mode = DrawMode::Line);
 
 	private:
 		/// <summary>

@@ -24,6 +24,18 @@ namespace Solar
 		return Vector2(vector2.x, vector2.y);
 	}
 
+	void Vector2::Translate(Vector2 difference)
+	{
+		this->x += difference.x;
+		this->y += difference.y;
+	}
+
+	void Vector2::Translate(double difference_x, double difference_y)
+	{
+		this->x += difference_x;
+		this->y += difference_y;
+	}
+
 	double Vector2::Length()
 	{
 		return glm::length(Vector2Toglm(*this));
@@ -192,6 +204,17 @@ namespace Solar
 	Vector2 Vector2::Right()
 	{
 		return Vector2(1.0f, 0.0f);
+	}
+
+	void Vector2::Translate(Vector2 a, Vector2 difference)
+	{
+		a.x += difference.x;
+		a.y += difference.y;
+	}
+	void Vector2::Translate(Vector2 a, double difference_x, double difference_y)
+	{
+		a.x += difference_x;
+		a.y += difference_y;
 	}
 
 	double Vector2::Length(Vector2 a)

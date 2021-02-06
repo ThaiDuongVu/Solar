@@ -126,7 +126,7 @@ namespace Solar
 		// Perform initialization if not already
 		if (!done_init) Init(app);
 
-		if (draw_mode == DrawMode::kFill)
+		if (draw_mode == DrawMode::Fill)
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		else
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);

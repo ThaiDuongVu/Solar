@@ -24,8 +24,8 @@ namespace Solar
 
 		enum class DrawMode 
 		{
-			kFill,
-			kLine
+			Fill,
+			Line
 		};
 
 		/// <summary>

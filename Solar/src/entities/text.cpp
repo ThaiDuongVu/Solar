@@ -92,7 +92,7 @@ namespace Solar
 				Vector2(face->glyph->bitmap_left, face->glyph->bitmap_top),
 				(unsigned int)face->glyph->advance.x
 			};
-			characters.insert(std::pair<char, Character>(c, character));
+			character_set.insert(std::pair<char, Character>(c, character));
 		}
 
 		glBindTexture(GL_TEXTURE_2D, 0);
@@ -139,7 +139,7 @@ namespace Solar
 		// Iterate through all characters
 		for (std::string::const_iterator c = message.begin(); c != message.end(); c++)
 		{
-			Character character = characters[*c];
+			Character character = character_set[*c];
 
 			float x_pos = (float)(x + character.bearing.x * transform.scale.x);
 			float y_pos = (float)(y - (character.size.y - character.bearing.y) * transform.scale.y);

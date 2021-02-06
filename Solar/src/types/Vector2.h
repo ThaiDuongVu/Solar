@@ -33,6 +33,15 @@ namespace Solar
 		double y = 0.0f;
 
 		/// <summary>
+		/// Translating this vector with another vector.
+		/// </summary>
+		void Translate(Vector2 difference);
+		/// <summary>
+		/// Translating this vector with 2 doubles.
+		/// </summary>
+		void Translate(double difference_x, double difference_y);
+
+		/// <summary>
 		/// Length of the vector.
 		/// </summary>
 		/// <returns>Length of current vector</returns>
@@ -133,6 +142,15 @@ namespace Solar
 		/// </summary>
 		/// <returns>Right vector</returns>
 		static Vector2 Right();
+
+		/// <summary>
+		/// Translating vector a with another vector.
+		/// </summary>
+		static void Translate(Vector2 a, Vector2 difference);
+		/// <summary>
+		/// Translating vector a with 2 doubles.
+		/// </summary>
+		static void Translate(Vector2 a, double difference_x, double difference_y);
 
 		/// <summary>
 		/// Length of a vector.

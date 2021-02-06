@@ -95,9 +95,9 @@ namespace Solar
 			unsigned int advance = 0;
 		};
 		/// <summary>
-		/// Characters map.
+		/// Set of character in current font.
 		/// </summary>
-		std::map<char, Character> characters;
+		std::map<char, Character> character_set;
 	};
 
 } // namespace Solar

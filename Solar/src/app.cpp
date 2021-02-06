@@ -54,12 +54,6 @@ namespace Solar
 		glfwSetWindowShouldClose(App::window<GLFWwindow>, true);
 	}
 
-	void App::ClearBackground(Color color)
-	{
-		glClearColor(color.r, color.g, color.b, color.a);
-		glClear(GL_COLOR_BUFFER_BIT);
-	}
-
 	// On window resize
 	void FrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 	{
@@ -117,6 +111,8 @@ namespace Solar
 			return;
 		}
 
+		viewport = Viewport();
+
 		// Disable resizability by default
 		SetWindowResizable();
 		// Focus window by default
@@ -166,7 +162,8 @@ namespace Solar
 
 			Update(Time::frame_time);
 
-			// Clear the back ground
+			// Clear the viewport background
+			glClearColor(viewport.color.r, viewport.color.g, viewport.color.b, viewport.color.a);
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			Render();
