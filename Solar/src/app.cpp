@@ -163,7 +163,7 @@ namespace Solar
 			Update(Time::frame_time);
 
 			// Clear the viewport background
-			glClearColor(viewport.color.r, viewport.color.g, viewport.color.b, viewport.color.a);
+			glClearColor(viewport.background_color.r, viewport.background_color.g, viewport.background_color.b, viewport.background_color.a);
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			Render();

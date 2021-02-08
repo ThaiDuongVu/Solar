@@ -88,12 +88,12 @@ Hit `F5` to run **Lunar**.
 <!-- ![startup](images/startup.png) -->
 <img src="images/startup.png" width=350>
 
-And *voila* you have a project configured to work with Solar framework, time to jump into the code.
+And *voila*, you have created a project configured to work with Solar framework, time to jump into the code.
 
-8. Verify everything is working by creating a `main.cpp` in new project and running this code:
+8. Verify everything is working by creating a `main.cpp` in the new project and running this code:
 
         #include <solar.h>
-        using namespace solar;
+        using namespace Solar;
 
         int main()
         {
@@ -109,6 +109,8 @@ And *voila* you have a project configured to work with Solar framework, time to 
 ---
 
 ### Tutorials & Documentation
+
+Please refer to the [wiki page](https://github.com/ThaiDuongVu/Solar/wiki) for an in-depth guid to Solar.
 
 ---
 

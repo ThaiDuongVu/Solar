@@ -4,7 +4,7 @@ namespace Solar
 {
 	Viewport::Viewport(Color color)
 	{
-		this->color = Color::Black();
+		this->background_color = Color::Black();
 	}
 	Viewport::~Viewport()
 	{

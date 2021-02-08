@@ -18,8 +18,7 @@ void App::Update(double frame_time)
 
 void App::Render()
 {
-	// Clear background color
-	App::ClearBackground(background_color.Normalize());
+	
 }
 
 void App::Exit()

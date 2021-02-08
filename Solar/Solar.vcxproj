@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dependencies\include\freetype\ft2build.h" />
     <ClInclude Include="src\entities\square.h" />
     <ClInclude Include="src\entities\line.h" />
     <ClInclude Include="src\rendering\shader.h" />
@@ -114,7 +115,6 @@
     <ClInclude Include="dependencies\include\freetype\freetype\ttnameid.h" />
     <ClInclude Include="dependencies\include\freetype\freetype\tttables.h" />
     <ClInclude Include="dependencies\include\freetype\freetype\tttags.h" />
-    <ClInclude Include="dependencies\include\freetype\ft2build.h" />
     <ClInclude Include="dependencies\include\glad\glad.h" />
     <ClInclude Include="dependencies\include\glad\khrplatform.h" />
     <ClInclude Include="dependencies\include\glfw\glfw3.h" />

@@ -42,6 +42,9 @@ Square divider = Square(DIVIDER_COLOR.Normalize());
 // Starting text definition
 Text start_text = Text("Press Space to start game", Color::White(), Transform::Default(), Font("./resources/default_font.ttf", 0, 24));
 
+// Text for displaying frame rate
+Text frame_rate_text = Text("", Color::White(), Transform::Default(), Font("./resources/default_font.ttf", 0, 12));
+
 void App::Init()
 {
 	// Set window size
@@ -51,7 +54,7 @@ void App::Init()
 	App::SetWindowTitle("Pong");
 
 	// Set viewport background color
-	this->viewport.color = BACKGROUND_COLOR.Normalize();
+	this->viewport.background_color = BACKGROUND_COLOR.Normalize();
 
 	// Set initial player 1 values
 	player1.transform.scale = PLAYER_SCALE;
@@ -67,7 +70,7 @@ void App::Init()
 	ball.transform.scale = BALL_SCALE;
 
 	// Set initial divider values
-	divider.transform.scale = Vector2(10.0f, (double)this->Height() - 50.0f);
+	divider.transform.scale = Vector2(10.0f, (double)HEIGHT - 100.0f);
 
 	// Set initial start text values
 	start_text.transform.position.x = -175.0f;
@@ -76,6 +79,9 @@ void App::Init()
 	// Set initial player score text values
 	player1_score_text.transform.position = Vector2(-(double)WIDTH / 2.0f + 150.0f, (double)HEIGHT / 2.0f - 100.0f);
 	player2_score_text.transform.position = Vector2((double)WIDTH / 2.0f - 150.0f, (double)HEIGHT / 2.0f - 100.0f);
+
+	// Set initial frame rate text values
+	frame_rate_text.transform.position = Vector2(-(double)WIDTH / 2.0f, -(double)HEIGHT / 2.0f);
 }
 
 void App::Update(double frame_time)
@@ -86,17 +92,19 @@ void App::Update(double frame_time)
 	if (Input::OnPresetDown(Input::Presets::PresetJump))
 		game_started = true;
 
+	frame_rate_text.message = std::to_string((int)(1.0f / frame_time));
+
 	if (!game_started) return;
 
 	// Move players with keyboard input
-	player1.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyW) - Input::IsKeyDown(Input::Keys::KeyS)) * PLAYER_SPEED);
-	player2.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyUp) - Input::IsKeyDown(Input::Keys::KeyDown)) * PLAYER_SPEED);
+	player1.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyW) - (double)Input::IsKeyDown(Input::Keys::KeyS)) * PLAYER_SPEED);
+	player2.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyUp) - (double)Input::IsKeyDown(Input::Keys::KeyDown)) * PLAYER_SPEED);
 
 	// Move ball
 	ball.Move(ball_movement);
 
 	// Handle ball collisions
-	// Ball colliding with vertical walls
+	// Bal colliding with player
 	if (ball.transform.position.x + ball.transform.scale.x / 2.0f >= WIDTH / 2.0f)
 	{
 		ball.transform.position = Vector2();
@@ -116,7 +124,7 @@ void App::Update(double frame_time)
 		player2_score_text.message = std::to_string(player2_score);
 	}
 
-	// Ball colliding with horizontal walls
+	// Ball colliding with vertical walls
 	if (ball.transform.position.x + ball.transform.scale.x / 2.0f >= player2.transform.position.x - player2.transform.scale.x / 2.0f && ball.transform.position.x - ball.transform.scale.x / 2.0f <= player2.transform.position.x + player2.transform.scale.x / 2.0f)
 	{
 		if (ball_movement.x > 0.0f)
@@ -140,6 +148,7 @@ void App::Update(double frame_time)
 		}
 	}
 
+	// Ball colliding with horizontal walls
 	if (ball.transform.position.y + ball.transform.scale.y / 2.0f >= HEIGHT / 2.0f || ball.transform.position.y - ball.transform.scale.y / 2.0f <= -HEIGHT / 2.0f)
 		ball_movement.y = -ball_movement.y;
 }
@@ -156,13 +165,15 @@ void App::Render()
 	player1.Draw(*this, GameObject::DrawMode::Fill);
 	player2.Draw(*this, GameObject::DrawMode::Fill);
 
-
 	// Render start text
 	if (!game_started) start_text.Draw(*this);
 
 	// Render score texts
 	player1_score_text.Draw(*this);
 	player2_score_text.Draw(*this);
+
+	// Render frame rate text
+	frame_rate_text.Draw(*this);
 }
 
 void App::Exit()

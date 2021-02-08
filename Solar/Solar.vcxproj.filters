@@ -873,9 +873,6 @@
     <ClInclude Include="dependencies\include\glm\detail\type_vec4.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="dependencies\include\freetype\ft2build.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="dependencies\include\freetype\freetype\freetype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1216,6 +1213,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\viewport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dependencies\include\freetype\ft2build.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -29,7 +29,7 @@ namespace Solar
 		/// </summary>
 		~Viewport();
 
-		Color color;
+		Color background_color;
 	};
 } // namespace Solar
 
