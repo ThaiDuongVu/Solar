@@ -36,16 +36,19 @@ namespace Solar
 		double x = transform.position.x;
 		double y = transform.position.y;
 
+		// Viewport position
+		double viewport_x = app.viewport.transform.position.x;
+		double viewport_y = app.viewport.transform.position.y;
+
 		// Down vertex
-		vertex[0] = Vector2(x / (app.Width() / 2.0f), y / (app.Height() / 2.0f));
+		vertex[0] = Vector2(x / (app.Width() / 2.0f) + viewport_x, y / (app.Height() / 2.0f) + viewport_y);
 		// Up vertex
-		vertex[1] = Vector2(x / (app.Width() / 2.0f), y / (app.Height() / 2.0f) + length / (app.Height()));
+		vertex[1] = Vector2(x / (app.Width() / 2.0f) + viewport_x, y / (app.Height() / 2.0f) + length / (app.Height()) + viewport_y);
 
 		for (int i = 0; i < 2; i++)
 		{
 			vertex[i] = CalculateRotation(app, vertex[i]);
 		}
-		//Debug::Log(vertex[1].ToString());
 		if (is_bounded) CalculateBound(app);
 
 		vertices[0] = (float)vertex[0].x;

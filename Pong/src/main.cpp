@@ -126,6 +126,8 @@ void App::Update(double frame_time)
 	player1.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyW) - (double)Input::IsKeyDown(Input::Keys::KeyS)) * PLAYER_SPEED);
 	player2.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyUp) - (double)Input::IsKeyDown(Input::Keys::KeyDown)) * PLAYER_SPEED);
 
+	this->viewport.Move(Vector2((double)Input::IsKeyDown(Input::Keys::KeyRight) - (double)Input::IsKeyDown(Input::Keys::KeyLeft), 0.0f) * frame_time);
+
 	// Move ball
 	ball.Move(ball_movement);
 

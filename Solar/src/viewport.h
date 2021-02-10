@@ -30,6 +30,14 @@ namespace Solar
 		~Viewport();
 
 		Color background_color;
+
+		/// <summary>
+		/// Shake the current viewport.
+		/// </summary>
+		/// <param name="intensity">How rough to shake</param>
+		/// <param name="duration">How long to shake for</param>
+		/// <param name="decrease_factor">How fast to stop the shaking</param>
+		void Shake(double intensity, double duration, double decrease_factor);
 	};
 } // namespace Solar
 

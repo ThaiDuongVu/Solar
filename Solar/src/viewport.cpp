@@ -10,4 +10,8 @@ namespace Solar
 	{
 	}
 
+	void Viewport::Shake(double intensity, double duration, double decrease_factor)
+	{
+	}
+
 } // namespace Solar

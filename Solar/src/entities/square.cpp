@@ -40,14 +40,18 @@ namespace Solar
 		double width = transform.scale.x;
 		double height = transform.scale.y;
 
+		// Viewport position
+		double viewport_x = app.viewport.transform.position.x;
+		double viewport_y = app.viewport.transform.position.y;
+
 		// Top left vertex
-		vertex[0] = Vector2(x / (app.Width() / 2.0f) - width / app.Width(), y / (app.Height() / 2.0f) + height / app.Height());
+		vertex[0] = Vector2(x / (app.Width() / 2.0f) - width / app.Width() + viewport_x, y / (app.Height() / 2.0f) + height / app.Height() + viewport_y);
 		// Top right vertex
-		vertex[1] = Vector2(x / (app.Width() / 2.0f) + width / app.Width(), y / (app.Height() / 2.0f) + height / app.Height());
+		vertex[1] = Vector2(x / (app.Width() / 2.0f) + width / app.Width() + viewport_x, y / (app.Height() / 2.0f) + height / app.Height() + viewport_y);
 		// Bottom left vertex
-		vertex[2] = Vector2(x / (app.Width() / 2.0f) - width / app.Width(), y / (app.Height() / 2.0f) - height / app.Height());
+		vertex[2] = Vector2(x / (app.Width() / 2.0f) - width / app.Width() + viewport_x, y / (app.Height() / 2.0f) - height / app.Height() + viewport_y);
 		// Bottom right vertex
-		vertex[3] = Vector2(x / (app.Width() / 2.0f) + width / app.Width(), y / (app.Height() / 2.0f) - height / app.Height());
+		vertex[3] = Vector2(x / (app.Width() / 2.0f) + width / app.Width() + viewport_x, y / (app.Height() / 2.0f) - height / app.Height() + viewport_y);
 
 		for (int i = 0; i < 4; i++)
 		{
