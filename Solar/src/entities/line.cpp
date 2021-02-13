@@ -7,9 +7,10 @@
 
 namespace Solar
 {
-	Line::Line(Color color)
+	Line::Line(Transform transform, bool is_visible, Color color, bool is_bounded) : GameObject(transform, is_visible)
 	{
 		this->color = color;
+		this->is_bounded = is_bounded;
 	}
 	Line::~Line()
 	{

@@ -78,12 +78,12 @@ Hit `F5` to run **Lunar**.
 <!-- ![add sheet](images/add_sheet.png) -->
 <img src="images/add_sheet.png" width=350>
 
-6. Select **Solar Project.props** from solution directory.
+6. Select **SolarSolutionProject.props** from solution directory.
 
 <!-- ![props](images/props.png) -->
 <img src="images/props.png" width=250>
 
-7. Right click on project and set it as startup project.
+7. Right click on newly created project and set it as startup project.
 
 <!-- ![startup](images/startup.png) -->
 <img src="images/startup.png" width=350>

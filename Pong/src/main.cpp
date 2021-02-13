@@ -19,27 +19,28 @@ using namespace Solar;
 
 // Define values for divider
 #define DIVIDER_COLOR Color32(57, 62, 70)
+#define DIVIDER_SCALE Vector2(10.0f, (double)HEIGHT - 100.0f)
 
 // Define values for handling game state
 bool game_started = false;
 bool game_over = false;
 
 // Player 1 definitions
-Square player1 = Square(PLAYER_COLOR.Normalize());
+Square player1 = Square(Transform(Vector2(-(double)WIDTH / 2.0f + 50.0f, 0.0f), 0.0f, PLAYER_SCALE), true, PLAYER_COLOR.Normalize(), true);
 unsigned int player1_score = 0;
 Text player1_score_text = Text("0", PLAYER_COLOR.Normalize(), Transform::Default(), Font("./resources/default_font.ttf", 0, 30));
 
 // Player 2 definitions
-Square player2 = Square(PLAYER_COLOR.Normalize());
+Square player2 = Square(Transform(Vector2((double)WIDTH / 2.0f - 50.0f, 0.0f), 0.0f, PLAYER_SCALE), true, PLAYER_COLOR.Normalize(), true);
 unsigned int player2_score = 0;
 Text player2_score_text = Text("0", PLAYER_COLOR.Normalize(), Transform::Default(), Font("./resources/default_font.ttf", 0, 30));
 
 // Ball definitions
-Square ball = Square(BALL_COLOR.Normalize());
+Square ball = Square(Transform(Vector2::Zero(), 0.0f, BALL_SCALE), true, BALL_COLOR.Normalize());
 Vector2 ball_movement = Vector2::Right() * BALL_SPEED;
 
 // Divider definitions
-Square divider = Square(DIVIDER_COLOR.Normalize());
+Square divider = Square(Transform(Vector2::Zero(), 0.0f, DIVIDER_SCALE), true, DIVIDER_COLOR.Normalize());
 
 // Starting text definition
 Text start_text = Text("Press Space to start game", Color::White(), Transform::Default(), Font("./resources/default_font.ttf", 0, 24));
@@ -79,25 +80,9 @@ void App::Init()
 	// Set viewport background color
 	this->viewport.background_color = BACKGROUND_COLOR.Normalize();
 
-	// Set initial player 1 values
-	player1.transform.scale = PLAYER_SCALE;
-	player1.transform.position = Vector2(-(double)WIDTH / 2.0f + 50.0f, 0.0f);
-	player1.is_bounded = true;
-
-	// Set initial player 2 values
-	player2.transform.scale = PLAYER_SCALE;
-	player2.transform.position = Vector2((double)WIDTH / 2.0f - 50.0f, 0.0f);
-	player2.is_bounded = true;
-
 	// Set initial player score text values
 	player1_score_text.transform.position = Vector2(-(double)WIDTH / 2.0f + 150.0f, (double)HEIGHT / 2.0f - 100.0f);
 	player2_score_text.transform.position = Vector2((double)WIDTH / 2.0f - 150.0f, (double)HEIGHT / 2.0f - 100.0f);
-
-	// Set initial ball values
-	ball.transform.scale = BALL_SCALE;
-
-	// Set initial divider values
-	divider.transform.scale = Vector2(10.0f, (double)HEIGHT - 100.0f);
 
 	// Set initial start text values
 	start_text.transform.position = Vector2(-175.0f, 100.0f);

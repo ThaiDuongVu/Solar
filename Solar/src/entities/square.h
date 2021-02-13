@@ -17,15 +17,10 @@ namespace Solar
 	{
 	public:
 		/// <summary>
-		/// Base constructor.
-		/// </summary>
-		using GameObject::GameObject;
-
-		/// <summary>
 		/// Constructor.
 		/// </summary>
 		/// <param name="color">Initial color</param>
-		Square(Color color = Color::White());
+		Square(Transform transform = Transform::Default(), bool is_visible = true, Color color = Color::White(), bool is_bounded = false);
 		/// <summary>
 		/// Destructor.
 		/// </summary>

@@ -8,9 +8,10 @@
 
 namespace Solar
 {
-	Triangle::Triangle(Color color)
+	Triangle::Triangle(Transform transform, bool is_visible, Color color, bool is_bounded) : GameObject(transform, is_visible)
 	{
 		this->color = color;
+		this->is_bounded = is_bounded;
 	}
 	Triangle::~Triangle()
 	{

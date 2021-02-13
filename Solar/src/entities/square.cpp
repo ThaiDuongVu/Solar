@@ -7,9 +7,10 @@
 
 namespace Solar
 {
-	Square::Square(Color color)
+	Square::Square(Transform transform, bool is_visible, Color color, bool is_bounded) : GameObject(transform, is_visible)
 	{
 		this->color = color;
+		this->is_bounded = is_bounded;
 	}
 	Square::~Square()
 	{
