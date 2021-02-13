@@ -75,6 +75,7 @@ void App::Init()
 	App::SetWindowSize(WIDTH, HEIGHT);
 	// Set window title
 	App::SetWindowTitle("Pong");
+
 	// Set viewport background color
 	this->viewport.background_color = BACKGROUND_COLOR.Normalize();
 
@@ -126,12 +127,12 @@ void App::Update(double frame_time)
 	player1.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyW) - (double)Input::IsKeyDown(Input::Keys::KeyS)) * PLAYER_SPEED);
 	player2.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyUp) - (double)Input::IsKeyDown(Input::Keys::KeyDown)) * PLAYER_SPEED);
 
-	this->viewport.Move(Vector2((double)Input::IsKeyDown(Input::Keys::KeyRight) - (double)Input::IsKeyDown(Input::Keys::KeyLeft), 0.0f) * frame_time);
-
 	// Move ball
 	ball.Move(ball_movement);
 
-	// Handle ball collisions
+	// Collisions will be handled by Solar in future versions
+	// Manually checking for collisions for now
+
 	// Ball colliding with vertical walls
 	if (ball.transform.position.x + ball.transform.scale.x / 2.0f >= WIDTH / 2.0f)
 	{
