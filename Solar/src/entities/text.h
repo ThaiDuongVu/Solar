@@ -16,7 +16,7 @@
 
 namespace Solar
 {
-	class SOLAR_API Text
+	class SOLAR_API Text : public GameObject
 	{
 	public:
 		/// <summary>
@@ -25,16 +25,11 @@ namespace Solar
 		/// <param name="font">Initial font</param>
 		/// <param name="message">Initial message</param>
 		/// <param name="color">Initial color</param>
-		Text(std::string message = "", Color color = Color::White(), Transform transform = Transform(), Font font = Font());
+		Text(Transform transform = Transform::Default(), bool is_visible = true, std::string message = "", Color color = Color::White(), Font font = Font());
 		/// <summary>
 		/// Destructor.
 		/// </summary>
 		~Text();
-
-		/// <summary>
-		/// Text transform.
-		/// </summary>
-		Transform transform;
 
 		/// <summary>
 		/// Text message.

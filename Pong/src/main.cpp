@@ -5,55 +5,57 @@ using namespace Solar;
 // Define values for window
 #define WIDTH 800
 #define HEIGHT 600
-#define BACKGROUND_COLOR Color32(34, 40, 49)
+#define BACKGROUND_COLOR Color32(34, 40, 49).Normalize()
 
 // Define values for player
-#define PLAYER_COLOR Color32(238, 238, 238)
+#define PLAYER_COLOR Color32(238, 238, 238).Normalize()
 #define PLAYER_SCALE Vector2(20.0f, 80.0f)
 #define PLAYER_SPEED 8.0f
+#define PLAYER1_START_POSITION Vector2(-(double)WIDTH / 2.0f + 50.0f, 0.0f)
+#define PLAYER2_START_POSITION Vector2((double)WIDTH / 2.0f - 50.0f, 0.0f)
 
 // Define values for ball
-#define BALL_COLOR Color32(0, 173, 181)
+#define BALL_COLOR Color32(0, 173, 181).Normalize()
 #define BALL_SCALE Vector2(20.0f, 20.0f)
 #define BALL_SPEED 6.0f
 
 // Define values for divider
-#define DIVIDER_COLOR Color32(57, 62, 70)
+#define DIVIDER_COLOR Color32(57, 62, 70).Normalize()
 #define DIVIDER_SCALE Vector2(10.0f, (double)HEIGHT - 100.0f)
 
 // Define values for handling game state
 bool game_started = false;
 bool game_over = false;
 
-// Player 1 definitions
-Square player1 = Square(Transform(Vector2(-(double)WIDTH / 2.0f + 50.0f, 0.0f), 0.0f, PLAYER_SCALE), true, PLAYER_COLOR.Normalize(), true);
+// Define player 1
+Square player1 = Square(Transform(PLAYER1_START_POSITION, 0.0f, PLAYER_SCALE), true, PLAYER_COLOR, true);
 unsigned int player1_score = 0;
-Text player1_score_text = Text("0", PLAYER_COLOR.Normalize(), Transform::Default(), Font("./resources/default_font.ttf", 0, 30));
+Text player1_score_text = Text(Transform(Vector2(-(double)WIDTH / 2.0f + 150.0f, (double)HEIGHT / 2.0f - 100.0f), 0.0f, 1.0f), true, "0", PLAYER_COLOR, Font("./resources/default_font.ttf", 0, 30));
 
-// Player 2 definitions
-Square player2 = Square(Transform(Vector2((double)WIDTH / 2.0f - 50.0f, 0.0f), 0.0f, PLAYER_SCALE), true, PLAYER_COLOR.Normalize(), true);
+// Define player 2
+Square player2 = Square(Transform(PLAYER2_START_POSITION, 0.0f, PLAYER_SCALE), true, PLAYER_COLOR, true);
 unsigned int player2_score = 0;
-Text player2_score_text = Text("0", PLAYER_COLOR.Normalize(), Transform::Default(), Font("./resources/default_font.ttf", 0, 30));
+Text player2_score_text = Text(Transform(Vector2((double)WIDTH / 2.0f - 150.0f, (double)HEIGHT / 2.0f - 100.0f), 0.0f, 1.0f), true, "0", PLAYER_COLOR, Font("./resources/default_font.ttf", 0, 30));
 
-// Ball definitions
-Square ball = Square(Transform(Vector2::Zero(), 0.0f, BALL_SCALE), true, BALL_COLOR.Normalize());
+// Define ball
+Square ball = Square(Transform(Vector2::Zero(), 0.0f, BALL_SCALE), true, BALL_COLOR);
 Vector2 ball_movement = Vector2::Right() * BALL_SPEED;
 
-// Divider definitions
-Square divider = Square(Transform(Vector2::Zero(), 0.0f, DIVIDER_SCALE), true, DIVIDER_COLOR.Normalize());
+// Define divider
+Square divider = Square(Transform(Vector2::Zero(), 0.0f, DIVIDER_SCALE), true, DIVIDER_COLOR);
 
-// Starting text definition
-Text start_text = Text("Press Space to start game", Color::White(), Transform::Default(), Font("./resources/default_font.ttf", 0, 24));
-// Winner text definition
-Text winner_text = Text("", Color::White(), Transform::Default(), Font("./resources/default_font.ttf", 0, 24));
-// Text for displaying frame rate
-Text frame_rate_text = Text("", Color::White(), Transform::Default(), Font("./resources/default_font.ttf", 0, 12));
+// Define starting text
+Text start_text = Text(Transform(Vector2(-175.0f, 100.0f), 0.0f, 1.0f), true, "Press Space to start game", Color::White(), Font("./resources/default_font.ttf", 0, 24));
+// Define winner text
+Text winner_text = Text(Transform(Vector2(-300.0f, 100.0f), 0.0f, 1.0f), true, "", Color::White(), Font("./resources/default_font.ttf", 0, 24));
+// Define text for displaying frame rate
+Text frame_rate_text = Text(Transform(Vector2(-(double)WIDTH / 2.0f, -(double)HEIGHT / 2.0f), 0.0f, 1.0f), true, "", Color::White(), Font("./resources/default_font.ttf", 0, 12));
 
 void Reset()
 {
 	// Reset player position
-	player1.transform.position = Vector2(-(double)WIDTH / 2.0f + 50.0f, 0.0f);
-	player2.transform.position = Vector2((double)WIDTH / 2.0f - 50.0f, 0.0f);
+	player1.transform.position = PLAYER1_START_POSITION;
+	player2.transform.position = PLAYER2_START_POSITION;
 
 	// Reset player score
 	player1_score = 0;
@@ -78,18 +80,7 @@ void App::Init()
 	App::SetWindowTitle("Pong");
 
 	// Set viewport background color
-	this->viewport.background_color = BACKGROUND_COLOR.Normalize();
-
-	// Set initial player score text values
-	player1_score_text.transform.position = Vector2(-(double)WIDTH / 2.0f + 150.0f, (double)HEIGHT / 2.0f - 100.0f);
-	player2_score_text.transform.position = Vector2((double)WIDTH / 2.0f - 150.0f, (double)HEIGHT / 2.0f - 100.0f);
-
-	// Set initial start text values
-	start_text.transform.position = Vector2(-175.0f, 100.0f);
-	// Set initial winner text values
-	winner_text.transform.position = Vector2(-300.0f, 100.0f);
-	// Set initial frame rate text values
-	frame_rate_text.transform.position = Vector2(-(double)WIDTH / 2.0f, -(double)HEIGHT / 2.0f);
+	this->viewport.background_color = BACKGROUND_COLOR;
 }
 
 void App::Update(double frame_time)
@@ -97,6 +88,8 @@ void App::Update(double frame_time)
 	// If escape button pressed then exit game
 	if (Input::OnPresetDown(Input::Presets::PresetEscape))
 		App::Quit();
+
+	// Start or reset game on space input
 	if (Input::OnPresetDown(Input::Presets::PresetJump))
 	{
 		game_started = true;

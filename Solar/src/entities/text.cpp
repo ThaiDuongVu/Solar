@@ -14,12 +14,11 @@ namespace Solar
 	FT_Library ft;
 	FT_Face face;
 
-	Text::Text(std::string message, Color color, Transform transform, Font font)
+	Text::Text(Transform transform, bool is_visible, std::string message, Color color, Font font) : GameObject(transform, is_visible)
 	{
-		this->font = font;
 		this->message = message;
 		this->color = color;
-		this->transform = transform;
+		this->font = font;
 	}
 	Text::~Text()
 	{
@@ -125,6 +124,7 @@ namespace Solar
 	void Text::Draw(App app)
 	{
 		if (!done_init) Init(app);
+		if (!is_visible) return;
 
 		// Activate corresponding render state	
 		shader.Use();
