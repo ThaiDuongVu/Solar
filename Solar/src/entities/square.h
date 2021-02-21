@@ -20,7 +20,7 @@ namespace Solar
 		/// Constructor.
 		/// </summary>
 		/// <param name="color">Initial color</param>
-		Square(Transform transform = Transform::Default(), bool is_visible = true, Color color = Color::White(), bool is_bounded = false);
+		Square(Transform transform = Transform::Default(), bool is_visible = true, bool is_parallax = false, Color color = Color::White(), bool is_bounded = false);
 		/// <summary>
 		/// Destructor.
 		/// </summary>

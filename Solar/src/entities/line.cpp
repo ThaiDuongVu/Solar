@@ -7,7 +7,7 @@
 
 namespace Solar
 {
-	Line::Line(Transform transform, bool is_visible, Color color, bool is_bounded) : GameObject(transform, is_visible)
+	Line::Line(Transform transform, bool is_visible, bool is_parallax, Color color, bool is_bounded) : GameObject(transform, is_visible, is_parallax)
 	{
 		this->color = color;
 		this->is_bounded = is_bounded;
@@ -38,8 +38,8 @@ namespace Solar
 		double y = transform.position.y;
 
 		// Viewport position
-		double viewport_x = app.viewport.transform.position.x;
-		double viewport_y = app.viewport.transform.position.y;
+		double viewport_x = (is_parallax) ? 0.0f : -app.viewport.transform.position.x;
+		double viewport_y = (is_parallax) ? 0.0f : -app.viewport.transform.position.y;
 
 		// Down vertex
 		vertex[0] = Vector2(x / (app.Width() / 2.0f) + viewport_x, y / (app.Height() / 2.0f) + viewport_y);

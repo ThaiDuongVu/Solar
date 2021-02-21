@@ -29,6 +29,9 @@ namespace Solar
 		/// </summary>
 		~Viewport();
 
+		/// <summary>
+		/// Viewport background color.
+		/// </summary>
 		Color background_color;
 
 		/// <summary>

@@ -4,10 +4,11 @@
 
 namespace Solar
 {
-	GameObject::GameObject(Transform transform, bool is_visible)
+	GameObject::GameObject(Transform transform, bool is_visible, bool is_parallax)
 	{
 		this->transform = transform;
 		this->is_visible = is_visible;
+		this->is_parallax = is_parallax;
 	}
 	GameObject::~GameObject()
 	{
@@ -41,6 +42,6 @@ namespace Solar
 
 	void GameObject::Destroy()
 	{
-		delete(this);
+		//TODO: Destroy this game object
 	}
 } // namespace Solar

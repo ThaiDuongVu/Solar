@@ -14,7 +14,7 @@ namespace Solar
 	FT_Library ft;
 	FT_Face face;
 
-	Text::Text(Transform transform, bool is_visible, std::string message, Color color, Font font) : GameObject(transform, is_visible)
+	Text::Text(Transform transform, bool is_visible, bool is_parallax, std::string message, Color color, Font font) : GameObject(transform, is_visible, is_parallax)
 	{
 		this->message = message;
 		this->color = color;
@@ -133,8 +133,13 @@ namespace Solar
 		glActiveTexture(GL_TEXTURE0);
 		glBindVertexArray(vao);
 
-		float x = (float)transform.position.x + app.Width() / 2.0f;
-		float y = (float)transform.position.y + app.Height() / 2.0f;
+		// Viewport position
+		double viewport_x = (is_parallax) ? 0.0f : -app.viewport.transform.position.x;
+		double viewport_y = (is_parallax) ? 0.0f : -app.viewport.transform.position.y;
+
+		// Text position
+		float x = (float)transform.position.x + app.Width() / 2.0f + (float)viewport_x * app.Width() / 2.0f;
+		float y = (float)transform.position.y + app.Height() / 2.0f + (float)viewport_y * app.Height() / 2.0f;
 
 		// Iterate through all characters
 		for (std::string::const_iterator c = message.begin(); c != message.end(); c++)

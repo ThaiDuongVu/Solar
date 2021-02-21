@@ -16,7 +16,7 @@ namespace Solar
 		/// </summary>
 		/// <param name="transform">Initial object transform</param>
 		/// <param name="is_visible">Initial object visibility</param>
-		GameObject(Transform transform = Transform::Default(), bool is_visible = true);
+		GameObject(Transform transform = Transform::Default(), bool is_visible = true, bool is_parallax = false);
 		/// <summary>
 		/// Destructor.
 		/// </summary>
@@ -32,10 +32,16 @@ namespace Solar
 		/// Object transform.
 		/// </summary>
 		Transform transform;
+
 		/// <summary>
 		/// Object visibility.
 		/// </summary>
 		bool is_visible = true;
+
+		/// <summary>
+		/// Whether object moves with viewport.
+		/// </summary>
+		bool is_parallax = false;
 
 		/// <summary>
 		/// Destroy current object.

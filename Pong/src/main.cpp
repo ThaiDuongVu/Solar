@@ -11,8 +11,8 @@ using namespace Solar;
 #define PLAYER_COLOR Color32(238, 238, 238).Normalize()
 #define PLAYER_SCALE Vector2(20.0f, 80.0f)
 #define PLAYER_SPEED 8.0f
-#define PLAYER1_START_POSITION Vector2(-(double)WIDTH / 2.0f + 50.0f, 0.0f)
-#define PLAYER2_START_POSITION Vector2((double)WIDTH / 2.0f - 50.0f, 0.0f)
+#define PLAYER1_INIT_POSITION Vector2(-(double)WIDTH / 2.0f + 50.0f, 0.0f)
+#define PLAYER2_INIT_POSITION Vector2((double)WIDTH / 2.0f - 50.0f, 0.0f)
 
 // Define values for ball
 #define BALL_COLOR Color32(0, 173, 181).Normalize()
@@ -28,34 +28,34 @@ bool game_started = false;
 bool game_over = false;
 
 // Define player 1
-Square player1 = Square(Transform(PLAYER1_START_POSITION, 0.0f, PLAYER_SCALE), true, PLAYER_COLOR, true);
+Square player1 = Square(Transform(PLAYER1_INIT_POSITION, 0.0f, PLAYER_SCALE), true, false, PLAYER_COLOR, true);
 unsigned int player1_score = 0;
-Text player1_score_text = Text(Transform(Vector2(-(double)WIDTH / 2.0f + 150.0f, (double)HEIGHT / 2.0f - 100.0f), 0.0f, 1.0f), true, "0", PLAYER_COLOR, Font("./resources/default_font.ttf", 0, 30));
+Text player1_score_text = Text(Transform(Vector2(-(double)WIDTH / 2.0f + 150.0f, (double)HEIGHT / 2.0f - 100.0f), 0.0f, 1.0f), true, true, "0", PLAYER_COLOR, Font("./resources/default_font.ttf", 0, 30));
 
 // Define player 2
-Square player2 = Square(Transform(PLAYER2_START_POSITION, 0.0f, PLAYER_SCALE), true, PLAYER_COLOR, true);
+Square player2 = Square(Transform(PLAYER2_INIT_POSITION, 0.0f, PLAYER_SCALE), true, false, PLAYER_COLOR, true);
 unsigned int player2_score = 0;
-Text player2_score_text = Text(Transform(Vector2((double)WIDTH / 2.0f - 150.0f, (double)HEIGHT / 2.0f - 100.0f), 0.0f, 1.0f), true, "0", PLAYER_COLOR, Font("./resources/default_font.ttf", 0, 30));
+Text player2_score_text = Text(Transform(Vector2((double)WIDTH / 2.0f - 150.0f, (double)HEIGHT / 2.0f - 100.0f), 0.0f, 1.0f), true, true, "0", PLAYER_COLOR, Font("./resources/default_font.ttf", 0, 30));
 
 // Define ball
-Square ball = Square(Transform(Vector2::Zero(), 0.0f, BALL_SCALE), true, BALL_COLOR);
+Square ball = Square(Transform(Vector2::Zero(), 0.0f, BALL_SCALE), true, false, BALL_COLOR);
 Vector2 ball_movement = Vector2::Right() * BALL_SPEED;
 
 // Define divider
-Square divider = Square(Transform(Vector2::Zero(), 0.0f, DIVIDER_SCALE), true, DIVIDER_COLOR);
+Square divider = Square(Transform(Vector2::Zero(), 0.0f, DIVIDER_SCALE), true, false, DIVIDER_COLOR);
 
 // Define starting text
-Text start_text = Text(Transform(Vector2(-175.0f, 100.0f), 0.0f, 1.0f), true, "Press Space to start game", Color::White(), Font("./resources/default_font.ttf", 0, 24));
+Text start_text = Text(Transform(Vector2(-175.0f, 100.0f), 0.0f, 1.0f), true, true, "Press Space to start game", Color::White(), Font("./resources/default_font.ttf", 0, 24));
 // Define winner text
-Text winner_text = Text(Transform(Vector2(-300.0f, 100.0f), 0.0f, 1.0f), true, "", Color::White(), Font("./resources/default_font.ttf", 0, 24));
+Text winner_text = Text(Transform(Vector2(-300.0f, 100.0f), 0.0f, 1.0f), true, true, "", Color::White(), Font("./resources/default_font.ttf", 0, 24));
 // Define text for displaying frame rate
-Text frame_rate_text = Text(Transform(Vector2(-(double)WIDTH / 2.0f, -(double)HEIGHT / 2.0f), 0.0f, 1.0f), true, "", Color::White(), Font("./resources/default_font.ttf", 0, 12));
+Text frame_rate_text = Text(Transform(Vector2(-(double)WIDTH / 2.0f, -(double)HEIGHT / 2.0f), 0.0f, 1.0f), true, true, "", Color::White(), Font("./resources/default_font.ttf", 0, 12));
 
 void Reset()
 {
 	// Reset player position
-	player1.transform.position = PLAYER1_START_POSITION;
-	player2.transform.position = PLAYER2_START_POSITION;
+	player1.transform.position = PLAYER1_INIT_POSITION;
+	player2.transform.position = PLAYER2_INIT_POSITION;
 
 	// Reset player score
 	player1_score = 0;
@@ -100,6 +100,8 @@ void App::Update(double frame_time)
 
 	if (!game_started) return;
 	if (game_over) return;
+
+	viewport.Move(Vector2((double)Input::IsKeyDown(Input::Keys::KeyRight) - (double)Input::IsKeyDown(Input::Keys::KeyLeft), 0.0f) * frame_time);
 
 	// Move players with keyboard input
 	player1.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyW) - (double)Input::IsKeyDown(Input::Keys::KeyS)) * PLAYER_SPEED);
