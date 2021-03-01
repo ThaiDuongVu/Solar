@@ -162,6 +162,10 @@ namespace Solar
 
 			Update(Time::frame_time);
 
+			// Shake current viewport if needed
+			if (viewport.is_shaking)
+				viewport.Shake();
+			
 			// Clear the viewport background
 			glClearColor(viewport.background_color.r, viewport.background_color.g, viewport.background_color.b, viewport.background_color.a);
 			glClear(GL_COLOR_BUFFER_BIT);

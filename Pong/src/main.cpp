@@ -147,6 +147,8 @@ void App::Update(double frame_time)
 				// Reset ball movement
 				ball_movement.x = -ball_movement.x;
 				ball_movement.y = Mathf::Random(-BALL_SPEED, BALL_SPEED);
+
+				viewport.StartShaking(1.0f, 0.5f, 2.0f);
 			}
 		}
 	}
@@ -159,6 +161,8 @@ void App::Update(double frame_time)
 				// Reset ball movement
 				ball_movement.x = -ball_movement.x;
 				ball_movement.y = Mathf::Random(-BALL_SPEED, BALL_SPEED);
+
+				viewport.StartShaking(1.0f, 0.5f, 2.0f);
 			}
 		}
 	}

@@ -25,7 +25,7 @@ namespace Solar
 		/// <param name="font">Initial font</param>
 		/// <param name="message">Initial message</param>
 		/// <param name="color">Initial color</param>
-		Text(Transform transform = Transform::Default(), bool is_visible = true, bool is_parallax = false, std::string message = "", Color color = Color::White(), Font font = Font());
+		Text(Transform transform = Transform::Default(), bool is_visible = true, bool is_parallax = true, std::string message = "", Color color = Color::White(), Font font = Font());
 		/// <summary>
 		/// Destructor.
 		/// </summary>

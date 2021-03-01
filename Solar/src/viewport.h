@@ -4,6 +4,7 @@
 #define SOLAR_VIEWPORT_H_
 
 #include "core.h"
+#include "time.h"
 #include "entities/game_object.h"
 #include "components/transform.h"
 #include "types/color.h"
@@ -15,15 +16,10 @@ namespace Solar
 	{
 	public:
 		/// <summary>
-		/// Base constructor.
-		/// </summary>
-		using GameObject::GameObject;
-
-		/// <summary>
 		/// Constructor.
 		/// </summary>
 		/// <param name="transform">Initial transform</param>
-		Viewport(Color color = Color::Black());
+		Viewport(Transform transform = Transform::Default(), bool is_visible = true, bool is_parallax = false, Color color = Color::Black());
 		/// <summary>
 		/// Destructor.
 		/// </summary>
@@ -35,12 +31,47 @@ namespace Solar
 		Color background_color;
 
 		/// <summary>
-		/// Shake the current viewport.
+		/// Start shaking the current viewport.
 		/// </summary>
 		/// <param name="intensity">How rough to shake</param>
 		/// <param name="duration">How long to shake for</param>
 		/// <param name="decrease_factor">How fast to stop the shaking</param>
-		void Shake(double intensity, double duration, double decrease_factor);
+		void StartShaking(double intensity = 0.0f, double duration = 0.0f, double decrease_factor = 0.0f);
+
+		/// <summary>
+		/// Stop shaking the current viewport.
+		/// </summary>
+		void StopShaking();
+
+		/// <summary>
+		/// Whether viewport is shaking or not.
+		/// </summary>
+		bool is_shaking = false;
+
+		/// <summary>
+		/// Randomize viewport position during shake period.
+		/// Note: Shaking only affects non-parallax game objects.
+		/// </summary>
+		void Shake();
+
+	private:
+		/// <summary>
+		/// How rough to shake.
+		/// </summary>
+		double shake_intensity = 0.0f;
+		/// <summary>
+		/// How long to shake for.
+		/// </summary>
+		double shake_duration = 0.0f;
+		/// <summary>
+		/// How fast to stop the shaking.
+		/// </summary>
+		double shake_decrease_factor = 0.0f;
+
+		/// <summary>
+		/// Viewport position when started shaking.
+		/// </summary>
+		Vector2 original_position = Vector2::Zero();
 	};
 } // namespace Solar
 
