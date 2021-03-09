@@ -19,3 +19,4 @@
 #include "entities/line.h"
 #include "entities/square.h"
 #include "entities/text.h"
+#include "entities/audio.h"

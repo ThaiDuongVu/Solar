@@ -27,21 +27,21 @@ using namespace Solar;
 bool game_started = false;
 bool game_over = false;
 
-// Define player 1
+// Define values for player 1
 Square player1 = Square(Transform(PLAYER1_INIT_POSITION, 0.0f, PLAYER_SCALE), true, false, PLAYER_COLOR, true);
 unsigned int player1_score = 0;
 Text player1_score_text = Text(Transform(Vector2(-(double)WIDTH / 2.0f + 150.0f, (double)HEIGHT / 2.0f - 100.0f), 0.0f, 1.0f), true, true, "0", PLAYER_COLOR, Font("./resources/default_font.ttf", 0, 30));
 
-// Define player 2
+// Define values for player 2
 Square player2 = Square(Transform(PLAYER2_INIT_POSITION, 0.0f, PLAYER_SCALE), true, false, PLAYER_COLOR, true);
 unsigned int player2_score = 0;
 Text player2_score_text = Text(Transform(Vector2((double)WIDTH / 2.0f - 150.0f, (double)HEIGHT / 2.0f - 100.0f), 0.0f, 1.0f), true, true, "0", PLAYER_COLOR, Font("./resources/default_font.ttf", 0, 30));
 
-// Define ball
+// Define values for ball
 Square ball = Square(Transform(Vector2::Zero(), 0.0f, BALL_SCALE), true, false, BALL_COLOR);
 Vector2 ball_movement = Vector2::Right() * BALL_SPEED;
 
-// Define divider
+// Define values for divider
 Square divider = Square(Transform(Vector2::Zero(), 0.0f, DIVIDER_SCALE), true, false, DIVIDER_COLOR);
 
 // Define starting text
