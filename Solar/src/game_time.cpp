@@ -1,4 +1,4 @@
-#include "time.h"
+#include "game_time.h"
 #include <glfw3.h>
 
 namespace Solar

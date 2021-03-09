@@ -1,6 +1,6 @@
 #include "app.h"
 #include "debug.h"
-#include "time.h"
+#include "game_time.h"
 #include "input.h"
 #include "types/vector2.h"
 #include <glad.h>

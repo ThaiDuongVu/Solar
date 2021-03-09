@@ -1,7 +1,7 @@
 #include "viewport.h"
 #include "debug.h"
 #include "mathf.h"
-#include "time.h"
+#include "game_time.h"
 
 namespace Solar
 {

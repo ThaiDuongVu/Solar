@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\entities\audio.h" />
     <ClInclude Include="dependencies\include\freetype\ft2build.h" />
     <ClInclude Include="src\entities\square.h" />
     <ClInclude Include="src\entities\line.h" />
@@ -406,7 +407,7 @@
     <ClInclude Include="src\app.h" />
     <ClInclude Include="src\core.h" />
     <ClInclude Include="src\solar.h" />
-    <ClInclude Include="src\time.h" />
+    <ClInclude Include="src\game_time.h" />
     <ClInclude Include="src\types\vector2.h" />
     <ClInclude Include="src\components\transform.h" />
     <ClInclude Include="src\entities\triangle.h" />
@@ -414,6 +415,7 @@
     <ClInclude Include="src\viewport.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\entities\audio.cpp" />
     <ClCompile Include="src\entities\square.cpp" />
     <ClCompile Include="src\entities\line.cpp" />
     <ClCompile Include="src\rendering\shader.cpp" />
@@ -427,7 +429,7 @@
     <ClCompile Include="src\input.cpp" />
     <ClCompile Include="src\debug.cpp" />
     <ClCompile Include="src\app.cpp" />
-    <ClCompile Include="src\time.cpp" />
+    <ClCompile Include="src\game_time.cpp" />
     <ClCompile Include="src\types\vector2.cpp" />
     <ClCompile Include="src\components\transform.cpp" />
     <ClCompile Include="src\entities\triangle.cpp" />
