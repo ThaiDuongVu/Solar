@@ -3,23 +3,35 @@
 
 namespace Solar
 {
-	double Time::frame_time = 0.0;
+	double Time::frame_time = 0.0f;
+	double Time::target_frame_rate = 60.0f;
+
+	double Time::previous_time = 0.0f;
+	double Time::current_time = 0.0f;
 
 	int Time::FrameRate(int seconds)
 	{
 		return (int)(1 / Time::frame_time);
 	}
 
-	double Time::previous_time = 0.0;
-	double Time::current_time = 0.0;
+	void Time::SetTargetFrameRate(double target_frame_rate)
+	{
+		Time::target_frame_rate = target_frame_rate;
+	}
 
-	void Time::Update(double &previousTime, double &currentTime)
+	void Time::Update()
 	{
 		// Get current time
-		Time::current_time = glfwGetTime();
+		current_time = glfwGetTime();
 		// Get frame time by suctracting previous time to current frame time
-		Time::frame_time = currentTime - previousTime;
+		frame_time = current_time - previous_time;
 		// Set previous time for next frame update
-		Time::previous_time = currentTime;
+		previous_time = current_time;
+
+		while (glfwGetTime() < current_time + 1.0f / target_frame_rate)
+		{
+			// Simply do nothing while waiting for frame to pass
+		}
+		current_time += 1.0f / target_frame_rate;
 	}
 } // namespace Solar

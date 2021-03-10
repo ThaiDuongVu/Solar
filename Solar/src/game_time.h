@@ -23,6 +23,21 @@ namespace Solar
 		static int FrameRate(int seconds);
 
 		/// <summary>
+		/// Set target frame rate on current window.
+		/// </summary>
+		/// <param name="target_frame_rate">Frame rate to target</param>
+		static void SetTargetFrameRate(double target_frame_rate);
+
+		/// <summary>
+		/// Update frame time.
+		/// Is called every frame.
+		/// </summary>
+		/// <param name="previous_time">Previous time</param>
+		/// <param name="current_time">Current time</param>
+		static void Update();
+
+	private:
+		/// <summary>
 		/// Previous time.
 		/// </summary>
 		static double previous_time;
@@ -32,12 +47,9 @@ namespace Solar
 		static double current_time;
 
 		/// <summary>
-		/// Update frame time.
-		/// Is called every frame.
+		/// Number of frames game will *try* to render per second.
 		/// </summary>
-		/// <param name="previous_time">Previous time</param>
-		/// <param name="current_time">Current time</param>
-		static void Update(double &previous_time, double &current_time);
+		static double target_frame_rate;
 	};
 } // namespace Solar
 

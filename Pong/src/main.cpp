@@ -81,9 +81,12 @@ void App::Init()
 
 	// Set viewport background color
 	this->viewport.background_color = BACKGROUND_COLOR;
+
+	// Set desired frame rate
+	Time::SetTargetFrameRate(30);
 }
 
-void App::Update(double frame_time)
+void App::Update()
 {
 	// If escape button pressed then exit game
 	if (Input::OnPresetDown(Input::Presets::PresetEscape))
@@ -96,12 +99,12 @@ void App::Update(double frame_time)
 		if (game_over) Reset();
 	}
 
-	frame_rate_text.message = std::to_string((int)(1.0f / frame_time));
+	frame_rate_text.message = std::to_string((int)(1.0f / Time::frame_time));
 
 	if (!game_started) return;
 	if (game_over) return;
 
-	viewport.Move(Vector2((double)Input::IsKeyDown(Input::Keys::KeyRight) - (double)Input::IsKeyDown(Input::Keys::KeyLeft), 0.0f) * frame_time);
+	viewport.Move(Vector2((double)Input::IsKeyDown(Input::Keys::KeyRight) - (double)Input::IsKeyDown(Input::Keys::KeyLeft), 0.0f) * Time::frame_time);
 
 	// Move players with keyboard input
 	player1.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyW) - (double)Input::IsKeyDown(Input::Keys::KeyS)) * PLAYER_SPEED);

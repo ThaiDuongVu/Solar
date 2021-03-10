@@ -9,7 +9,7 @@
 namespace Solar
 {
 	void App::Init() {}
-	void App::Update(double FrameTime) {}
+	void App::Update() {}
 	void App::Render() {}
 	void App::Exit() {}
 
@@ -157,15 +157,16 @@ namespace Solar
 		while (!glfwWindowShouldClose(App::window<GLFWwindow>))
 		{
 			// Update frame time
-			Time::Update(Time::previous_time, Time::current_time);
+			Time::Update();
+			// Update input handler
 			Input::Update();
 
-			Update(Time::frame_time);
+			Update();
 
 			// Shake current viewport if needed
 			if (viewport.is_shaking)
 				viewport.Shake();
-			
+
 			// Clear the viewport background
 			glClearColor(viewport.background_color.r, viewport.background_color.g, viewport.background_color.b, viewport.background_color.a);
 			glClear(GL_COLOR_BUFFER_BIT);

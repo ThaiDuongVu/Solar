@@ -20,7 +20,7 @@ namespace Solar
 		/// User-defined update.
 		/// </summary>
 		/// <param name="frame_time">Current frame time</param>
-		virtual void Update(double frame_time);
+		virtual void Update();
 		/// <summary>
 		/// User-defined rendering
 		/// </summary>
