@@ -9,7 +9,17 @@ namespace Solar
 	double Time::previous_time = 0.0f;
 	double Time::current_time = 0.0f;
 
-	int Time::FrameRate(int seconds)
+	double Time::FrameTime()
+	{
+		return frame_time;
+	}
+
+	double Time::FixedFrameTime()
+	{
+		return 1.0f / 60.0f;
+	}
+
+	int Time::FrameRate()
 	{
 		return (int)(1 / Time::frame_time);
 	}

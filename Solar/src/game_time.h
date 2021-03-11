@@ -11,16 +11,22 @@ namespace Solar
 	{
 	public:
 		/// <summary>
-		/// Elapsed time since last frame.
+		/// Returns elapsed time since last frame.
 		/// </summary>
-		static double frame_time;
+		/// <returns>Elapsed time</returns>
+		static double FrameTime();
+
+		/// <summary>
+		/// Returns elapsed time at 60fps.
+		/// </summary>
+		/// <returns>Elapsed time</returns>
+		static double FixedFrameTime();
 
 		/// <summary>
 		/// Number of frames drawn per some seconds.
 		/// </summary>
-		/// <param name="seconds">Second to scale frame rate</param>
 		/// <returns>Frames per second(s)</returns>
-		static int FrameRate(int seconds);
+		static int FrameRate();
 
 		/// <summary>
 		/// Set target frame rate on current window.
@@ -37,6 +43,11 @@ namespace Solar
 		static void Update();
 
 	private:
+		/// <summary>
+		/// Elapsed time since last frame.
+		/// </summary>
+		static double frame_time;
+
 		/// <summary>
 		/// Previous time.
 		/// </summary>

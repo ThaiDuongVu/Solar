@@ -39,14 +39,14 @@ namespace Solar
 	void Viewport::Shake()
 	{
 		// Decrease shake duration every frame
-		shake_duration -= Time::frame_time * shake_decrease_factor;
+		shake_duration -= Time::FixedFrameTime() * shake_decrease_factor;
 
 		// If shake duration runs out then stop shaking
 		if (shake_duration <= 0.0f)
 			StopShaking();
 
 		// Randomize viewport position in intensity range
-		this->transform.position = original_position + Vector2(Mathf::Random(-shake_intensity, shake_intensity), Mathf::Random(-shake_intensity, shake_intensity)) * Time::frame_time;
+		this->transform.position = original_position + Vector2(Mathf::Random(-shake_intensity, shake_intensity), Mathf::Random(-shake_intensity, shake_intensity)) * Time::FixedFrameTime();
 	}
 
 } // namespace Solar

@@ -13,7 +13,7 @@ void App::Init()
 	viewport.background_color = background_color.Normalize();
 }
 
-void App::Update(double frame_time)
+void App::Update()
 {
 }
 
