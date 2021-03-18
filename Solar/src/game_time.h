@@ -17,6 +17,12 @@ namespace Solar
 		static double FrameTime();
 
 		/// <summary>
+		/// Returns current scale of elapsed time.
+		/// </summary>
+		/// <returns>Time scale ranging from 0 to 1</returns>
+		static double TimeScale();
+
+		/// <summary>
 		/// Returns elapsed time at 60fps.
 		/// </summary>
 		/// <returns>Elapsed time</returns>
@@ -35,6 +41,12 @@ namespace Solar
 		static void SetTargetFrameRate(double target_frame_rate);
 
 		/// <summary>
+		/// Set scale of elapsed time.
+		/// </summary>
+		/// <param name="time_scale">Time scale to set</param>
+		static void SetTimeScale(double time_scale);
+
+		/// <summary>
 		/// Update frame time.
 		/// Is called every frame.
 		/// </summary>
@@ -47,6 +59,11 @@ namespace Solar
 		/// Elapsed time since last frame.
 		/// </summary>
 		static double frame_time;
+
+		/// <summary>
+		/// Scale of elapsed time from 0 to 1.
+		/// </summary>
+		static double time_scale;
 
 		/// <summary>
 		/// Previous time.

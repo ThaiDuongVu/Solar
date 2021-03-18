@@ -1,9 +1,11 @@
 #include "game_time.h"
+#include "mathf.h"
 #include <glfw3.h>
 
 namespace Solar
 {
 	double Time::frame_time = 0.0f;
+	double Time::time_scale = 1.0f;
 	double Time::target_frame_rate = 60.0f;
 
 	double Time::previous_time = 0.0f;
@@ -11,7 +13,12 @@ namespace Solar
 
 	double Time::FrameTime()
 	{
-		return frame_time;
+		return frame_time * time_scale;
+	}
+
+	double Time::TimeScale()
+	{
+		return time_scale;
 	}
 
 	double Time::FixedFrameTime()
@@ -27,6 +34,13 @@ namespace Solar
 	void Time::SetTargetFrameRate(double target_frame_rate)
 	{
 		Time::target_frame_rate = target_frame_rate;
+	}
+
+	void Time::SetTimeScale(double time_scale)
+	{
+		Time::time_scale = time_scale;
+		// Clamp time scale value to be between 0 and 1
+		Mathf::Clamp(Time::time_scale, (double)0.0f, (double)1.0f);
 	}
 
 	void Time::Update()

@@ -10,14 +10,14 @@ using namespace Solar;
 // Define values for player
 #define PLAYER_COLOR Color32(238, 238, 238).Normalize()
 #define PLAYER_SCALE Vector2(20.0f, 80.0f)
-#define PLAYER_SPEED 8.0f
+#define PLAYER_SPEED 500.0f
 #define PLAYER1_INIT_POSITION Vector2(-(double)WIDTH / 2.0f + 50.0f, 0.0f)
 #define PLAYER2_INIT_POSITION Vector2((double)WIDTH / 2.0f - 50.0f, 0.0f)
 
 // Define values for ball
 #define BALL_COLOR Color32(0, 173, 181).Normalize()
 #define BALL_SCALE Vector2(20.0f, 20.0f)
-#define BALL_SPEED 6.0f
+#define BALL_SPEED 300.0f
 
 // Define values for divider
 #define DIVIDER_COLOR Color32(57, 62, 70).Normalize()
@@ -107,14 +107,15 @@ void App::Update()
 	viewport.Move(Vector2((double)Input::IsKeyDown(Input::Keys::KeyRight) - (double)Input::IsKeyDown(Input::Keys::KeyLeft), 0.0f) * Time::FrameTime());
 
 	// Move players with keyboard input
-	player1.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyW) - (double)Input::IsKeyDown(Input::Keys::KeyS)) * PLAYER_SPEED);
-	player2.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyUp) - (double)Input::IsKeyDown(Input::Keys::KeyDown)) * PLAYER_SPEED);
+	player1.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyW) - (double)Input::IsKeyDown(Input::Keys::KeyS)) * PLAYER_SPEED * Time::FrameTime());
+	player2.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyUp) - (double)Input::IsKeyDown(Input::Keys::KeyDown)) * PLAYER_SPEED * Time::FrameTime());
 
 	// Move ball
-	ball.Move(ball_movement);
+	ball.Move(ball_movement * Time::FrameTime());
 
 	// Collisions will be handled by Solar in future versions
 	// Manually checking for collisions for now
+	// Automatic collision detection will be added in future iterations
 
 	// Ball colliding with vertical walls
 	if (ball.transform.position.x + ball.transform.scale.x / 2.0f >= WIDTH / 2.0f)
