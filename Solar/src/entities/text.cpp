@@ -14,7 +14,7 @@ namespace Solar
 	FT_Library ft;
 	FT_Face face;
 
-	Text::Text(Transform transform, bool is_visible, bool is_parallax, std::string message, Color color, Font font) : GameObject(transform, is_visible, is_parallax)
+	Text::Text(Transform transform, std::string message, Color color, Font font, bool is_visible, bool is_parallax) : GameObject(transform, is_visible, is_parallax)
 	{
 		this->message = message;
 		this->color = color;

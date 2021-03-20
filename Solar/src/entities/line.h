@@ -20,7 +20,7 @@ namespace Solar
 		/// Constructor.
 		/// </summary>
 		/// <param name="color">Initial color</param>
-		Line(Transform transform = Transform::Default(), bool is_visible = true, bool is_parallax = false, Color color = Color::White(), bool is_bounded = false);
+		Line(Transform transform = Transform::Default(), Color color = Color::White(), bool is_visible = true, bool is_parallax = false, bool is_bounded = false);
 		/// <summary>
 		/// Destructor.
 		/// </summary>

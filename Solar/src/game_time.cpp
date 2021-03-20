@@ -16,14 +16,14 @@ namespace Solar
 		return frame_time * time_scale;
 	}
 
-	double Time::TimeScale()
-	{
-		return time_scale;
-	}
-
 	double Time::FixedFrameTime()
 	{
 		return 1.0f / 60.0f;
+	}
+
+	double Time::TimeScale()
+	{
+		return time_scale;
 	}
 
 	int Time::FrameRate()

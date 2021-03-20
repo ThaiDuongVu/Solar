@@ -7,7 +7,7 @@ using namespace Solar;
 #define HEIGHT 600
 #define BACKGROUND_COLOR Color32(34, 40, 49).Normalize()
 
-// Define values for player
+// Define values for players
 #define PLAYER_COLOR Color32(238, 238, 238).Normalize()
 #define PLAYER_SCALE Vector2(20.0f, 80.0f)
 #define PLAYER_SPEED 500.0f
@@ -28,28 +28,28 @@ bool game_started = false;
 bool game_over = false;
 
 // Define values for player 1
-Square player1 = Square(Transform(PLAYER1_INIT_POSITION, 0.0f, PLAYER_SCALE), true, false, PLAYER_COLOR, true);
+Square player1 = Square(Transform(PLAYER1_INIT_POSITION, 0.0f, PLAYER_SCALE), PLAYER_COLOR);
 unsigned int player1_score = 0;
-Text player1_score_text = Text(Transform(Vector2(-(double)WIDTH / 2.0f + 150.0f, (double)HEIGHT / 2.0f - 100.0f), 0.0f, 1.0f), true, true, "0", PLAYER_COLOR, Font("./resources/default_font.ttf", 0, 30));
+Text player1_score_text = Text(Transform(Vector2(-(double)WIDTH / 2.0f + 150.0f, (double)HEIGHT / 2.0f - 100.0f), 0.0f, 1.0f), "0", PLAYER_COLOR, Font("./resources/default_font.ttf", 0, 30));
 
 // Define values for player 2
-Square player2 = Square(Transform(PLAYER2_INIT_POSITION, 0.0f, PLAYER_SCALE), true, false, PLAYER_COLOR, true);
+Square player2 = Square(Transform(PLAYER2_INIT_POSITION, 0.0f, PLAYER_SCALE), PLAYER_COLOR);
 unsigned int player2_score = 0;
-Text player2_score_text = Text(Transform(Vector2((double)WIDTH / 2.0f - 150.0f, (double)HEIGHT / 2.0f - 100.0f), 0.0f, 1.0f), true, true, "0", PLAYER_COLOR, Font("./resources/default_font.ttf", 0, 30));
+Text player2_score_text = Text(Transform(Vector2((double)WIDTH / 2.0f - 150.0f, (double)HEIGHT / 2.0f - 100.0f), 0.0f, 1.0f), "0", PLAYER_COLOR, Font("./resources/default_font.ttf", 0, 30));
 
 // Define values for ball
-Square ball = Square(Transform(Vector2::Zero(), 0.0f, BALL_SCALE), true, false, BALL_COLOR);
+Square ball = Square(Transform(Vector2::Zero(), 0.0f, BALL_SCALE), BALL_COLOR);
 Vector2 ball_movement = Vector2::Right() * BALL_SPEED;
 
 // Define values for divider
-Square divider = Square(Transform(Vector2::Zero(), 0.0f, DIVIDER_SCALE), true, false, DIVIDER_COLOR);
+Square divider = Square(Transform(Vector2::Zero(), 0.0f, DIVIDER_SCALE), DIVIDER_COLOR);
 
 // Define starting text
-Text start_text = Text(Transform(Vector2(-175.0f, 100.0f), 0.0f, 1.0f), true, true, "Press Space to start game", Color::White(), Font("./resources/default_font.ttf", 0, 24));
+Text start_text = Text(Transform(Vector2(-175.0f, 100.0f), 0.0f, 1.0f), "Press Space to start game", Color::White(), Font("./resources/default_font.ttf", 0, 24));
 // Define winner text
-Text winner_text = Text(Transform(Vector2(-300.0f, 100.0f), 0.0f, 1.0f), true, true, "", Color::White(), Font("./resources/default_font.ttf", 0, 24));
+Text winner_text = Text(Transform(Vector2(-300.0f, 100.0f), 0.0f, 1.0f), "", Color::White(), Font("./resources/default_font.ttf", 0, 24));
 // Define text for displaying frame rate
-Text frame_rate_text = Text(Transform(Vector2(-(double)WIDTH / 2.0f, -(double)HEIGHT / 2.0f), 0.0f, 1.0f), true, true, "", Color::White(), Font("./resources/default_font.ttf", 0, 12));
+Text frame_rate_text = Text(Transform(Vector2(-(double)WIDTH / 2.0f, -(double)HEIGHT / 2.0f), 0.0f, 1.0f), "", Color::White(), Font("./resources/default_font.ttf", 0, 12));
 
 void Reset()
 {
@@ -78,6 +78,10 @@ void App::Init()
 	App::SetWindowSize(WIDTH, HEIGHT);
 	// Set window title
 	App::SetWindowTitle("Pong");
+
+	// Set player bounded in game window
+	player1.is_bounded = true;
+	player2.is_bounded = true;
 
 	// Set viewport background color
 	this->viewport.background_color = BACKGROUND_COLOR;

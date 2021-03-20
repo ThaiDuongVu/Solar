@@ -17,16 +17,16 @@ namespace Solar
 		static double FrameTime();
 
 		/// <summary>
-		/// Returns current scale of elapsed time.
-		/// </summary>
-		/// <returns>Time scale ranging from 0 to 1</returns>
-		static double TimeScale();
-
-		/// <summary>
 		/// Returns elapsed time at 60fps.
 		/// </summary>
 		/// <returns>Elapsed time</returns>
 		static double FixedFrameTime();
+
+		/// <summary>
+		/// Returns current scale of elapsed time.
+		/// </summary>
+		/// <returns>Time scale ranging from 0 to 1</returns>
+		static double TimeScale();
 
 		/// <summary>
 		/// Number of frames drawn per some seconds.
