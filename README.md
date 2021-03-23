@@ -1,28 +1,37 @@
-<p><img src="images/logo.png" width=450></p>
+<p><img src="images/logo.png" width=250></p>
 
 2D OpenGL Game Framework.
 
 ---
 
-### Disclaimer
+### Table of Contents
+[About](#about)
+[Requirements](#requirements)
+[Getting Started](#getting-started)
+[Creating New Projects](#creating-new-projects)
+[Tutorials and Documentation](#tutorials-and-documentation)
+[Contributing](#contributing)
+
+---
+
+### About
 
 **Solar** framework is free and open-source under the [MIT license](LICENSE).
 
-**Solar** only supports 64-bit Windows applications (for now).
+**Solar** supports 64-bit Windows applications (for now).
 
 **Solar** is an education project for learning purposes, feel free to use it in personal and commercial projects, just keep in mind that support is minimal.
 
 ---
 
-### Requirements:
+### Requirements
 
-- Visual Studio 2019 (Untested on older versions of Visual Studio)
-- or Visual Studio Code.
+- Visual Studio 2019 (Untested on older versions of Visual Studio) or Visual Studio Code.
 - Microsoft Visual C++ compiler.
 
 ---
 
-### Getting Started:
+### Getting Started
 
 Clone Solar repository to your local system using `git clone --recursive https://github.com/ThaiDuongVu/Solar.git`
 
@@ -108,9 +117,9 @@ And *voila*, you have created a project configured to work with Solar framework,
 
 ---
 
-### Tutorials & Documentation
+### Tutorials and Documentation
 
-Please refer to the [wiki page](https://github.com/ThaiDuongVu/Solar/wiki) for an in-depth guid to Solar.
+Please refer to the [wiki page](https://github.com/ThaiDuongVu/Solar/wiki) for an in-depth guide to Solar.
 
 ---
 
