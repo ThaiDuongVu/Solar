@@ -116,9 +116,11 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\objects_demo.h" />
     <ClCompile Include="src\cursor_mode_demo.h" />
     <ClCompile Include="src\input_demo.h" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ui_demo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\mathf_demo.h" />

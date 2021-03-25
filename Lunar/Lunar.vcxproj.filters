@@ -24,6 +24,12 @@
     <ClCompile Include="src\input_demo.h">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\objects_demo.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui_demo.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\mathf_demo.h">
