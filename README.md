@@ -5,12 +5,12 @@
 ---
 
 ### Table of Contents
-[About](#about)
-[Requirements](#requirements)
-[Getting Started](#getting-started)
-[Creating New Projects](#creating-new-projects)
-[Tutorials and Documentation](#tutorials-and-documentation)
-[Contributing](#contributing)
+- [About](#about)
+- [Requirements](#requirements)
+- [Getting Started](#getting-started)
+- [Creating New Projects](#creating-new-projects)
+- [Tutorials and Documentation](#tutorials-and-documentation)
+- [Contributing](#contributing)
 
 ---
 

@@ -2,8 +2,11 @@
 
 namespace Solar
 {
-	Audio::Audio(Transform transform, bool is_visible, bool is_parallax) : GameObject(transform, is_visible, is_parallax)
+	Audio::Audio(const char* path, double volume, double pitch)
 	{
+		this->path = path;
+		this->volume = volume;
+		this->pitch = pitch;
 	}
 	Audio::~Audio()
 	{
