@@ -1,4 +1,4 @@
-<p><img src="images/logo.png" width=250></p>
+<p><img src="images/logo.png" width=200></p>
 
 2D OpenGL Game Framework.
 
@@ -6,11 +6,12 @@
 
 ### Table of Contents
 - [About](#about)
+- [Features](#features)
+- [Tutorials and Documentation](#tutorials-and-documentation)
+- [Contributing](#contributing)
 - [Requirements](#requirements)
 - [Getting Started](#getting-started)
 - [Creating New Projects](#creating-new-projects)
-- [Tutorials and Documentation](#tutorials-and-documentation)
-- [Contributing](#contributing)
 
 ---
 
@@ -21,6 +22,38 @@
 **Solar** supports 64-bit Windows applications (for now).
 
 **Solar** is an education project for learning purposes, feel free to use it in personal and commercial projects, just keep in mind that support is minimal.
+
+---
+
+### Features
+
+##### Current features:
+- Window Management.
+- Cursor Management.
+- Custom Math Library.
+- Mouse Input Handling.
+- Keyboard Input Handling.
+- Gamepad Input Handling.
+- Basic Shapes Rendering.
+- Text Rendering.
+
+##### Planned features:
+- Sprite Rendering.
+- Audio Playing.
+
+---
+
+### Tutorials and Documentation
+
+You can refer to the [wiki page](https://github.com/ThaiDuongVu/Solar/wiki) for an in-depth guide to Solar.
+
+Check out [PongSolar](https://github.com/ThaiDuongVu/PongSolar), a Pong game made with Solar for some sample code.
+
+---
+
+### Contributing
+
+**Solar** is completely open to community contribution. Any effort to help expand the scope and capability of the framework is greatly appreciated 🤗.
 
 ---
 
@@ -114,15 +147,3 @@ And *voila*, you have created a project configured to work with Solar framework,
 
 <!-- ![default window](images/default_window.png) -->
 <img src="images/default_window.png" width=450>
-
----
-
-### Tutorials and Documentation
-
-Please refer to the [wiki page](https://github.com/ThaiDuongVu/Solar/wiki) for an in-depth guide to Solar.
-
----
-
-### Contributing
-
-**Solar** is completely open to community contribution. Any effort to help expand the scope and capability of the framework is greatly appreciated 🤗.
