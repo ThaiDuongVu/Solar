@@ -123,6 +123,7 @@
     <ClCompile Include="src\ui_demo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\debug_demo.h" />
     <ClInclude Include="src\mathf_demo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

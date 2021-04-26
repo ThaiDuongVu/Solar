@@ -1,4 +1,5 @@
 #include <solar.h>
+#include "mathf_demo.h"
 using namespace Solar;
 
 Color32 background_color = Color32(34, 40, 49, 255);
@@ -11,11 +12,14 @@ void App::Init()
 	App::SetWindowTitle("Lunar System");
 	// Set viewport background color
 	viewport.background_color = background_color.Normalize();
+
+	MathfDemo();
 }
 
 void App::Update()
 {
-	
+	if (Input::OnKeyDown(Input::Keys::KeyEscape))
+		Quit();
 }
 
 void App::Render()

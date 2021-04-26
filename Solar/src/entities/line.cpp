@@ -47,10 +47,9 @@ namespace Solar
 		vertex[1] = Vector2(x / (app.Width() / 2.0f) + viewport_x, y / (app.Height() / 2.0f) + length / (app.Height()) + viewport_y);
 
 		for (int i = 0; i < 2; i++)
-		{
 			vertex[i] = CalculateRotation(app, vertex[i]);
-		}
-		if (is_bounded) CalculateBound(app);
+		if (is_bounded)
+			CalculateBound(app);
 
 		vertices[0] = (float)vertex[0].x;
 		vertices[1] = (float)vertex[0].y;
