@@ -34,12 +34,14 @@
 - Mouse Input Handling.
 - Keyboard Input Handling.
 - Gamepad Input Handling.
-- Basic Shapes Rendering.
+- Basic Shapes Rendering (Line, Triangle, Square).
 - Text Rendering.
 
 ##### Planned features:
 - Sprite Rendering.
 - Audio Playing.
+- 2D Physics.
+- 2D Lighting & Shadow.
 
 ---
 
