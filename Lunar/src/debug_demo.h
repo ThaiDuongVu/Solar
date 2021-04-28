@@ -6,5 +6,5 @@ using namespace Solar;
 /// </summary>
 inline void DebugDemo()
 {
-	
+	// TODO (Duong): Add Debug demonstrations
 }

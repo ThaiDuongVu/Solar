@@ -12,7 +12,7 @@ inline std::string BoolToString(bool value)
 inline void MathfDemo()
 {
 	Debug::Log("Approximation tests:");
-	Debug::LogColor(BoolToString(Mathf::Approximate(0.1f, 0.02f, 0.1f)), Solar::Debug::ColorGreen);
+	Debug::LogColor(BoolToString(Mathf::Approximate(0.1f, 0.02f, 0.1f)), Solar::Debug::ColorLightGreen);
 	Debug::LogColor(BoolToString(Mathf::Approximate(0.1f, 0.02f, 0.05f)), Solar::Debug::ColorRed);
 
 	Debug::Log("Clamp tests:");
@@ -20,10 +20,16 @@ inline void MathfDemo()
 	Debug::LogColor(BoolToString(Mathf::Clamp(-3, -5, -1)), Solar::Debug::ColorRed);
 
 	Debug::Log("Absolute value tests:");
+	Debug::LogColor(Mathf::Abs(-10), Solar::Debug::ColorLightGreen);
+	Debug::LogColor(Mathf::Abs(2.5f), Solar::Debug::ColorLightGreen);
 
 	Debug::Log("Ceiling tests:");
+	Debug::LogColor(Mathf::Ceiling(-10.5f), Solar::Debug::ColorLightGreen);
+	Debug::LogColor(Mathf::Ceiling(2.5f), Solar::Debug::ColorLightGreen);
 
 	Debug::Log("Floor tests:");
+	Debug::LogColor(Mathf::Floor(-10.5f), Solar::Debug::ColorLightGreen);
+	Debug::LogColor(Mathf::Floor(2.5f), Solar::Debug::ColorLightGreen);
 
 	Debug::Log("Minimum tests:");
 
