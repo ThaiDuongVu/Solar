@@ -17,36 +17,137 @@ namespace Solar
 	template <typename T>
 	T* App::window;
 
+	Vector2 App::Size()
+	{
+		return Vector2(App::width, App::height);
+	}
 	int App::Width()
 	{
-		return window_width;
+		return width;
 	}
 	int App::Height()
 	{
-		return window_height;
+		return height;
+	}
+	std::string App::Title()
+	{
+		return title;
+	}
+	bool App::Resizable()
+	{
+		return resizable;
+	}
+	bool App::Focused()
+	{
+		return focused;
+	}
+	bool App::Maximized()
+	{
+		return maximized;
+	}
+	bool App::Visible()
+	{
+		return visible;
+	}
+	bool App::Decorated()
+	{
+		return decorated;
+	}
+	bool App::Floating()
+	{
+		return floating;
+	}
+	Vector2 App::Position()
+	{
+		return Vector2(position_x, position_y);
+	}
+	double App::PositionX()
+	{
+		return position_x;
+	}
+	double App::PositionY()
+	{
+		return position_y;
 	}
 
-	void App::SetWindowSize(int width, int height)
+	void App::SetSize(int width, int height)
 	{
-		App::window_width = width;
-		App::window_height = height;
+		App::width = width;
+		App::height = height;
+		glfwSetWindowSize(App::window<GLFWwindow>, App::width, App::height);
 	}
-	void App::SetWindowTitle(const char* title)
+	void App::SetWidth(int width)
+	{
+		App::width = width;
+		glfwSetWindowSize(App::window<GLFWwindow>, App::width, App::height);
+	}
+	void App::SetHeight(int height)
+	{
+		App::height = height;
+		glfwSetWindowSize(App::window<GLFWwindow>, App::width, App::height);
+	}
+	void App::SetTitle(std::string title)
 	{
 		App::title = title;
+		glfwSetWindowTitle(App::window<GLFWwindow>, App::title.c_str());
 	}
-
-	void App::SetWindowResizable(bool resizable)
+	void App::SetResizable(bool resizable)
 	{
-		glfwWindowHint(GLFW_RESIZABLE, resizable);
+		App::resizable = resizable;
+		glfwWindowHint(GLFW_RESIZABLE, App::resizable);
+		glfwSetWindowAttrib(App::window<GLFWwindow>, GLFW_RESIZABLE, App::resizable);
 	}
-	void App::SetWindowFocused(bool focused)
+	void App::SetFocused(bool focused)
 	{
-		glfwWindowHint(GLFW_FOCUSED, focused);
+		App::focused = focused;
+		glfwWindowHint(GLFW_FOCUSED, App::focused);
+		glfwSetWindowAttrib(App::window<GLFWwindow>, GLFW_FOCUSED, App::focused);
 	}
-	void App::SetWindowMaximized(bool maximized)
+	void App::SetMaximized(bool maximized)
 	{
-		glfwWindowHint(GLFW_MAXIMIZED, maximized);
+		App::maximized = maximized;
+		glfwWindowHint(GLFW_MAXIMIZED, App::maximized);
+		glfwSetWindowAttrib(App::window<GLFWwindow>, GLFW_MAXIMIZED, App::maximized);
+	}
+	void App::SetVisible(bool visible)
+	{
+		App::visible = visible;
+		glfwWindowHint(GLFW_VISIBLE, App::visible);
+		glfwSetWindowAttrib(App::window<GLFWwindow>, GLFW_MAXIMIZED, App::visible);
+	}
+	void App::SetDecorated(bool decorated)
+	{
+		App::decorated = decorated;
+		glfwWindowHint(GLFW_VISIBLE, App::decorated);
+		glfwSetWindowAttrib(App::window<GLFWwindow>, GLFW_MAXIMIZED, App::decorated);
+	}
+	void App::SetFloating(bool floating)
+	{
+		App::floating = floating;
+		glfwWindowHint(GLFW_FLOATING, App::floating);
+		glfwSetWindowAttrib(App::window<GLFWwindow>, GLFW_FLOATING, App::floating);
+	}
+	void App::SetPosition(int position_x, int position_y)
+	{
+		App::position_x = position_x;
+		App::position_y = position_y;
+		glfwSetWindowPos(App::window<GLFWwindow>, App::position_x, App::position_y);
+	}
+	void App::SetPosition(Vector2 position)
+	{
+		App::position_x = position.x;
+		App::position_y = position.y;
+		glfwSetWindowPos(App::window<GLFWwindow>, App::position_x, App::position_y);
+	}
+	void App::SetPositionX(int position_x)
+	{
+		App::position_x = position_x;
+		glfwSetWindowPos(App::window<GLFWwindow>, App::position_x, App::position_y);
+	}
+	void App::SetPositionY(int position_y)
+	{
+		App::position_y = position_y;
+		glfwSetWindowPos(App::window<GLFWwindow>, App::position_x, App::position_y);
 	}
 
 	void App::Quit()
@@ -113,23 +214,23 @@ namespace Solar
 
 		viewport = Viewport();
 
-		// Disable resizability by default
-		SetWindowResizable();
-		// Focus window by default
-		SetWindowFocused();
-		// Disable window maximized by default
-		SetWindowMaximized();
-
-		Init();
-
 		// Create a windowed mode window and its OpenGL context
-		App::window<GLFWwindow> = glfwCreateWindow(App::window_width, App::window_height, App::title, NULL, NULL);
+		App::window<GLFWwindow> = glfwCreateWindow(App::width, App::height, App::title.c_str(), NULL, NULL);
 		if (!App::window<GLFWwindow>)
 		{
 			Solar::Debug::LogError("Failed to create window");
 			glfwTerminate();
 			return;
 		}
+
+		SetResizable();
+		SetFocused();
+		SetMaximized();
+		SetVisible();
+		SetDecorated();
+		SetFloating();
+
+		Init();
 
 		// Make the window's context current
 		glfwMakeContextCurrent(App::window<GLFWwindow>);
@@ -142,7 +243,7 @@ namespace Solar
 		}
 
 		// GLAD viewport
-		glViewport(0, 0, App::window_width, App::window_height);
+		glViewport(0, 0, App::width, App::height);
 
 		// Buffer size callback
 		glfwSetFramebufferSizeCallback(App::window<GLFWwindow>, FrameBufferSizeCallback);

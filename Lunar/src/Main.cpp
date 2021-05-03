@@ -9,9 +9,9 @@ Square square = Square();
 void App::Init()
 {
 	// Set window size to 800 by 600
-	App::SetWindowSize(800, 600);
+	App::SetSize(800, 600);
 	// Set window title to "Lunar System"
-	App::SetWindowTitle("Lunar System");
+	App::SetTitle("Lunar System");
 
 	// Set viewport background color
 	viewport.background_color = background_color.Normalize();
@@ -23,6 +23,8 @@ void App::Update()
 {
 	if (Input::OnKeyDown(Input::Keys::KeyEscape))
 		Quit();
+	if (Input::OnKeyDown(Input::Keys::KeyEnter))
+		App::SetPosition(Vector2::Zero());
 
 	viewport.Move(Vector2((double)Input::IsKeyDown(Input::Keys::KeyRight) - (double)Input::IsKeyDown(Input::Keys::KeyLeft), 0.0f) * Time::FrameTime());
 	viewport.Move(Vector2(0.0f, (double)Input::IsKeyDown(Input::Keys::KeyUp) - (double)Input::IsKeyDown(Input::Keys::KeyDown)) * Time::FrameTime());
