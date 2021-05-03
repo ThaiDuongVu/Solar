@@ -27,7 +27,7 @@
 
 ### Features
 
-##### Current features:
+#### Current features:
 - Window Management.
 - Cursor Management.
 - Custom Math Library.
@@ -37,7 +37,7 @@
 - Basic Shapes Rendering (Line, Triangle, Square).
 - Text Rendering.
 
-##### Planned features:
+#### Planned features:
 - Sprite Rendering.
 - Audio Playing.
 - 2D Physics.
@@ -47,7 +47,7 @@
 
 ### Tutorials and Documentation
 
-You can refer to the [wiki page](https://github.com/ThaiDuongVu/Solar/wiki) for an in-depth guide to Solar.
+You can refer to the [wiki page](https://github.com/ThaiDuongVu/Solar/wiki) (whenever it's live 🤷‍♂️) for an in-depth guide to Solar.
 
 Check out [PongSolar](https://github.com/ThaiDuongVu/PongSolar), a Pong game made with Solar for some sample code.
 
