@@ -136,6 +136,7 @@ And *voila*, you have created a project configured to work with Solar framework,
 
 8. Verify everything is working by creating a `main.cpp` in the new project and running this code:
 
+```cpp
         #include <solar.h>
         using namespace Solar;
 
@@ -144,6 +145,7 @@ And *voila*, you have created a project configured to work with Solar framework,
             App *app = new App();
             app->Run();
         }
+```
 
 9. You should see the following window by default:
 
