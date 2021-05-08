@@ -58,19 +58,19 @@ namespace Solar
 
 #pragma region Abs
 		/// <summary>
-		/// Return ceiling of a floating point value.
+		/// Return the absolute value of a floating point value.
 		/// </summary>
 		/// <param name="value">Value to be absoluted</param>
 		/// <returns>The absolute value</returns>
 		static int Abs(int value);
 		/// <summary>
-		/// Return ceiling of a floating point value.
+		/// Return the absolute value of a floating point value.
 		/// </summary>
 		/// <param name="value">Value to be absoluted</param>
 		/// <returns>The absolute value</returns>
 		static float Abs(float value);
 		/// <summary>
-		/// Return ceiling of a floating point value.
+		/// Return the absolute value of a floating point value.
 		/// </summary>
 		/// <param name="value">Value to be absoluted</param>
 		/// <returns>The absolute value</returns>
