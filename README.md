@@ -23,6 +23,8 @@
 
 **Solar** is an education project for learning purposes, feel free to use it in personal and commercial projects, just keep in mind that support is minimal.
 
+🚨 Heads up, **Solar** is evolving... Check out [**sidekick**](https://github.com/ThaiDuongVu/sidekick), **Solar**'s successor, written entirely in Rust.
+
 ---
 
 ### Features
