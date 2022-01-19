@@ -1697,9 +1697,36 @@
     <None Include="src\rendering\default_vertex_shader.shader" />
     <None Include="src\rendering\default_fragment_text_shader.shader" />
     <None Include="src\rendering\default_vertex_text_shader.shader" />
+    <None Include="dependencies\lib\freetype\freetype.dll" />
+    <None Include="dependencies\lib\freetype\freetype.dll.recipe" />
+    <None Include="dependencies\lib\freetype\freetype.exp" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\CL.command.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\CL.read.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\CL.write.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\freetype.lastbuildstate" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\freetype.write.1u.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\link.command.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\link.read.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\link.write.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\rc.command.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\rc.read.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\rc.write.1.tlog" />
+    <None Include="dependencies\lib\glfw\glfw3.dll" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="resources\font.ttf" />
     <Font Include="resources\default_font.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="dependencies\lib\freetype\ftver.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="dependencies\lib\freetype\freetype.lib" />
+    <Library Include="dependencies\lib\glfw\glfw3.lib" />
+    <Library Include="dependencies\lib\glfw\glfw3_mt.lib" />
+    <Library Include="dependencies\lib\glfw\glfw3dll.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dependencies\lib\freetype\freetype.vcxproj.FileListAbsolute.txt" />
   </ItemGroup>
 </Project>

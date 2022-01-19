@@ -573,6 +573,21 @@
     <None Include="dependencies\include\glm\gtx\vector_angle.inl" />
     <None Include="dependencies\include\glm\gtx\vector_query.inl" />
     <None Include="dependencies\include\glm\gtx\wrap.inl" />
+    <None Include="dependencies\lib\freetype\freetype.dll" />
+    <None Include="dependencies\lib\freetype\freetype.dll.recipe" />
+    <None Include="dependencies\lib\freetype\freetype.exp" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\CL.command.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\CL.read.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\CL.write.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\freetype.lastbuildstate" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\freetype.write.1u.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\link.command.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\link.read.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\link.write.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\rc.command.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\rc.read.1.tlog" />
+    <None Include="dependencies\lib\freetype\freetype.tlog\rc.write.1.tlog" />
+    <None Include="dependencies\lib\glfw\glfw3.dll" />
     <None Include="src\rendering\default_fragment_shader.shader" />
     <None Include="src\rendering\default_fragment_text_shader.shader" />
     <None Include="src\rendering\default_vertex_shader.shader" />
@@ -581,6 +596,18 @@
   <ItemGroup>
     <Font Include="resources\default_font.ttf" />
     <Font Include="resources\font.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="dependencies\lib\freetype\ftver.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="dependencies\lib\freetype\freetype.lib" />
+    <Library Include="dependencies\lib\glfw\glfw3.lib" />
+    <Library Include="dependencies\lib\glfw\glfw3dll.lib" />
+    <Library Include="dependencies\lib\glfw\glfw3_mt.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dependencies\lib\freetype\freetype.vcxproj.FileListAbsolute.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -593,13 +620,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -631,7 +658,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\dependencies\include\freetype;$(SolutionDir)$(ProjectName)\dependencies\include\glfw;$(SolutionDir)$(ProjectName)\dependencies\include\glm;$(SolutionDir)$(ProjectName)\dependencies\include\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>

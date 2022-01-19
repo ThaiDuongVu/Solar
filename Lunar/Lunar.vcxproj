@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{06EA73E1-0BF0-43B2-BC41-41EBC9B0CC3A}</ProjectGuid>
+    <ProjectGuid>{3a6884d6-df10-430c-9008-98e0bb469dfe}</ProjectGuid>
     <RootNamespace>Lunar</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -21,13 +21,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -47,13 +47,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)$(ProjectName)\bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)$(ProjectName)\int\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)$(ProjectName)\bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)$(ProjectName)\int\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -61,24 +57,18 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)Solar\src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
     <PostBuildEvent>
       <Command>
       xcopy /y /d "$(SolutionDir)Solar\bin\$(Platform)\$(Configuration)\Solar.dll" "$(OutDir)"
-      if not exist $(OutDir)resources mkdir $(OutDir)resources
+      if not exist  "$(OutDir)resources" mkdir "$(OutDir)resources"
       xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_fragment_shader.shader" "$(OutDir)resources"
-      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_shader.shader" "$(OutDir)resources"
       xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_fragment_text_shader.shader" "$(OutDir)resources"
+      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_shader.shader" "$(OutDir)resources"
       xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_text_shader.shader" "$(OutDir)resources"
       xcopy /y /d "$(SolutionDir)Solar\resources\default_font.ttf" "$(OutDir)resources"
       </Command>
@@ -90,10 +80,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)Solar\src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -101,30 +91,28 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
     <PostBuildEvent>
       <Command>
       xcopy /y /d "$(SolutionDir)Solar\bin\$(Platform)\$(Configuration)\Solar.dll" "$(OutDir)"
-      if not exist $(OutDir)resources mkdir $(OutDir)resources
+      if not exist  "$(OutDir)resources" mkdir "$(OutDir)resources"
       xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_fragment_shader.shader" "$(OutDir)resources"
+      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_fragment_text_shader.shader" "$(OutDir)resources"
       xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_shader.shader" "$(OutDir)resources"
+      xcopy /y /d "$(SolutionDir)Solar\src\rendering\default_vertex_text_shader.shader" "$(OutDir)resources"
       xcopy /y /d "$(SolutionDir)Solar\resources\default_font.ttf" "$(OutDir)resources"
       </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\objects_demo.h" />
-    <ClCompile Include="src\cursor_mode_demo.h" />
-    <ClCompile Include="src\input_demo.h" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\ui_demo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\cursor_mode_demo.h" />
     <ClInclude Include="src\debug_demo.h" />
+    <ClInclude Include="src\input_demo.h" />
     <ClInclude Include="src\mathf_demo.h" />
+    <ClInclude Include="src\objects_demo.h" />
+    <ClInclude Include="src\ui_demo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

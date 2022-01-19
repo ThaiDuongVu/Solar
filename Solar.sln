@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30523.141
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Solar", "Solar\Solar.vcxproj", "{A896EC3C-1031-4416-84BD-6BE4AE19BA74}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lunar", "Lunar\Lunar.vcxproj", "{06EA73E1-0BF0-43B2-BC41-41EBC9B0CC3A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lunar", "Lunar\Lunar.vcxproj", "{3A6884D6-DF10-430C-9008-98E0BB469DFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{A896EC3C-1031-4416-84BD-6BE4AE19BA74}.Debug|x64.Build.0 = Debug|x64
 		{A896EC3C-1031-4416-84BD-6BE4AE19BA74}.Release|x64.ActiveCfg = Release|x64
 		{A896EC3C-1031-4416-84BD-6BE4AE19BA74}.Release|x64.Build.0 = Release|x64
-		{06EA73E1-0BF0-43B2-BC41-41EBC9B0CC3A}.Debug|x64.ActiveCfg = Debug|x64
-		{06EA73E1-0BF0-43B2-BC41-41EBC9B0CC3A}.Debug|x64.Build.0 = Debug|x64
-		{06EA73E1-0BF0-43B2-BC41-41EBC9B0CC3A}.Release|x64.ActiveCfg = Release|x64
-		{06EA73E1-0BF0-43B2-BC41-41EBC9B0CC3A}.Release|x64.Build.0 = Release|x64
+		{3A6884D6-DF10-430C-9008-98E0BB469DFE}.Debug|x64.ActiveCfg = Debug|x64
+		{3A6884D6-DF10-430C-9008-98E0BB469DFE}.Debug|x64.Build.0 = Debug|x64
+		{3A6884D6-DF10-430C-9008-98E0BB469DFE}.Release|x64.ActiveCfg = Release|x64
+		{3A6884D6-DF10-430C-9008-98E0BB469DFE}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
